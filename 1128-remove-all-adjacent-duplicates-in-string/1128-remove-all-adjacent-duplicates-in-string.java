@@ -4,11 +4,9 @@ class Solution {
         char[] arr = s.toCharArray();
 
         int p = 0;
-        for (char c : s.toCharArray()) {
+        for (char c : arr) {
             if (p != 0 && arr[p - 1] == c) p--;
-            else {
-                arr[p++] = c;
-            }
+            else arr[p++] = c;
         }
         
         return new String(arr, 0, p);
