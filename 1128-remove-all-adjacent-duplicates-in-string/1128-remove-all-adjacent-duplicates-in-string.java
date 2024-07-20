@@ -8,8 +8,7 @@ class Solution {
             char c = s.charAt(i);
             if (p != 0 && arr[p - 1] == c) p--;
             else {
-                arr[p] = c;
-                p++;
+                arr[p++] = c;
             }
         }
         
