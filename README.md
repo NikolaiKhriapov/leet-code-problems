@@ -100,6 +100,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0035-search-insert-position](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0035-search-insert-position) |
 | [0069-sqrtx](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0069-sqrtx) |
+| [0222-count-complete-tree-nodes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0222-count-complete-tree-nodes) |
 ## Sorting
 |  |
 | ------- |
@@ -119,6 +120,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0112-path-sum](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0112-path-sum) |
 | [0144-binary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0144-binary-tree-preorder-traversal) |
 | [0145-binary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0145-binary-tree-postorder-traversal) |
+| [0222-count-complete-tree-nodes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0222-count-complete-tree-nodes) |
 | [0572-subtree-of-another-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0572-subtree-of-another-tree) |
 | [0775-n-ary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0775-n-ary-tree-preorder-traversal) |
 | [0776-n-ary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0776-n-ary-tree-postorder-traversal) |
@@ -150,12 +152,14 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0112-path-sum](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0112-path-sum) |
 | [0144-binary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0144-binary-tree-preorder-traversal) |
 | [0145-binary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0145-binary-tree-postorder-traversal) |
+| [0222-count-complete-tree-nodes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0222-count-complete-tree-nodes) |
 | [0572-subtree-of-another-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0572-subtree-of-another-tree) |
 ## Bit Manipulation
 |  |
 | ------- |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
 | [0136-single-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0136-single-number) |
+| [0222-count-complete-tree-nodes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0222-count-complete-tree-nodes) |
 ## Simulation
 |  |
 | ------- |
