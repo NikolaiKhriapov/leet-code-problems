@@ -5,7 +5,7 @@ class Solution {
         Stack<Character> stack = new Stack<>();
 
         int idx = 0;
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0, length = s.length(); i < length; i++) {
             char c = s.charAt(i);
             if (!stack.isEmpty() && ((stack.peek() == c - 32) || (stack.peek() == c + 32))) {
                 stack.pop();
