@@ -6,11 +6,11 @@ class Solution {
 
         for (char c : s.toCharArray()) {
             if (c == '(') {
-                if (i != 0) sb.append(c);
+                if (i > 0) sb.append(c);
                 i++;
             } else {
                 i--;
-                if (i != 0) sb.append(c);
+                if (i > 0) sb.append(c);
             }
         }
 
