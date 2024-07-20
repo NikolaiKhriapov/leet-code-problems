@@ -5,18 +5,19 @@ class Solution {
         for (int n : aliceSizes) {
             aliceTotal += n;
         }
-        Set<Integer> set = new HashSet<>();
+
+        boolean[] set = new boolean[100001];
         int bobTotal = 0;
         for (int n : bobSizes) {
-            set.add(n);
+            set[n] = true;
             bobTotal += n;
         }
 
-        for (int i = 0; i < aliceSizes.length; i++) {                
-            int aliceGives = aliceSizes[i];
-            int aliceNeeds = ((bobTotal + aliceGives) - (aliceTotal - aliceGives)) / 2;
-
-            if (set.contains(aliceNeeds)) return new int[] { aliceGives, aliceNeeds };
+        for (int aliceGives : aliceSizes) {                
+            int aliceNeeds = (bobTotal - aliceTotal) / 2 + aliceGives;
+            if (aliceNeeds > 0 && aliceNeeds < set.length && set[aliceNeeds]) {
+                return new int[] { aliceGives, aliceNeeds };
+            }
         }
         
         return new int[] { -1, -1 };
