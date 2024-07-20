@@ -1,24 +1,23 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
 
-        Set<Integer> set = new HashSet<>();
+        boolean[] arr = new boolean[1001];
+
         for (int n : nums1) {
-            set.add(n);
+            arr[n] = true;
         }
 
         List<Integer> list = new ArrayList<>();
         for (int n : nums2) {
-            if (set.contains(n)) {
-                list.add(n);
-                set.remove(n);
-            }
+            if (arr[n]) list.add(n);
+            arr[n] = false;
         }
 
-        int[] arr = new int[list.size()];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = list.get(i);
+        int[] result = new int[list.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = list.get(i);
         }
         
-        return arr;
+        return result;
     }
 }
