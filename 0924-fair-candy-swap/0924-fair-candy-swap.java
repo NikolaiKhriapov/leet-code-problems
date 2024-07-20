@@ -5,8 +5,10 @@ class Solution {
         for (int n : aliceSizes) {
             aliceTotal += n;
         }
+        Set<Integer> set = new HashSet<>();
         int bobTotal = 0;
         for (int n : bobSizes) {
+            set.add(n);
             bobTotal += n;
         }
 
@@ -14,9 +16,7 @@ class Solution {
             int aliceGives = aliceSizes[i];
             int aliceNeeds = ((bobTotal + aliceGives) - (aliceTotal - aliceGives)) / 2;
 
-            for (int j = 0; j < bobSizes.length; j++) {
-                if (bobSizes[j] == aliceNeeds) return new int[] { aliceGives, bobSizes[j] };
-            }
+            if (set.contains(aliceNeeds)) return new int[] { aliceGives, aliceNeeds };
         }
         
         return new int[] { -1, -1 };
