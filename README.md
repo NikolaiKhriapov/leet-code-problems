@@ -34,6 +34,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1128-remove-all-adjacent-duplicates-in-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1128-remove-all-adjacent-duplicates-in-string) |
 | [1570-final-prices-with-a-special-discount-in-a-shop](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1570-final-prices-with-a-special-discount-in-a-shop) |
 | [1666-make-the-string-great](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1666-make-the-string-great) |
+| [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
 ## Hash Table
 |  |
 | ------- |
@@ -100,6 +101,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0792-binary-search](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0792-binary-search) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [1570-final-prices-with-a-special-discount-in-a-shop](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1570-final-prices-with-a-special-discount-in-a-shop) |
+| [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
 ## Two Pointers
 |  |
 | ------- |
@@ -202,6 +204,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
+| [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -246,4 +249,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [1570-final-prices-with-a-special-discount-in-a-shop](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1570-final-prices-with-a-special-discount-in-a-shop) |
+## Queue
+|  |
+| ------- |
+| [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
 <!---LeetCode Topics End-->
