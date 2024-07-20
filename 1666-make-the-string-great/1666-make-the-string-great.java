@@ -1,7 +1,7 @@
 class Solution {
     public String makeGood(String s) {
 
-        char[] arr = new char[s.length()];
+        char[] arr = s.toCharArray();
         Stack<Character> stack = new Stack<>();
 
         int idx = 0;
