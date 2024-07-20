@@ -1,10 +1,10 @@
 class Solution {
     public int[] kWeakestRows(int[][] mat, int k) {
 
-        List<Integer[]> list = new ArrayList<>();
+        List<int[]> list = new ArrayList<>();
 
         for (int i = 0; i < mat.length; i++) {
-            list.add(new Integer[]{ i, calcSoldiers(mat[i]) });
+            list.add(new int[]{ i, calcSoldiers(mat[i], 0, mat[i].length - 1) });
         }
         
         Collections.sort(list, (a, b) -> {
@@ -20,12 +20,11 @@ class Solution {
         return arr;
     }
 
-    private int calcSoldiers(int[] row) {
-        int count = 0;
-        for (int n : row) {
-            if (n == 1) count++;
-            else return count;
-        }
-        return count;
+    private int calcSoldiers(int[] row, int l, int r) {
+        if (r < l) return r;
+
+        int m = l + (r - l) / 2;
+        if (row[m] == 0) return calcSoldiers(row, l, m - 1);
+        else return calcSoldiers(row, m + 1, r);
     }
 }
