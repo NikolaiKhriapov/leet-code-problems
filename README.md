@@ -16,6 +16,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0205-isomorphic-strings](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0205-isomorphic-strings) |
 | [0242-valid-anagram](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0242-valid-anagram) |
 | [0257-binary-tree-paths](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0257-binary-tree-paths) |
+| [0290-word-pattern](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0290-word-pattern) |
 | [1078-remove-outermost-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1078-remove-outermost-parentheses) |
 | [1128-remove-all-adjacent-duplicates-in-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1128-remove-all-adjacent-duplicates-in-string) |
 | [1666-make-the-string-great](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1666-make-the-string-great) |
@@ -53,6 +54,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0219-contains-duplicate-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0219-contains-duplicate-ii) |
 | [0242-valid-anagram](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0242-valid-anagram) |
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
+| [0290-word-pattern](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0290-word-pattern) |
 | [0349-intersection-of-two-arrays](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0349-intersection-of-two-arrays) |
 | [0350-intersection-of-two-arrays-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0350-intersection-of-two-arrays-ii) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
