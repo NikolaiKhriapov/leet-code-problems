@@ -3,14 +3,22 @@ class Solution {
 
         int count = 0;
 
+        Arrays.sort(arr2);
         for (int n : arr1) {
-            boolean isGood = true;
-            for (int m : arr2) {
-                if (Math.abs(n - m) <= d) isGood = false;
-            }
-            if (isGood) count++;
+            boolean isAllHigher = search(arr2, n, d, 0, arr2.length - 1);
+            if (isAllHigher) count++;
         }
 
         return count;
+    }
+
+    private boolean search(int[] arr2, int n, int d, int l, int r) {
+        if (l > r) return true;
+
+        int m = l + (r - l) / 2;
+        
+        if (Math.abs(n - arr2[m]) <= d) return false;
+        else if (arr2[m] < n) return search(arr2, n, d, m + 1, r);
+        else return search(arr2, n, d, l, m - 1);
     }
 }
