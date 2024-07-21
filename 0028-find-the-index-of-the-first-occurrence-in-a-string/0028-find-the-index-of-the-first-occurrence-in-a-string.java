@@ -4,17 +4,17 @@ class Solution {
         int h = 0;
         int n = 0;
 
-        while (h < haystack.length()) {
+        while (h < haystack.length() && n < needle.length()) {
             if (haystack.charAt(h) == needle.charAt(n)) {
                 h++;
                 n++;
-                if (n == needle.length()) return h - n;
             } else {
                 h = h - n + 1;
                 n = 0;
             }
         }
 
+        if (n == needle.length()) return h - n;
         return -1;
     }
 }
