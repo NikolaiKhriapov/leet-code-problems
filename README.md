@@ -231,6 +231,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
+| [0543-diameter-of-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0543-diameter-of-binary-tree) |
 | [0563-binary-tree-tilt](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0563-binary-tree-tilt) |
 | [0572-subtree-of-another-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0572-subtree-of-another-tree) |
 | [0774-maximum-depth-of-n-ary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0774-maximum-depth-of-n-ary-tree) |
@@ -253,6 +254,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
+| [0543-diameter-of-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0543-diameter-of-binary-tree) |
 | [0563-binary-tree-tilt](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0563-binary-tree-tilt) |
 | [0572-subtree-of-another-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0572-subtree-of-another-tree) |
 | [0774-maximum-depth-of-n-ary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0774-maximum-depth-of-n-ary-tree) |
@@ -277,6 +279,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
+| [0543-diameter-of-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0543-diameter-of-binary-tree) |
 | [0563-binary-tree-tilt](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0563-binary-tree-tilt) |
 | [0572-subtree-of-another-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0572-subtree-of-another-tree) |
 ## Bit Manipulation
