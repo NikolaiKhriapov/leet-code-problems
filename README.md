@@ -23,6 +23,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0387-first-unique-character-in-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0387-first-unique-character-in-a-string) |
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
 | [0392-is-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0392-is-subsequence) |
+| [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
 | [1078-remove-outermost-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1078-remove-outermost-parentheses) |
 | [1128-remove-all-adjacent-duplicates-in-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1128-remove-all-adjacent-duplicates-in-string) |
 | [1666-make-the-string-great](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1666-make-the-string-great) |
@@ -66,6 +67,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0383-ransom-note](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0383-ransom-note) |
 | [0387-first-unique-character-in-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0387-first-unique-character-in-a-string) |
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
+| [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
 ## Math
@@ -342,4 +344,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
+## Greedy
+|  |
+| ------- |
+| [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
 <!---LeetCode Topics End-->
