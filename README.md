@@ -24,6 +24,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
 | [0392-is-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0392-is-subsequence) |
 | [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
+| [0412-fizz-buzz](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0412-fizz-buzz) |
 | [1078-remove-outermost-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1078-remove-outermost-parentheses) |
 | [1128-remove-all-adjacent-duplicates-in-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1128-remove-all-adjacent-duplicates-in-string) |
 | [1666-make-the-string-great](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1666-make-the-string-great) |
@@ -82,6 +83,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0202-happy-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0202-happy-number) |
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
 | [0367-valid-perfect-square](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0367-valid-perfect-square) |
+| [0412-fizz-buzz](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0412-fizz-buzz) |
 | [0441-arranging-coins](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0441-arranging-coins) |
 ## Linked List
 |  |
@@ -264,6 +266,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
+| [0412-fizz-buzz](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0412-fizz-buzz) |
 | [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
 ## Breadth-First Search
 |  |
