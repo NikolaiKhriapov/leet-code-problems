@@ -132,6 +132,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0455-assign-cookies](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0455-assign-cookies) |
 | [0496-next-greater-element-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0496-next-greater-element-i) |
 | [0506-relative-ranks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0506-relative-ranks) |
+| [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
 | [0745-find-smallest-letter-greater-than-target](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0745-find-smallest-letter-greater-than-target) |
 | [0792-binary-search](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0792-binary-search) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
@@ -205,6 +206,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0414-third-maximum-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0414-third-maximum-number) |
 | [0455-assign-cookies](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0455-assign-cookies) |
 | [0506-relative-ranks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0506-relative-ranks) |
+| [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
@@ -381,4 +383,9 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
 | [0455-assign-cookies](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0455-assign-cookies) |
+| [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
+## Counting Sort
+|  |
+| ------- |
+| [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
 <!---LeetCode Topics End-->
