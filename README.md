@@ -43,6 +43,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0232-implement-queue-using-stacks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0232-implement-queue-using-stacks) |
 | [0234-palindrome-linked-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0234-palindrome-linked-list) |
 | [0496-next-greater-element-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0496-next-greater-element-i) |
+| [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
 | [0775-n-ary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0775-n-ary-tree-preorder-traversal) |
 | [0776-n-ary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0776-n-ary-tree-postorder-traversal) |
 | [1078-remove-outermost-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1078-remove-outermost-parentheses) |
@@ -139,6 +140,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 | [0628-maximum-product-of-three-numbers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0628-maximum-product-of-three-numbers) |
 | [0645-set-mismatch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0645-set-mismatch) |
+| [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
 | [0745-find-smallest-letter-greater-than-target](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0745-find-smallest-letter-greater-than-target) |
 | [0792-binary-search](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0792-binary-search) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
@@ -305,6 +307,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
 | [0412-fizz-buzz](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0412-fizz-buzz) |
+| [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
 | [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
 ## Breadth-First Search
 |  |
