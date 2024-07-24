@@ -48,6 +48,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0775-n-ary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0775-n-ary-tree-preorder-traversal) |
 | [0776-n-ary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0776-n-ary-tree-postorder-traversal) |
 | [0874-backspace-string-compare](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0874-backspace-string-compare) |
+| [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 | [1078-remove-outermost-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1078-remove-outermost-parentheses) |
 | [1128-remove-all-adjacent-duplicates-in-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1128-remove-all-adjacent-duplicates-in-string) |
 | [1570-final-prices-with-a-special-discount-in-a-shop](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1570-final-prices-with-a-special-discount-in-a-shop) |
@@ -261,6 +262,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0774-maximum-depth-of-n-ary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0774-maximum-depth-of-n-ary-tree) |
 | [0775-n-ary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0775-n-ary-tree-preorder-traversal) |
 | [0776-n-ary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0776-n-ary-tree-postorder-traversal) |
+| [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -284,6 +286,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0774-maximum-depth-of-n-ary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0774-maximum-depth-of-n-ary-tree) |
 | [0775-n-ary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0775-n-ary-tree-preorder-traversal) |
 | [0776-n-ary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0776-n-ary-tree-postorder-traversal) |
+| [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 ## Binary Tree
 |  |
 | ------- |
@@ -306,6 +309,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0543-diameter-of-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0543-diameter-of-binary-tree) |
 | [0563-binary-tree-tilt](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0563-binary-tree-tilt) |
 | [0572-subtree-of-another-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0572-subtree-of-another-tree) |
+| [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 ## Bit Manipulation
 |  |
 | ------- |
@@ -346,6 +350,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
+| [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 ## Dynamic Programming
 |  |
 | ------- |
