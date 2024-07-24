@@ -72,6 +72,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
 | [0448-find-all-numbers-disappeared-in-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0448-find-all-numbers-disappeared-in-an-array) |
 | [0496-next-greater-element-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0496-next-greater-element-i) |
+| [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
 ## Math
@@ -133,6 +134,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0496-next-greater-element-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0496-next-greater-element-i) |
 | [0506-relative-ranks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0506-relative-ranks) |
 | [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
+| [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 | [0745-find-smallest-letter-greater-than-target](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0745-find-smallest-letter-greater-than-target) |
 | [0792-binary-search](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0792-binary-search) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
@@ -207,6 +209,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0455-assign-cookies](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0455-assign-cookies) |
 | [0506-relative-ranks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0506-relative-ranks) |
 | [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
+| [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
@@ -332,10 +335,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
 | [0383-ransom-note](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0383-ransom-note) |
 | [0387-first-unique-character-in-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0387-first-unique-character-in-a-string) |
+| [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 ## Sliding Window
 |  |
 | ------- |
 | [0219-contains-duplicate-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0219-contains-duplicate-ii) |
+| [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 ## Hash Function
 |  |
 | ------- |
