@@ -89,6 +89,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0367-valid-perfect-square](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0367-valid-perfect-square) |
 | [0412-fizz-buzz](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0412-fizz-buzz) |
 | [0441-arranging-coins](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0441-arranging-coins) |
+| [0628-maximum-product-of-three-numbers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0628-maximum-product-of-three-numbers) |
 ## Linked List
 |  |
 | ------- |
@@ -135,6 +136,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0506-relative-ranks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0506-relative-ranks) |
 | [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
 | [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
+| [0628-maximum-product-of-three-numbers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0628-maximum-product-of-three-numbers) |
 | [0745-find-smallest-letter-greater-than-target](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0745-find-smallest-letter-greater-than-target) |
 | [0792-binary-search](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0792-binary-search) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
@@ -210,6 +212,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0506-relative-ranks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0506-relative-ranks) |
 | [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
 | [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
+| [0628-maximum-product-of-three-numbers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0628-maximum-product-of-three-numbers) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
