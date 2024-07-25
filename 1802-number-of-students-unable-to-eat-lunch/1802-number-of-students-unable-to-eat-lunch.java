@@ -12,15 +12,13 @@ class Solution {
         }
 
         int rep = 0;
-        int maxReps = students.length;
-        while (!queue.isEmpty() && rep <= maxReps) {
+        while (!queue.isEmpty() && rep < students.length) {
             int st = queue.poll();
             if (st != stack.peek()) {
                 queue.add(st);
                 rep++;
             } else {
                 stack.pop();
-                maxReps--;
                 rep = 0;
             }
         }
