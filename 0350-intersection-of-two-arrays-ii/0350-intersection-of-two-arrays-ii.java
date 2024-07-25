@@ -1,24 +1,26 @@
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
 
-        int[] arr = new int[1001];
+        int[] map = new int[1001];
+
         for (int n : nums1) {
-            arr[n]++;
+            map[n]++;
         }
 
         List<Integer> list = new ArrayList<>();
         for (int n : nums2) {
-            if (arr[n] > 0) {
+            int v = map[n];
+            if (v > 0) {
                 list.add(n);
-                arr[n]--;
+                map[n]--;
             }
         }
-
-        int[] res = new int[list.size()];
-        for (int i = 0; i < res.length; i++) {
-            res[i] = list.get(i);
-        }
         
-        return res;
+        int[] arr = new int[list.size()];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = list.get(i);
+        }
+
+        return arr;
     }
 }
