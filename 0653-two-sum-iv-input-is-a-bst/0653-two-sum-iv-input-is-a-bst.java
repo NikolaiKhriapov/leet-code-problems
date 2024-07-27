@@ -20,12 +20,17 @@ class Solution {
 
         handleNode(root, list);
 
-        for (int i = 0, size = list.size(); i < size - 1; i++) {
-            for (int j = i + 1; j < size; j++) {
-                if (i != j && list.get(i) + list.get(j) == k) {
-                    return true;
-                }
+        int p1 = 0;
+        int p2 = 0;
+
+        int size = list.size();
+        while (p1 < size) {
+            while (p2 < size) {
+                if (p1 != p2 && list.get(p1) + list.get(p2) == k) return true;
+                else p2++;
             }
+            p1++;
+            p2 = p1 + 1;
         }
 
         return false;
