@@ -1,15 +1,22 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
+
         int ps = 0;
         int pt = 0;
 
-        while (ps < s.length() && pt < t.length()) {
-            if (s.charAt(ps) == t.charAt(pt)) {
+        char[] cs = s.toCharArray();
+        char[] ct = t.toCharArray();
+
+        while (ps < cs.length && pt < ct.length) {
+            if (cs[ps] == ct[pt]) {
                 ps++;
+                pt++;
+            } else {
+                pt++;
             }
-            pt++;
         }
         
-        return ps == s.length();
+        if (ps == cs.length) return true;
+        return false;
     }
 }
