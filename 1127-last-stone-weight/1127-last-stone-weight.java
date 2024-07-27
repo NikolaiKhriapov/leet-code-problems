@@ -8,10 +8,7 @@ class Solution {
         }
 
         while (queue.size() > 1) {
-            int a = queue.poll();
-            int b = queue.poll();
-
-            int res = a - b;
+            int res = queue.poll() - queue.poll();
             if (res > 0) {
                 queue.offer(res);
             }
