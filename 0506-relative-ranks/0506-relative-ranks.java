@@ -15,11 +15,12 @@ class Solution {
             int[] e = queue.poll();
             
             String v = String.valueOf(rank + 1);
-            if (rank < 3) v = s[rank];
-
-            arr[e[1]] = v;
+            if (rank < 3) {
+                v = s[rank];
+            }
             
             rank++;
+            arr[e[1]] = v;
         }
 
         return arr;
