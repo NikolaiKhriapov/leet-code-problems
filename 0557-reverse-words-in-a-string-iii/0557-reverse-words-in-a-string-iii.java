@@ -2,7 +2,7 @@ class Solution {
     public String reverseWords(String s) {
 
         String[] arr = s.split(" ");
-        
+
         StringBuilder sb = new StringBuilder();
         for (String part : arr) {
             part = reverse(part);
@@ -17,7 +17,7 @@ class Solution {
         char[] arr = s.toCharArray();
 
         int l = 0;
-        int r = s.length() - 1;
+        int r = arr.length - 1;
 
         while (l < r) {
             char tmp = arr[l];
