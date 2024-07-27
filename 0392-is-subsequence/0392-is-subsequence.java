@@ -1,23 +1,22 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
 
-        char[] tArray = t.toCharArray();
+        int ps = 0;
+        int pt = 0;
 
-        int index = 0;
+        char[] cs = s.toCharArray();
+        char[] ct = t.toCharArray();
 
-        for (char c : s.toCharArray()) {
-            boolean isPresent = false;
-            for (int i = index; i < tArray.length; i++) {
-                index++;
-                if (tArray[i] == c) {
-                    isPresent = true; 
-                    break;
-                }
+        while (ps < cs.length && pt < ct.length) {
+            if (cs[ps] == ct[pt]) {
+                ps++;
+                pt++;
+            } else {
+                pt++;
             }
-            
-            if (!isPresent) return false;
         }
-
-        return true;
+        
+        if (ps == cs.length) return true;
+        return false;
     }
 }
