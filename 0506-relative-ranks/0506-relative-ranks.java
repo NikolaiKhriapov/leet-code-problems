@@ -8,18 +8,21 @@ class Solution {
         }
 
         int rank = 0;
-
         String[] arr = new String[score.length];
         while (!queue.isEmpty()) {
-            int[] e = queue.poll();
+            int[] element = queue.poll();
             
-            String v = String.valueOf(rank + 1);
-            if (rank == 0) v = "Gold Medal";
-            if (rank == 1) v = "Silver Medal";
-            if (rank == 2) v = "Bronze Medal";
+            String value = String.valueOf(rank + 1);
+            if (rank == 0) {
+                value = "Gold Medal";
+            } else if (rank == 1) {
+                value = "Silver Medal";
+            } else if (rank == 2) {
+                value = "Bronze Medal";
+            }
             
             rank++;
-            arr[e[1]] = v;
+            arr[element[1]] = value;
         }
 
         return arr;
