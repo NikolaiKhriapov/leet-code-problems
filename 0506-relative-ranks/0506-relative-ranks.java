@@ -7,7 +7,6 @@ class Solution {
             queue.offer(new int[]{ score[i], i });
         }
 
-        String[] s = { "Gold Medal", "Silver Medal", "Bronze Medal" };
         int rank = 0;
 
         String[] arr = new String[score.length];
@@ -15,9 +14,9 @@ class Solution {
             int[] e = queue.poll();
             
             String v = String.valueOf(rank + 1);
-            if (rank < 3) {
-                v = s[rank];
-            }
+            if (rank == 0) v = "Gold Medal";
+            if (rank == 1) v = "Silver Medal";
+            if (rank == 2) v = "Bronze Medal";
             
             rank++;
             arr[e[1]] = v;
