@@ -1,16 +1,14 @@
 class Solution {
     public boolean validPalindrome(String s) {
 
-        char[] arr = s.toCharArray();
-
-        return isPalindrome(arr, 0, arr.length - 1, false);
+        return isPalindrome(s, 0, s.length() - 1, false);
     }
 
-    private boolean isPalindrome(char[] arr, int l, int r, boolean deleted) {
+    private boolean isPalindrome(String s, int l, int r, boolean deleted) {
         while (l < r) {
-            if (arr[l] != arr[r]) {
+            if (s.charAt(l) != s.charAt(r)) {
                 if (deleted) return false;
-                return isPalindrome(arr, l + 1, r, true) || isPalindrome(arr, l, r - 1, true);
+                return isPalindrome(s, l + 1, r, true) || isPalindrome(s, l, r - 1, true);
             }
             l++;
             r--;
