@@ -291,6 +291,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0774-maximum-depth-of-n-ary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0774-maximum-depth-of-n-ary-tree) |
 | [0775-n-ary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0775-n-ary-tree-preorder-traversal) |
 | [0776-n-ary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0776-n-ary-tree-postorder-traversal) |
+| [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 ## Depth-First Search
 |  |
@@ -340,6 +341,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0563-binary-tree-tilt](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0563-binary-tree-tilt) |
 | [0572-subtree-of-another-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0572-subtree-of-another-tree) |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0653-two-sum-iv-input-is-a-bst) |
+| [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 ## Bit Manipulation
 |  |
@@ -383,6 +385,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0653-two-sum-iv-input-is-a-bst) |
+| [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 ## Dynamic Programming
 |  |
@@ -431,6 +434,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0506-relative-ranks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0506-relative-ranks) |
+| [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 ## Matrix
 |  |
@@ -444,6 +448,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0225-implement-stack-using-queues](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0225-implement-stack-using-queues) |
 | [0232-implement-queue-using-stacks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0232-implement-queue-using-stacks) |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
+| [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [0816-design-hashset](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0816-design-hashset) |
 | [0817-design-hashmap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0817-design-hashmap) |
 | [0969-number-of-recent-calls](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0969-number-of-recent-calls) |
@@ -471,6 +476,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Data Stream
 |  |
 | ------- |
+| [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [0969-number-of-recent-calls](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0969-number-of-recent-calls) |
 ## Geometry
 |  |
