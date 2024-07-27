@@ -4,11 +4,8 @@ class Solution {
         int ps = 0;
         int pt = 0;
 
-        char[] cs = s.toCharArray();
-        char[] ct = t.toCharArray();
-
-        while (ps < cs.length && pt < ct.length) {
-            if (cs[ps] == ct[pt]) {
+        while (ps < s.length() && pt < t.length()) {
+            if (s.charAt(ps) == t.charAt(pt)) {
                 ps++;
                 pt++;
             } else {
@@ -16,7 +13,7 @@ class Solution {
             }
         }
         
-        if (ps == cs.length) return true;
+        if (ps == s.length()) return true;
         return false;
     }
 }
