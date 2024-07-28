@@ -32,6 +32,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1078-remove-outermost-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1078-remove-outermost-parentheses) |
 | [1128-remove-all-adjacent-duplicates-in-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1128-remove-all-adjacent-duplicates-in-string) |
 | [1666-make-the-string-great](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1666-make-the-string-great) |
+| [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 | [3379-score-of-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/3379-score-of-a-string) |
 ## Trie
 |  |
@@ -87,6 +88,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0817-design-hashmap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0817-design-hashmap) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
+| [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 ## Math
 |  |
 | ------- |
@@ -357,6 +359,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
 | [0645-set-mismatch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0645-set-mismatch) |
+| [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 ## Simulation
 |  |
 | ------- |
@@ -383,6 +386,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
+| [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 ## Binary Search Tree
 |  |
 | ------- |
@@ -413,6 +417,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 | [0643-maximum-average-subarray-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0643-maximum-average-subarray-i) |
 | [1755-defuse-the-bomb](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1755-defuse-the-bomb) |
+| [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 ## Hash Function
 |  |
 | ------- |
