@@ -180,6 +180,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1574-maximum-product-of-two-elements-in-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1574-maximum-product-of-two-elements-in-an-array) |
 | [1646-kth-missing-positive-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1646-kth-missing-positive-number) |
 | [1730-special-array-with-x-elements-greater-than-or-equal-x](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1730-special-array-with-x-elements-greater-than-or-equal-x) |
+| [1755-defuse-the-bomb](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1755-defuse-the-bomb) |
 | [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
 ## Two Pointers
 |  |
@@ -411,6 +412,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0219-contains-duplicate-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0219-contains-duplicate-ii) |
 | [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 | [0643-maximum-average-subarray-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0643-maximum-average-subarray-i) |
+| [1755-defuse-the-bomb](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1755-defuse-the-bomb) |
 ## Hash Function
 |  |
 | ------- |
