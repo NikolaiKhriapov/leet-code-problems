@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 class Solution {
     public String longestNiceSubstring(String s) {
         int length = s.length();
@@ -5,39 +8,41 @@ class Solution {
 
         String longestNice = "";
 
-        int l = 0;
-        int r = 1;
+        for (int l = 0; l < length; l++) {
+            Set<Character> lowerSet = new HashSet<>();
+            Set<Character> upperSet = new HashSet<>();
 
-        while (l < length) {            
-            while (r < length) {
-                String curr = s.substring(l, r + 1);
-
-                if (isNice(curr) && curr.length() > longestNice.length()) {
-                    longestNice = curr;
+            for (int r = l; r < length; r++) {
+                char c = s.charAt(r);
+                if (Character.isLowerCase(c)) {
+                    lowerSet.add(c);
+                } else {
+                    upperSet.add(c);
                 }
-                r++;
+
+                if (isNice(lowerSet, upperSet)) {
+                    int currentLength = r - l + 1;
+                    if (currentLength > longestNice.length()) {
+                        longestNice = s.substring(l, r + 1);
+                    }
+                }
             }
-            l++;
-            r = l + 1;
         }
-        
+
         return longestNice;
     }
 
-    private boolean isNice(String s) {
-        char[] arr = s.toCharArray();
-
-        Set<Character> set = new HashSet<>();
-        for (char c : arr) {
-            set.add(c);
-        }
-
-        for (char c : arr) {
-            if (!set.contains(Character.toUpperCase(c)) || !set.contains(Character.toLowerCase(c))) {
+    private boolean isNice(Set<Character> lowerSet, Set<Character> upperSet) {
+        for (char c : lowerSet) {
+            if (!upperSet.contains(Character.toUpperCase(c))) {
                 return false;
             }
         }
-        
+        for (char c : upperSet) {
+            if (!lowerSet.contains(Character.toLowerCase(c))) {
+                return false;
+            }
+        }
         return true;
     }
 }
