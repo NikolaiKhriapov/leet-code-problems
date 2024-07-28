@@ -1,11 +1,18 @@
 class Solution {
     public int maxProduct(int[] nums) {
 
-        Queue<Integer> queue = new PriorityQueue<>((a, b) -> b - a);
+        int max1 = 0;
+        int max2 = 0;
+
         for (int n : nums) {
-            queue.offer(n);
+            if (n > max1) {
+                max2 = max1;
+                max1 = n;
+            } else if (n > max2) {
+                max2 = n;
+            }
         }
 
-        return (queue.poll() - 1) * (queue.poll() - 1);
+        return (max1 - 1) * (max2 - 1);
     }
 }
