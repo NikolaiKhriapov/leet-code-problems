@@ -3,25 +3,25 @@ class Solution {
 
         Arrays.sort(nums);
 
-        int p1 = 0;
-        int p2 = 1;
+        int l = 0;
+        int r = 1;
 
         int longest = 0;
-        while (p1 < nums.length && p2 < nums.length) {
-            int seq = 0;
-
-            if (nums[p2] - nums[p1] <= 1) {
-                seq = p2 - p1 + 1;
-                if (nums[p2] != nums[p1] && seq > longest) {
-                    longest = seq;
+        while (r < nums.length && l < nums.length) {
+            int diff = nums[r] - nums[l];
+            if (diff <= 1) {
+                if (diff == 1) {
+                    int length = r - l + 1;
+                    if (length > longest) {
+                        longest = length;
+                    }
                 }
-                p2++;
-            } else {
-                p1++;
-                p2 = p1 + 1;
-            };
+                r++;
+            } else if (diff > 1) {
+                l++;
+            }
         }
-
+        
         return longest;
     }
 }
