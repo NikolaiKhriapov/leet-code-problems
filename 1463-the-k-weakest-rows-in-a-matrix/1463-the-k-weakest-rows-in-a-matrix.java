@@ -1,20 +1,20 @@
 class Solution {
     public int[] kWeakestRows(int[][] mat, int k) {
 
-        List<int[]> list = new ArrayList<>();
-
-        for (int i = 0; i < mat.length; i++) {
-            list.add(new int[]{ i, calcSoldiers(mat[i], 0, mat[i].length - 1) });
-        }
-        
-        Collections.sort(list, (a, b) -> {
-            if (a[1] >= b[1]) return 1;
-            else return -1;
+        Queue<int[]> queue = new PriorityQueue<>((a, b) -> {
+            if (a[1] == b[1]) {
+                return a[0] - b[0];
+            }
+            return a[1] - b[1];
         });
 
+        for (int i = 0; i < mat.length; i++) {
+            queue.offer(new int[]{ i, calcSoldiers(mat[i], 0, mat[i].length - 1) });
+        }
+        
         int[] arr = new int[k];
         for (int i = 0; i < k; i++) {
-            arr[i] = list.get(i)[0];
+            arr[i] = queue.poll()[0];
         }
 
         return arr;
