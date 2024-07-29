@@ -27,8 +27,6 @@ class Solution {
                 list2.next = list1;
                 if (prev != null) {
                     prev.next = list2;
-                } else {
-                    head = list2;
                 }
 
                 prev = list2;
