@@ -32,16 +32,14 @@ class Solution {
         return true;
     }
 
-    private ListNode reverse(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
+    private ListNode reverse(ListNode node) {
+        ListNode prev = null;
+        while (node != null) {
+            ListNode next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
         }
-
-        ListNode headNext = reverse(head.next);
-
-        head.next.next = head;
-        head.next = null;
-
-        return headNext;
+        return prev;
     }
 }
