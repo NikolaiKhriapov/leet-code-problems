@@ -101,6 +101,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0168-excel-sheet-column-title](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0168-excel-sheet-column-title) |
 | [0171-excel-sheet-column-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0171-excel-sheet-column-number) |
 | [0202-happy-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0202-happy-number) |
+| [0231-power-of-two](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0231-power-of-two) |
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
 | [0367-valid-perfect-square](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0367-valid-perfect-square) |
 | [0412-fizz-buzz](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0412-fizz-buzz) |
@@ -129,6 +130,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0021-merge-two-sorted-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0021-merge-two-sorted-lists) |
 | [0203-remove-linked-list-elements](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0203-remove-linked-list-elements) |
 | [0206-reverse-linked-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0206-reverse-linked-list) |
+| [0231-power-of-two](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0231-power-of-two) |
 | [0234-palindrome-linked-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0234-palindrome-linked-list) |
 ## Array
 |  |
@@ -360,6 +362,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
 | [0136-single-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0136-single-number) |
 | [0222-count-complete-tree-nodes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0222-count-complete-tree-nodes) |
+| [0231-power-of-two](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0231-power-of-two) |
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
 | [0645-set-mismatch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0645-set-mismatch) |
