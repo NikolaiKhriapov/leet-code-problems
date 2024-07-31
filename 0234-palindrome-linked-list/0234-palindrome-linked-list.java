@@ -38,10 +38,8 @@ class Solution {
             ListNode tmp = head.next;
             head.next = prev;
             prev = head;
-            if (tmp != null) {
-                head = tmp;
-            } else break;
+            head = tmp;
         }
-        return head;
+        return prev;
     }
 }
