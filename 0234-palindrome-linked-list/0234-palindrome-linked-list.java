@@ -17,10 +17,14 @@ class Solution {
             head = head.next;
         }
 
-        for (int i = 0, size = list.size(); i < size / 2; i++) {
-            if (list.get(i) != list.get(size - 1 - i)) {
+        int l = 0;
+        int r = list.size() - 1;
+        while (l < r) {
+            if (list.get(l) != list.get(r)) {
                 return false;
             }
+            l++;
+            r--;
         }
         
         return true;
