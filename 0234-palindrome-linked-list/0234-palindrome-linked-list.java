@@ -19,19 +19,29 @@ class Solution {
             fast = fast.next.next;
         }
         
-        Stack<Integer> stack = new Stack<>();
-        while (slow != null) {
-            stack.add(slow.val);
-            slow = slow.next;
-        }
+        ListNode secondHalfReversed = reverse(slow);
 
-        while (!stack.isEmpty()) {
-            if (stack.pop() != head.val) {
+        while (secondHalfReversed != null) {
+            if (head.val != secondHalfReversed.val) {
                 return false;
             }
             head = head.next;
+            secondHalfReversed = secondHalfReversed.next;
         }
 
         return true;
+    }
+
+    private ListNode reverse(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode headNext = reverse(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        return headNext;
     }
 }
