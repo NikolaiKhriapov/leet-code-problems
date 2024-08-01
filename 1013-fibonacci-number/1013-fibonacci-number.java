@@ -14,6 +14,6 @@ class Solution {
 
         int fibN = fib(n - 1) + fib(n - 2);
         map.put(n, fibN);
-        return fibN;
+        return fib(n, map);
     }
 }
