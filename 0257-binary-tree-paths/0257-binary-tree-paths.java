@@ -16,30 +16,22 @@
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> result = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-
-        if (root != null) handleNode(root, list, result);
-        
+        if (root != null) handleNode(root, new StringBuilder(""), result);
         return result;
     }
 
-    private void handleNode(TreeNode node, List<Integer> list, List<String> result) {
-        list.add(node.val);
-    
-        if (node.left == null && node.right == null) result.add(handleList(list));
-        if (node.left != null) handleNode(node.left, list, result);
-        if (node.right != null) handleNode(node.right, list, result);
-        
-        list.remove(list.size() - 1);
-    }
+    private void handleNode(TreeNode node, StringBuilder path, List<String> result) {
+        int len = path.length();  // Store the current length of path
+        path.append(node.val);    // Append the current node's value
 
-    private String handleList(List<Integer> list) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0, size = list.size(); i < size - 1; i++) {
-            sb.append(list.get(i)).append("->");
+        if (node.left == null && node.right == null) {
+            result.add(path.toString());  // Add the current path to result
+        } else {
+            path.append("->");  // Append arrow for the next node
+            if (node.left != null) handleNode(node.left, new StringBuilder(path), result);
+            if (node.right != null) handleNode(node.right, new StringBuilder(path), result);
         }
-        sb.append(list.get(list.size() - 1));
 
-        return sb.toString();
+        path.setLength(len);  // Revert to the previous state
     }
 }
