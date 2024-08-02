@@ -21,17 +21,16 @@ class Solution {
     }
 
     private void handleNode(TreeNode node, StringBuilder path, List<String> result) {
-        int len = path.length();  // Store the current length of path
-        path.append(node.val);    // Append the current node's value
-
+        int len = path.length();
+        path.append(node.val);
+        
         if (node.left == null && node.right == null) {
-            result.add(path.toString());  // Add the current path to result
+            result.add(path.toString());
         } else {
-            path.append("->");  // Append arrow for the next node
+            path.append("->");
             if (node.left != null) handleNode(node.left, new StringBuilder(path), result);
             if (node.right != null) handleNode(node.right, new StringBuilder(path), result);
         }
-
-        path.setLength(len);  // Revert to the previous state
+        path.setLength(len);
     }
 }
