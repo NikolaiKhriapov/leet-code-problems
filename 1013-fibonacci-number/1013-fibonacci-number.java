@@ -1,19 +1,15 @@
 class Solution {
     public int fib(int n) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, 0);
-        map.put(1, 1);
-
-        return fib(n, map);
+        return fib(n, new HashMap<>());
     }
 
-    private int fib(int n, Map<Integer, Integer> map) {
-        if (map.containsKey(n)) {
-            return map.get(n);
-        }
+    public int fib(int n, HashMap<Integer, Integer> memo) {
+        if (n == 0 || n == 1) return n;
 
-        int fibN = fib(n - 1, map) + fib(n - 2, map);
-        map.put(n, fibN);
-        return fibN;
+        if (memo.containsKey(n)) return memo.get(n);
+
+        int result = fib(n - 1, memo) + fib(n - 2, memo);
+        memo.put(n, result);
+        return result;
     }
 }
