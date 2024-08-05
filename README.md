@@ -98,6 +98,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0066-plus-one](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0066-plus-one) |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
 | [0069-sqrtx](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0069-sqrtx) |
+| [0070-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0070-climbing-stairs) |
 | [0168-excel-sheet-column-title](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0168-excel-sheet-column-title) |
 | [0171-excel-sheet-column-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0171-excel-sheet-column-number) |
 | [0202-happy-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0202-happy-number) |
@@ -414,6 +415,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Dynamic Programming
 |  |
 | ------- |
+| [0070-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0070-climbing-stairs) |
 | [0118-pascals-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0118-pascals-triangle) |
 | [0119-pascals-triangle-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0119-pascals-triangle-ii) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0121-best-time-to-buy-and-sell-stock) |
@@ -519,5 +521,6 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Memoization
 |  |
 | ------- |
+| [0070-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0070-climbing-stairs) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 <!---LeetCode Topics End-->
