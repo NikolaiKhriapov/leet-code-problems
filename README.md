@@ -173,6 +173,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0645-set-mismatch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0645-set-mismatch) |
 | [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
 | [0745-find-smallest-letter-greater-than-target](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0745-find-smallest-letter-greater-than-target) |
+| [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
 | [0748-largest-number-at-least-twice-of-others](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0748-largest-number-at-least-twice-of-others) |
 | [0792-binary-search](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0792-binary-search) |
 | [0816-design-hashset](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0816-design-hashset) |
@@ -422,6 +423,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0338-counting-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0338-counting-bits) |
 | [0392-is-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0392-is-subsequence) |
+| [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 ## Counting
 |  |
