@@ -8,7 +8,7 @@ class Solution {
             if (sequence.contains(repeatedWord)) {
                 count++;
                 repeatedWord += word;
-            }
+            } else break;
         }
 
         return count;
