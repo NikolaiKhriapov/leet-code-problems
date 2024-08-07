@@ -114,6 +114,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1018-largest-perimeter-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1018-largest-perimeter-triangle) |
 | [1086-divisor-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1086-divisor-game) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
+| [1236-n-th-tribonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1236-n-th-tribonacci-number) |
 | [1411-convert-binary-number-in-a-linked-list-to-integer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1411-convert-binary-number-in-a-linked-list-to-integer) |
 ## Linked List
 |  |
@@ -427,6 +428,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 | [1086-divisor-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1086-divisor-game) |
+| [1236-n-th-tribonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1236-n-th-tribonacci-number) |
 ## Counting
 |  |
 | ------- |
@@ -529,6 +531,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0070-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0070-climbing-stairs) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
+| [1236-n-th-tribonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1236-n-th-tribonacci-number) |
 ## Brainteaser
 |  |
 | ------- |
