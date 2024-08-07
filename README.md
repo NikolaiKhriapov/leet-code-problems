@@ -371,6 +371,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0222-count-complete-tree-nodes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0222-count-complete-tree-nodes) |
 | [0231-power-of-two](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0231-power-of-two) |
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
+| [0338-counting-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0338-counting-bits) |
 | [0342-power-of-four](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0342-power-of-four) |
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
 | [0401-binary-watch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0401-binary-watch) |
@@ -419,6 +420,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0118-pascals-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0118-pascals-triangle) |
 | [0119-pascals-triangle-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0119-pascals-triangle-ii) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0121-best-time-to-buy-and-sell-stock) |
+| [0338-counting-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0338-counting-bits) |
 | [0392-is-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0392-is-subsequence) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 ## Counting
