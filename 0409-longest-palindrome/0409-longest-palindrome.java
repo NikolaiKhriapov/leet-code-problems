@@ -3,27 +3,22 @@ class Solution {
 
         char[] arr = s.toCharArray();
 
-        Map<Character, Integer> map = new HashMap<>();
+        Set<Character> set = new HashSet<>();
 
-        for (int i = 0; i < arr.length; i++) {
-            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
-        }
-        
         int result = 0;
-        for (var entry : map.entrySet()) {
-            while (entry.getValue() > 1) {
+        for (int i = 0; i < arr.length; i++) {
+            if (set.contains(arr[i])) {
                 result += 2;
-                entry.setValue(entry.getValue() - 2);
+                set.remove(arr[i]);
+            } else {
+                set.add(arr[i]);
             }
         }
 
-        for (var entry : map.entrySet()) {
-            if (entry.getValue() == 1) {
-                result++;
-                return result;
-            }
+        if (!set.isEmpty()) {
+            result++;
         }
-   
+           
         return result;
     }
 }
