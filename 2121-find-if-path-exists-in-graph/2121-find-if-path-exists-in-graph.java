@@ -3,15 +3,13 @@ class Solution {
         if (source == destination) return true;
 
         List<Integer>[] connections = new ArrayList[n];
+        for (int i = 0; i < connections.length; i++) {
+            connections[i] = new ArrayList<>();
+        }
+
         for (int[] edge : edges) {
-            List<Integer> curr1 = connections[edge[0]];
-            if (curr1 == null) curr1 = new ArrayList<>();
-            curr1.add(edge[1]);
-            connections[edge[0]] = curr1;
-            List<Integer> curr2 = connections[edge[1]];
-            if (curr2 == null) curr2 = new ArrayList<>();
-            curr2.add(edge[0]);
-            connections[edge[1]] = curr2;
+            connections[edge[0]].add(edge[1]);
+            connections[edge[1]].add(edge[0]);
         }
         
         Queue<Integer> queue = new LinkedList<>();
