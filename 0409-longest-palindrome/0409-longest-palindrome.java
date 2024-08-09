@@ -10,18 +10,20 @@ class Solution {
         }
         
         int result = 0;
-        boolean oneAdded = false;
         for (var entry : map.entrySet()) {
             while (entry.getValue() > 1) {
                 result += 2;
                 entry.setValue(entry.getValue() - 2);
             }
-            if (!oneAdded && entry.getValue() == 1) {
-                result++;
-                oneAdded = true;
-            }
         }
 
+        for (var entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                result++;
+                return result;
+            }
+        }
+   
         return result;
     }
 }
