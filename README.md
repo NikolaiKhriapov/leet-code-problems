@@ -172,6 +172,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0506-relative-ranks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0506-relative-ranks) |
 | [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
 | [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
+| [0605-can-place-flowers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0605-can-place-flowers) |
 | [0628-maximum-product-of-three-numbers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0628-maximum-product-of-three-numbers) |
 | [0643-maximum-average-subarray-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0643-maximum-average-subarray-i) |
 | [0645-set-mismatch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0645-set-mismatch) |
@@ -517,6 +518,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
 | [0455-assign-cookies](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0455-assign-cookies) |
 | [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
+| [0605-can-place-flowers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0605-can-place-flowers) |
 | [0680-valid-palindrome-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0680-valid-palindrome-ii) |
 | [1018-largest-perimeter-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1018-largest-perimeter-triangle) |
 | [1047-maximize-sum-of-array-after-k-negations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1047-maximize-sum-of-array-after-k-negations) |
