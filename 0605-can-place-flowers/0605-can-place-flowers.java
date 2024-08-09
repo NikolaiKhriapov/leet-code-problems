@@ -19,9 +19,9 @@ class Solution {
                 l = r;
             }
         }
-
+        poss += (r - l) / 2;
+        
         if (l == 0 && r == flowerbed.length) poss = ((r - l + 1) / 2);
-        else poss += (r - l) / 2;
 
         return poss >= n;
     }
