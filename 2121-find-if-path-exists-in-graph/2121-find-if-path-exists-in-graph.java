@@ -15,10 +15,10 @@ class Solution {
         }
         
         Queue<Integer> queue = new LinkedList<>();
-        Set<Integer> visited = new HashSet<>();
+        boolean[] visited = new boolean[n];
 
         queue.add(source);
-        visited.add(source);
+        visited[source] = true;
 
         while (!queue.isEmpty()) {
             int curr = queue.poll();
@@ -27,9 +27,9 @@ class Solution {
 
             List<Integer> neighbors = connections[curr];
             for (int neighbor : neighbors) {
-                if (!visited.contains(neighbor)) {
+                if (!visited[neighbor]) {
                     queue.add(neighbor);
-                    visited.add(neighbor);
+                    visited[neighbor] = true;
                 }
             }
         }
