@@ -25,8 +25,7 @@ class Solution {
 
             if (curr == destination) return true;
 
-            List<Integer> neighbors = connections[curr];
-            for (int neighbor : neighbors) {
+            for (int neighbor : connections[curr]) {
                 if (!visited[neighbor]) {
                     queue.add(neighbor);
                     visited[neighbor] = true;
