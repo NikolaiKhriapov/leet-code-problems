@@ -15,20 +15,16 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-
-        int a = 0;
-
-        a = handleNode(root, a);
-        
-        return a;
+        int count = 0;
+        return handleNode(root, count);
     }
 
-    private int handleNode(TreeNode node, int a) {
+    private int handleNode(TreeNode node, int count) {
         if (node != null) {
-            a++;
-            a = handleNode(node.left, a);
-            a = handleNode(node.right, a);
+            count++;
+            count = handleNode(node.left, count);
+            count = handleNode(node.right, count);
         }
-        return a;
+        return count;
     }
 }
