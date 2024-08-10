@@ -4,7 +4,9 @@ class Solution {
     }
 
     public char binarySearch(char[] letters, char target, int l, int r) {
-        if (r < l) return l < letters.length ? letters[l] : letters[0];
+        if (r < l) {
+            return l < letters.length ? letters[l] : letters[0];
+        }
 
         int m = l + (r - l) / 2;
 
