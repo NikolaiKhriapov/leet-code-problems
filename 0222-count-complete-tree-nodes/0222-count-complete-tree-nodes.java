@@ -15,27 +15,19 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-        if (root == null) return 0;
-        
-        int hl = getHeight(root.left);
-        int hr = getHeight(root.right);
-        
-        int n = 0;
-        if (hl == hr) {
-            n += Math.pow(2, hl) + countNodes(root.right);
-        } else {
-            n += Math.pow(2, hr) + countNodes(root.left);
-        }
 
-        return n;
+        List<Integer> list = new ArrayList<>();
+
+        handleNode(root, list);
+        
+        return list.size();
     }
 
-    private int getHeight(TreeNode node) {
-        int h = 0;
-        while (node != null) {
-            node = node.left;
-            h++;
+    private void handleNode(TreeNode node, List<Integer> list) {
+        if (node != null) {
+            list.add(node.val);
+            handleNode(node.left, list);
+            handleNode(node.right, list);
         }
-        return h;
     }
 }
