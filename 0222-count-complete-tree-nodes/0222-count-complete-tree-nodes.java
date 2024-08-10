@@ -16,18 +16,19 @@
 class Solution {
     public int countNodes(TreeNode root) {
 
-        List<Integer> list = new ArrayList<>();
+        int a = 0;
 
-        handleNode(root, list);
+        a = handleNode(root, a);
         
-        return list.size();
+        return a;
     }
 
-    private void handleNode(TreeNode node, List<Integer> list) {
+    private int handleNode(TreeNode node, int a) {
         if (node != null) {
-            list.add(node.val);
-            handleNode(node.left, list);
-            handleNode(node.right, list);
+            a++;
+            a = handleNode(node.left, a);
+            a = handleNode(node.right, a);
         }
+        return a;
     }
 }
