@@ -4,13 +4,11 @@ class Solution {
     }
 
     private boolean validPalindrome(String s, boolean isDeleted) {
-        char[] arr = s.toCharArray();
-
         int l = 0;
-        int r = arr.length - 1;
+        int r = s.length() - 1;
 
         while (l < r) {
-            if (arr[l] != arr[r]) {
+            if (s.charAt(l) != s.charAt(r)) {
                 if (isDeleted) {
                     return false;
                 } else {
