@@ -15,32 +15,15 @@
  */
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
-
-        Set<Integer> set = new HashSet<>();
-
-        traverse(root, set);
-        
-        if (set.size() < 2) {
-            return false;
-        }
-
-        int p1 = 0;
-        int p2 = 1;
-
-        for (Integer v : set) {
-            if (set.contains(k - v) && k - v != v) {
-                return true;
-            }
-        }
-
-        return false;
+        return traverse(root, new HashSet<>(), k);
     }
 
-    private void traverse(TreeNode root, Set<Integer> set) {
-        if (root != null) {
-            set.add(root.val);
-            traverse(root.left, set);
-            traverse(root.right, set);
-        }
+    private boolean traverse(TreeNode root, Set<Integer> set, int k) {
+        if (root == null) return false;
+
+        if (set.contains(k - root.val)) return true;
+
+        set.add(root.val);
+        return traverse(root.left, set, k) || traverse(root.right, set, k);
     }
 }
