@@ -20,11 +20,12 @@ class Solution {
     }
 
     private int calcSoldiers(int[] row, int l, int r) {
-        int counter = 0;
-        for (int n : row) {
-            if (n == 1) counter++;
-            else break;
-        }
-        return counter;
+        if (l > r) return r;
+        
+        int m = l + (r - l) / 2;
+
+        if ((row[m] == 1 && m == row.length - 1) || (row[m] == 1 && row[m + 1] == 0)) return m + 1;
+        else if (row[m] == 1) return calcSoldiers(row, m + 1, r);
+        else return calcSoldiers(row, l, m - 1);
     }
 }
