@@ -16,17 +16,35 @@
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
 
-        Set<Integer> set = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
 
-        return handleNode(root, set, k);
+        traverse(root, list);
+        
+        if (list.size() < 2) return false;
+
+        int p1 = 0;
+        int p2 = 1;
+
+        while (p1 < list.size()) {
+            while (p2 < list.size()) {
+                System.out.println(list.get(p1) + " " + list.get(p2));
+                if (p1 != p2 && list.get(p1) + list.get(p2) == k) {
+                    return true;
+                }
+                p2++;
+            }
+            p1++;
+            p2 = p1;
+        }
+
+        return false;
     }
 
-    private boolean handleNode(TreeNode node, Set<Integer> set, int k) {
-        if (node == null) return false;
-        
-        if (set.contains(k - node.val)) return true;
-        
-        set.add(node.val);
-        return handleNode(node.left, set, k) || handleNode(node.right, set, k);
+    private void traverse(TreeNode root, List<Integer> list) {
+        if (root != null) {
+            list.add(root.val);
+            traverse(root.left, list);
+            traverse(root.right, list);
+        }
     }
 }
