@@ -15,16 +15,14 @@
  */
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
-
         List<Integer> list = new ArrayList<>();
-
         traverse(root, list);
         
         int size = list.size();
 
         if (size < 2) return false;
 
-        Collections.sort(list);
+        // Collections.sort(list);
         
         int l = 0;
         int r = size - 1;
@@ -40,8 +38,8 @@ class Solution {
 
     private void traverse(TreeNode root, List<Integer> list) {
         if (root != null) {
-            list.add(root.val);
             traverse(root.left, list);
+            list.add(root.val);
             traverse(root.right, list);
         }
     }
