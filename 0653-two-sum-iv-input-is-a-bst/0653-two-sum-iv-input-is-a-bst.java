@@ -21,8 +21,6 @@ class Solution {
         int size = list.size();
 
         if (size < 2) return false;
-
-        // Collections.sort(list);
         
         int l = 0;
         int r = size - 1;
