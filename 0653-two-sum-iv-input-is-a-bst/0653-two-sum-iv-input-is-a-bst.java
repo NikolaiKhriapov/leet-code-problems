@@ -20,7 +20,6 @@ class Solution {
 
     private boolean traverse(TreeNode root, Set<Integer> set, int k) {
         if (root == null) return false;
-
         if (set.contains(k - root.val)) return true;
 
         set.add(root.val);
