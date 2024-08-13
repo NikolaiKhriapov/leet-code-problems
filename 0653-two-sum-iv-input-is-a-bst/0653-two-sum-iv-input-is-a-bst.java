@@ -18,12 +18,8 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         traverse(root, list);
         
-        int size = list.size();
-
-        if (size < 2) return false;
-        
         int l = 0;
-        int r = size - 1;
+        int r = list.size() - 1;
 
         while (l < r) {
             if (list.get(l) + list.get(r) > k) r--;
