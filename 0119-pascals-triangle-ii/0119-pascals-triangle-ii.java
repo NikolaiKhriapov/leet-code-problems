@@ -5,7 +5,7 @@ class Solution {
 
         List<Integer> prev = List.of(1, 1);
 
-        List<Integer> curr = new ArrayList<>();
+        List<Integer> curr = null;
         for (int i = 2; i <= rowIndex; i++) {
             curr = new ArrayList<>();
             curr.add(1);
