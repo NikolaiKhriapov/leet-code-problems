@@ -2,15 +2,14 @@ class Solution {
     public boolean validPath(int n, int[][] edges, int source, int destination) {
         if (source == destination) return true;
 
-        Map<Integer, List<Integer>> map = new HashMap<>();
-        for (int[] edge : edges) {
-            List<Integer> v1 = map.getOrDefault(edge[0], new ArrayList<>());
-            v1.add(edge[1]);
-            map.put(edge[0], v1);
+        List<Integer>[] connections = new ArrayList[n];
+        for (int i = 0; i < connections.length; i++) {
+            connections[i] = new ArrayList<>();
+        }
 
-            List<Integer> v2 = map.getOrDefault(edge[1], new ArrayList<>());
-            v2.add(edge[0]);
-            map.put(edge[1], v2);
+        for (int[] edge : edges) {
+            connections[edge[0]].add(edge[1]);
+            connections[edge[1]].add(edge[0]);
         }
 
         Queue<Integer> queue = new LinkedList<>();
@@ -21,7 +20,7 @@ class Solution {
             int curr = queue.poll();
             visited[curr] = true;
 
-            for (int option : map.get(curr)) {
+            for (int option : connections[curr]) {
                 if (option == destination) {
                     return true;
                 } else {
