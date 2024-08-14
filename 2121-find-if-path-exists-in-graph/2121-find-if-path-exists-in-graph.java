@@ -16,9 +16,10 @@ class Solution {
         boolean[] visited = new boolean[n + 1];
 
         queue.add(source);
+        visited[source] = true;
+
         while (!queue.isEmpty()) {
             int curr = queue.poll();
-            visited[curr] = true;
 
             for (int option : connections[curr]) {
                 if (option == destination) {
