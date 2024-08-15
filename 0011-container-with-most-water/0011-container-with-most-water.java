@@ -6,8 +6,7 @@ class Solution {
         int r = height.length - 1;
 
         while (l < r) {
-            int area = (r - l) * Math.min(height[l], height[r]);
-            maxArea = Math.max(maxArea, area);
+            maxArea = Math.max(maxArea, (r - l) * Math.min(height[l], height[r]));
 
             if (height[l] < height[r]) {
                 l++;
