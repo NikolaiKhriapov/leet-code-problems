@@ -1,18 +1,36 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
         
-        int l = -1;
-        int r = -1;
+        int l = binarySearch(nums, target, 0, nums.length - 1);
+        int r = l;
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == target) {
-                if (l == -1) {
-                    l = i;
+        if (l != -1) {
+            for (int i = l; i < nums.length; i++) {
+                if (nums[i] == nums[l]) {
+                    r = i;
+                } else {
+                    break;
                 }
-                r = i;
             }
         }
 
         return new int[] { l, r };
+    }
+
+    public int binarySearch(int[] nums, int target, int l, int r) {
+        if (l > r) return -1;
+
+        int m = l + (r - l) / 2;
+
+        if (nums[m] == target) {
+            if (m == 0 || nums[m - 1] < target) {
+                return m;
+            } else {
+                return binarySearch(nums, target, l, m - 1);
+            }
+        }
+
+        if (nums[m] > target) return binarySearch(nums, target, l, m - 1);
+        else return binarySearch(nums, target, m + 1, r);
     }
 }
