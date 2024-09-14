@@ -5,20 +5,17 @@ class Solution {
         return result;
     }
 
-    private void backtrack(List<List<Integer>> result, List<Integer> tempList, int[] nums) {
-        if (tempList.size() == nums.length) {
-            result.add(new ArrayList<>(tempList));
-            return;
-        }
+    private void backtrack(List<List<Integer>> result, List<Integer> curr, int[] nums) {
+        if (curr.size() == nums.length) {
+            result.add(new ArrayList<>(curr));
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if (curr.contains(nums[i])) continue;
 
-        for (int i = 0; i < nums.length; i++) {
-            if (tempList.contains(nums[i])) {
-                continue;
+                curr.add(nums[i]);
+                backtrack(result, curr, nums);
+                curr.remove(curr.size() - 1);
             }
-
-            tempList.add(nums[i]);
-            backtrack(result, tempList, nums);
-            tempList.remove(tempList.size() - 1);
         }
     }
 }
