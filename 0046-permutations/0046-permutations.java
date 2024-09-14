@@ -10,7 +10,9 @@ class Solution {
             result.add(new ArrayList<>(curr));
         } else {
             for (int n : nums) {
-                if (curr.contains(n)) continue;
+                if (curr.contains(n)) {
+                    continue;
+                }
 
                 curr.add(n);
                 backtrack(result, curr, nums);
