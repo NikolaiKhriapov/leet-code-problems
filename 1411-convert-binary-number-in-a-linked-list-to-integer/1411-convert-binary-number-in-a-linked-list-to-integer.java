@@ -10,13 +10,15 @@
  */
 class Solution {
     public int getDecimalValue(ListNode head) {
-        
         StringBuilder sb = new StringBuilder();
 
         while (head != null) {
             sb.append(head.val);
-            if (head.next != null) head = head.next;
-            else head = null;
+            if (head.next != null) {
+                head = head.next;
+            } else {
+                head = null;
+            }
         }
 
         String s = sb.toString();
