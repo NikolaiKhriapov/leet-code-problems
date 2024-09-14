@@ -23,7 +23,9 @@ class Solution {
             }
         }
         
-        if (carry > 0) sb.append(1);
+        if (carry > 0) {
+            sb.append(1);
+        }
 
         char[] result = sb.toString().toCharArray();
         for (int i = 0; i < result.length / 2; i++) {
@@ -36,7 +38,9 @@ class Solution {
     }
 
     public int getNumber(String s, int i) {
-        if (s.length() - 1 < i) return 0;
+        if (s.length() - 1 < i) {
+            return 0;
+        }
         return s.charAt(s.length() - 1 - i) - '0';
     }
 }
