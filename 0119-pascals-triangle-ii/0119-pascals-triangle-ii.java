@@ -1,7 +1,11 @@
 class Solution {
     public List<Integer> getRow(int rowIndex) {
-        if (rowIndex == 0) return List.of(1);
-        if (rowIndex == 1) return List.of(1, 1);
+        if (rowIndex == 0) {
+            return List.of(1);
+        }
+        if (rowIndex == 1) {
+            return List.of(1, 1);
+        }
 
         List<Integer> prev = List.of(1, 1);
 
