@@ -7,7 +7,9 @@ class Solution {
             for (int num : nums) {
                 if (num >= i) count++;
             }
-            if (count == i) return i;
+            if (count == i) {
+                return i;
+            }
         }
 
         return -1;
