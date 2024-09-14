@@ -1,6 +1,5 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        
         Map<Integer, Integer> map = new HashMap<>();
         List<Integer> unique = new ArrayList<>();
 
