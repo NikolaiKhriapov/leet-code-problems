@@ -10,13 +10,15 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
-        
         int counter = 0;
         ListNode curr = head;
 
         while (curr != null) {
-            if (curr.next != null) curr = curr.next;
-            else curr = null;
+            if (curr.next != null) {
+                curr = curr.next;
+            } else {
+                curr = null;
+            }
             counter++;
         }
 
