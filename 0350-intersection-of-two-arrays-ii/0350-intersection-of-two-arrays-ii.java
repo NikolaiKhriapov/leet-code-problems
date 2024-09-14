@@ -1,6 +1,5 @@
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
-
         int[] map = new int[1001];
 
         for (int n : nums1) {
