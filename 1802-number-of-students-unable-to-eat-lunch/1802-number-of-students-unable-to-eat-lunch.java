@@ -1,6 +1,5 @@
 class Solution {
     public int countStudents(int[] students, int[] sandwiches) {
-
         Queue<Integer> queue = new LinkedList<>();
         for (int n : students) {
             queue.add(n);
@@ -12,13 +11,15 @@ class Solution {
         }
 
         int rep = 0;
-        while (!queue.isEmpty() && rep < students.length) {
+        int maxReps = students.length;
+        while (!queue.isEmpty() && rep <= maxReps) {
             int st = queue.poll();
             if (st != stack.peek()) {
                 queue.add(st);
                 rep++;
             } else {
                 stack.pop();
+                maxReps--;
                 rep = 0;
             }
         }
