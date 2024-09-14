@@ -9,10 +9,10 @@ class Solution {
         if (curr.size() == nums.length) {
             result.add(new ArrayList<>(curr));
         } else {
-            for (int i = 0; i < nums.length; i++) {
-                if (curr.contains(nums[i])) continue;
+            for (int n : nums) {
+                if (curr.contains(n)) continue;
 
-                curr.add(nums[i]);
+                curr.add(n);
                 backtrack(result, curr, nums);
                 curr.remove(curr.size() - 1);
             }
