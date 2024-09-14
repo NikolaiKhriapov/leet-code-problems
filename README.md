@@ -98,6 +98,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0013-roman-to-integer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0013-roman-to-integer) |
+| [0048-rotate-image](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0048-rotate-image) |
 | [0066-plus-one](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0066-plus-one) |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
 | [0069-sqrtx](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0069-sqrtx) |
@@ -156,6 +157,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0035-search-insert-position](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0035-search-insert-position) |
 | [0036-valid-sudoku](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0036-valid-sudoku) |
 | [0046-permutations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0046-permutations) |
+| [0048-rotate-image](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0048-rotate-image) |
 | [0066-plus-one](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0066-plus-one) |
 | [0088-merge-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0088-merge-sorted-array) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
@@ -503,6 +505,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0036-valid-sudoku](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0036-valid-sudoku) |
+| [0048-rotate-image](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0048-rotate-image) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1476-count-negative-numbers-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1476-count-negative-numbers-in-a-sorted-matrix) |
