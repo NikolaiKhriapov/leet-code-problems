@@ -22,9 +22,13 @@ class Solution {
         int r = list.size() - 1;
 
         while (l < r) {
-            if (list.get(l) + list.get(r) > k) r--;
-            else if (list.get(l) + list.get(r) < k) l++;
-            else return true;
+            if (list.get(l) + list.get(r) > k) {
+                r--;
+            } else if (list.get(l) + list.get(r) < k) {
+                l++;
+            } else {
+                return true;
+            }
         }
 
         return false;
