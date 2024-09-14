@@ -1,6 +1,8 @@
 class Solution {
     public boolean validPath(int n, int[][] edges, int source, int destination) {
-        if (source == destination) return true;
+        if (source == destination) {
+            return true;
+        }
 
         List<Integer>[] connections = new ArrayList[n];
         for (int i = 0; i < connections.length; i++) {
