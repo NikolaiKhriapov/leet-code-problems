@@ -7,7 +7,9 @@ class Solution {
     }
 
     public int binarySearchLeft(int[] nums, int target, int l, int r) {
-        if (l > r) return -1;
+        if (l > r) {
+            return -1;
+        }
 
         int m = l + (r - l) / 2;
 
@@ -19,12 +21,15 @@ class Solution {
             }
         }
 
-        if (nums[m] > target) return binarySearchLeft(nums, target, l, m - 1);
-        else return binarySearchLeft(nums, target, m + 1, r);
+        if (nums[m] > target) {
+            return binarySearchLeft(nums, target, l, m - 1);
+        } else return binarySearchLeft(nums, target, m + 1, r);
     }
 
     public int binarySearchRight(int[] nums, int target, int l, int r) {
-        if (l > r || l == -1) return -1;
+        if (l > r || l == -1) {
+            return -1;
+        }
 
         int m = l + (r - l) / 2;
 
@@ -36,7 +41,10 @@ class Solution {
             }
         }
 
-        if (nums[m] > target) return binarySearchRight(nums, target, l, m - 1);
-        else return binarySearchRight(nums, target, m + 1, r);
+        if (nums[m] > target) {
+            return binarySearchRight(nums, target, l, m - 1);
+        } else {
+            return binarySearchRight(nums, target, m + 1, r);
+        }
     }
 }
