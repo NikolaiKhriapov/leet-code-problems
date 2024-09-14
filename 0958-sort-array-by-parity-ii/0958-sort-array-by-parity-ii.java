@@ -1,6 +1,5 @@
 class Solution {
     public int[] sortArrayByParityII(int[] nums) {
-        
         int[] arr = new int[nums.length];
 
         int pe = 0;
