@@ -1,6 +1,5 @@
 class Solution {
     public String[] findRelativeRanks(int[] score) {
-
         Queue<int[]> queue = new PriorityQueue<>((a, b) -> b[0] - a[0]);
 
         for (int i = 0; i < score.length; i++) {
