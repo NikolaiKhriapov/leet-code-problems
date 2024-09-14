@@ -1,6 +1,5 @@
 class Solution {
     public String reverseWords(String s) {
-
         String[] arr = s.split(" ");
 
         StringBuilder sb = new StringBuilder();
@@ -13,7 +12,6 @@ class Solution {
     }
 
     private String reverse(String s) {
-
         char[] arr = s.toCharArray();
 
         int l = 0;
