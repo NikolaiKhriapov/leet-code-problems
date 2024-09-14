@@ -12,9 +12,13 @@ class Solution {
             Set<Character> set = new HashSet<>();
             for (int j = 0; j < board[i].length; j++) {
                 char curr = board[i][j];
-                if (curr == '.') continue; 
+                if (curr == '.') {
+                    continue;
+                } 
                 boolean isAdded = set.add(curr);
-                if (!isAdded) return false;
+                if (!isAdded) {
+                    return false;
+                }
             }
         }
         return true;
@@ -26,9 +30,13 @@ class Solution {
             for (int j = 0; j < board[i].length; j++) {
                 Set<Character> set = map.getOrDefault(j, new HashSet<>());
                 char curr = board[i][j];
-                if (curr == '.') continue; 
+                if (curr == '.') {
+                    continue;
+                }
                 boolean isAdded = set.add(curr);
-                if (!isAdded) return false;
+                if (!isAdded) {
+                    return false;
+                }
                 map.put(j, set);
             }
         }
@@ -57,9 +65,13 @@ class Solution {
                 Set<Character> set = map.getOrDefault(subsection, new HashSet<>());
 
                 char curr = board[i][j];
-                if (curr == '.') continue; 
+                if (curr == '.') {
+                    continue; 
+                }
                 boolean isAdded = set.add(curr);
-                if (!isAdded) return false;
+                if (!isAdded) {
+                    return false;
+                }
 
                 map.put(subsection, set);
             }
