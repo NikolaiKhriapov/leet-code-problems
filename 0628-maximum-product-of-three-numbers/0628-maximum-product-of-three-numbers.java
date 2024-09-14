@@ -1,6 +1,5 @@
 class Solution {
     public int maximumProduct(int[] nums) {
-
         Arrays.sort(nums);
         
         int length = nums.length;
