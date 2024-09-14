@@ -15,18 +15,19 @@
  */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        
         List<Integer> list = new ArrayList<>();
-
         handleNode(root, list);
-
         return list;
     }
 
     private void handleNode(TreeNode node, List<Integer> list) {
         if (node != null) {
-            if (node.left != null) handleNode(node.left, list);
-            if (node.right != null) handleNode(node.right, list);
+            if (node.left != null) {
+                handleNode(node.left, list);
+            }
+            if (node.right != null) {
+                handleNode(node.right, list);
+            }
             list.add(node.val);
         }
     }
