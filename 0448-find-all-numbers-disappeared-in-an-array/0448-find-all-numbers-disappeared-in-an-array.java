@@ -1,6 +1,5 @@
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
-
         int[] array = new int[nums.length];
 
         for (int i = 0; i < nums.length; i++) {
