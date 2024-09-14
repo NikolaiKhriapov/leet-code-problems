@@ -15,7 +15,6 @@
  */
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-
         List<Integer> listP = new ArrayList<>();
         List<Integer> listQ = new ArrayList<>();
 
@@ -28,9 +27,14 @@ class Solution {
     public void handleNode(TreeNode node, List<Integer> list) {
         if (node != null) {
             list.add(node.val);
-            if (node.left != null) handleNode(node.left, list);
-            if (node.right != null) handleNode(node.right, list);
-            else list.add(null);
+            if (node.left != null) {
+                handleNode(node.left, list);
+            }
+            if (node.right != null) {
+                handleNode(node.right, list);
+            } else {
+                list.add(null);
+            }
         }
     }
 }
