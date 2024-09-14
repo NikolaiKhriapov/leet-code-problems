@@ -1,6 +1,5 @@
 class Solution {
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
-        
         int[][] arr = new int[rows*cols][2];
 
         int idx = 0;
@@ -16,7 +15,6 @@ class Solution {
             int d2 = Math.abs(b[0] - rCenter) + Math.abs(b[1] - cCenter);
             return d1 - d2;
         });
-
 
         // sort(arr, rCenter, cCenter);
 
