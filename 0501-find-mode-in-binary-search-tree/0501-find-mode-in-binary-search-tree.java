@@ -15,7 +15,6 @@
  */
 class Solution {
     public int[] findMode(TreeNode root) {
-
         HashMap<Integer, Integer> map = new HashMap<>();
 
         handleNode(root, map);
@@ -23,10 +22,14 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         int largest = 0;
         for (var entry : map.entrySet()) {
-            if (entry.getValue() > largest) largest = entry.getValue();
+            if (entry.getValue() > largest) {
+                largest = entry.getValue();
+            }
         }
         for (var entry : map.entrySet()) {
-            if (entry.getValue() == largest) list.add(entry.getKey());
+            if (entry.getValue() == largest) {
+                list.add(entry.getKey());
+            }
         }
 
         int[] array = new int[list.size()];
@@ -34,15 +37,18 @@ class Solution {
             array[i] = list.get(i);
         }
 
-
         return array;
     }
 
     private void handleNode(TreeNode node, HashMap<Integer, Integer> map) {
         if (node != null) {
             map.put(node.val, map.getOrDefault(node.val, 0) + 1);
-            if (node.left != null) handleNode(node.left, map);
-            if (node.right != null) handleNode(node.right, map);
+            if (node.left != null) {
+                handleNode(node.left, map);
+            }
+            if (node.right != null) {
+                handleNode(node.right, map);
+            }
         }
     }
 }
