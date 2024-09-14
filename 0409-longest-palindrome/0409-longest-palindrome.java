@@ -1,6 +1,5 @@
 class Solution {
     public int longestPalindrome(String s) {
-
         char[] arr = s.toCharArray();
 
         Set<Character> set = new HashSet<>();
