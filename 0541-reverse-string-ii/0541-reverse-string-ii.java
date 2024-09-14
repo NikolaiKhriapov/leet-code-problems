@@ -1,6 +1,5 @@
 class Solution {
     public String reverseStr(String s, int k) {
-
         char[] arr = s.toCharArray();
         int p = 0;
 
