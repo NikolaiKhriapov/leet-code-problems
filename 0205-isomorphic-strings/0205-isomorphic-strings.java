@@ -1,7 +1,8 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-                
-        if (s.length() != t.length()) return false;
+        if (s.length() != t.length()) {
+            return false;
+        }
 
         Map<Character, Character> map = new HashMap<>();
         
@@ -10,10 +11,14 @@ class Solution {
             char tc = t.charAt(i);
 
             if (!map.containsKey(sc)) {
-                if (map.containsValue(tc)) return false;
+                if (map.containsValue(tc)) {
+                    return false;
+                }
                 map.put(sc, tc);
             } else {
-                if (tc != map.get(sc)) return false;
+                if (tc != map.get(sc)) {
+                    return false;
+                }
             }
         }
 
