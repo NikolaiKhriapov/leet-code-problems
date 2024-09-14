@@ -1,26 +1,25 @@
 class Solution {
     public void rotate(int[][] matrix) {
-        Map<Integer, List<Integer>> map = new HashMap<>();
-
-        populateMap(map, matrix);
-        updateMatrix(map, matrix);
+        transposeMatrix(matrix);
+        reverseRows(matrix);
     }
 
-    private void populateMap(Map<Integer, List<Integer>> map, int[][] matrix) {
+    private void transposeMatrix(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                List<Integer> currList = map.getOrDefault(j, new ArrayList<>());
-                currList.add(matrix[i][j]);
-                map.put(j, currList);
+            for (int j = i; j < matrix[i].length; j++) {
+                int tmp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = tmp;
             }
         }
     }
 
-    private void updateMatrix(Map<Integer, List<Integer>> map, int[][] matrix) {
+    private void reverseRows(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
-            List<Integer> currList = map.get(i);
-            for (int j = 0; j < matrix.length; j++) {
-                matrix[i][j] = currList.get(matrix.length - 1 - j);
+            for (int j = 0; j < matrix[i].length / 2; j++) {
+                int tmp = matrix[i][j];
+                matrix[i][j] = matrix[i][matrix[i].length - 1 - j];
+                matrix[i][matrix[i].length - 1 - j] = tmp;
             }
         }
     }
