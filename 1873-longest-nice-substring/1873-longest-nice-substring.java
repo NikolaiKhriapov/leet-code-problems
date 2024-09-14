@@ -4,7 +4,9 @@ import java.util.Set;
 class Solution {
     public String longestNiceSubstring(String s) {
         int length = s.length();
-        if (length <= 1) return "";
+        if (length <= 1) {
+            return "";
+        }
 
         String longestNice = "";
 
