@@ -15,23 +15,19 @@
  */
 class Solution {
     public int getMinimumDifference(TreeNode root) {
-        
         Set<Integer> set = new HashSet<>();
 
         handleNode(root, set);
 
-        int[] arr = new int[set.size()];
-        int count = 0;
-        for (int n : set) {
-            arr[count] = n;
-            count++;
-        }
-        Arrays.sort(arr);
+        List<Integer> list = new ArrayList<>(set);
+        Collections.sort(list);
 
-        int diff = arr[arr.length - 1];
-        for (int i = 0; i < arr.length - 1; i++) {
-            int tmp = arr[i + 1] - arr[i];
-            if (tmp < diff) diff = tmp;
+        int diff = list.get(list.size() - 1);
+        for (int i = 0; i < list.size() - 1; i++) {
+            int tmp = list.get(i + 1) - list.get(i);
+            if (tmp < diff) {
+                diff = tmp;
+            }
         }
 
         return diff;
@@ -40,8 +36,12 @@ class Solution {
     private void handleNode(TreeNode node, Set<Integer> set) {
         if (node != null) {
             set.add(node.val);
-            if (node.left != null) handleNode(node.left, set);
-            if (node.right != null) handleNode(node.right, set);
+            if (node.left != null) {
+                handleNode(node.left, set);
+            }
+            if (node.right != null) {
+                handleNode(node.right, set);
+            }
         }
     }
 }
