@@ -1,6 +1,5 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        
         char[] sChars = s.toCharArray();
         List<Character> list = new ArrayList<>();
 
