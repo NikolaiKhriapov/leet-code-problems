@@ -13,13 +13,20 @@ public class Solution extends GuessGame {
     }
 
     private int search(int n, int l, int r) {
-        if (l > r) return r;
+        if (l > r) {
+            return r;
+        }
 
         int m = l + ((r - l) /2);
 
         int guess = guess(m);
-        if (guess == 0) return m;
-        if (guess < 0) return search(n, l, m - 1);
-        else return search(n, m + 1, r);
+        if (guess == 0) {
+            return m;
+        }
+        if (guess < 0) {
+            return search(n, l, m - 1);
+        } else {
+            return search(n, m + 1, r);
+        }
     }
 }
