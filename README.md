@@ -161,6 +161,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0046-permutations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0046-permutations) |
 | [0048-rotate-image](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0048-rotate-image) |
 | [0049-group-anagrams](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0049-group-anagrams) |
+| [0053-maximum-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0053-maximum-subarray) |
 | [0066-plus-one](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0066-plus-one) |
 | [0088-merge-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0088-merge-sorted-array) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
@@ -429,6 +430,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Divide and Conquer
 |  |
 | ------- |
+| [0053-maximum-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0053-maximum-subarray) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
 | [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
@@ -444,6 +446,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Dynamic Programming
 |  |
 | ------- |
+| [0053-maximum-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0053-maximum-subarray) |
 | [0070-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0070-climbing-stairs) |
 | [0118-pascals-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0118-pascals-triangle) |
 | [0119-pascals-triangle-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0119-pascals-triangle-ii) |
