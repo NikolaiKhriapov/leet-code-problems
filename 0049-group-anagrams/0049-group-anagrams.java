@@ -2,46 +2,43 @@ class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> result = new ArrayList<>();
 
-        Map<String, Boolean> added = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
 
         for (int i = 0; i < strs.length; i++) {
-            String selected = strs[i];
-            if (added.getOrDefault(selected, false)) continue;
+            String str = strs[i];
+            char[] cArr = str.toCharArray();
+            Arrays.sort(cArr);
+            String key = new String(cArr);
 
-            List<String> selectedList = new ArrayList<>();
-            selectedList.add(selected);
-            
-            for (int j = i + 1; j < strs.length; j++) {
-                String current = strs[j];
-                if (isAnagram(selected, current)) {
-                    selectedList.add(current);
-                    added.put(current, true);
-                }
-            }
-            result.add(selectedList);
+            List<String> list = map.getOrDefault(key, new ArrayList<>());
+
+            list.add(str);
+            map.put(key, list);
+        }
+
+        for (var entry : map.entrySet()) {
+            result.add(entry.getValue());
         }
         
         return result;
     }
 
     private boolean isAnagram(String s1, String s2) {
-        if (s1.length() != s2.length()) return false;
-
-        Map<Character, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < s1.length(); i++) {
-            char c = s1.charAt(i);
-            Integer curr = map.getOrDefault(c, 0);
-            curr++;
-            map.put(c, curr);
+        if (s1.length() != s2.length()) {
+            return false;
         }
 
-        for (int i = 0; i < s2.length(); i++) {
-            char c = s2.charAt(i);
-            Integer curr = map.getOrDefault(c, 0);
-            if (curr == 0) return false;
-            curr--;
-            map.put(c, curr);
+        int[] count = new int[26];
+
+        for (int i = 0; i < s1.length(); i++) {
+            count[s1.charAt(i) - 'a']++;
+            count[s2.charAt(i) - 'a']--;
+        }
+
+        for (int n : count) {
+            if (n != 0) {
+                return false;
+            }
         }
 
         return true;
