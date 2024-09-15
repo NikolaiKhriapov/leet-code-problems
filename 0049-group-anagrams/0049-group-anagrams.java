@@ -8,7 +8,6 @@ class Solution {
             String key = new String(cArr);
 
             List<String> list = map.getOrDefault(key, new ArrayList<>());
-
             list.add(str);
             map.put(key, list);
         }
