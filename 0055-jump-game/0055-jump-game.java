@@ -1,27 +1,20 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        return recursion(nums, 0, new Boolean[10001]);
-    }
 
-    private boolean recursion(int[] nums, int index, Boolean[] memo) {
-        if (index >= nums.length - 1) {
-            return true;
-        }
-        if (nums[index] == 0) {
-            return false;
-        }
+        int farthest = 0;
 
-        if (memo[index] != null) {
-            return memo[index];
-        }
+        for (int i = 0; i < nums.length; i++) {
+            if (i > farthest) {
+                return false;
+            }
 
-        for (int i = 1; i <= nums[index]; i++) {
-            if (recursion(nums, index + i, memo)) {
+            farthest = Math.max(farthest, i + nums[i]);
+
+            if (farthest >= nums.length - 1) {
                 return true;
             }
         }
 
-        memo[index] = false;
         return false;
     }
 }
