@@ -8,31 +8,29 @@ class Solution {
         int r = matrix[0].length - 1;
 
         while (t <= b && l <= r) {
-            if (l > r) continue;
             for (int i = l; i <= r; i++) {
                 result.add(matrix[t][i]);
             }
             t++;
 
-            if (t > b) continue;
             for (int i = t; i <= b; i++) {
                 result.add(matrix[i][r]);
             }
             r--;
 
-            if (l > r) continue;
-            for (int i = r; i >= l; i--) {
-                result.add(matrix[b][i]);
+            if (t <= b) {
+                for (int i = r; i >= l; i--) {
+                    result.add(matrix[b][i]);
+                }
+                b--;
             }
-            b--;
 
-            if (t > b) continue;
-            for (int i = b; i >= t; i--) {
-                result.add(matrix[i][l]);
+            if (l <= r) {
+                for (int i = b; i >= t; i--) {
+                    result.add(matrix[i][l]);
+                }
+                l++;
             }
-            l++;
-
-            System.out.println("l:" + l + ", r:" + r+ ", t:" + t + ", b:" + b);
         }
         
         return result;
