@@ -169,6 +169,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0066-plus-one](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0066-plus-one) |
 | [0073-set-matrix-zeroes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0073-set-matrix-zeroes) |
 | [0075-sort-colors](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0075-sort-colors) |
+| [0078-subsets](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0078-subsets) |
 | [0088-merge-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0088-merge-sorted-array) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0118-pascals-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0118-pascals-triangle) |
@@ -404,6 +405,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
+| [0078-subsets](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0078-subsets) |
 | [0136-single-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0136-single-number) |
 | [0222-count-complete-tree-nodes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0222-count-complete-tree-nodes) |
 | [0231-power-of-two](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0231-power-of-two) |
@@ -543,6 +545,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0046-permutations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0046-permutations) |
+| [0078-subsets](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0078-subsets) |
 | [0257-binary-tree-paths](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0257-binary-tree-paths) |
 | [0401-binary-watch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0401-binary-watch) |
 ## Prefix Sum
