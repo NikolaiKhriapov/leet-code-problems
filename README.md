@@ -68,6 +68,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0013-roman-to-integer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0013-roman-to-integer) |
 | [0036-valid-sudoku](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0036-valid-sudoku) |
 | [0049-group-anagrams](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0049-group-anagrams) |
+| [0073-set-matrix-zeroes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0073-set-matrix-zeroes) |
 | [0141-linked-list-cycle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0141-linked-list-cycle) |
 | [0160-intersection-of-two-linked-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0160-intersection-of-two-linked-lists) |
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
@@ -166,6 +167,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0055-jump-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0055-jump-game) |
 | [0056-merge-intervals](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0056-merge-intervals) |
 | [0066-plus-one](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0066-plus-one) |
+| [0073-set-matrix-zeroes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0073-set-matrix-zeroes) |
 | [0088-merge-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0088-merge-sorted-array) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0118-pascals-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0118-pascals-triangle) |
@@ -520,6 +522,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0036-valid-sudoku](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0036-valid-sudoku) |
 | [0048-rotate-image](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0048-rotate-image) |
 | [0054-spiral-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0054-spiral-matrix) |
+| [0073-set-matrix-zeroes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0073-set-matrix-zeroes) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1476-count-negative-numbers-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1476-count-negative-numbers-in-a-sorted-matrix) |
