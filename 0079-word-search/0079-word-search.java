@@ -1,9 +1,13 @@
 class Solution {
     public boolean exist(char[][] board, String word) {
-        boolean[][] visited = new boolean[board.length][board[0].length];
-        
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
+        int rows = board.length;
+        int cols = board[0].length;
+
+        if (word.length() > rows * cols) return false;
+
+        boolean[][] visited = new boolean[rows][cols];        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 if (recursive(board, word, 0, i, j, visited)) {
                     return true;
                 }
