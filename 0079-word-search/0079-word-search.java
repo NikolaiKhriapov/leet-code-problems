@@ -5,10 +5,9 @@ class Solution {
 
         if (word.length() > rows * cols) return false;
 
-        boolean[][] visited = new boolean[rows][cols];        
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                if (recursive(board, word, 0, i, j, visited)) {
+                if (recursive(board, word, 0, i, j)) {
                     return true;
                 }
             }
@@ -17,32 +16,27 @@ class Solution {
         return false;
     }
 
-    private boolean recursive(char[][] board, String word, int index, int r, int c, boolean[][] visited) {
-        if (board[r][c] != word.charAt(index)) {
-            return false;
-        }
-        if (visited[r][c]) {
-            return false;
-        } 
-        
-        visited[r][c] = true;
-
-        if (index == word.length() - 1) {
+    private boolean recursive(char[][] board, String word, int index, int r, int c) {
+        if (index == word.length()) {
             return true;
         }
+        if (r < 0 || r >= board.length || c < 0 || c >= board[0].length || board[r][c] != word.charAt(index)) {
+            return false;
+        }
+
+        char temp = board[r][c];
+        board[r][c] = '#';
 
         int[][] options = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
         for (int[] option : options) {
             int rNew = r + option[0];
             int cNew = c + option[1];
-            if (rNew >= 0 && rNew <= board.length - 1 && cNew >= 0 && cNew <= board[0].length - 1) {
-                if (recursive(board, word, index + 1, rNew, cNew, visited)) {
-                    return true;
-                }
+            if (recursive(board, word, index + 1, rNew, cNew)) {
+                return true;
             }
         }
 
-        visited[r][c] = false;
+        board[r][c] = temp;
 
         return false;
     }
