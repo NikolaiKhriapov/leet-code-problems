@@ -1,14 +1,15 @@
 class Solution {
     public boolean exist(char[][] board, String word) {
+        boolean[][] visited = new boolean[board.length][board[0].length];
+        
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                boolean[][] visited = new boolean[board.length][board[0].length];
-                int[] curr = new int[] { i, j };
-                if (recursive(board, word, 0, curr, visited)) {
+                if (recursive(board, word, 0, new int[] { i, j }, visited)) {
                     return true;
                 }
             }
         }
+
         return false;
     }
 
