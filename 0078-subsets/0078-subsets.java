@@ -6,10 +6,10 @@ class Solution {
         return result;
     }
 
-    private void recursive(int[] nums, int curr, List<List<Integer>> result, List<Integer> list) {
+    private void recursive(int[] nums, int index, List<List<Integer>> result, List<Integer> list) {
         result.add(new ArrayList<>(list));
 
-        for (int i = curr; i < nums.length; i++) {
+        for (int i = index; i < nums.length; i++) {
             list.add(nums[i]);
             recursive(nums, i + 1, result, list);
             list.remove(list.size() - 1);
