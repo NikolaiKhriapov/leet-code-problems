@@ -8,12 +8,11 @@ class Solution {
         for (int i = 1; i < intervals.length; i++) {
             int[] lastInterval = resultList.get(resultList.size() - 1);
             int[] currInterval = intervals[i];
-            if (currInterval[0] >= lastInterval[0] && currInterval[0] <= lastInterval[1]) {
-                if (currInterval[1] > lastInterval[1]) {
-                    lastInterval[1] = currInterval[1];
-                }
+
+            if (currInterval[0] <= lastInterval[1]) {
+                lastInterval[1] = Math.max(lastInterval[1], currInterval[1]);
             } else {
-                resultList.add(intervals[i]);
+                resultList.add(currInterval);
             }
         }
         
