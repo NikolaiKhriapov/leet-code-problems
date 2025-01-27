@@ -3,12 +3,6 @@ class Solution {
         if (n == 0) {
             return;
         }
-        if (m == 0) {
-            for (int i = 0; i < nums2.length; i++) {
-                nums1[i] = nums2[i];
-            }
-            return;
-        }
         
         int p = nums1.length - 1;
         int l = m - 1;
