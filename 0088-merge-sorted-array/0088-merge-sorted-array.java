@@ -4,7 +4,7 @@ class Solution {
         int l = m - 1;
         int r = n - 1;
 
-        while (p >= 0 && l >= 0 && r >= 0) {
+        while (l >= 0 && r >= 0) {
             if (nums2[r] >= nums1[l]) {
                 nums1[p] = nums2[r];
                 r--;
