@@ -16,12 +16,6 @@ class Solution {
             }
         }
 
-        int res = l + 1;
-
-        for (int i = l + 1; i < nums.length; i++) {
-            nums[i] = 0;
-        }
-
-        return res;
+        return l + 1;
     }
 }
