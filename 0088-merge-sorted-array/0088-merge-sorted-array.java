@@ -1,9 +1,5 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        if (n == 0) {
-            return;
-        }
-        
         int p = nums1.length - 1;
         int l = m - 1;
         int r = n - 1;
