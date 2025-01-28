@@ -3,10 +3,6 @@ class Solution {
         List<List<Integer>> result = new ArrayList<>();
         result.add(List.of(1));
 
-        if (numRows == 1) {
-            return result;
-        }
-        
         for (int i = 2; i <= numRows; i++) {
             List<Integer> prev = result.get(result.size() - 1);
             result.add(getRow(i, prev));
