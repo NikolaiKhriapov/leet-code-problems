@@ -4,23 +4,20 @@ class Solution {
         result.add(List.of(1));
 
         for (int i = 2; i <= numRows; i++) {
-            List<Integer> prev = result.get(result.size() - 1);
-            result.add(getRow(i, prev));
+            result.add(getRow(i, result.get(i - 2)));
         }
 
         return result;
     }
 
-    public List<Integer> getRow(int rowNumber, List<Integer> prev) {
-
+    private List<Integer> getRow(int rowNumber, List<Integer> prev) {
         List<Integer> row = new ArrayList<>();
+        
         row.add(1);
-
         for (int i = 1; i < rowNumber - 1; i++) {
             Integer sum = prev.get(i - 1) + prev.get(i);
             row.add(sum);
         }
-
         row.add(1);
 
         return row;
