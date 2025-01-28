@@ -19,14 +19,15 @@ class Solution {
     }
 
     public TreeNode helper(int[] nums, int l, int r) {
-        if (l > r) return null;
+        if (l > r) {
+            return null;
+        }
         
-        int index = (l + r) / 2;
+        int m = (l + r) / 2;
         
-        TreeNode node = new TreeNode(nums[index]);
-
-        node.left = helper(nums, l, index - 1);
-        node.right = helper(nums, index + 1, r);
+        TreeNode node = new TreeNode(nums[m]);
+        node.left = helper(nums, l, m - 1);
+        node.right = helper(nums, m + 1, r);
 
         return node;
     }
