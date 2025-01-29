@@ -17,9 +17,5 @@ class Solution {
             }
             r++;
         }
-
-        for (int i = l + 1; i < nums.length; i++) {
-            nums[i] = 0;
-        }        
     }
 }
