@@ -3,12 +3,13 @@ class Solution {
         Set<Integer> set = new HashSet<>();
 
         for (int n : nums) {
-            boolean isAdded = set.add(n);
-            if (!isAdded) {
+            if (set.contains(n)) {
                 return true;
+            } else {
+                set.add(n);
             }
         }
-
+        
         return false;
     }
 }
