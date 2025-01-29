@@ -1,9 +1,5 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        if (nums.length < 2) {
-            return;
-        }
-
         int l = 0;
         int r = 1;
 
