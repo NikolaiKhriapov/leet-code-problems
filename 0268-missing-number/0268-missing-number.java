@@ -1,16 +1,12 @@
 class Solution {
     public int missingNumber(int[] nums) {
+        int expectedSum = nums.length * (nums.length+1) / 2;
 
-        boolean[] visited = new boolean[10001];
-
+        int sum = 0;
         for (int n : nums) {
-            visited[n] = true;
-        }
-        
-        for (int i = 0; i <= nums.length; i++) {
-            if (!visited[i]) return i;
+            sum += n;
         }
 
-        return -1;
+        return expectedSum - sum;
     }
 }
