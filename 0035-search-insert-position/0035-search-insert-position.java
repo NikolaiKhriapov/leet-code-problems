@@ -5,7 +5,7 @@ class Solution {
 
     private int binarySearch(int[] nums, int l, int r, int target) {
         if (l > r) {
-            return r + 1;
+            return l;
         }
 
         int m = l + (r - l) / 2;
