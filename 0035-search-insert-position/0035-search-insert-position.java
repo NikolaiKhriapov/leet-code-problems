@@ -1,23 +1,22 @@
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        return search(nums, target, 0, nums.length - 1);
+        return binarySearch(nums, 0, nums.length - 1, target);
     }
 
-    private int search(int[] nums, int target, int l, int r) {
-        if (r < l) {
-            return l;
+    private int binarySearch(int[] nums, int l, int r, int target) {
+        if (l > r) {
+            return r + 1;
         }
 
-        int m = l + ((r - l) / 2);
+        int m = l + (r - l) / 2;
 
-        if (target == nums[m]) {
+        if (nums[m] == target) {
             return m;
-        } else if (target < nums[m]) {
-            return search(nums, target, l, m - 1);
-        } else if (target > nums[m]) {
-            return search(nums, target, m + 1, r);
         }
-
-        return -1;
+        if (nums[m] > target) {
+            return binarySearch(nums, l, m - 1, target);
+        } else {
+            return binarySearch(nums, m + 1, r, target);
+        }
     }
 }
