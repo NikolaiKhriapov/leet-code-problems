@@ -1,6 +1,5 @@
 class Solution {
     public int removeElement(int[] nums, int val) {
-
         int p1 = 0;
         int p2 = 0;
         
