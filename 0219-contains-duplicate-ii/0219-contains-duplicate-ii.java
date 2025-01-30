@@ -8,10 +8,8 @@ class Solution {
                 set.remove(nums[i - k - 1]);
             }            
 
-            if (set.contains(nums[i])) {
+            if (!set.add(nums[i])) {
                 return true;
-            } else {
-                set.add(nums[i]);
             }
         }
 
