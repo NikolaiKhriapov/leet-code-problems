@@ -7,15 +7,9 @@ class Solution {
 
         List<Integer> list = new ArrayList<>();
         for (int n : nums2) {
-            int val = map.getOrDefault(n, 0);
-            if (val > 0) {
+            if (map.containsKey(n) && map.get(n) > 0) {
                 list.add(n);
-                val--;
-            }
-            if (val == 0) {
-                map.remove(n);
-            } else {
-                map.put(n, val);
+                map.put(n, map.get(n) - 1);
             }
         }
 
