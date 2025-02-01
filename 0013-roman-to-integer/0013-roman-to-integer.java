@@ -12,25 +12,17 @@ class Solution {
 
         int result = 0;
 
+        int prev = 0;
         for (int i = s.length() - 1; i >= 0; i--) {
-            char c = s.charAt(i);
-            
-            if (i > 0) {
-                if ((c == 'V' || c == 'X') && s.charAt(i - 1) == 'I') {
-                    result += map.get(c) - map.get('I');
-                    i--;
-                } else if ((c == 'L' || c == 'C') && s.charAt(i - 1) == 'X') {
-                    result += map.get(c) - map.get('X');
-                    i--;
-                } else if ((c == 'D' || c == 'M') && s.charAt(i - 1) == 'C') {
-                    result += map.get(c) - map.get('C');
-                    i--;
-                } else {
-                    result += map.get(c);
-                }
+            int curr = map.get(s.charAt(i));
+
+            if (curr < prev) {
+                result -= curr;
             } else {
-                result += map.get(c);
+                result += curr;
             }
+            
+            prev = curr;
         }
 
         return result;
