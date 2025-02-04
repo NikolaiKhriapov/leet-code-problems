@@ -3,18 +3,18 @@ class Solution {
         List<String> result = new ArrayList<>();
         
         for (int i = 1; i <= n; i++) {
-            String s = "";
+            StringBuilder s = new StringBuilder();
             if (i % 3 == 0 || i % 5 == 0) {
                 if (i % 3 == 0) {
-                    s += "Fizz";
+                    s.append("Fizz");
                 }
                 if (i % 5 == 0) {
-                    s += "Buzz";
+                    s.append("Buzz");
                 }
             } else {
-                s += i;
+                s.append(i);
             }
-            result.add(s);
+            result.add(new String(s));
         }
 
         return result;
