@@ -1,13 +1,13 @@
 class Solution {
     public int strStr(String haystack, String needle) {
+        int haystackLength = haystack.length();
+        int needleLength = needle.length();
+
         int pN = 0;
         int pH = 0;
         int p = 0;
         
-        int hL = haystack.length();
-        int nL = needle.length();
-
-        while (p < hL) {
+        while (p < haystackLength) {
             if (haystack.charAt(p) != needle.charAt(pN)) {
                 pH++;
                 p = pH;
@@ -17,7 +17,7 @@ class Solution {
                 pN++;
             }
 
-            if (p - pH == nL) {
+            if (p - pH == needleLength) {
                 return pH;
             }
         }
