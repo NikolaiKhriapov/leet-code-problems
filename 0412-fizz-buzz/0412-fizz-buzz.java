@@ -11,10 +11,10 @@ class Solution {
                 if (i % 5 == 0) {
                     s.append("Buzz");
                 }
+                result.add(new String(s));
             } else {
-                s.append(String.valueOf(i));
+                result.add(String.valueOf(i));
             }
-            result.add(new String(s));
         }
 
         return result;
