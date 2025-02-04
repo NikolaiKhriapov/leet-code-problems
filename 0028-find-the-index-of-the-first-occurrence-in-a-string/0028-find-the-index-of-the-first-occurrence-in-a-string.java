@@ -4,7 +4,10 @@ class Solution {
         int pH = 0;
         int p = 0;
         
-        while (p < haystack.length()) {
+        int hL = haystack.length();
+        int nL = needle.length();
+
+        while (p < hL) {
             if (haystack.charAt(p) != needle.charAt(pN)) {
                 pH++;
                 p = pH;
@@ -14,7 +17,7 @@ class Solution {
                 pN++;
             }
 
-            if (p - pH == needle.length()) {
+            if (p - pH == nL) {
                 return pH;
             }
         }
