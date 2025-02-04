@@ -12,7 +12,7 @@ class Solution {
                     s.append("Buzz");
                 }
             } else {
-                s.append(i);
+                s.append(String.valueOf(i));
             }
             result.add(new String(s));
         }
