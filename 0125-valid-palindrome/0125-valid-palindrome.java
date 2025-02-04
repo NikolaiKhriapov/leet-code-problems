@@ -6,19 +6,14 @@ class Solution {
         int pr = s.length() - 1;
 
         while (pl < pr) {
-            char plc = s.charAt(pl);
-            char prc = s.charAt(pr);
-
-            if (!Character.isLetterOrDigit(plc)) {
+            while (pl < pr && !Character.isLetterOrDigit(s.charAt(pl))) {
                 pl++;
-                continue;
             }
-            if (!Character.isLetterOrDigit(prc)) {
+            while (pl < pr && !Character.isLetterOrDigit(s.charAt(pr))) {
                 pr--;
-                continue;
             }
 
-            if (plc != prc) {
+            if (pl < pr && s.charAt(pl) != s.charAt(pr)) {
                 return false;
             }
 
