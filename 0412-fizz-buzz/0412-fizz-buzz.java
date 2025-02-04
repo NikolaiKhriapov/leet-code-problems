@@ -3,15 +3,12 @@ class Solution {
         List<String> result = new ArrayList<>();
         
         for (int i = 1; i <= n; i++) {
-            StringBuilder s = new StringBuilder();
-            if (i % 3 == 0 || i % 5 == 0) {
-                if (i % 3 == 0) {
-                    s.append("Fizz");
-                }
-                if (i % 5 == 0) {
-                    s.append("Buzz");
-                }
-                result.add(new String(s));
+            if (i % 3 == 0 && i % 5 == 0) {
+                result.add("FizzBuzz");
+            } else if (i % 3 == 0) {
+                result.add("Fizz");
+            } else if (i % 5 == 0) {
+                result.add("Buzz");
             } else {
                 result.add(String.valueOf(i));
             }
