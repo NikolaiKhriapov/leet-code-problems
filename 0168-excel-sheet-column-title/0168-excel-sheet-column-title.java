@@ -4,11 +4,10 @@ class Solution {
 
         while (columnNumber > 0) {
             columnNumber--;
-            char c = (char) ('A' + columnNumber % 26);
-            sb.insert(0, c);
+            sb.append((char) (columnNumber % 26 + 'A'));
             columnNumber /= 26;
         }
 
-        return sb.toString();
+        return sb.reverse().toString();
     }
 }
