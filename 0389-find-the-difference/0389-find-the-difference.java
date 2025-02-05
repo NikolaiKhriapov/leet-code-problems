@@ -1,17 +1,18 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        int[] letterCount = new int[26];
+        int[] arr = new int[26];
 
         for (char c : s.toCharArray()) {
-            letterCount[c - 'a']++;
+            arr[c - 'a']++;
         }
 
         for (char c : t.toCharArray()) {
-            if (--letterCount[c - 'a'] < 0) {
+            if (arr[c - 'a'] == 0) {
                 return c;
             }
+            arr[c - 'a']--;
         }
-        
+
         return '0';
     }
 }
