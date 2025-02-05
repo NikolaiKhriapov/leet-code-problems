@@ -1,10 +1,12 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
-
         int p1 = 0;
         int p2 = 0;
 
-        while (p1 < s.length() && p2 < t.length()) {
+        int sLength = s.length();
+        int tLength = t.length();
+
+        while (p1 < sLength && p2 < tLength) {
             char cs = s.charAt(p1);
             char ct = t.charAt(p2);
             
