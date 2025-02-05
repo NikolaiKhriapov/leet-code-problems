@@ -4,20 +4,17 @@ class Solution {
             return false;
         }
 
-        Map<Character, Integer> map = new HashMap<>();
+        int[] array = new int[26];
+
         for (char c : magazine.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+            array[c - 'a']++;
         }
         
         for (char c : ransomNote.toCharArray()) {
-            if (!map.containsKey(c)) {
+            if (array[c - 'a'] == 0) {
                 return false;
             }
-            int n = map.get(c);
-            if (--n < 0) {
-                return false;
-            }
-            map.put(c, n);
+            array[c - 'a']--;
         }
 
         return true;
