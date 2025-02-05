@@ -7,10 +7,9 @@ class Solution {
         }
 
         for (char c : t.toCharArray()) {
-            if (arr[c - 'a'] == 0) {
+            if (--arr[c - 'a'] < 0) {
                 return c;
             }
-            arr[c - 'a']--;
         }
 
         return '0';
