@@ -21,7 +21,7 @@ class Solution {
     }
 
     private void helper(TreeNode node, List<String> result, StringBuilder sb) {
-        if (!Objects.equals(sb.toString(), "")) {
+        if (sb.length() != 0) {
             sb.append("->");
         }
         sb.append(node.val);
