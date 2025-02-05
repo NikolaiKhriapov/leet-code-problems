@@ -3,22 +3,22 @@ class Solution {
         if (s.length() != t.length()) {
             return false;
         }
-
+        
         Map<Character, Character> map = new HashMap<>();
         
         for (int i = 0; i < s.length(); i++) {
-            char sc = s.charAt(i);
-            char tc = t.charAt(i);
-
-            if (!map.containsKey(sc)) {
-                if (map.containsValue(tc)) {
+            char cs = s.charAt(i);
+            char ct = t.charAt(i);
+            
+            if (map.containsKey(cs)) {
+                if (map.get(cs) != ct) {
                     return false;
                 }
-                map.put(sc, tc);
             } else {
-                if (tc != map.get(sc)) {
+                if (map.containsValue(ct)) {
                     return false;
                 }
+                map.put(cs, ct);
             }
         }
 
