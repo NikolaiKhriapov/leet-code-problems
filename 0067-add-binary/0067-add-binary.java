@@ -1,46 +1,23 @@
 class Solution {
-    public String addBinary(String a, String b) {   
-        String longest = a.length() > b.length() ? a : b;
-
+    public String addBinary(String a, String b) {
         StringBuilder sb = new StringBuilder();
-        int carry = 0;
-        for (int i = 0; i < longest.length(); i++) {
-            int aN = getNumber(a, i);
-            int bN = getNumber(b, i);
-            int sum = aN + bN + carry;
 
-            if (sum == 0) {
-                sb.append(0);
-            } else if (sum == 1) {
-                sb.append(1);
-                carry = 0;
-            } else if (sum == 2) {
-                sb.append(0);
-                carry = 1;
-            } else if (sum > 2) {
-                sb.append(1);
-                carry = 1;
-            }
-        }
-        
-        if (carry > 0) {
-            sb.append(1);
+        int pa = a.length() - 1;
+        int pb = b.length() - 1;
+        int n = 0;
+
+        while (pa >= 0 || pb >= 0 || n > 0) {
+            int na = (pa >= 0) ? a.charAt(pa) - '0' : 0;
+            int nb = (pb >= 0) ? b.charAt(pb) - '0' : 0;
+            int sum = na + nb + n;
+
+            sb.append(sum % 2);
+            n = sum / 2;
+
+            pa--;
+            pb--;
         }
 
-        char[] result = sb.toString().toCharArray();
-        for (int i = 0; i < result.length / 2; i++) {
-            char tmp = result[i];
-            result[i] = result[result.length - 1 - i];
-            result[result.length - 1 - i] = tmp;
-        }
-
-        return new String(result);
-    }
-
-    public int getNumber(String s, int i) {
-        if (s.length() - 1 < i) {
-            return 0;
-        }
-        return s.charAt(s.length() - 1 - i) - '0';
+        return sb.reverse().toString();
     }
 }
