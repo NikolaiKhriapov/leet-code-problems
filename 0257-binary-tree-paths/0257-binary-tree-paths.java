@@ -21,7 +21,6 @@ class Solution {
     }
 
     private void helper(TreeNode node, List<String> result, StringBuilder sb) {
-        StringBuilder sbB = new StringBuilder(sb.toString());
         if (!Objects.equals(sb.toString(), "")) {
             sb.append("->");
         }
@@ -29,16 +28,14 @@ class Solution {
         
         if (node.left == null && node.right == null) {
             result.add(sb.toString());
-            sb = sbB;
         }
 
-        StringBuilder sbBB = new StringBuilder(sb.toString());
+        StringBuilder sbB = new StringBuilder(sb.toString());
         if (node.left != null) {
             helper(node.left, result, sb);
         }
         if (node.right != null) {
-            sb = sbBB;
-            helper(node.right, result, sb);
+            helper(node.right, result, sbB);
         }
     }
 }
