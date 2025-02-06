@@ -1,20 +1,25 @@
 class MyHashSet {
 
-    public boolean[] set = new boolean[1000001];
+    boolean[] array;
 
     public MyHashSet() {
+        array = new boolean[1000001];
     }
     
     public void add(int key) {
-        set[key] = true;
+        if (!this.contains(key)) {
+            array[key] = true;
+        }
     }
     
     public void remove(int key) {
-        set[key] = false;
+        if (this.contains(key)) {
+            array[key] = false;
+        }
     }
     
     public boolean contains(int key) {
-        return set[key];
+        return array[key];
     }
 }
 
