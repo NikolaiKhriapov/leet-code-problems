@@ -1,27 +1,23 @@
 class Solution {
     public int findLHS(int[] nums) {
-
         Arrays.sort(nums);
 
-        int l = 0;
-        int r = 1;
+        int maxDiff = 0;
+        int p1 = 0;
+        int p2 = 1;
 
-        int longest = 0;
-        while (r < nums.length && l < nums.length) {
-            int diff = nums[r] - nums[l];
-            if (diff <= 1) {
-                if (diff == 1) {
-                    int length = r - l + 1;
-                    if (length > longest) {
-                        longest = length;
-                    }
-                }
-                r++;
+        while (p2 < nums.length) {
+            int diff = nums[p2] - nums[p1];
+            if (diff == 1) {
+                maxDiff = Math.max(maxDiff, p2 - p1 + 1);
+                p2++;
             } else if (diff > 1) {
-                l++;
+                p1++;
+            } else {
+                p2++;
             }
         }
-        
-        return longest;
+
+        return maxDiff;
     }
 }
