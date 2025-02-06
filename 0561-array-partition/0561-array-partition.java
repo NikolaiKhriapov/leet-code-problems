@@ -1,14 +1,13 @@
 class Solution {
     public int arrayPairSum(int[] nums) {
+        int result = 0;
+
         Arrays.sort(nums);
-
-        int sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i % 2 == 1) {
-                sum += nums[nums.length - 1 - i];
-            }
+        
+        for (int i = 0; i < nums.length; i += 2) {
+            result += Math.min(nums[i], nums[i + 1]);
         }
-
-        return sum;
+        
+        return result;
     }
 }
