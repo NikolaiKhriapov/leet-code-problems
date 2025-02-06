@@ -14,11 +14,7 @@ public class Solution {
         ListNode pa = headA;
         ListNode pb = headB;
 
-        while (pa != null || pb != null) {
-            if (Objects.equals(pa, pb)) {
-                return pa;
-            }
-
+        while (pa != pb) {
             if (pa != null) {
                 pa = pa.next;
             } else {
