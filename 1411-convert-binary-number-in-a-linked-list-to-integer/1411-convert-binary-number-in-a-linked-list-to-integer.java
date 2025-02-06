@@ -14,26 +14,20 @@ class Solution {
 
         while (head != null) {
             sb.append(head.val);
-            if (head.next != null) {
-                head = head.next;
-            } else {
-                head = null;
-            }
+            head = head.next;
         }
 
         String s = sb.toString();
+        
+        int sum = 0;
+        int p = s.length() - 1;
 
-        return convertBinaryToDecimal(s);
-    }
-
-    public int convertBinaryToDecimal(String s) {
-        int result = 0;
-        for (int i = 0, size = s.length(); i < size; i++) {
-            char c = s.charAt(size - 1 - i);
-            if (c == '1') {
-                result += Math.pow(2, i);
-            }
+        while (p >= 0) {
+            int v = (s.charAt(p) == '1') ? ((int) Math.pow(2, s.length() - 1 - p)) : 0;
+            sum += v;
+            p--;
         }
-        return result;
+
+        return sum;
     }
 }
