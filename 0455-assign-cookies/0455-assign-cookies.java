@@ -7,15 +7,10 @@ class Solution {
         int p2 = 0;
         
         while (p1 < g.length && p2 < s.length) {
-            while (p2 < s.length - 1 && g[p1] > s[p2]) {
-                p2++;
-            }
             if (g[p1] <= s[p2]) {
                 p1++;
-                p2++;
-            } else {
-                break;
             }
+            p2++;
         }
     
         return p1;
