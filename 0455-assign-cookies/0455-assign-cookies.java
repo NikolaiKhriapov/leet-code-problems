@@ -3,7 +3,6 @@ class Solution {
         Arrays.sort(g);
         Arrays.sort(s);
 
-        int result = 0;
         int p1 = 0;
         int p2 = 0;
         
@@ -12,7 +11,6 @@ class Solution {
                 p2++;
             }
             if (g[p1] <= s[p2]) {
-                result++;
                 p1++;
                 p2++;
             } else {
@@ -20,6 +18,6 @@ class Solution {
             }
         }
     
-        return result;
+        return p1;
     }
 }
