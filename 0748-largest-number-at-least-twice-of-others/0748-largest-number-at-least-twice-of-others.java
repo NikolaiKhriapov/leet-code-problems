@@ -1,19 +1,19 @@
 class Solution {
     public int dominantIndex(int[] nums) {
-        int largest = 0;
 
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] > nums[largest]) {
-                largest = i;
-            }
-        }
-
+        int largest = -1;
+        int largestIndex = -1;
+        int secondLargest = -1;
         for (int i = 0; i < nums.length; i++) {
-            if (i != largest && nums[i] * 2 > nums[largest]) {
-                return -1;
+            if (nums[i] > largest) {
+                secondLargest = largest;
+                largest = nums[i];
+                largestIndex = i;
+            } else if (nums[i] > secondLargest) {
+                secondLargest = nums[i];
             }
         }
-        
-        return largest;
+
+        return (largest >= (2 * secondLargest)) ? largestIndex : -1;
     }
 }
