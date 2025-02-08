@@ -3,7 +3,7 @@ class Solution {
         int aliceTotal = 0;
         int bobTotal = 0;
 
-        boolean[] aliceSet = new boolean[1000000];
+        boolean[] aliceSet = new boolean[100001];
         for (int n : aliceSizes) {
             aliceTotal += n;
             aliceSet[n] = true;
@@ -15,7 +15,7 @@ class Solution {
 
         for (int n : bobSizes) {
             int aliceNeedsToGive = (bobTotal - aliceTotal - 2 * n) / -2;
-            if (aliceNeedsToGive > 0 && aliceSet[aliceNeedsToGive]) {
+            if (aliceNeedsToGive > 0 && aliceNeedsToGive < aliceSet.length && aliceSet[aliceNeedsToGive]) {
                 return new int[] {aliceNeedsToGive, n};
             }
         }
