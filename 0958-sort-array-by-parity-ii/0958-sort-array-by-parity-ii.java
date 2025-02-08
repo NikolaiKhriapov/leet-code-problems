@@ -3,9 +3,9 @@ class Solution {
         int pl = 0;
         int pr = 1;
 
-        while (pl < nums.length && pr < nums.length) {
+        while (pl < nums.length) {
             if (isEven(pl) && !isEven(nums[pl])) {
-                while (pr < nums.length && !isEven(nums[pr])) {
+                while (!isEven(nums[pr])) {
                     pr += 2;
                 }
                 int temp = nums[pl];
