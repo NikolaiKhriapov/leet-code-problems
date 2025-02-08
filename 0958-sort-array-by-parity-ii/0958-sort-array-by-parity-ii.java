@@ -3,28 +3,16 @@ class Solution {
         int pl = 0;
         int pr = 1;
 
-        while (pl < nums.length - 1) {
-            if (isEven(pl)) {
-                if (!isEven(nums[pl])) {
-                    while (pr < nums.length && !isEven(nums[pr])) {
-                        pr++;
-                    }
-                    int temp = nums[pl];
-                    nums[pl] = nums[pr];
-                    nums[pr] = temp;
+        while (pl < nums.length && pr < nums.length) {
+            if (isEven(pl) && !isEven(nums[pl])) {
+                while (pr < nums.length && !isEven(nums[pr])) {
+                    pr += 2;
                 }
-            } else {
-                if (isEven(nums[pl])) {
-                    while (pr < nums.length && isEven(nums[pr])) {
-                        pr++;
-                    }
-                    int temp = nums[pl];
-                    nums[pl] = nums[pr];
-                    nums[pr] = temp;
-                }
+                int temp = nums[pl];
+                nums[pl] = nums[pr];
+                nums[pr] = temp;
             }
-            pl++;
-            pr = pl + 1;
+            pl += 2;
         }
 
         return nums;
