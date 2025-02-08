@@ -1,21 +1,27 @@
 class Solution {
     public int[] findErrorNums(int[] nums) {
-        int[] arr = new int[nums.length];
+        int[] array = new int[10001];
 
         for (int n : nums) {
-            arr[n - 1] += 1;
+            array[n]++;
         }
 
-        int[] result = new int[2];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 2) {
-                result[0] = i + 1;
-            }
-            if (arr[i] == 0) {
-                result[1] = i + 1;
+        int dupl = -1;
+        int miss = -1;
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] != 1) {
+                if (array[i] == 0) {
+                    miss = i;
+                } else if (array[i] == 2) {
+                    dupl = i;
+                }
+                if (miss != -1 && dupl != -1) {
+                    return new int[] {dupl, miss};
+                }
             }
         }
 
-        return result;
+        return new int[] {-1, -1};
     }
 }
