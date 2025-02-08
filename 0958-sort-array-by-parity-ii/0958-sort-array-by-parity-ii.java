@@ -1,21 +1,33 @@
 class Solution {
     public int[] sortArrayByParityII(int[] nums) {
-        int[] array = new int[nums.length];
+        int pl = 0;
+        int pr = 1;
 
-        int pe = 0;
-        int po = 1;
-
-        for (int i = 0; i < nums.length; i++) {
-            if (isEven(nums[i])) {
-                array[pe] = nums[i];
-                pe += 2;
+        while (pl < nums.length - 1) {
+            if (isEven(pl)) {
+                if (!isEven(nums[pl])) {
+                    while (pr < nums.length && !isEven(nums[pr])) {
+                        pr++;
+                    }
+                    int temp = nums[pl];
+                    nums[pl] = nums[pr];
+                    nums[pr] = temp;
+                }
             } else {
-                array[po] = nums[i];
-                po += 2;
+                if (isEven(nums[pl])) {
+                    while (pr < nums.length && isEven(nums[pr])) {
+                        pr++;
+                    }
+                    int temp = nums[pl];
+                    nums[pl] = nums[pr];
+                    nums[pr] = temp;
+                }
             }
+            pl++;
+            pr = pl + 1;
         }
-        
-        return array;
+
+        return nums;
     }
 
     private boolean isEven(int n) {
