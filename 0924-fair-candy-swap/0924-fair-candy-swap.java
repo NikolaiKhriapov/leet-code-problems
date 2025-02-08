@@ -3,10 +3,10 @@ class Solution {
         int aliceTotal = 0;
         int bobTotal = 0;
 
-        Set<Integer> aliceSet = new HashSet<>();
+        boolean[] aliceSet = new boolean[1000000];
         for (int n : aliceSizes) {
             aliceTotal += n;
-            aliceSet.add(n);
+            aliceSet[n] = true;
         }
 
         for (int n : bobSizes) {
@@ -15,7 +15,7 @@ class Solution {
 
         for (int n : bobSizes) {
             int aliceNeedsToGive = (bobTotal - aliceTotal - 2 * n) / -2;
-            if (aliceSet.contains(aliceNeedsToGive)) {
+            if (aliceNeedsToGive > 0 && aliceSet[aliceNeedsToGive]) {
                 return new int[] {aliceNeedsToGive, n};
             }
         }
