@@ -1,6 +1,6 @@
 class MyStack {
 
-    private Queue<Integer> queue;
+    Queue<Integer> queue;
 
     public MyStack() {
         queue = new LinkedList<>();
@@ -8,13 +8,13 @@ class MyStack {
     
     public void push(int x) {
         queue.add(x);
-        for (int i = 1; i < queue.size(); i++) {
-            queue.add(queue.remove());
+        for (int i = 0, size = queue.size() - 1; i < size; i++) {
+            queue.add(queue.poll());
         }
     }
     
     public int pop() {
-        return queue.remove();
+        return queue.poll();
     }
     
     public int top() {
