@@ -20,6 +20,7 @@ class MyQueue {
     public int peek() {
         updateOutputStack();
         return outputStack.peek();
+
     }
     
     public boolean empty() {
