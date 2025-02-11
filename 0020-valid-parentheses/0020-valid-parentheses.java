@@ -1,20 +1,20 @@
 class Solution {
     public boolean isValid(String s) {
-
-        Map<Character, Character> map = new HashMap<>();
-        map.put(')', '(');
-        map.put('}', '{');
-        map.put(']', '[');
+        String opening = "({[";
+        String closing = ")}]";
 
         Stack<Character> stack = new Stack<>();
+        
         for (char c : s.toCharArray()) {
-            if (stack.size() > 0 && stack.peek() == map.get(c)) {
-                stack.pop();
-            } else {
+            if (opening.indexOf(c) != -1) {
                 stack.add(c);
+            } else {
+                if (opening.indexOf(stack.pop()) != closing.indexOf(c)) {
+                    return false;
+                }
             }
         }
-        
+
         return stack.size() == 0;
     }
 }
