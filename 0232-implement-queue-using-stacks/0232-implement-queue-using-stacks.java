@@ -3,36 +3,31 @@ class MyQueue {
     private Stack<Integer> stack;
 
     public MyQueue() {
-        stack = new Stack<Integer>();
+        stack = new Stack<>();
     }
     
     public void push(int x) {
-        Stack<Integer> stack2 = new Stack<Integer>();
-        while (!stack.empty()) {
-            stack2.push(stack.pop());
+        Stack<Integer> temp = new Stack<>();
+        while (!stack.isEmpty()) {
+            temp.add(stack.pop());
         }
-        stack.push(x);
-        while (!stack2.empty()) {
-            stack.push(stack2.pop());
+        temp.add(x);
+
+        while (!temp.isEmpty()) {
+            stack.add(temp.pop());
         }
     }
     
     public int pop() {
-        if (!stack.empty()) {
-            return stack.pop();
-        }
-        return -1;
+        return stack.pop();
     }
     
     public int peek() {
-        if (!stack.empty()) {
-            return stack.peek();
-        }
-        return -1;
+        return stack.peek();
     }
     
     public boolean empty() {
-        return stack.empty();
+        return stack.isEmpty();
     }
 }
 
