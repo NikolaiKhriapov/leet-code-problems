@@ -2,39 +2,38 @@ class Solution {
     public int largestSumAfterKNegations(int[] nums, int k) {
         Arrays.sort(nums);
 
-        int counter = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (counter >= k) {
+            if (k == 0) {
                 break;
             }
 
             if (nums[i] < 0) {
                 nums[i] *= -1;
-                counter++;
+                k--;
             } else if (nums[i] == 0) {
                 break;
             } else if (nums[i] > 0) {
                 if (i == 0) {
-                    while (counter < k) {
+                    while (k > 0) {
                         nums[i] *= -1;
-                        counter++;
+                        k--;
                     }
                 } else {
                     if (Math.abs(nums[i]) >= Math.abs(nums[i - 1])) {
-                        while (counter < k) {
+                        while (k > 0) {
                             nums[i - 1] *= -1;
-                            counter++;
+                            k--;
                         }
                     } else {
-                        while (counter < k) {
+                        while (k > 0) {
                             nums[i] *= -1;
-                            counter++;
+                            k--;
                         }
                     }
                 }
             }
 
-            if (i == nums.length - 1 && counter < k) {
+            if (i == nums.length - 1 && k > 0) {
                 i--;
             }
         }
