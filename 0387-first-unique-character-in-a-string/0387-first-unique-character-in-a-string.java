@@ -6,9 +6,9 @@ class Solution {
             array[c - 'a']++;
         }
 
-        for (char c : s.toCharArray()) {
-            if (array[c - 'a'] == 1) {
-                return s.indexOf(c);
+        for (int i = 0; i < s.length(); i++) {
+            if (array[s.charAt(i) - 'a'] == 1) {
+                return i;
             }
         }
 
