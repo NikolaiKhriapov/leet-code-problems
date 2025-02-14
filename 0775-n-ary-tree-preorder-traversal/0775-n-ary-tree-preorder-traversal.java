@@ -20,16 +20,18 @@ class Node {
 class Solution {
     public List<Integer> preorder(Node root) {
         List<Integer> list = new ArrayList<>();
-        handleNode(root, list);
+        helper(root, list);
         return list;
     }
 
-    private void handleNode(Node node, List<Integer> list) {
-        if (node != null) {
-            list.add(node.val);
-            for (Node child : node.children) {
-                handleNode(child, list);
-            }
+    private void helper(Node node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
+
+        list.add(node.val);
+        for (Node child : node.children) {
+            helper(child, list);
         }
     }
 }
