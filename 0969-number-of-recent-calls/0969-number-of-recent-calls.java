@@ -1,26 +1,19 @@
 class RecentCounter {
 
-    Stack<Integer> stack;
+    Queue<Integer> q;
 
     public RecentCounter() {
-        stack = new Stack<>();
+        q = new LinkedList<>();
     }
     
     public int ping(int t) {
-        stack.add(t);
+        q.add(t);
         
-        Stack<Integer> temp = new Stack<>();
-
-        while (!stack.isEmpty()) {
-            Integer el = stack.pop();
-            if (t - el <= 3000) {
-                temp.add(el);
-            }
+        while (!q.isEmpty() && (t - q.peek() > 3000)) {
+            q.poll();
         }
 
-        stack = temp;
-
-        return stack.size();
+        return q.size();
     }
 }
 
