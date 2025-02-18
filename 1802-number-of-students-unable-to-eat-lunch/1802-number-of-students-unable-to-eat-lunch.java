@@ -1,29 +1,18 @@
 class Solution {
     public int countStudents(int[] students, int[] sandwiches) {
-        Queue<Integer> queue = new LinkedList<>();
+        int[] count = new int[2];
+
         for (int n : students) {
-            queue.add(n);
+            count[n]++;
         }
         
-        Stack<Integer> stack = new Stack<>();
-        for (int i = sandwiches.length - 1; i >= 0; i--) {
-            stack.push(sandwiches[i]);
-        }
-
-        int rep = 0;
-        int maxReps = students.length;
-        while (!queue.isEmpty() && rep <= maxReps) {
-            int st = queue.poll();
-            if (st != stack.peek()) {
-                queue.add(st);
-                rep++;
-            } else {
-                stack.pop();
-                maxReps--;
-                rep = 0;
+        for (int i = 0; i < sandwiches.length; i++) {
+            count[sandwiches[i]]--;
+            if (count[sandwiches[i]] < 0) {
+                return sandwiches.length - i;
             }
         }
 
-        return queue.size();
+        return 0;
     }
 }
