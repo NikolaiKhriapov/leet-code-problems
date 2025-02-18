@@ -7,8 +7,7 @@ class Solution {
         }
         
         for (int i = 0; i < sandwiches.length; i++) {
-            count[sandwiches[i]]--;
-            if (count[sandwiches[i]] < 0) {
+            if (--count[sandwiches[i]] < 0) {
                 return sandwiches.length - i;
             }
         }
