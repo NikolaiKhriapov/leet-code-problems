@@ -18,7 +18,6 @@ class Solution {
         if (root == null) {
             return true;
         }
-
         return Math.abs(helper(root.left) - helper(root.right)) < 2 && isBalanced(root.left) && isBalanced(root.right);
     }
 
@@ -26,6 +25,14 @@ class Solution {
         if (node == null) {
             return 0;
         }
-        return 1 + Math.max(helper(node.left), helper(node.right));
+
+        int left = helper(node.left);
+        int right = helper(node.right);
+
+        if (left == -1 || right == -1) {
+            return -1;
+        }
+
+        return 1 + Math.max(left, right);
     }
 }
