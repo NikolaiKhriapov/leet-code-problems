@@ -15,10 +15,7 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        return Math.abs(helper(root.left) - helper(root.right)) < 2 && isBalanced(root.left) && isBalanced(root.right);
+        return helper(root) != -1;
     }
 
     private int helper(TreeNode node) {
@@ -30,6 +27,9 @@ class Solution {
         int right = helper(node.right);
 
         if (left == -1 || right == -1) {
+            return -1;
+        }
+        if (Math.abs(left - right) > 1) {
             return -1;
         }
 
