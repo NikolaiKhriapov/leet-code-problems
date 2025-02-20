@@ -18,17 +18,17 @@ class Solution {
         return helper(nums, 0, nums.length - 1);
     }
 
-    public TreeNode helper(int[] nums, int l, int r) {
+    private TreeNode helper(int[] nums, int l, int r) {
         if (l > r) {
             return null;
         }
-        
-        int m = (l + r) / 2;
-        
-        TreeNode node = new TreeNode(nums[m]);
-        node.left = helper(nums, l, m - 1);
-        node.right = helper(nums, m + 1, r);
 
-        return node;
+        int m = l + (r - l) / 2;
+
+        return new TreeNode(
+            nums[m],
+            helper(nums, l, m - 1),
+            helper(nums, m + 1, r)
+        );
     }
 }
