@@ -19,21 +19,13 @@ class Solution {
             return true;
         }
 
-        if (Math.abs(helper(root.left) - helper(root.right)) > 1) {
-            return false;
-        }
-        
-        return isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(helper(root.left) - helper(root.right)) < 2 && isBalanced(root.left) && isBalanced(root.right);
     }
 
     private int helper(TreeNode node) {
         if (node == null) {
             return 0;
         }
-
-        int left = helper(node.left);
-        int right = helper(node.right);
-
-        return 1 + Math.max(left, right);
+        return 1 + Math.max(helper(node.left), helper(node.right));
     }
 }
