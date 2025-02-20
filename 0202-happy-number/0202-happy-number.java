@@ -1,22 +1,25 @@
 class Solution {
     public boolean isHappy(int n) {
-        int slow = n;
-        int fast = n;
-
-        do {
-            slow = calcSquared(slow);
-            fast = calcSquared(calcSquared(fast));
-        } while (slow != fast);
-
-        return slow == 1;
+        Set<Integer> set = new HashSet<>();
+        while (n != 1) {
+            if (!set.add(n)) {
+                return false;
+            }
+            n = getProduct(n);
+        }
+        
+        return true;
     }
 
-    private int calcSquared(int n) {
-        int a = 0;
-        while (n > 0) {
-            a += Math.pow(n % 10, 2);
+    private int getProduct(int n) {
+        int result = 0;
+        
+        while (n > 9) {
+            result += (n % 10) * (n % 10);
             n /= 10;
         }
-        return a;
+        result += n * n;
+
+        return result;
     }
 }
