@@ -5,13 +5,15 @@ class Solution {
         }
 
         Map<Character, Character> map = new HashMap<>();
+        Set<Character> set = new HashSet<>();
 
         for (int i = 0; i < s.length(); i++) {
             char cs = s.charAt(i);
             char ct = t.charAt(i);
             if (!map.containsKey(cs)) {
-                if (!map.containsValue(ct)) {
+                if (!set.contains(ct)) {
                     map.put(cs, ct);
+                    set.add(ct);
                 } else {
                     return false;
                 }
