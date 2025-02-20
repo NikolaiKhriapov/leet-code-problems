@@ -6,17 +6,17 @@ class Solution {
             array[n] = true;
         }
 
-        Set<Integer> set = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
         for (int n : nums2) {
             if (array[n]) {
-                set.add(n);
+                list.add(n);
+                array[n] = false;
             }
         }
         
-        int[] result = new int[set.size()];
-        int p = 0;
-        for (int n : set) {
-            result[p++] = n;
+        int[] result = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            result[i] = list.get(i);
         }
 
         return result;
