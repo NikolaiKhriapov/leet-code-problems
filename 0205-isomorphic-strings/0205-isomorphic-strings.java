@@ -4,23 +4,19 @@ class Solution {
             return false;
         }
 
-        Map<Character, Character> map = new HashMap<>();
-        Set<Character> set = new HashSet<>();
+        int[] sMap = new int[256];
+        int[] tMap = new int[256];
+        Arrays.fill(sMap, -1);
+        Arrays.fill(tMap, -1);
 
         for (int i = 0; i < s.length(); i++) {
             char cs = s.charAt(i);
             char ct = t.charAt(i);
-            if (!map.containsKey(cs)) {
-                if (!set.contains(ct)) {
-                    map.put(cs, ct);
-                    set.add(ct);
-                } else {
-                    return false;
-                }
-            } else {
-                if (map.get(cs) != ct) {
-                    return false;
-                }
+            if (sMap[cs] == -1 && tMap[ct] == -1) {
+                sMap[cs] = ct;
+                tMap[ct] = cs;
+            } else if (sMap[cs] != ct || tMap[ct] != cs) {
+                return false;
             }
         }
         
