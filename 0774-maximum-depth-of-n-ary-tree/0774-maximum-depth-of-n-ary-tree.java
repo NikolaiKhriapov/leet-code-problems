@@ -19,11 +19,13 @@ class Node {
 
 class Solution {
     public int maxDepth(Node root) {
-        if (root == null) return 0;
-        
-        int depth = 0;
+        if (root == null) {
+            return 0;
+        }
+
         Queue<Node> q = new LinkedList<>();
         q.add(root);
+        int depth = 0;
 
         while (!q.isEmpty()) {
             int size = q.size();
