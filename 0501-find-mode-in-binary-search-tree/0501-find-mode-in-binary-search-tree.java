@@ -1,54 +1,53 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
+
+    private Integer prev = null;
+    private int count = 0;
+    private int countMax = 0;
+    private List<Integer> list = new ArrayList<>();
+
     public int[] findMode(TreeNode root) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        handleNode(root, map);
-
-        List<Integer> list = new ArrayList<>();
-        int largest = 0;
-        for (var entry : map.entrySet()) {
-            if (entry.getValue() > largest) {
-                largest = entry.getValue();
-            }
+        if (root == null) {
+            return new int[0];
         }
-        for (var entry : map.entrySet()) {
-            if (entry.getValue() == largest) {
-                list.add(entry.getKey());
-            }
-        }
-
-        int[] array = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            array[i] = list.get(i);
-        }
-
-        return array;
+        helper(root);
+        return convertListToArray(list);
     }
 
-    private void handleNode(TreeNode node, HashMap<Integer, Integer> map) {
-        if (node != null) {
-            map.put(node.val, map.getOrDefault(node.val, 0) + 1);
-            if (node.left != null) {
-                handleNode(node.left, map);
-            }
-            if (node.right != null) {
-                handleNode(node.right, map);
-            }
+    private void helper(TreeNode node) {
+        if (node == null) {
+            return;
         }
+
+        if (node.left != null) {
+            helper(node.left);
+        }
+
+        if (prev != null && node.val == prev) {
+            count++;
+        } else {
+            count = 1;
+        }
+
+        if (count > countMax) {
+            countMax = count;
+            list = new ArrayList<>();
+            list.add(node.val);
+        } else if (count == countMax) {
+            list.add(node.val);
+        }
+
+        prev = node.val;
+
+        if (node.right != null) {
+            helper(node.right);
+        }
+    }
+
+    private int[] convertListToArray(List<Integer> list) {
+        int[] array = new int[list.size()];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = list.get(i);
+        }
+        return array;
     }
 }
