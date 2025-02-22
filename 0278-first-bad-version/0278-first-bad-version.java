@@ -3,16 +3,18 @@
 
 public class Solution extends VersionControl {
     public int firstBadVersion(int n) {
-        int l = 1, r = n;
-        
-        while (l < r) {  // Stop when l == r
-            int m = l + (r - l) / 2;
-            if (isBadVersion(m)) {
-                r = m;  // Narrow to left side
-            } else {
-                l = m + 1;  // Move right
-            }
+        return helper(1, n);
+    }
+
+    private int helper(int l, int r) {
+        if (l > r) return l;
+
+        int m = l + (r - l) / 2;
+
+        if (isBadVersion(m)) {
+            return helper(l, m - 1);
+        } else {
+            return helper(m + 1, r);
         }
-        return l;  // l and r are the same at the first bad version
     }
 }
