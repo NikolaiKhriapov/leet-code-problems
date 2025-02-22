@@ -14,6 +14,8 @@
  * }
  */
 class Solution {
+    Map<TreeNode, Integer> map = new HashMap<>();
+    
     public int findTilt(TreeNode root) {
         if (root == null) {
             return 0;
@@ -27,6 +29,10 @@ class Solution {
     }
 
     private int helper(TreeNode node) {
+        if (map.containsKey(node)) {
+            return map.get(node);
+        }
+
         List<Integer> list = new ArrayList<>();
         
         subhelper(node, list);
@@ -35,6 +41,9 @@ class Solution {
         for (int n : list) {
             sum += n;
         }
+        
+        map.put(node, sum);
+        
         return sum;
     }
 
