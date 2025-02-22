@@ -24,13 +24,11 @@ class Solution {
         return list;
     }
 
-    private void helper(Node node, List<Integer> list) {
-        if (node == null) {
-            return;
-        }
+    private void helper(Node root, List<Integer> list) {
+        if (root == null) return;
 
-        list.add(node.val);
-        for (Node child : node.children) {
+        list.add(root.val);
+        for (Node child : root.children) {
             helper(child, list);
         }
     }
