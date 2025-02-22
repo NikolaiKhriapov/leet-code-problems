@@ -1,25 +1,24 @@
 class Solution {
-    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {        
-        int aliceTotal = 0;
-        int bobTotal = 0;
+    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
+        Set<Integer> boxesAlice = new HashSet<>();
+        int totalAlice = 0;
+        int totalBob = 0;
 
-        boolean[] aliceSet = new boolean[100001];
         for (int n : aliceSizes) {
-            aliceTotal += n;
-            aliceSet[n] = true;
+            totalAlice += n;
+            boxesAlice.add(n);
+        }
+        for (int n : bobSizes) {
+            totalBob += n;
         }
 
         for (int n : bobSizes) {
-            bobTotal += n;
-        }
-
-        for (int n : bobSizes) {
-            int aliceNeedsToGive = (bobTotal - aliceTotal - 2 * n) / -2;
-            if (aliceNeedsToGive > 0 && aliceNeedsToGive < aliceSet.length && aliceSet[aliceNeedsToGive]) {
-                return new int[] {aliceNeedsToGive, n};
+            int complement = (totalAlice - totalBob) / 2 + n;
+            if (boxesAlice.contains(complement)) {
+                return new int[] {complement, n};
             }
         }
-
+        
         return new int[] {-1, -1};
     }
 }
