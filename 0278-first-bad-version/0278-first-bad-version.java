@@ -3,18 +3,20 @@
 
 public class Solution extends VersionControl {
     public int firstBadVersion(int n) {
-        
-        return search(n, 0, n);
-
+        return helper(1, n);
     }
 
-    private int search(int n, int l, int r) {
-        if (r < l) return r;
+    private int helper(int l, int r) {
+        if (l > r) return l;
 
-        int m = l + ((r - l) / 2);
-        boolean isMBad = isBadVersion(m);
-        if (isMBad && !isBadVersion(m - 1)) return m;
-        if (isMBad) return search(n, l, m - 1);
-        else return search(n, m + 1, r);
+        int m = l + (r - l) / 2;
+
+        if (isBadVersion(m)) {
+            if (m == 0) return m;
+            if (!isBadVersion(m - 1)) return m;
+            return helper(l, m - 1);
+        } else {
+            return helper(m + 1, r);
+        }
     }
 }
