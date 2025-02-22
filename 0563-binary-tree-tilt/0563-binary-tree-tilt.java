@@ -14,46 +14,24 @@
  * }
  */
 class Solution {
-    Map<TreeNode, Integer> map = new HashMap<>();
+    private int totalTilt = 0;
     
     public int findTilt(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        root.val = Math.abs(helper(root.left) - helper(root.right));
-
-        findTilt(root.left);
-        findTilt(root.right);
-
-        return helper(root);
+        helper(root);
+        return totalTilt;
     }
 
     private int helper(TreeNode node) {
-        if (map.containsKey(node)) {
-            return map.get(node);
-        }
-
-        List<Integer> list = new ArrayList<>();
-        
-        subhelper(node, list);
-        
-        int sum = 0;
-        for (int n : list) {
-            sum += n;
-        }
-        
-        map.put(node, sum);
-        
-        return sum;
-    }
-
-    private void subhelper(TreeNode node, List<Integer> list) {
         if (node == null) {
-            return;
+            return 0;
         }
 
-        subhelper(node.left, list);
-        list.add(node.val);
-        subhelper(node.right, list);
+        int sumL = helper(node.left);
+        int sumR = helper(node.right);
+
+        int tilt = Math.abs(sumL - sumR);
+        totalTilt += tilt;
+
+        return node.val + sumL + sumR;
     }
 }
