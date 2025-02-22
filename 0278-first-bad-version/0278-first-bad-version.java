@@ -12,9 +12,7 @@ public class Solution extends VersionControl {
         int m = l + (r - l) / 2;
 
         if (isBadVersion(m)) {
-            if (m == 0) return m;
-            if (!isBadVersion(m - 1)) return m;
-            return helper(l, m - 1);
+            return (m == 0 || !isBadVersion(m - 1)) ? m : helper(l, m - 1);
         } else {
             return helper(m + 1, r);
         }
