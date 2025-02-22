@@ -1,19 +1,19 @@
 class Solution {
     public int[] kWeakestRows(int[][] mat, int k) {
-        Map<Integer, List<Integer>> map = new HashMap<>();
+        List<Integer>[] map = new List[101];
+        for (int i = 0; i < map.length; i++) {
+            map[i] = new ArrayList<>();
+        }
 
         for (int i = 0; i < mat.length; i++) {
             int n = helper(mat[i]);
-            List<Integer> list = map.getOrDefault(n, new ArrayList<>());
-            list.add(i);
-            map.put(n, list);
+            map[n].add(i);
         }
         
         int[] result = new int[k];
         for (int i = 0; i <= mat[0].length; i++) {
-            if (map.containsKey(i)) {
-                List<Integer> list = map.get(i);
-                for (int n : list) {
+            if (map[i].size() > 0) {
+                for (int n : map[i]) {
                     if (k > 0) {
                         result[result.length - k--] = n;
                     }
