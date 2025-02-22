@@ -14,28 +14,37 @@
  * }
  */
 class Solution {
-
-    int sum = 0;
-
     public int findTilt(TreeNode root) {
         if (root == null) {
             return 0;
         }
+        root.val = Math.abs(helper(root.left) - helper(root.right));
 
-        getSum(root);
+        findTilt(root.left);
+        findTilt(root.right);
 
+        return helper(root);
+    }
+
+    private int helper(TreeNode node) {
+        List<Integer> list = new ArrayList<>();
+        
+        subhelper(node, list);
+        
+        int sum = 0;
+        for (int n : list) {
+            sum += n;
+        }
         return sum;
     }
 
-    private int getSum(TreeNode node) {
+    private void subhelper(TreeNode node, List<Integer> list) {
         if (node == null) {
-            return 0;
+            return;
         }
 
-        int valL = getSum(node.left);
-        int valR = getSum(node.right);
-
-        sum += Math.abs(valL - valR);
-        return node.val + valL + valR;
+        subhelper(node.left, list);
+        list.add(node.val);
+        subhelper(node.right, list);
     }
 }
