@@ -14,16 +14,16 @@
  * }
  */
 class Solution {
-    Map<TreeNode, Boolean> map = new HashMap<>();
+    Set<TreeNode> set = new HashSet<>();
 
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         if (root == null && subRoot == null) return true;
         if (root == null || subRoot == null) return false;
 
-        if (map.containsKey(root)) return map.get(root);
+        if (set.contains(root)) return false;
         boolean is = isSameTree(root, subRoot);
         if (is) return true;
-        else map.put(root, is);
+        else set.add(root);
 
         return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
