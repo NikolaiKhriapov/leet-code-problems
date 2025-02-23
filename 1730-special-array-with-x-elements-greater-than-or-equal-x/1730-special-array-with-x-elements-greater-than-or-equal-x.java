@@ -1,15 +1,15 @@
 class Solution {
     public int specialArray(int[] nums) {
-        Arrays.sort(nums);
+        int[] arr = new int[nums.length + 1];
 
-        for (int i = 0; i <= nums.length; i++) {
-            int count = 0;
-            for (int num : nums) {
-                if (num >= i) count++;
+        for (int n : nums) {
+            for (int i = 0; i < arr.length; i++) {
+                if (n >= i) arr[i]++;
             }
-            if (count == i) {
-                return i;
-            }
+        }
+        
+        for (int i = 0; i < arr.length; i++) {
+            if (i == arr[i]) return i;
         }
 
         return -1;
