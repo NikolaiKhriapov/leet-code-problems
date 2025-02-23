@@ -23,9 +23,10 @@ class Solution {
             if (m == arr.length - 1) return Math.abs(n - arr[m]) > d;
             if (arr[m + 1] > n) return Math.abs(n - arr[m]) > d && Math.abs(n - arr[m + 1]) > d;
             return helper(arr, n, d, m + 1, r);
+        } else {
+            if (m == 0) return Math.abs(n - arr[m]) > d;
+            if (arr[m - 1] < n) return Math.abs(n - arr[m]) > d && Math.abs(n - arr[m - 1]) > d;
+            return helper(arr, n, d, l, m - 1);
         }
-        if (m == 0) return Math.abs(n - arr[m]) > d;
-        if (arr[m - 1] < n) return Math.abs(n - arr[m]) > d && Math.abs(n - arr[m - 1]) > d;
-        return helper(arr, n, d, l, m - 1);
     }
 }
