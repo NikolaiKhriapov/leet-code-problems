@@ -1,27 +1,23 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-        int haystackLength = haystack.length();
-        int needleLength = needle.length();
+        int counter = 0;
+        int ph = 0;
+        int pn = 0;
 
-        int pN = 0;
-        int pH = 0;
-        int p = 0;
-        
-        while (p < haystackLength) {
-            if (haystack.charAt(p) != needle.charAt(pN)) {
-                pH++;
-                p = pH;
-                pN = 0;
+        while (ph < haystack.length()) {
+            if (haystack.charAt(ph) == needle.charAt(pn)) {
+                if (++counter == needle.length()) {
+                    return ph - counter + 1;
+                }
+                ph++;
+                pn++;
             } else {
-                p++;
-                pN++;
-            }
-
-            if (p - pH == needleLength) {
-                return pH;
+                ph = ph - counter + 1;
+                pn = 0;
+                counter = 0;
             }
         }
-
+        
         return -1;
     }
 }
