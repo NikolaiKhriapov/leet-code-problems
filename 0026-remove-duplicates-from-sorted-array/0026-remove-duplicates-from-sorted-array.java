@@ -8,9 +8,7 @@ class Solution {
         while (pr < nums.length) {
             if (nums[pr] > nums[pl]) {
                 pl++;
-                int temp = nums[pl];
                 nums[pl] = nums[pr];
-                nums[pr] = temp;
             }
             pr++;
         }
