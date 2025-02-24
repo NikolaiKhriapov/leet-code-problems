@@ -12,7 +12,7 @@ class Solution {
                 ph++;
                 pn++;
             } else {
-                ph = ph - counter + 1;
+                ph += 1 - counter;
                 pn = 0;
                 counter = 0;
             }
