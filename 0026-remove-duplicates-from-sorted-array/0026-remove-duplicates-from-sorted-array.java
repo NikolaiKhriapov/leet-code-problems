@@ -11,10 +11,8 @@ class Solution {
                 int temp = nums[pl];
                 nums[pl] = nums[pr];
                 nums[pr] = temp;
-                pr++;
-            } else {
-                pr++;
             }
+            pr++;
         }
 
         return pl + 1;
