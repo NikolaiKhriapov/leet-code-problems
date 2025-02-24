@@ -1,14 +1,14 @@
 class Solution {
     public boolean isHappy(int n) {
-        int slow = helper(n);
-        int fast = helper(helper(n));
+        int slow = n;
+        int fast = helper(n);
 
-        while (slow != fast) {
+        while (slow != fast && fast != 1) {
             slow = helper(slow);
             fast = helper(helper(fast));
         }
         
-        return slow == 1;
+        return fast == 1;
     }
 
     private int helper(int n) {
