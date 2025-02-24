@@ -11,10 +11,7 @@ class Solution {
                 pr--;
             }
 
-            if (pl >= pr) {
-                return true;
-            }
-            if (Character.toLowerCase(s.charAt(pl)) != Character.toLowerCase(s.charAt(pr))) {
+            if (pl < pr && Character.toLowerCase(s.charAt(pl)) != Character.toLowerCase(s.charAt(pr))) {
                 return false;
             }
             
