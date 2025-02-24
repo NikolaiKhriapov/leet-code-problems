@@ -8,20 +8,15 @@ class Solution {
         
         while (m > 0 && pm >= 0 && pn >= 0) {
             if (nums2[pn] >= nums1[pm]) {
-                nums1[p] = nums2[pn];
-                pn--;
+                nums1[p--] = nums2[pn--];
             } else {
-                nums1[p] = nums1[pm];
-                pm--;
+                nums1[p--] = nums1[pm--];
             }
-            p--;
         }
 
         if (pn >= 0) {
             for (int i = p; i >= 0; i--) {
-                nums1[p] = nums2[pn];
-                pn--;
-                p--;
+                nums1[p--] = nums2[pn--];
             }
         }
     }
