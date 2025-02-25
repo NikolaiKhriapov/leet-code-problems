@@ -1,26 +1,26 @@
 class Solution {
     public String reverseStr(String s, int k) {
-        char[] arr = s.toCharArray();
-        int p = 0;
+        int sl = s.length();
+        char[] sArr = s.toCharArray();
 
-        while (p < arr.length) {
-            int r = p + k;
-            r = r > arr.length ? arr.length : p + k;
-            arr = reverse(arr, p, r - 1);
-            p += 2 * k;
+        for (int i = 0; i < sl; i += 2*k) {
+            if (i + 2*k <= sl) {
+                reverse(sArr, i, i + k);
+            } else if (i + k >= sl) {
+                reverse(sArr, i, sl - 1);
+            } else {
+                reverse(sArr, i, i + k);
+            }
         }
-        
-        return new String(arr);
+
+        return new String(sArr);
     }
 
-    private char[] reverse(char[] arr, int l, int r) {
-        while (l < r) {
-            char tmp = arr[l];
-            arr[l] = arr[r];
-            arr[r] = tmp;
-            l++;
-            r--;
+    private void reverse(char[] arr, int l, int r) {
+        for (int i = 0; i < (r - l) / 2; i++) {
+            char t = arr[l + i];
+            arr[l + i] = arr[r - 1 - i];
+            arr[r - 1 - i] = t;
         }
-        return arr;
     }
 }
