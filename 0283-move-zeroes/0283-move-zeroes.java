@@ -7,6 +7,7 @@ class Solution {
             while (pl < nums.length && nums[pl] != 0) {
                 pl++;
             }
+            if (pl == nums.length) return;
             while (pr < pl || (pr < nums.length && nums[pr] == 0)) {
                 pr++;
             }
