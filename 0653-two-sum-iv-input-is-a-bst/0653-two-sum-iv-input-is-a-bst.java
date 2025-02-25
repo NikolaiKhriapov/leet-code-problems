@@ -15,30 +15,20 @@
  */
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
-        List<Integer> list = new ArrayList<>();
-        traverse(root, list);
-        
-        int l = 0;
-        int r = list.size() - 1;
-
-        while (l < r) {
-            if (list.get(l) + list.get(r) > k) {
-                r--;
-            } else if (list.get(l) + list.get(r) < k) {
-                l++;
-            } else {
-                return true;
-            }
-        }
-
-        return false;
+        Set<Integer> set = new HashSet<>();
+        return helper(root, set, k);
     }
 
-    private void traverse(TreeNode root, List<Integer> list) {
-        if (root != null) {
-            traverse(root.left, list);
-            list.add(root.val);
-            traverse(root.right, list);
+    private boolean helper(TreeNode node, Set<Integer> set, int k) {
+        if (node == null) {
+            return false;
         }
+
+        if (set.contains(k - node.val)) {
+            return true;
+        }
+        set.add(node.val);
+
+        return helper(node.left, set, k) || helper(node.right, set, k);
     }
 }
