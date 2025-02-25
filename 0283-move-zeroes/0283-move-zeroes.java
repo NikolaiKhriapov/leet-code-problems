@@ -8,17 +8,14 @@ class Solution {
                 pl++;
             }
             if (pl == nums.length) return;
+
             while (pr < pl || (pr < nums.length && nums[pr] == 0)) {
                 pr++;
             }
+            if (pr == nums.length) return;
 
-            if (pl >= nums.length || pr >= nums.length) {
-                return;
-            }
-
-            int temp = nums[pl];
             nums[pl] = nums[pr];
-            nums[pr] = temp;
+            nums[pr] = 0;
         }
     }
 }
