@@ -1,11 +1,11 @@
 class KthLargest {
 
-    private Queue<Integer> queue;
     private int k;
+    private Queue<Integer> pq;
 
     public KthLargest(int k, int[] nums) {
         this.k = k;
-        this.queue = new PriorityQueue<>();
+        pq = new PriorityQueue<>((a, b) -> a - b);
 
         for (int n : nums) {
             add(n);
@@ -13,12 +13,13 @@ class KthLargest {
     }
     
     public int add(int val) {
-        queue.offer(val);
-        if (queue.size() > k) {
-            queue.poll();
+        if (pq.size() < k) {
+            pq.add(val);
+        } else if (val > pq.peek()) {
+            pq.poll();
+            pq.add(val);
         }
-        
-        return queue.peek();
+        return pq.peek();
     }
 }
 
