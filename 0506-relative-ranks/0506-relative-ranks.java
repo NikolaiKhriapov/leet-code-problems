@@ -1,24 +1,25 @@
 class Solution {
-    public String[] findRelativeRanks(int[] score) {        
+    public String[] findRelativeRanks(int[] score) {
+        Queue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
+        for (int i = 0; i < score.length; i++) {
+            pq.add(new int[] {score[i], i});
+        }
+
         String[] result = new String[score.length];
-        for (int i = 0; i < score.length; i++) {
-            result[i] = String.valueOf(score[i]);
+        int rank = 0;
+        while (!pq.isEmpty()) {
+            int[] el = pq.poll();
+
+            String val = String.valueOf(rank + 1);
+
+            if (rank == 0) val = "Gold Medal";
+            else if (rank == 1) val = "Silver Medal";
+            else if (rank == 2) val = "Bronze Medal";
+
+            rank++;
+            result[el[1]] = val;
         }
 
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < score.length; i++) {
-            map.put(score[i], i);
-        }
-
-        Arrays.sort(score);
-
-        for (int i = 0; i < score.length; i++) {
-            if (i == score.length - 1) result[map.get(score[score.length - 1])] = "Gold Medal";
-            else if (i == score.length - 2) result[map.get(score[score.length - 2])] = "Silver Medal";
-            else if (i == score.length - 3) result[map.get(score[score.length - 3])] = "Bronze Medal";
-            else result[map.get(score[i])] = String.valueOf(score.length - i);
-        }
-        
         return result;
     }
 }
