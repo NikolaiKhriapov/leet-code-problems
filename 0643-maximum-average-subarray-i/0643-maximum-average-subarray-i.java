@@ -4,13 +4,13 @@ class Solution {
         for (int i = 0; i < k; i++) {
             windowSum += nums[i];
         }
-        double maxAverage = windowSum / k;
+        double maxSum = windowSum;
 
         for (int i = k; i < nums.length; i++) {
             windowSum += nums[i] - nums[i - k];
-            maxAverage = Math.max(maxAverage, windowSum / k);
+            maxSum = Math.max(maxSum, windowSum);
         }
 
-        return maxAverage;
+        return maxSum / k;
     }
 }
