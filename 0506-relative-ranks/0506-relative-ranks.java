@@ -18,7 +18,6 @@ class Solution {
             else if (i == score.length - 3) result[map.get(score[score.length - 3])] = "Bronze Medal";
             else result[map.get(score[i])] = String.valueOf(score.length - i);
         }
-
         
         return result;
     }
