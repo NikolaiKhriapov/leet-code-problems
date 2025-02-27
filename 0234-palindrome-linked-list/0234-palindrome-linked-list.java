@@ -24,15 +24,15 @@ class Solution {
             prev = slow;
             slow = temp;
         }
-        
-        while (head != null && prev != null) {
-            if (head.val != prev.val) {
+        slow = prev;
+
+        while (slow != null && head != null) {
+            if (slow.val != head.val) {
                 return false;
             }
+            slow = slow.next;
             head = head.next;
-            prev = prev.next;
         }
-
         return true;
     }
 }
