@@ -27,14 +27,13 @@ class Solution {
         if (sb.length() != 0) sb.append("->");
         sb.append(node.val);
 
-        int sbl = sb.length();
-
         if (node.left == null && node.right == null) {
             list.add(sb.toString());
         }
         
+        StringBuilder copy = new StringBuilder(sb.toString());
+
         if (node.left != null) helper(node.left, list, sb);
-        sb = sb.delete(sbl, sb.length());
-        if (node.right != null) helper(node.right, list, sb);
+        if (node.right != null) helper(node.right, list, copy);
     }
 }
