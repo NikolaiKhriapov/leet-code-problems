@@ -7,7 +7,7 @@ class Solution {
         int result = Integer.MAX_VALUE;
 
         int l = 0;
-        int r = (nums.length > k ? k : nums.length) - 1;
+        int r = k - 1;
 
         while (r < nums.length) {
             int diff = nums[r] - nums[l];
