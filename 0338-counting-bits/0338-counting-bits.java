@@ -10,9 +10,7 @@ class Solution {
     private int helper(int n) {
         int count = 0;
         while (n > 0) {
-            if (n % 2 == 1) {
-                count++;
-            }
+            if (n % 2 == 1) count++;
             n /= 2;
         }
         return count;
