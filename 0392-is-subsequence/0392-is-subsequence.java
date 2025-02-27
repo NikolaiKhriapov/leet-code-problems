@@ -7,10 +7,7 @@ class Solution {
         int pt = 0;
         
         while (ps < ls && pt < lt) {
-            char cs = s.charAt(ps);
-            char ct = t.charAt(pt);
-
-            if (cs == ct) {
+            if (s.charAt(ps) == t.charAt(pt)) {
                 ps++;
             }
             pt++;
