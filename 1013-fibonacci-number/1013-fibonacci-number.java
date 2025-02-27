@@ -1,10 +1,19 @@
 class Solution {
     public int fib(int n) {
-        if (n == 0) return 0;
-        if (n == 1) return 1;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 0);
+        map.put(1, 1);
 
-        return fib(n - 1) + fib(n - 2);
+        return fib(n, map);        
     }
 
-    
+    private int fib(int n, Map<Integer, Integer> map) {
+        if (map.containsKey(n)) {
+            return map.get(n);
+        }
+
+        int result = fib(n - 1, map) + fib(n - 2, map);
+        map.put(n, result);
+        return result;
+    }
 }
