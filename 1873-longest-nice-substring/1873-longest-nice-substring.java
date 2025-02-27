@@ -1,50 +1,22 @@
-import java.util.HashSet;
-import java.util.Set;
-
 class Solution {
     public String longestNiceSubstring(String s) {
-        int length = s.length();
-        if (length <= 1) {
-            return "";
+        if (s.length() < 2) return "";
+
+        Set<Character> set = new HashSet<>();
+        for (char c : s.toCharArray()) {
+            set.add(c);
         }
 
-        String longestNice = "";
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!set.contains(Character.toLowerCase(c)) || !set.contains(Character.toUpperCase(c))) {
+                String left = longestNiceSubstring(s.substring(0, i));
+                String right = longestNiceSubstring(s.substring(i + 1));
 
-        for (int l = 0; l < length; l++) {
-            Set<Character> lowerSet = new HashSet<>();
-            Set<Character> upperSet = new HashSet<>();
-
-            for (int r = l; r < length; r++) {
-                char c = s.charAt(r);
-                if (Character.isLowerCase(c)) {
-                    lowerSet.add(c);
-                } else {
-                    upperSet.add(c);
-                }
-
-                if (isNice(lowerSet, upperSet)) {
-                    int currentLength = r - l + 1;
-                    if (currentLength > longestNice.length()) {
-                        longestNice = s.substring(l, r + 1);
-                    }
-                }
+                return left.length() >= right.length() ? left : right;
             }
         }
-
-        return longestNice;
-    }
-
-    private boolean isNice(Set<Character> lowerSet, Set<Character> upperSet) {
-        for (char c : lowerSet) {
-            if (!upperSet.contains(Character.toUpperCase(c))) {
-                return false;
-            }
-        }
-        for (char c : upperSet) {
-            if (!lowerSet.contains(Character.toLowerCase(c))) {
-                return false;
-            }
-        }
-        return true;
+        
+        return s;
     }
 }
