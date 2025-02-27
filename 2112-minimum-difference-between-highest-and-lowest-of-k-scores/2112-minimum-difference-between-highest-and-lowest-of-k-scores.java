@@ -1,19 +1,21 @@
 class Solution {
     public int minimumDifference(int[] nums, int k) {
-        if (nums.length < 2) return 0;
-
-        int l = 0;
-        int r = k - 1;
-
-        int min = Integer.MAX_VALUE;
+        if (k == 1) return 0;
 
         Arrays.sort(nums);
+
+        int result = Integer.MAX_VALUE;
+
+        int l = 0;
+        int r = (nums.length > k ? k : nums.length) - 1;
+
         while (r < nums.length) {
-            min = Math.min(min, nums[r] - nums[l]);
+            int diff = nums[r] - nums[l];
+            result = Math.min(result, diff);
             l++;
             r++;
         }
-        
-        return min;
+
+        return result;
     }
 }
