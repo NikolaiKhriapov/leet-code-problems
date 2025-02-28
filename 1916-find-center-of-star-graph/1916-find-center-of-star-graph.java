@@ -1,17 +1,20 @@
 class Solution {
     public int findCenter(int[][] edges) {
-        int[] count = new int[edges.length + 2];
+        int one = edges[0][0];
+        int two = edges[0][1];
+
+        boolean isOne = true;
+        boolean isTwo = true;
 
         for (int[] edge : edges) {
-            count[edge[0]]++;
-            count[edge[1]]++;
-        }
-
-        for (int i = 1; i < count.length; i++) {
-            if (count[i] == edges.length) {
-                return i;
+            if (isOne && edge[0] != one && edge[1] != one) {
+                isOne = false;
+            }
+            if (isTwo && edge[0] != two && edge[1] != two) {
+                isTwo = false;
             }
         }
-        return -1;
+
+        return isOne ? one : two;
     }
 }
