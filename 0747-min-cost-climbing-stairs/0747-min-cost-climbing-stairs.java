@@ -1,9 +1,7 @@
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
         int[] map = new int[cost.length + 1];
-        for (int i = 0; i < map.length; i++) {
-            map[i] = -1;
-        }
+        Arrays.fill(map, -1);
         return Math.min(helper(cost, 0, map), helper(cost, 1, map));
     }
 
