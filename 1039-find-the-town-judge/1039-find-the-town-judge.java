@@ -1,18 +1,19 @@
 class Solution {
     public int findJudge(int n, int[][] trust) {
-        int[] count = new int[n + 1];
+        int[] countVoters = new int[n + 1];
+        int[] countVotes = new int[n + 1];
 
-        for (int[] t : trust) {
-            count[t[0]]--;
-            count[t[1]]++;
+        for (int[] arr : trust) {
+            countVoters[arr[0]]++;
+            countVotes[arr[1]]++;
         }
-
-        for (int i = 1; i < count.length; i++) {
-            if (count[i] == n - 1) {
+        
+        for (int i = 1; i < countVoters.length; i++) {
+            if (countVoters[i] == 0 && countVotes[i] == n - 1) {
                 return i;
             }
         }
-
+        
         return -1;
     }
 }
