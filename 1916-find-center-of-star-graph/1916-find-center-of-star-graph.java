@@ -4,17 +4,13 @@ class Solution {
         int two = edges[0][1];
 
         boolean isOne = true;
-        boolean isTwo = true;
 
         for (int[] edge : edges) {
-            if (isOne && edge[0] != one && edge[1] != one) {
-                isOne = false;
-            }
-            if (isTwo && edge[0] != two && edge[1] != two) {
-                isTwo = false;
+            if (edge[0] != one && edge[1] != one) {
+                return two;
             }
         }
 
-        return isOne ? one : two;
+        return one;
     }
 }
