@@ -8,7 +8,7 @@ class Solution {
             countVotes[arr[1]]++;
         }
         
-        for (int i = 1; i < countVoters.length; i++) {
+        for (int i = 1; i <= n; i++) {
             if (countVoters[i] == 0 && countVotes[i] == n - 1) {
                 return i;
             }
