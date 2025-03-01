@@ -10,8 +10,7 @@ class Solution {
             int nb = (pb >= 0 ? b.charAt(pb) : '0') - '0';
             int n = na + nb + carry;
             result.append(n % 2);
-            carry = 0;
-            if (n > 1) carry = 1;
+            carry = n / 2;
             pa--;
             pb--;
         }
