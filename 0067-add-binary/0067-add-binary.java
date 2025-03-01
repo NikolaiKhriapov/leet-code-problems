@@ -1,17 +1,19 @@
 class Solution {
     public String addBinary(String a, String b) {
-        while (a.length() != b.length()) {
-            if (a.length() < b.length()) a = "0" + a;
-            else b = "0" + b;
-        }
+        int pa = a.length() - 1;
+        int pb = b.length() - 1;
 
         StringBuilder result = new StringBuilder();
         int carry = 0;
-        for (int i = a.length() - 1; i >= 0; i--) {
-            int n = (a.charAt(i) - '0') + (b.charAt(i) - '0') + carry;
+        while (pa >= 0 || pb >= 0) {
+            int na = (pa >= 0 ? a.charAt(pa) : '0') - '0';
+            int nb = (pb >= 0 ? b.charAt(pb) : '0') - '0';
+            int n = na + nb + carry;
             result.append(n % 2);
             carry = 0;
             if (n > 1) carry = 1;
+            pa--;
+            pb--;
         }
 
         if (carry == 1) result.append(carry);
