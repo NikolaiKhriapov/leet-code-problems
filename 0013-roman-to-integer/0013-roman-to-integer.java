@@ -3,13 +3,15 @@ class Solution {
         char[] sArr = s.toCharArray();
 
         int result = 0;
+        int prev = 0;
         for (int i = sArr.length - 1; i >= 0; i--) {
             int curr = helper(sArr[i]);
-            if (i != sArr.length - 1 && curr < helper(sArr[i + 1])) {
+            if (i != sArr.length - 1 && curr < prev) {
                 result -= curr;
             } else {
                 result += curr;
             }
+            prev = curr;
         }
         
         return result;
@@ -24,7 +26,7 @@ class Solution {
             case 'C' -> 100;
             case 'D' -> 500;
             case 'M' -> 1000;
-            default -> -1;
+            default -> 0;
         };
     }
 }
