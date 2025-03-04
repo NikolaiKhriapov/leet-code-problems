@@ -14,24 +14,25 @@
  * }
  */
 class Solution {
-    private int totalTilt = 0;
-    
+    private int sum = 0;
+
     public int findTilt(TreeNode root) {
         helper(root);
-        return totalTilt;
+        return sum;
     }
 
-    private int helper(TreeNode node) {
-        if (node == null) {
-            return 0;
-        }
+    private int helper(TreeNode root) {
+        if (root == null) return 0;
+        
+        int val = root.val;
 
-        int sumL = helper(node.left);
-        int sumR = helper(node.right);
+        int l = helper(root.left);
+        int r = helper(root.right);
 
-        int tilt = Math.abs(sumL - sumR);
-        totalTilt += tilt;
+        int tilt = Math.abs(l - r);
+        root.val = tilt;
+        sum += tilt;
 
-        return node.val + sumL + sumR;
+        return val + l + r;
     }
 }
