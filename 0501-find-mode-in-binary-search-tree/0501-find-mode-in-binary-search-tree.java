@@ -1,53 +1,52 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
-
-    private Integer prev = null;
     private int count = 0;
-    private int countMax = 0;
-    private List<Integer> list = new ArrayList<>();
+    private int maxCount = 0;
+    private TreeNode prev = null;
+    private List<Integer> modes = new ArrayList<>();
 
     public int[] findMode(TreeNode root) {
-        if (root == null) {
-            return new int[0];
-        }
         helper(root);
-        return convertListToArray(list);
+        
+        int[] result = new int[modes.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = modes.get(i);
+        }
+        return result;
     }
 
     private void helper(TreeNode node) {
-        if (node == null) {
-            return;
-        }
+        if (node == null) return;
 
-        if (node.left != null) {
-            helper(node.left);
-        }
+        helper(node.left);
 
-        if (prev != null && node.val == prev) {
+        if (prev == null || node.val == prev.val) {
             count++;
         } else {
             count = 1;
         }
-
-        if (count > countMax) {
-            countMax = count;
-            list = new ArrayList<>();
-            list.add(node.val);
-        } else if (count == countMax) {
-            list.add(node.val);
+        prev = node;
+        if (count == maxCount) {
+            modes.add(node.val);
+        } else if (count > maxCount) {
+            maxCount = count;
+            modes = new ArrayList<>(List.of(node.val));
         }
 
-        prev = node.val;
-
-        if (node.right != null) {
-            helper(node.right);
-        }
-    }
-
-    private int[] convertListToArray(List<Integer> list) {
-        int[] array = new int[list.size()];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = list.get(i);
-        }
-        return array;
+        helper(node.right);
     }
 }
