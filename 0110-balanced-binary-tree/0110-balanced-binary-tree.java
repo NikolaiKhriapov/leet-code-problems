@@ -22,7 +22,7 @@ class Solution {
 
         if (hl == -1 || hr == -1) return false;
 
-        if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
+        // if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
 
         return Math.abs(hl - hr) <= 1;
     }
@@ -33,7 +33,7 @@ class Solution {
         int hl = helper(node.left);
         int hr = helper(node.right);
         
-        if (hl == -1 || hr == -1) return -1;
+        if (hl == -1 || hr == -1 || Math.abs(hl - hr) > 1) return -1;
 
         return 1 + Math.max(hl, hr);
     }
