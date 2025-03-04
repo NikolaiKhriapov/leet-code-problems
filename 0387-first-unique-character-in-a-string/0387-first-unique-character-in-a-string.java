@@ -1,13 +1,14 @@
 class Solution {
     public int firstUniqChar(String s) {
-        int[] array = new int[26];
+        char[] sArr = s.toCharArray();
+        int[] count = new int[26];
 
-        for (char c : s.toCharArray()) {
-            array[c - 'a']++;
+        for (char c : sArr) {
+            count[c - 'a']++;
         }
-        
-        for (int i = 0; i < s.length(); i++) {
-            if (array[s.charAt(i) - 'a'] == 1) {
+
+        for (int i = 0; i < sArr.length; i++) {
+            if (count[s.charAt(i) - 'a'] == 1) {
                 return i;
             }
         }
