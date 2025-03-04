@@ -18,20 +18,21 @@ class Solution {
         return isBalanced(root, new HashMap<>());
     }
 
-    private boolean isBalanced(TreeNode root, Map<TreeNode, Boolean> map) {
+    private boolean isBalanced(TreeNode root, Map<TreeNode, Integer> map) {
         if (root == null) return true;
+        
+        if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
 
-        if (map.containsKey(root)) return map.get(root);
-
-        if (!isBalanced(root.left, map) || !isBalanced(root.right, map)) return false;
-
-        boolean result = Math.abs(helper(root.left) - helper(root.right)) <= 1;
-        map.put(root, result);
-        return result;
+        return Math.abs(helper(root.left, map) - helper(root.right, map)) <= 1;
     }
 
-    private int helper(TreeNode node) {
+    private int helper(TreeNode node, Map<TreeNode, Integer> map) {
         if (node == null) return 0;
-        return 1 + Math.max(helper(node.left), helper(node.right));
+
+        if (map.containsKey(node)) return map.get(node);
+
+        int result = 1 + Math.max(helper(node.left, map), helper(node.right, map));
+        map.put(node, result);
+        return result;
     }
 }
