@@ -21,12 +21,7 @@ class Solution {
 
     public int[] findMode(TreeNode root) {
         helper(root);
-        
-        int[] result = new int[modes.size()];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = modes.get(i);
-        }
-        return result;
+        return listToArray(modes);
     }
 
     private void helper(TreeNode node) {
@@ -48,5 +43,13 @@ class Solution {
         }
 
         helper(node.right);
+    }
+
+    private int[] listToArray(List<Integer> list) {
+        int[] result = new int[modes.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = modes.get(i);
+        }
+        return result;
     }
 }
