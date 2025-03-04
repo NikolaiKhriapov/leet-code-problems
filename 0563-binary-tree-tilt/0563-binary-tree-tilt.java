@@ -30,7 +30,6 @@ class Solution {
         int r = helper(root.right);
 
         int tilt = Math.abs(l - r);
-        root.val = tilt;
         sum += tilt;
 
         return val + l + r;
