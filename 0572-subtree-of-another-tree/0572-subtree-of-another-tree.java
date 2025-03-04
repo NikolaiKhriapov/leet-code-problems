@@ -15,18 +15,29 @@
  */
 class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        if (root == null && subRoot == null) return true;
-        if (root == null || subRoot == null) return false;
+        if (subRoot == null) return true;
+        if (root == null) return false;
 
-        if (isSameTree(root, subRoot)) return true;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
 
-        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode curr = q.poll();
+                if (helper(curr, subRoot)) return true;
+                if (curr.left != null) q.add(curr.left);
+                if (curr.right != null) q.add(curr.right);
+            }
+        }
+
+        return false;        
     }
 
-    private boolean isSameTree(TreeNode node, TreeNode subRoot) {
-        if (node == null && subRoot == null) return true;
-        if (node == null || subRoot == null) return false;
-
-        return node.val == subRoot.val && isSameTree(node.left, subRoot.left) && isSameTree(node.right, subRoot.right);
+    private boolean helper(TreeNode node1, TreeNode node2) {
+        if (node1 == null && node2 == null) return true;
+        if (node1 == null || node2 == null) return false;
+        boolean result = node1.val == node2.val && helper(node1.left, node2.left) && helper(node1.right, node2.right);
+        return result;
     }
 }
