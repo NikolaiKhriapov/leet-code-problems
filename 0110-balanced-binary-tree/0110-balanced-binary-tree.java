@@ -15,10 +15,19 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        if (root == null) return true;
-        if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
+        return isBalanced(root, new HashMap<>());
+    }
 
-        return Math.abs(helper(root.left) - helper(root.right)) <= 1;
+    private boolean isBalanced(TreeNode root, Map<TreeNode, Boolean> map) {
+        if (root == null) return true;
+
+        if (map.containsKey(root)) return map.get(root);
+
+        if (!isBalanced(root.left, map) || !isBalanced(root.right, map)) return false;
+
+        boolean result = Math.abs(helper(root.left) - helper(root.right)) <= 1;
+        map.put(root, result);
+        return result;
     }
 
     private int helper(TreeNode node) {
