@@ -14,23 +14,26 @@
  * }
  */
 class Solution {
-    Map<TreeNode, Integer> map = new HashMap<>();
-
     public boolean isBalanced(TreeNode root) {
         if (root == null) return true;
-        
         if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
 
-        return Math.abs(helper(root.left) - helper(root.right)) <= 1;
+        int hl = helper(root.left);
+        int hr = helper(root.right);
+
+        if (hl == -1 || hr == -1) return false;
+
+        return Math.abs(hl - hr) <= 1;
     }
 
     private int helper(TreeNode node) {
         if (node == null) return 0;
 
-        if (map.containsKey(node)) return map.get(node);
+        int hl = helper(node.left);
+        int hr = helper(node.right);
+        
+        if (hl == -1 || hr == -1) return -1;
 
-        int result = 1 + Math.max(helper(node.left), helper(node.right));
-        map.put(node, result);
-        return result;
+        return 1 + Math.max(hl, hr);
     }
 }
