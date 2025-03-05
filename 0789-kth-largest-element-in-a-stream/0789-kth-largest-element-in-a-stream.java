@@ -1,5 +1,5 @@
 class KthLargest {
-    private PriorityQueue<Integer> pq;
+    private Queue<Integer> pq;
     private int k;
 
     public KthLargest(int k, int[] nums) {
