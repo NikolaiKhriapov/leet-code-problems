@@ -11,7 +11,7 @@ class KthLargest {
     }
     
     public int add(int val) {
-        pq.add(val);
+        pq.offer(val);
         if (pq.size() > k) {
             pq.poll();
         }
