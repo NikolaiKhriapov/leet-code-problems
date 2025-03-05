@@ -1,14 +1,13 @@
 class Solution {
     public String reverseStr(String s, int k) {
         char[] sArr = s.toCharArray();
-        int sl = sArr.length;
 
         int l = 0;
         
-        while (l < sl) {
-            int r = (l + k <= sl) ? (l + k) : sl;
+        while (l < sArr.length) {
+            int r = (l + k <= sArr.length) ? (l + k) : sArr.length;
             
-            sArr = helper(sArr, l, r - 1);
+            helper(sArr, l, r - 1);
 
             l += k * 2;
         }
@@ -16,7 +15,7 @@ class Solution {
         return new String(sArr);
     }
 
-    private char[] helper(char[] arr, int l, int r) {
+    private void helper(char[] arr, int l, int r) {
         while (l < r) {
             char temp = arr[l];
             arr[l] = arr[r];
@@ -24,6 +23,5 @@ class Solution {
             l++;
             r--;
         }
-        return arr;
     }
 }
