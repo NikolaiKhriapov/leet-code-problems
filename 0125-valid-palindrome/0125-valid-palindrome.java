@@ -1,6 +1,5 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        s = s.toLowerCase();
         char[] sArr = s.toCharArray();
 
         int l = 0;
@@ -15,8 +14,7 @@ class Solution {
             }
             
             if (l >= r) return true;
-
-            if (sArr[l] != sArr[r]) return false;
+            if (Character.toLowerCase(sArr[l]) != Character.toLowerCase(sArr[r])) return false;
 
             l++;
             r--;
