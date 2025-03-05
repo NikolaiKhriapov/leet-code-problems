@@ -3,8 +3,8 @@ class KthLargest {
     private int k;
 
     public KthLargest(int k, int[] nums) {
-        pq = new PriorityQueue<>((a, b) -> a - b);
         this.k = k;
+        pq = new PriorityQueue<>();
         for (int n : nums) {
             add(n);
         }
