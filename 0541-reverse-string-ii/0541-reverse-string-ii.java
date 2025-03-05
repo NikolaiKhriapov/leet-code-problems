@@ -1,31 +1,29 @@
 class Solution {
     public String reverseStr(String s, int k) {
-        int sl = s.length();
+        char[] sArr = s.toCharArray();
+        int sl = sArr.length;
 
         int l = 0;
         
         while (l < sl) {
             int r = (l + k <= sl) ? (l + k) : sl;
             
-            s = helper(s, l, r - 1);
+            sArr = helper(sArr, l, r - 1);
 
             l += k * 2;
         }
 
-        return s;
+        return new String(sArr);
     }
 
-    private String helper(String s, int l, int r) {
-        char[] sArr = s.toCharArray();
-
+    private char[] helper(char[] arr, int l, int r) {
         while (l < r) {
-            char temp = sArr[l];
-            sArr[l] = sArr[r];
-            sArr[r] = temp;
+            char temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
             l++;
             r--;
         }
-
-        return new String(sArr);
+        return arr;
     }
 }
