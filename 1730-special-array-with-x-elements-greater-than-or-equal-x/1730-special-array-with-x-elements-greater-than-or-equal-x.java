@@ -11,9 +11,11 @@ class Solution {
         }
         
         int sum = 0;
-        for (int i = arr.length - 1; i >= 0;i --) {
+        for (int i = arr.length - 1; i >= 0; i --) {
             sum += arr[i];
-            if (sum == i) return i;
+            if (sum == i) {
+                return i;
+            }
         }
 
         return -1;
