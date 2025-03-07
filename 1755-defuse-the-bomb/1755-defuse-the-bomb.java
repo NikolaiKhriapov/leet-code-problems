@@ -5,39 +5,30 @@ class Solution {
 
         if (k == 0) return result;
 
-        int temp = k;
-
-        int init = 0;
-        int p = k > 0 ? 1 : -1;
-        while (temp > 0) {
-            if (p == l) p = 0;
-            init += code[p];
-            p++;
-            temp--;
-        }
-        while (temp < 0) {
-            if (p == -1) p = l - 1;
-            init += code[p];
-            p--;
-            temp++;
-        }
-
-        result[0] = init;
-
+        int sum = 0;
         if (k > 0) {
-            for (int i = 1; i < l; i++) {
-                p %= l;
-                result[i] = result[i - 1] - code[i] + code[p];
-                p++;
-            }
-        } else {
-            for (int i = l - 1; i >= 0; i--) {
-                if (p < 0) p += l;
-                result[i] = result[(i + 1) % l] - code[i] + code[p];
-                p--;
+            for (int i = 1; i <= k; i++) {
+                sum += code[i];
             }
         }
-        
+        if (k < 0) {
+            for (int i = -1; i >= k; i--) {
+                sum += code[i + l];
+            }
+        }
+        result[0] = sum;
+
+        for (int i = 1; i < l; i++) {
+            if (k > 0) {
+                sum -= code[i];
+                sum += code[(i + k) % l];
+            } else {
+                sum -= code[(i + k - 1 + l) % l];
+                sum += code[i - 1];
+            }
+            result[i] = sum;
+        }
+
         return result;
     }
 }
