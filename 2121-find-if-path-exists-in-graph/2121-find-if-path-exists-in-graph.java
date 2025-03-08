@@ -12,19 +12,18 @@ class Solution {
             arr[edge[1]].add(edge[0]);
         }
 
-        Set<Integer> visited = new HashSet<>();
+        boolean[] visited = new boolean[n];
         Queue<Integer> unvisited = new LinkedList<>();
         unvisited.add(source);
-        visited.add(source);
+        visited[source] = true;
 
         while (!unvisited.isEmpty()) {
             int curr = unvisited.poll();
-
             for (int option : arr[curr]) {
                 if (option == destination) return true;
-                if (!visited.contains(option)) {
+                if (!visited[option]) {
                     unvisited.add(option);
-                    visited.add(option);
+                    visited[option] = true;
                 }
             }
         }
