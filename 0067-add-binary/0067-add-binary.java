@@ -1,24 +1,20 @@
 class Solution {
     public String addBinary(String a, String b) {
-        StringBuilder result = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
+        
+        int l = a.length() > b.length() ? a.length() : b.length();
+        
+        while (a.length() < l) a = "0" + a;
+        while (b.length() < l) b = "0" + b;
 
-        int pa = a.length() - 1;
-        int pb = b.length() - 1;
         int carry = 0;
-
-        while (pa >= 0 || pb >= 0) {
-            int na = pa >= 0 ? a.charAt(pa) - '0' : 0;
-            int nb = pb >= 0 ? b.charAt(pb) - '0' : 0;
-            int n = na + nb + carry;
-
-            result.append(n % 2);
-            carry = n / 2;
-            
-            pa--;
-            pb--;
+        for (int i = l - 1; i >= 0; i--) {
+            int bit = (a.charAt(i) - '0') + (b.charAt(i) - '0') + carry;
+            sb.append(bit % 2);
+            carry = bit / 2;
         }
+        if (carry == 1) sb.append("1");
 
-        if (carry == 1) result.append(carry);
-        return result.reverse().toString();
+        return sb.reverse().toString();
     }
 }
