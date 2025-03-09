@@ -4,7 +4,12 @@ class Solution {
 
         while (columnNumber > 0) {
             columnNumber--;
-            sb.append((char) (columnNumber % 26 + 'A'));
+            int a = columnNumber % 26;
+            if (a >= 26) {
+                sb.append("Z");
+            } else {
+                sb.append((char) (a + 'A'));
+            }
             columnNumber /= 26;
         }
         
