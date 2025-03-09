@@ -1,24 +1,23 @@
 class Solution {
     public int romanToInt(String s) {
-        char[] sArr = s.toCharArray();
-
         int result = 0;
+
         int prev = 0;
-        for (int i = sArr.length - 1; i >= 0; i--) {
-            int curr = helper(sArr[i]);
-            if (i != sArr.length - 1 && curr < prev) {
-                result -= curr;
+        for (int i = s.length() - 1; i >= 0 ; i--) {
+            int v = helper(s.charAt(i));
+            if (v >= prev) {
+                result += v;
             } else {
-                result += curr;
+                result -= v;
             }
-            prev = curr;
+            prev = v;
         }
-        
+
         return result;
     }
 
     private int helper(char c) {
-        return switch(c) {
+        return switch (c) {
             case 'I' -> 1;
             case 'V' -> 5;
             case 'X' -> 10;
