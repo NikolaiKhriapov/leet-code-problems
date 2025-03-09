@@ -1,19 +1,21 @@
 class Solution {
     public boolean hasAlternatingBits(int n) {
-
-        int mask = (Integer.highestOneBit(n) << 1) - 1;
-
+        boolean isTrailing = false;
         int prev = -1;
-
         for (int i = 0; i < 32; i++) {
-            if ((n & 1) == prev) return false;
-            prev = n & 1;
+            int last = (n & 1);
+            if (!isTrailing) {
+                if (last != prev) {
+                    prev = last;
+                } else {
+                    if (last != 0) return false;
+                    isTrailing = true;
+                }
+            } else {
+                if (last != 0) return false;
+            }
             n >>= 1;
-
-            if ((mask & 1) != 1) return true;
-            mask >>= 1;
         }
-        
         return true;
     }
 }
