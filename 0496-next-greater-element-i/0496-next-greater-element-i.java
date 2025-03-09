@@ -4,14 +4,10 @@ class Solution {
         Stack<Integer> q = new Stack<>();
 
         for (int n : nums2) {
-            if (q.isEmpty() || q.peek() >= n) {
-                q.add(n);
-            } else {
-                while (!q.isEmpty() && q.peek() < n) {
-                    map.put(q.pop(), n);
-                }
-                q.add(n);
+        while (!q.isEmpty() && q.peek() < n) {
+                map.put(q.pop(), n);
             }
+            q.add(n);
         }
         while (!q.isEmpty()) {
             map.put(q.pop(), -1);
