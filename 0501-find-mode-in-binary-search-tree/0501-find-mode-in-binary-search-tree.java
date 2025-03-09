@@ -15,13 +15,13 @@
  */
 class Solution {
     private int count = 0;
-    private int maxCount = 0;
-    private TreeNode prev = null;
-    private List<Integer> modes = new ArrayList<>();
+    private int countMax = 0;
+    private int prev = Integer.MIN_VALUE;
+    private List<Integer> list = new ArrayList<>();
 
     public int[] findMode(TreeNode root) {
         helper(root);
-        return listToArray(modes);
+        return listToArray(list);
     }
 
     private void helper(TreeNode node) {
@@ -29,26 +29,26 @@ class Solution {
 
         helper(node.left);
 
-        if (prev == null || node.val == prev.val) {
+        if (node.val == prev) {
             count++;
         } else {
             count = 1;
         }
-        prev = node;
-        if (count == maxCount) {
-            modes.add(node.val);
-        } else if (count > maxCount) {
-            maxCount = count;
-            modes = new ArrayList<>(List.of(node.val));
+        if (count == countMax) {
+            list.add(node.val);
+        } else if (count > countMax) {
+            countMax = count;
+            list = new ArrayList<>(List.of(node.val));
         }
+        prev = node.val;
 
         helper(node.right);
     }
 
     private int[] listToArray(List<Integer> list) {
-        int[] result = new int[modes.size()];
+        int[] result = new int[list.size()];
         for (int i = 0; i < result.length; i++) {
-            result[i] = modes.get(i);
+            result[i] = list.get(i);
         }
         return result;
     }
