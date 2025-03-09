@@ -1,20 +1,16 @@
 class Solution {
     public String makeGood(String s) {
-        Stack<Character> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
 
         for (char c : s.toCharArray()) {
-            if (!stack.isEmpty() && isSame(stack.peek(), c)) {
-                stack.pop();
+            if (sb.length() != 0 && isSame(sb.charAt(sb.length() - 1), c)) {
+                sb.deleteCharAt(sb.length() - 1);
             } else {
-                stack.add(c);
+                sb.append(c);
             }
         }
         
-        StringBuilder sb = new StringBuilder();
-        while (!stack.isEmpty()) {
-            sb.append(stack.pop());
-        }
-        return sb.reverse().toString();
+        return sb.toString();
     }
 
     private boolean isSame(char a, char b) {
