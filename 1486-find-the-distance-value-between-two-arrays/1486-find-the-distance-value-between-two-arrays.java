@@ -16,9 +16,8 @@ class Solution {
         if (l > r) return true;
 
         int m = l + (r - l) / 2;
-        int diff = Math.abs(arr[m] - n);
 
-        if (diff <= d) return false;        
+        if (Math.abs(arr[m] - n) <= d) return false;        
         
         if (arr[m] - d > n) return helper(arr, d, n, l, m - 1);
         return helper(arr, d, n, m + 1, r);
