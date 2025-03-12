@@ -2,24 +2,25 @@ class Solution {
     public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
         Arrays.sort(arr2);
 
-        int result = 0;
+        int count = 0;
         for (int n : arr1) {
-            if (helper(arr2, n, d, 0, arr2.length - 1)) {
-                result++;
+            if (helper(arr2, d, n, 0, arr2.length - 1)) {
+                count++;
             }
         }
-
-        return result;
+        
+        return count;
     }
 
-    private boolean helper(int[] arr, int n, int d, int l, int r) {
+    private boolean helper(int[] arr, int d, int n, int l, int r) {
         if (l > r) return true;
 
         int m = l + (r - l) / 2;
+        int diff = Math.abs(arr[m] - n);
 
-        if (arr[m] > n + d) return helper(arr, n, d, l, m - 1);
-        if (arr[m] < n - d) return helper(arr, n, d, m + 1, r);
-
-        return false;
+        if (diff <= d) return false;        
+        
+        if (arr[m] - d > n) return helper(arr, d, n, l, m - 1);
+        return helper(arr, d, n, m + 1, r);
     }
 }
