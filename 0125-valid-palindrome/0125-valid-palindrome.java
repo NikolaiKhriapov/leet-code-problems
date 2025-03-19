@@ -13,8 +13,6 @@ class Solution {
                 pr--;
             }
 
-            if (pl >= pr) break;
-
             if (Character.toLowerCase(sArr[pl]) != Character.toLowerCase(sArr[pr])) {
                 return false;
             }
