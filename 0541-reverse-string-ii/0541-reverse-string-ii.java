@@ -1,17 +1,13 @@
 class Solution {
     public String reverseStr(String s, int k) {
         char[] sArr = s.toCharArray();
+        int sl = sArr.length;
 
-        int l = 0;
-        
-        while (l < sArr.length) {
-            int r = (l + k <= sArr.length) ? (l + k) : sArr.length;
-            
-            helper(sArr, l, r - 1);
-
-            l += k * 2;
+        for (int i = 0; i < sl; i += 2 * k) {
+            int r = (i + k > sl) ? sl : (i + k);
+            helper(sArr, i, r - 1);
         }
-
+        
         return new String(sArr);
     }
 
