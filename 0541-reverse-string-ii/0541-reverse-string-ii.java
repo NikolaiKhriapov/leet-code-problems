@@ -1,9 +1,10 @@
 class Solution {
     public String reverseStr(String s, int k) {
         char[] sArr = s.toCharArray();
+        int sl = sArr.length;
 
-        for (int i = 0; i < sArr.length; i += 2 * k) {
-            int r = (i + k > sArr.length) ? sArr.length : (i + k);
+        for (int i = 0; i < sl; i += 2 * k) {
+            int r = Math.min(i + k, sl);
             helper(sArr, i, r - 1);
         }
         
