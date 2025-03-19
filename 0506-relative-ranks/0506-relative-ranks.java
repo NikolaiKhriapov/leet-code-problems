@@ -2,23 +2,23 @@ class Solution {
     public String[] findRelativeRanks(int[] score) {
         String[] result = new String[score.length];
 
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
-        
+        Queue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
+
         for (int i = 0; i < score.length; i++) {
-            pq.add(new int[] {score[i], i});
+            pq.add(new int[] {i, score[i]});
         }
-
-        int rank = 1;
+        
+        int order = 1;
         while (!pq.isEmpty()) {
-            int[] el = pq.poll();
+            int[] curr = pq.poll();
 
-            String s = String.valueOf(rank);
-            if (rank == 1) s = "Gold Medal";
-            if (rank == 2) s = "Silver Medal";
-            if (rank == 3) s = "Bronze Medal";
+            String s = String.valueOf(order);
+            if (order == 1) s = "Gold Medal";
+            if (order == 2) s = "Silver Medal";
+            if (order == 3) s = "Bronze Medal";
 
-            result[el[1]] = s;
-            rank++;
+            result[curr[0]] = s;
+            order++;
         }
 
         return result;
