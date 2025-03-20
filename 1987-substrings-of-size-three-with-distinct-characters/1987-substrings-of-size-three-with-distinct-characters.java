@@ -1,18 +1,13 @@
 class Solution {
     public int countGoodSubstrings(String s) {
-        char[] arr = s.toCharArray();
-        
-        if (arr.length < 3) {
-            return 0;
-        }
-
         int count = 0;
-        for (int i = 0; i < arr.length - 2; i++) {
-            if (isGood(arr[i], arr[i + 1], arr[i + 2])) {
+
+        for (int i = 0, sl = s.length(); i < sl - 2; i++) {
+            if (isGood(s.charAt(i), s.charAt(i + 1), s.charAt(i + 2))) {
                 count++;
             }
         }
-
+        
         return count;
     }
 
