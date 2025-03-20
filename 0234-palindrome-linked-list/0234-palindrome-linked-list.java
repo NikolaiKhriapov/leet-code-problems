@@ -25,7 +25,7 @@ class Solution {
             slow = temp;
         }
         slow = prev;
-
+        
         while (head != null && slow != null) {
             if (head.val != slow.val) {
                 return false;
