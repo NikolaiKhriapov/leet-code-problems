@@ -3,7 +3,7 @@ class Solution {
         int count = 0;
         
         StringBuilder sb = new StringBuilder(word);
-        while (sequence.contains(sb)) {
+        while (sequence.indexOf(sb.toString()) != -1) {
             count++;
             sb.append(word);
         }
