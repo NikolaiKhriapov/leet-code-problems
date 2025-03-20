@@ -19,7 +19,7 @@ class Solution {
                 return left.length() >= right.length() ? left : right;
             }
         }
-        
+
         return s.substring(l, r);
     }
 }
