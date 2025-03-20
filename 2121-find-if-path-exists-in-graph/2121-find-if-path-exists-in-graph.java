@@ -2,7 +2,7 @@ class Solution {
     public boolean validPath(int n, int[][] edges, int source, int destination) {
         if (source == destination) return true;
 
-        List<Integer>[] neighbors = new ArrayList[n + 1];
+        List<Integer>[] neighbors = new ArrayList[n];
         for (int i = 0; i < neighbors.length; i++) {
             neighbors[i] = new ArrayList<>();
         }
@@ -11,7 +11,7 @@ class Solution {
             neighbors[edge[1]].add(edge[0]);
         }
 
-        boolean[] visited = new boolean[n + 1];
+        boolean[] visited = new boolean[n];
         Queue<Integer> unvisited = new LinkedList<>();
         unvisited.add(source);
         visited[source] = true;
