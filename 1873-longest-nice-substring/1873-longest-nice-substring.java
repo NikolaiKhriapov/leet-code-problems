@@ -1,32 +1,25 @@
 class Solution {
     public String longestNiceSubstring(String s) {
-        int sl = s.length();
-
-        int p = isNice(s);
-        if (p != -1) {
-            String l = longestNiceSubstring(s.substring(0, p));
-            String r = longestNiceSubstring(s.substring(p + 1, sl));
-            s = l.length() >= r.length() ? l : r;
-        }
-
-        return s;
+        return helper(s, 0, s.length());
     }
 
-    private int isNice(String s) {
+    private String helper(String s, int l, int r) {
+        if (r - l < 2) return "";
+
         Set<Character> set = new HashSet<>();
-        
-        for (char c : s.toCharArray()) {
-            set.add(c);
+        for (int i = l; i < r; i++) {
+            set.add(s.charAt(i));
         }
 
-        int sl = s.length();
-        for (int i = 0; i < sl; i++) {
+        for (int i = l; i < r; i++) {
             char c = s.charAt(i);
             if (!set.contains(Character.toLowerCase(c)) || !set.contains(Character.toUpperCase(c))) {
-                return i;
+                String left = helper(s, l, i);
+                String right = helper(s, i + 1, r);
+                return left.length() >= right.length() ? left : right;
             }
         }
-
-        return -1;
+        
+        return s.substring(l, r);
     }
 }
