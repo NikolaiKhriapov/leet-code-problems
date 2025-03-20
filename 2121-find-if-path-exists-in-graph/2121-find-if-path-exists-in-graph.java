@@ -3,9 +3,8 @@ class Solution {
         if (source == destination) return true;
 
         List<Integer>[] neighbors = new ArrayList[n + 1];
-        for (int[] edge : edges) {
-            neighbors[edge[0]] = new ArrayList<>();
-            neighbors[edge[1]] = new ArrayList<>();
+        for (int i = 0; i < neighbors.length; i++) {
+            neighbors[i] = new ArrayList<>();
         }
         for (int[] edge : edges) {
             neighbors[edge[0]].add(edge[1]);
