@@ -15,14 +15,26 @@
  */
 class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        if (root == null && subRoot == null) return true;
-        if (root == null || subRoot == null) return false;
-        return isSameTree(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+        String tree1 = serialize(root);
+        String tree2 = serialize(subRoot);
+        return tree1.contains(tree2);
     }
 
-    private boolean isSameTree(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null) return true;
-        if (root1 == null || root2 == null) return false;
-        return root1.val == root2.val && isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right);
+    private String serialize(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        serializeHelper(root, sb);
+        return sb.toString();
+    }
+
+    private void serializeHelper(TreeNode node, StringBuilder sb) {
+        if (node == null) {
+            sb.append("#");
+            return;
+        }
+        sb.append("N")
+          .append(node.val)
+          .append(",");
+        serializeHelper(node.left, sb);
+        serializeHelper(node.right, sb);
     }
 }
