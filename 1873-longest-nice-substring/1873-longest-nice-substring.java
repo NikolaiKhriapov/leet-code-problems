@@ -4,30 +4,19 @@ class Solution {
     }
 
     private String longestNiceSubstring(String s, int l, int r) {
-        int v = helper(s, l, r);
-        if (v >= 0) {
-            String left = longestNiceSubstring(s, l, v);
-            String right = longestNiceSubstring(s, v + 1, r);
-
-            return left.length() >= right.length() ? left : right;
-        }
-        return s.substring(l, r);
-    }
-
-    private int helper(String s, int l, int r) {
         Set<Character> set = new HashSet<>();
         for (int i = l; i < r; i++) {
-            char c = s.charAt(i);
-            set.add(c);
+            set.add(s.charAt(i));
         }
 
         for (int i = l; i < r; i++) {
             char c = s.charAt(i);
             if (!set.contains(Character.toLowerCase(c)) || !set.contains(Character.toUpperCase(c))) {
-                return i;
+                String left = longestNiceSubstring(s, l, i);
+                String right = longestNiceSubstring(s, i + 1, r);
+                return left.length() >= right.length() ? left : right;
             }
         }
-        
-        return -1;
+        return s.substring(l, r);
     }
 }
