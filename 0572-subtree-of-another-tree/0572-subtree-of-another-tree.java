@@ -17,7 +17,7 @@ class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         String tree1 = serialize(root);
         String tree2 = serialize(subRoot);
-        return tree1.contains(tree2);
+        return tree1.indexOf(tree2) != -1;
     }
 
     private String serialize(TreeNode root) {
