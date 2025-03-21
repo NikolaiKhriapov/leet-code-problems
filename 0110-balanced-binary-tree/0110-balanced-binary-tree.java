@@ -18,14 +18,14 @@ class Solution {
         return helper(root) != -1;
     }
 
-    public int helper(TreeNode node) {
+    private int helper(TreeNode node) {
         if (node == null) return 0;
 
-        int hl = helper(node.left);
-        int hr = helper(node.right);
+        int heightLeft = helper(node.left);
+        int heightRight = helper(node.right);
 
-        if (hl == -1 || hr == -1 || Math.abs(hl - hr) > 1) return -1;
+        if (heightLeft == -1 || heightRight == -1 || Math.abs(heightLeft - heightRight) > 1) return -1;
 
-        return 1 + Math.max(hl, hr);
+        return 1 + Math.max(heightLeft, heightRight);
     }
 }
