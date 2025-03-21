@@ -21,13 +21,8 @@ class Solution {
 
         for (int i = 0; i < code.length; i++) {
             result[i] = sum;
-            if (k > 0) {
-                sum -= code[(i + 1) % code.length];
-                sum += code[(i + 1 + k) % code.length];
-            } else {
-                sum -= code[(i + code.length + k) % code.length];
-                sum += code[i];
-            }
+            sum -= code[start++ % code.length];
+            sum += code[++end % code.length];
         }
 
         return result;
