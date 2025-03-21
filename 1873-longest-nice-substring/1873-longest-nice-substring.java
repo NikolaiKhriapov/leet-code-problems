@@ -1,22 +1,27 @@
 class Solution {
     public String longestNiceSubstring(String s) {
-        int v  = helper(s);
-        if (v >= 0) {
-            String left = longestNiceSubstring(s.substring(0, v));
-            String right = longestNiceSubstring(s.substring(v + 1, s.length()));
-
-            s = left.length() >= right.length() ? left : right;
-        }
-        return s;
+        return longestNiceSubstring(s, 0, s.length());
     }
 
-    private int helper(String s) {
+    private String longestNiceSubstring(String s, int l, int r) {
+        int v = helper(s, l, r);
+        if (v >= 0) {
+            String left = longestNiceSubstring(s, l, v);
+            String right = longestNiceSubstring(s, v + 1, r);
+
+            return left.length() >= right.length() ? left : right;
+        }
+        return s.substring(l, r);
+    }
+
+    private int helper(String s, int l, int r) {
         Set<Character> set = new HashSet<>();
-        for (char c : s.toCharArray()) {
+        for (int i = l; i < r; i++) {
+            char c = s.charAt(i);
             set.add(c);
         }
 
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = l; i < r; i++) {
             char c = s.charAt(i);
             if (!set.contains(Character.toLowerCase(c)) || !set.contains(Character.toUpperCase(c))) {
                 return i;
