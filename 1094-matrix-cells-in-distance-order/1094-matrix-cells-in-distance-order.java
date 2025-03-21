@@ -1,18 +1,25 @@
 class Solution {
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
-        int[][] result = new int[rows * cols][2];
+        List<int[]>[] listArr = new List[rows + cols];
+        for (int i = 0; i < listArr.length; i++) {
+            listArr[i] = new ArrayList<>();
+        }
 
-        int count = 0;
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                result[count++] = new int[] {r, c};
+                int[] cell = new int[] {r, c};
+                int dist = Math.abs(r - rCenter) + Math.abs(c - cCenter);
+                listArr[dist].add(cell);
             }
         }
 
-        Arrays.sort(result, (a, b) -> 
-            (Math.abs(a[0] - rCenter) + Math.abs(a[1] - cCenter)) - 
-            (Math.abs(b[0] - rCenter) + Math.abs(b[1] - cCenter))
-        );
+        int[][] result = new int[rows * cols][2];
+        int count = 0;
+        for (List<int[]> list : listArr) {
+            for (int[] el : list) {
+                result[count++] = el;
+            }
+        }
 
         return result;
     }
