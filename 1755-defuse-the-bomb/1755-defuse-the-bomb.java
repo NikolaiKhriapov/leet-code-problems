@@ -1,7 +1,7 @@
 class Solution {
     public int[] decrypt(int[] code, int k) {
         int[] result = new int[code.length];
-        
+
         if (k == 0) return result;
 
         int start;
@@ -13,7 +13,7 @@ class Solution {
             start = code.length + k;
             end = code.length - 1;
         }
-
+        
         int sum = 0;
         for (int i = start; i <= end; i++) {
             sum += code[i];
