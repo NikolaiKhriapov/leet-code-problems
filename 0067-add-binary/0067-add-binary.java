@@ -4,22 +4,24 @@ class Solution {
         int lb = b.length();
 
         int l = la >= lb ? la : lb;
-        
-        StringBuilder sb = new StringBuilder();
 
+        int pa = la - 1;
+        int pb = lb - 1;
+
+        StringBuilder sb = new StringBuilder();
         int carry = 0;
         for (int i = 0; i < l; i++) {
-            int ca = (la > i) ? (a.charAt(la - 1 - i) - '0') : 0;
-            int cb = (lb > i) ? (b.charAt(lb - 1 - i) - '0') : 0;
+            int na = (pa >= 0) ? (a.charAt(pa) - '0') : 0;
+            int nb = (pb >= 0) ? (b.charAt(pb) - '0') : 0;
 
-            int sum = ca + cb + carry;
+            int sum = na + nb + carry;
             sb.append(sum % 2);
             carry = sum / 2;
-        }
 
-        if (carry == 1) {
-            sb.append(carry);
+            pa--;
+            pb--;
         }
+        if (carry > 0) sb.append(carry);
 
         return sb.reverse().toString();
     }
