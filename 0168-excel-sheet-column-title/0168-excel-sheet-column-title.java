@@ -4,7 +4,10 @@ class Solution {
 
         while (columnNumber > 0) {
             columnNumber--;
-            sb.append((char) (columnNumber % 26 + 'A'));
+
+            char c = (char) ((columnNumber % 26) + 'A');
+            sb.append(c);
+
             columnNumber /= 26;
         }
         
