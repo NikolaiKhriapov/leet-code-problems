@@ -15,9 +15,9 @@
  */
 class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        String tree1 = serialize(root);
-        String tree2 = serialize(subRoot);
-        return tree1.contains(tree2);
+        String a = serialize(root);
+        String b = serialize(subRoot);
+        return a.contains(b);
     }
 
     private String serialize(TreeNode root) {
@@ -31,9 +31,11 @@ class Solution {
             sb.append("#");
             return;
         }
+
         sb.append("N")
           .append(node.val)
           .append(",");
+        
         serializeHelper(node.left, sb);
         serializeHelper(node.right, sb);
     }
