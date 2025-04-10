@@ -33,9 +33,9 @@ class Solution {
         for (int r = 0; r < 9; r += 3) {
             for (int c = 0; c < 9; c += 3) {
                 Set<Character> set = new HashSet<>();
-                for (int i = r; i < r + 3; i++) {
-                    for (int j = c; j < c + 3; j++) {
-                        char ch = board[i][j];
+                for (int sr = r; sr < r + 3; sr++) {
+                    for (int sc = c; sc < c + 3; sc++) {
+                        char ch = board[sr][sc];
                         if (ch != '.' && !set.add(ch)) {
                             return false;
                         }
