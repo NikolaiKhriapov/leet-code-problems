@@ -1,9 +1,8 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int l = -1;
-        int r = -1;
+        int l = binarySearchLeft(nums, target, 0, nums.length - 1);
         
-        l = binarySearchLeft(nums, target, 0, nums.length - 1);
+        int r = -1;
         if (l != -1) {
             r = binarySearchRight(nums, target, l, nums.length - 1);
         }
@@ -29,8 +28,6 @@ class Solution {
     }
 
     private int binarySearchRight(int[] nums, int target, int l, int r) {
-        if (l > r) return -1;
-
         int m = l + (r - l) / 2;
         
         if (nums[m] == target) {
