@@ -1,22 +1,13 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-        boolean isRowsValid = isRowsValid(board);
-        boolean isColumnsValid = isColumnsValid(board);
-        boolean isSubboxesValid = isSubboxesValid(board);
-        
-        return isRowsValid && isColumnsValid && isSubboxesValid;
+        return isValidRows(board) && isValidCols(board) && isValidNines(board);
     }
 
-    private boolean isRowsValid(char[][] board) {
-        for (int i = 0; i < board.length; i++) {
+    private boolean isValidRows(char[][] board) {
+        for (char[] row : board) {
             Set<Character> set = new HashSet<>();
-            for (int j = 0; j < board[i].length; j++) {
-                char curr = board[i][j];
-                if (curr == '.') {
-                    continue;
-                } 
-                boolean isAdded = set.add(curr);
-                if (!isAdded) {
+            for (char c : row) {
+                if (c != '.' && !set.add(c)) {
                     return false;
                 }
             }
@@ -24,58 +15,39 @@ class Solution {
         return true;
     }
 
-    private boolean isColumnsValid(char[][] board) {
-        Map<Integer, Set<Character>> map = new HashMap<>();
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                Set<Character> set = map.getOrDefault(j, new HashSet<>());
-                char curr = board[i][j];
-                if (curr == '.') {
-                    continue;
-                }
-                boolean isAdded = set.add(curr);
-                if (!isAdded) {
+    private boolean isValidCols(char[][] board) {
+        Set<Character>[] sets = new Set[board.length];
+        for (int i = 0; i < sets.length; i++) {
+            sets[i] = new HashSet<>();
+        }
+
+        for (char[] row : board) {
+            for (int i = 0; i < row.length; i++) {
+                char c = row[i];
+                if (c != '.' && !sets[i].add(c)) {
                     return false;
                 }
-                map.put(j, set);
             }
         }
+
         return true;
     }
 
-    private boolean isSubboxesValid(char[][] board) {
-        Map<Integer, Set<Character>> map = new HashMap<>();
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                int subsection;
-                if (i < 3) {
-                    if (j < 3) subsection = 0;
-                    else if (j < 6) subsection = 1;
-                    else subsection = 2;
-                } else if (i < 6) {
-                    if (j < 3) subsection = 3;
-                    else if (j < 6) subsection = 4;
-                    else subsection = 5;
-                } else {
-                    if (j < 3) subsection = 6;
-                    else if (j < 6) subsection = 7;
-                    else subsection = 8;
-                }
+    private boolean isValidNines(char[][] board) {
+        Map<String, Set<Character>> map = new HashMap<>();
 
-                Set<Character> set = map.getOrDefault(subsection, new HashSet<>());
-
-                char curr = board[i][j];
-                if (curr == '.') {
-                    continue; 
-                }
-                boolean isAdded = set.add(curr);
-                if (!isAdded) {
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++){
+                String nine = String.valueOf(r / 3) + String.valueOf(c / 3);
+                Set<Character> mapset = map.getOrDefault(nine, new HashSet<>());
+                char ch = board[r][c];
+                if (ch != '.' && !mapset.add(ch)) {
                     return false;
                 }
-
-                map.put(subsection, set);
+                map.put(nine, mapset);
             }
         }
+
         return true;
     }
 }
