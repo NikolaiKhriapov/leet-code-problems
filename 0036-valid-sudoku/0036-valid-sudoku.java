@@ -4,10 +4,11 @@ class Solution {
     }
 
     private boolean isValidRows(char[][] board) {
-        for (char[] row : board) {
+        for (int r = 0; r < 9; r++) {
             Set<Character> set = new HashSet<>();
-            for (char c : row) {
-                if (c != '.' && !set.add(c)) {
+            for (int c = 0; c < 9; c++) {
+                char ch = board[r][c];
+                if (ch != '.' && !set.add(ch)) {
                     return false;
                 }
             }
@@ -16,20 +17,15 @@ class Solution {
     }
 
     private boolean isValidCols(char[][] board) {
-        Set<Character>[] sets = new Set[board.length];
-        for (int i = 0; i < sets.length; i++) {
-            sets[i] = new HashSet<>();
-        }
-
-        for (char[] row : board) {
-            for (int i = 0; i < row.length; i++) {
-                char c = row[i];
-                if (c != '.' && !sets[i].add(c)) {
+        for (int r = 0; r < 9; r++) {
+            Set<Character> set = new HashSet<>();
+            for (int c = 0; c < 9; c++) {
+                char ch = board[c][r];
+                if (ch != '.' && !set.add(ch)) {
                     return false;
                 }
             }
         }
-
         return true;
     }
 
