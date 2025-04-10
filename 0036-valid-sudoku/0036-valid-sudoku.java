@@ -30,20 +30,19 @@ class Solution {
     }
 
     private boolean isValidNines(char[][] board) {
-        Map<String, Set<Character>> map = new HashMap<>();
-
-        for (int r = 0; r < 9; r++) {
-            for (int c = 0; c < 9; c++){
-                String nine = String.valueOf(r / 3) + String.valueOf(c / 3);
-                Set<Character> mapset = map.getOrDefault(nine, new HashSet<>());
-                char ch = board[r][c];
-                if (ch != '.' && !mapset.add(ch)) {
-                    return false;
+        for (int r = 0; r < 9; r += 3) {
+            for (int c = 0; c < 9; c += 3) {
+                Set<Character> set = new HashSet<>();
+                for (int i = r; i < r + 3; i++) {
+                    for (int j = c; j < c + 3; j++) {
+                        char ch = board[i][j];
+                        if (ch != '.' && !set.add(ch)) {
+                            return false;
+                        }
+                    }
                 }
-                map.put(nine, mapset);
             }
         }
-
         return true;
     }
 }
