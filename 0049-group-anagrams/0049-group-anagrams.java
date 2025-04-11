@@ -3,18 +3,20 @@ class Solution {
         Map<String, List<String>> map = new HashMap<>();
 
         for (String str : strs) {
-            char[] cArr = str.toCharArray();
-            Arrays.sort(cArr);
-            String key = new String(cArr);
-
-            List<String> list = map.getOrDefault(key, new ArrayList<>());
-            list.add(str);
-            map.put(key, list);
+            char[] strArr = str.toCharArray();
+            Arrays.sort(strArr);
+            String strSorted = String.valueOf(strArr);
+            
+            List<String> entryValue = map.getOrDefault(strSorted, new ArrayList<>());
+            entryValue.add(str);
+            map.put(strSorted, entryValue);
+        }
+        
+        List<List<String>> result = new ArrayList<>();
+        for (var el : map.entrySet()) {
+            result.add(el.getValue());
         }
 
-        List<List<String>> result = new ArrayList<>();
-        result.addAll(map.values());
-        
         return result;
     }
 }
