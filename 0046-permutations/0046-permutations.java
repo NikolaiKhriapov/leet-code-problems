@@ -14,7 +14,7 @@ class Solution {
         for (int i = 0; i < nums.length; i++) {
             if (visited[i]) continue;
 
-            curr.add(nums[i]);;
+            curr.add(nums[i]);
             visited[i] = true;
             
             permute(nums, result, curr, visited);
