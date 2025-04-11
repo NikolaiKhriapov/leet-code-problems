@@ -12,7 +12,7 @@ class Solution {
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (curr.contains(nums[i])) continue;
+            if (visited[i]) continue;
 
             curr.add(nums[i]);;
             visited[i] = true;
