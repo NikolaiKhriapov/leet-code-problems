@@ -3,13 +3,12 @@ class Solution {
         Map<String, List<String>> map = new HashMap<>();
 
         for (String str : strs) {
-            char[] strArr = str.toCharArray();
-            Arrays.sort(strArr);
-            String strSorted = String.valueOf(strArr);
+            String strSorted = sortString(str);
             
-            List<String> entryValue = map.getOrDefault(strSorted, new ArrayList<>());
-            entryValue.add(str);
-            map.put(strSorted, entryValue);
+            if (!map.containsKey(strSorted)) {
+                map.put(strSorted, new ArrayList<>());
+            }
+            map.get(strSorted).add(str);
         }
         
         List<List<String>> result = new ArrayList<>();
@@ -18,5 +17,11 @@ class Solution {
         }
 
         return result;
+    }
+
+    private String sortString(String str) {
+        char[] strArr = str.toCharArray();
+        Arrays.sort(strArr);
+        return new String(strArr);
     }
 }
