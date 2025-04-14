@@ -5,18 +5,12 @@ class Solution {
         }
 
         List<int[]> list = new ArrayList<>();
-        boolean[] used = new boolean[intervals.length];
 
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
 
         for (int i = 0; i < intervals.length; i++) {
             int[] curr = intervals[i];
             
-            if (used[i]) {
-                continue;
-            }
-            used[i] = true;
-
             for (int j = i + 1; j < intervals.length; j++) {
                 int[] next = intervals[j];
                 if (curr[1] < next[0]) {
@@ -24,7 +18,7 @@ class Solution {
                 } else {
                     curr[0] = Math.min(curr[0], next[0]);
                     curr[1] = Math.max(curr[1], next[1]);
-                    used[j] = true;
+                    i++;
                 }
             }
             list.add(curr);
