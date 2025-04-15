@@ -8,13 +8,13 @@ class Solution {
         }
 
         for (int i = 0; i < nums.length; i++) {
-            addElementsToSubsets(nums, i, result);
+            generateNewSubsets(nums, i, result);
         }
 
         return result;
     }
 
-    private void addElementsToSubsets(int[] nums, int idx, List<List<Integer>> result) {
+    private void generateNewSubsets(int[] nums, int idx, List<List<Integer>> result) {
         List<List<Integer>> newLists = new ArrayList<>();
         for (List<Integer> list : result) {
             List<Integer> newList = new ArrayList<>(list);
