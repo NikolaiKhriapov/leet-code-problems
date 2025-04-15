@@ -17,7 +17,7 @@ class Solution {
             int numCurr = n;
             int seqCurr = 1;
             
-            if (!set.contains(numCurr) || set.contains(numCurr - 1)) {
+            if (set.contains(numCurr - 1)) {
                 continue;
             }
             while (set.contains(numCurr + 1)) {
