@@ -15,28 +15,31 @@
  */
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return helper(preorder, inorder, 0, 0, inorder.length - 1);
+        return helper(preorder, inorder, 0, 0, inorder.length - 1, makeInorderMap(inorder));
     }
 
-    private TreeNode helper(int[] preorder, int[] inorder, int preStart, int inStart, int inEnd) {
-        if (inStart > inEnd || preStart >= preorder.length) return null;
+    private TreeNode helper(int[] preorder, int[] inorder, int preStart, int inStart, int inEnd, Map<Integer, Integer> inorderMap) {
+        if (inStart > inEnd || preStart >= preorder.length) {
+            return null;
+        }
 
         int rootVal = preorder[preStart];
-
-        int inRootIndex = 0;
-        for (int i = inStart; i <= inEnd; i++) {
-            if (inorder[i] == rootVal) {
-                inRootIndex = i;
-                break;
-            }
-        }
+        int inRootIndex = inorderMap.get(rootVal);
 
         TreeNode root = new TreeNode(
             rootVal,
-            helper(preorder, inorder, preStart + 1, inStart, inRootIndex - 1),
-            helper(preorder, inorder, preStart + inRootIndex -inStart + 1, inRootIndex + 1, inEnd)
+            helper(preorder, inorder, preStart + 1, inStart, inRootIndex - 1, inorderMap),
+            helper(preorder, inorder, preStart + inRootIndex -inStart + 1, inRootIndex + 1, inEnd, inorderMap)
         );
 
         return root;
+    }
+
+    private Map<Integer, Integer> makeInorderMap(int[] inorder){
+        Map<Integer, Integer> inorderMap = new HashMap<>();
+        for (int i = 0; i < inorder.length; i++) {
+            inorderMap.put(inorder[i], i);
+        }
+        return inorderMap;
     }
 }
