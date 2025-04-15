@@ -1,18 +1,20 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        recursive(nums, 0, result, list);
+        result.add(new ArrayList<>());
+        for (int i = nums.length - 1; i >= 0; i--) {
+            subsets(nums, i, result);
+        }
         return result;
     }
 
-    private void recursive(int[] nums, int index, List<List<Integer>> result, List<Integer> list) {
-        result.add(new ArrayList<>(list));
-
-        for (int i = index; i < nums.length; i++) {
-            list.add(nums[i]);
-            recursive(nums, i + 1, result, list);
-            list.remove(list.size() - 1);
+    private void subsets(int[] nums, int idx, List<List<Integer>> result) {
+        List<List<Integer>> newLists = new ArrayList<>();
+        for (List<Integer> list : result) {
+            List<Integer> newList = new ArrayList<>(list);
+            newList.add(nums[idx]);
+            newLists.add(newList);
         }
+        result.addAll(newLists);
     }
 }
