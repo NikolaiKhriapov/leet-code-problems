@@ -2,13 +2,19 @@ class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         result.add(new ArrayList<>());
-        for (int i = nums.length - 1; i >= 0; i--) {
-            subsets(nums, i, result);
+
+        if (nums == null || nums.length == 0) {
+            return result;
         }
+
+        for (int i = 0; i < nums.length; i++) {
+            addElementsToSubsets(nums, i, result);
+        }
+
         return result;
     }
 
-    private void subsets(int[] nums, int idx, List<List<Integer>> result) {
+    private void addElementsToSubsets(int[] nums, int idx, List<List<Integer>> result) {
         List<List<Integer>> newLists = new ArrayList<>();
         for (List<Integer> list : result) {
             List<Integer> newList = new ArrayList<>(list);
