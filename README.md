@@ -72,6 +72,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0049-group-anagrams](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0049-group-anagrams) |
 | [0073-set-matrix-zeroes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0073-set-matrix-zeroes) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
+| [0128-longest-consecutive-sequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0128-longest-consecutive-sequence) |
 | [0141-linked-list-cycle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0141-linked-list-cycle) |
 | [0160-intersection-of-two-linked-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0160-intersection-of-two-linked-lists) |
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
@@ -182,6 +183,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0119-pascals-triangle-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0119-pascals-triangle-ii) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
+| [0128-longest-consecutive-sequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0128-longest-consecutive-sequence) |
 | [0136-single-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0136-single-number) |
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
 | [0217-contains-duplicate](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0217-contains-duplicate) |
@@ -622,5 +624,6 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Union Find
 |  |
 | ------- |
+| [0128-longest-consecutive-sequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0128-longest-consecutive-sequence) |
 | [2121-find-if-path-exists-in-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2121-find-if-path-exists-in-graph) |
 <!---LeetCode Topics End-->
