@@ -1,12 +1,17 @@
 class Solution {
     public boolean exist(char[][] board, String word) {
-        if ((board == null || board.length == 0) && word.length() > 0) return false;
-        if (word == null || word.length() == 0) return true;
+        if (word == null || word.length() == 0) {
+            return true;
+        }
+        if (word.length() > 0 && (board == null || board.length == 0)) {
+            return false;
+        }
 
+        boolean[][] visited = new boolean[board.length][board[0].length];
         char firstChar = word.charAt(0);
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
-                if (board[r][c] == firstChar && exist(board, word, new int[]{r, c}, new boolean[board.length][board[0].length], 0)) {
+                if (board[r][c] == firstChar && exist(board, word, r, c, visited, 0)) {
                     return true;
                 }
             }
@@ -15,44 +20,36 @@ class Solution {
         return false;
     }
 
-    private boolean exist(char[][] board, String word, int[] currCell, boolean[][] visited, int currLength) {
-        if (visited[currCell[0]][currCell[1]]) return false;
+    private boolean exist(char[][] board, String word, int r, int c, boolean[][] visited, int currLength) {
+        if (visited[r][c]) {
+            return false;
+        }
 
-        char currChar = board[currCell[0]][currCell[1]];
+        char currChar = board[r][c];
         char expChar = word.charAt(currLength);
-        if (currChar != expChar) return false;
+        if (currChar != expChar) {
+            return false;
+        }
 
         currLength++;
-        if (currLength >= word.length()) return true;
+        if (currLength >= word.length()) {
+            return true;
+        }
 
-        int[] l = new int[]{currCell[0], currCell[1] - 1};
-        int[] r = new int[]{currCell[0], currCell[1] + 1};
-        int[] t = new int[]{currCell[0] - 1, currCell[1]};
-        int[] b = new int[]{currCell[0] + 1, currCell[1]};
-
-        visited[currCell[0]][currCell[1]] = true;
-        if (l[1] >= 0) {
-            if (exist(board, word, l, visited, currLength)) {
-                return true;
-            }
+        visited[r][c] = true;
+        if (c - 1 >= 0 && exist(board, word, r, c - 1, visited, currLength)) {
+            return true;
         }
-        if (r[1] < board[0].length) {
-            if (exist(board, word, r, visited, currLength)) {
-                return true;
-            }
+        if (c + 1 < board[0].length && exist(board, word, r, c + 1, visited, currLength)) {
+            return true;
         }
-        if (t[0] >= 0) {
-            if (exist(board, word, t, visited, currLength)) {
-                return true;
-            }
+        if (r - 1 >= 0 && exist(board, word, r - 1, c, visited, currLength)) {
+            return true;
         }
-        if (b[0] < board.length) {
-            if (exist(board, word, b, visited, currLength)) {
-                return true;
-            }
+        if (r + 1 < board.length && exist(board, word, r + 1, c, visited, currLength)) {
+            return true;
         }
-        visited[currCell[0]][currCell[1]] = false;
-        currLength--;
+        visited[r][c] = false;
 
         return false;
     }
