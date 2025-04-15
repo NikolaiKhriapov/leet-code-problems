@@ -1,10 +1,7 @@
 class Solution {
     public int longestConsecutive(int[] nums) {
-        if (nums == null) {
+        if (nums == null || nums.length == 0) {
             return 0;
-        }
-        if (nums.length <= 1) {
-            return nums.length;
         }
 
         Set<Integer> set = new HashSet<>();
@@ -13,7 +10,7 @@ class Solution {
         }
 
         int seqLongest = 1;
-        for (int n : nums) {
+        for (int n : set) {
             int numCurr = n;
             int seqCurr = 1;
             
@@ -23,7 +20,6 @@ class Solution {
             while (set.contains(numCurr + 1)) {
                 seqCurr++;
                 numCurr++;
-                set.remove(numCurr);
             }
             seqLongest = Math.max(seqLongest, seqCurr);
         }
