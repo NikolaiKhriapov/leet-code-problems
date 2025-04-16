@@ -4,11 +4,14 @@ class Solution {
 
         boolean isMaxZero = true;
         for (int i = 0; i < nums.length; i++) {
-            if (isMaxZero && nums[i] > 0) isMaxZero = false;
+            if (isMaxZero && nums[i] > 0) {
+                isMaxZero = false;
+            }
             strs[i] = String.valueOf(nums[i]);
         }
-        if (isMaxZero) return "0";
-
+        if (isMaxZero) {
+            return "0";
+        }
 
         Arrays.sort(strs, (a, b) -> (b + a).compareTo(a + b));
 
