@@ -9,8 +9,8 @@ class Solution {
         }
 
         for (String word : wordDict) {
-            if (s.contains(word)) {
-                int index = s.indexOf(word);
+            int index = s.indexOf(word);
+            if (index != -1) {
                 boolean leftWordBreaks = wordBreak(s.substring(0, index), wordDict, memo);
                 boolean rightWordBreaks = wordBreak(s.substring(index + word.length(), s.length()), wordDict, memo);
                 if (leftWordBreaks && rightWordBreaks) {
