@@ -11,6 +11,7 @@ class Solution {
         for (String word : wordDict) {
             if (s.startsWith(word)) {
                 if (wordBreak(s.substring(0 + word.length(), s.length()), wordDict, memo)) {
+                    memo.put(s, true);
                     return true;
                 }
             }
