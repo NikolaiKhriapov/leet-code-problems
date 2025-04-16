@@ -3,6 +3,8 @@ class Solution {
         int maxProduct = Integer.MIN_VALUE;
 
         for (int i = 0; i < nums.length; i++) {
+            if (i != 0 && nums[i] > 0) continue;
+
             int product = nums[i];
             maxProduct = Math.max(maxProduct, product);
             for (int j = i + 1; j < nums.length; j++) {
