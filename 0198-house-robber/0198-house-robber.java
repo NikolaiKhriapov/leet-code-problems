@@ -4,19 +4,14 @@ class Solution {
         if (nums.length == 1) return nums[0];
 
         int[] memo = new int[nums.length];
-        for (int i = 0; i < memo.length; i++) {
-            memo[i] = -1;
+
+        memo[0] = nums[0];
+        memo[1] = Math.max(nums[0], nums[1]);
+
+        for (int i = 2; i < nums.length; i++) {
+            memo[i] = Math.max(memo[i - 1], memo[i - 2] + nums[i]);
         }
-        return Math.max(rob(nums, 0, memo), rob(nums, 1, memo));
-    }
 
-    private int rob(int[] nums, int i, int[] memo) {
-        if (i > nums.length - 1) return 0;
-
-        if (memo[i] != -1) return memo[i];
-
-        int result = nums[i] + Math.max(rob(nums, i + 2, memo), rob(nums, i + 3, memo));
-        memo[i] = result;
-        return result;
+        return memo[memo.length - 1];
     }
 }
