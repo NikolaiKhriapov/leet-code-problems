@@ -7,11 +7,7 @@ class Solution {
             return false;
         }
 
-        int c = 0;
-        int col = 0;
-        while (c < matrix[0].length && matrix[0][c] <= target) {
-            col = c++;
-        }
+        int col = matrix[0].length - 1;
         for (int row = 0; row < matrix.length && col >= 0; row++) {
             if (matrix[row][col] == target) {
                 return true;
