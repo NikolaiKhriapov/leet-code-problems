@@ -6,25 +6,13 @@ class Solution {
         while (c < matrix[0].length && matrix[0][c] <= target) {
             col = c++;
         }
-
-        int r = 0;
-        int row = 0;
-        while (r < matrix.length && matrix[r][0] <= target) {
-            row = r++;
-        }
-
-        for (int i = 0; i <= row; i++) {
-            if (matrix[i][col] == target) return true;
-            if (matrix[i][col] > target && col > 0) {
+        for (int row = 0; row < matrix.length && col >= 0; row++) {
+            if (matrix[row][col] == target) {
+                return true;
+            } else if (matrix[row][col] < target) {
+            } else {
                 col--;
-                i--;
-            }
-        }
-        for (int i = 0; i <= col; i++) {
-            if (matrix[row][i] == target) return true;
-            if (matrix[row][i] > target && row > 0) {
                 row--;
-                i--;
             }
         }
 
