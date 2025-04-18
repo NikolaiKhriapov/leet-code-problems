@@ -210,6 +210,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
 | [0283-move-zeroes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0283-move-zeroes) |
 | [0287-find-the-duplicate-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0287-find-the-duplicate-number) |
+| [0289-game-of-life](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0289-game-of-life) |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
 | [0349-intersection-of-two-arrays](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0349-intersection-of-two-arrays) |
 | [0350-intersection-of-two-arrays-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0350-intersection-of-two-arrays-ii) |
@@ -467,6 +468,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0054-spiral-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0054-spiral-matrix) |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
+| [0289-game-of-life](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0289-game-of-life) |
 | [0412-fizz-buzz](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0412-fizz-buzz) |
 | [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
 | [0874-backspace-string-compare](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0874-backspace-string-compare) |
@@ -590,6 +592,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0130-surrounded-regions](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0200-number-of-islands) |
 | [0240-search-a-2d-matrix-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0240-search-a-2d-matrix-ii) |
+| [0289-game-of-life](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0289-game-of-life) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1476-count-negative-numbers-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1476-count-negative-numbers-in-a-sorted-matrix) |
