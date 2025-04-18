@@ -7,6 +7,10 @@ class Solution {
     private static final int TEMP_1 = 11;
 
     public void gameOfLife(int[][] board) {
+        if (board == null || board.length == 0 || board[0].length == 0) {
+            return;
+        }
+
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
                 markCell(board, r, c);
@@ -24,16 +28,11 @@ class Solution {
      * Temporarily mark cell as 10 or 11
      */
     private void markCell(int[][] board, int r, int c) {
-        if (board[r][c] == 0) {
-            int liveNeighbors = countLiveNeighbors(board, r, c);
-            if (liveNeighbors == 3) {
-                board[r][c] = TEMP_1;
-            }
-        } else if (board[r][c] == 1) {
-            int liveNeighbors = countLiveNeighbors(board, r, c);
-            if (liveNeighbors < 2 || liveNeighbors > 3) {
-                board[r][c] = TEMP_0;
-            }
+        int liveNeighbors = countLiveNeighbors(board, r, c);
+        if (board[r][c] == 0 && liveNeighbors == 3) {
+            board[r][c] = TEMP_1;
+        } else if (board[r][c] == 1 && (liveNeighbors < 2 || liveNeighbors > 3)) {
+            board[r][c] = TEMP_0;
         }
     }
 
@@ -54,14 +53,17 @@ class Solution {
     private int countLiveNeighbors(int[][] board, int r, int c) {
         int count = 0;
 
-        if (r - 1 >= 0 && (board[r - 1][c] == 1 || board[r - 1][c] == TEMP_0)) count++;
-        if (r + 1 < board.length && (board[r + 1][c] == 1 || board[r + 1][c] == TEMP_0)) count++;
-        if (c - 1 >= 0 && (board[r][c - 1] == 1 || board[r][c - 1] == TEMP_0)) count++;
-        if (c + 1 < board[0].length && (board[r][c + 1] == 1 || board[r][c + 1] == TEMP_0)) count++;
-        if (r - 1 >= 0 && c - 1 >= 0 && (board[r - 1][c - 1] == 1 || board[r - 1][c - 1] == TEMP_0)) count++;
-        if (r - 1 >= 0 && c + 1 < board[0].length && (board[r - 1][c + 1] == 1 || board[r - 1][c + 1] == TEMP_0)) count++;
-        if (r + 1 < board.length && c - 1 >= 0 && (board[r + 1][c - 1] == 1 || board[r + 1][c - 1] == TEMP_0)) count++;
-        if (r + 1 < board.length && c + 1 < board[0].length && (board[r + 1][c + 1] == 1 || board[r + 1][c + 1] == TEMP_0)) count++;
+        int[][] neighbors = { {r-1,c}, {r+1,c}, {r,c-1}, {r,c+1}, {r-1,c-1}, {r+1,c-1}, {r-1,c+1}, {r+1,c+1} };
+
+        for (int[] neighbor : neighbors) {
+            if (neighbor[0] >= 0 &&
+                neighbor[0] < board.length &&
+                neighbor[1] >= 0 &&
+                neighbor[1] < board[0].length &&
+                (board[neighbor[0]][neighbor[1]] == 1 || board[neighbor[0]][neighbor[1]] == TEMP_0)) {
+                count++;
+            }
+        }
 
         return count;
     }
