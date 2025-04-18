@@ -27,7 +27,7 @@ class Solution {
     /**
      * Temporarily mark cell as 10 or 11
      */
-    private void markCell(int[][] board, int r, int c) {
+    private static void markCell(int[][] board, int r, int c) {
         int liveNeighbors = countLiveNeighbors(board, r, c);
         if (board[r][c] == 0 && liveNeighbors == 3) {
             board[r][c] = TEMP_1;
@@ -39,7 +39,7 @@ class Solution {
     /**
      * Unmark temporarily marked cells back to 0 or 1
      */
-    private void unmarkCell(int[][] board, int r, int c) {
+    private static void unmarkCell(int[][] board, int r, int c) {
         if (board[r][c] == TEMP_0) {
             board[r][c] = 0;
         } else if (board[r][c] == TEMP_1) {
@@ -50,21 +50,31 @@ class Solution {
     /**
      * Counts live neighbors (1 or TEMP_0)
      */
-    private int countLiveNeighbors(int[][] board, int r, int c) {
+    private static int countLiveNeighbors(int[][] board, int r, int c) {
         int count = 0;
 
-        int[][] neighbors = { {r-1,c}, {r+1,c}, {r,c-1}, {r,c+1}, {r-1,c-1}, {r+1,c-1}, {r-1,c+1}, {r+1,c+1} };
-
+        int[][] neighbors = getNeighbors(r, c);
         for (int[] neighbor : neighbors) {
-            if (neighbor[0] >= 0 &&
-                neighbor[0] < board.length &&
-                neighbor[1] >= 0 &&
-                neighbor[1] < board[0].length &&
+            if (neighbor[0] >= 0 && neighbor[0] < board.length &&
+                neighbor[1] >= 0 && neighbor[1] < board[0].length &&
                 (board[neighbor[0]][neighbor[1]] == 1 || board[neighbor[0]][neighbor[1]] == TEMP_0)) {
                 count++;
             }
         }
 
         return count;
+    }
+
+    private static int[][] getNeighbors(int r, int c) {
+        return new int[][]{
+            {r - 1,c},
+            {r + 1,c},
+            {r,c - 1},
+            {r,c + 1},
+            {r - 1,c - 1},
+            {r + 1,c - 1},
+            {r - 1,c + 1},
+            {r + 1,c + 1}
+        };
     }
 }
