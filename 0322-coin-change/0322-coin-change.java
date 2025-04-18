@@ -6,8 +6,6 @@ class Solution {
         if (coins == null || coins.length == 0) {
             return -1;
         }
-        Arrays.sort(coins);
-        reverse(coins);
 
         return coinChange(coins, amount, new HashMap<>());
     }
