@@ -4,14 +4,14 @@ class Solution {
             return false;
         }
         
-        int first = Integer.MAX_VALUE;
-        int second = Integer.MAX_VALUE;
+        int firstMin = Integer.MAX_VALUE;
+        int secondMin = Integer.MAX_VALUE;
 
         for (int n : nums) {
-            if (n <= first) {
-                first = n;
-            } else if (n <= second) {
-                second = n;
+            if (n <= firstMin) {
+                firstMin = n;
+            } else if (n <= secondMin) {
+                secondMin = n;
             } else {
                 return true;
             }
