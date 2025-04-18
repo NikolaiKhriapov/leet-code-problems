@@ -6,8 +6,18 @@ class Solution {
         if (coins == null || coins.length == 0) {
             return -1;
         }
+        Arrays.sort(coins);
+        reverse(coins);
 
         return coinChange(coins, amount, new HashMap<>());
+    }
+
+    private void reverse(int[] arr) {
+        for (int i = 0; i < arr.length / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
     }
 
     private static int coinChange(int[] coins, int amount, Map<Integer, Integer> memo) {
