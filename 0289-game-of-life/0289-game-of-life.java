@@ -5,6 +5,16 @@
 class Solution {
     private static final int TEMP_0 = 10;
     private static final int TEMP_1 = 11;
+    private static final int[][] DIRECTIONS = {
+        {-1,  0},
+        { 1,  0},
+        { 0, -1},
+        { 0,  1},
+        {-1, -1},
+        {-1,  1},
+        { 1, -1},
+        { 1,  1} 
+    };
 
     public void gameOfLife(int[][] board) {
         if (board == null || board.length == 0 || board[0].length == 0) {
@@ -52,29 +62,15 @@ class Solution {
      */
     private static int countLiveNeighbors(int[][] board, int r, int c) {
         int count = 0;
-
-        int[][] neighbors = getNeighbors(r, c);
-        for (int[] neighbor : neighbors) {
-            if (neighbor[0] >= 0 && neighbor[0] < board.length &&
-                neighbor[1] >= 0 && neighbor[1] < board[0].length &&
-                (board[neighbor[0]][neighbor[1]] == 1 || board[neighbor[0]][neighbor[1]] == TEMP_0)) {
+        for (int[] dir : DIRECTIONS) {
+            int nr = r + dir[0];
+            int nc = c + dir[1];
+            if (nr >= 0 && nr < board.length &&
+                nc >= 0 && nc < board[0].length &&
+                (board[nr][nc] == 1 || board[nr][nc] == TEMP_0)) {
                 count++;
             }
         }
-
         return count;
-    }
-
-    private static int[][] getNeighbors(int r, int c) {
-        return new int[][]{
-            {r - 1,c},
-            {r + 1,c},
-            {r,c - 1},
-            {r,c + 1},
-            {r - 1,c - 1},
-            {r + 1,c - 1},
-            {r - 1,c + 1},
-            {r + 1,c + 1}
-        };
     }
 }
