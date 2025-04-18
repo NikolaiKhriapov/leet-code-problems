@@ -1,43 +1,23 @@
 class Solution {
+    private static final int INF = Integer.MAX_VALUE - 1;
+
     public int coinChange(int[] coins, int amount) {
-        if (amount == 0){
-            return 0;
-        }
-        if (coins == null || coins.length == 0) {
-            return -1;
+        if (coins == null || coins.length == 0 || amount < 0) return -1;
+        if (amount == 0) return 0;
+
+        int[] dp = new int[amount + 1];
+        for (int i = 1; i <= amount; i++) {
+            dp[i] = INF;
         }
 
-        return coinChange(coins, amount, new HashMap<>());
-    }
-
-    private void reverse(int[] arr) {
-        for (int i = 0; i < arr.length / 2; i++) {
-            int temp = arr[i];
-            arr[i] = arr[arr.length - 1 - i];
-            arr[arr.length - 1 - i] = temp;
-        }
-    }
-
-    private static int coinChange(int[] coins, int amount, Map<Integer, Integer> memo) {
-        if (amount == 0) {
-            return 0;
-        } else if (amount < 0) {
-            return -1;
-        }
-        if (memo.containsKey(amount)) {
-            return memo.get(amount);
-        }
-
-        int minCoins = Integer.MAX_VALUE;
-        for (int coin : coins) {
-            int res = coinChange(coins, amount - coin, memo);
-            if (res >= 0) {
-                minCoins = Math.min(minCoins, 1 + res);
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (coin > 0 && i >= coin) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
             }
         }
-
-        int result = minCoins == Integer.MAX_VALUE ? -1 : minCoins;
-        memo.put(amount, result);
-        return result;
+        
+        return dp[amount] == INF ? -1 : dp[amount];
     }
 }
