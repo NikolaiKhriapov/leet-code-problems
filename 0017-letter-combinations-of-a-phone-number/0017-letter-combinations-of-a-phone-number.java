@@ -17,6 +17,9 @@ class Solution {
             result.add(curr.toString());
             return;
         }
+        if (digits.charAt(i) < '2' || digits.charAt(i) > '9') {
+            throw new RuntimeException("Invalid digit: " + digits.charAt(i));
+        }
 
         int index = curr.length();
         for (char letter : LETTERS[digits.charAt(i) - '0'].toCharArray()) {
