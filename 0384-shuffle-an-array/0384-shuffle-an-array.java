@@ -19,8 +19,8 @@ class Solution {
     }
 
     private static void shuffle(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            swap(array, i, random.nextInt(array.length));
+        for (int i = array.length - 1; i > 0; i--) {
+            swap(array, i, random.nextInt(i + 1));
         }
     }
 
