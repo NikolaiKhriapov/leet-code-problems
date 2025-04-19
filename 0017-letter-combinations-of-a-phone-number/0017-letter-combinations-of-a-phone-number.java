@@ -1,4 +1,13 @@
 class Solution {
+    private static final String[] LETTERS_2 = new String[] {"a", "b", "c"};
+    private static final String[] LETTERS_3 = new String[] {"d", "e", "f"};
+    private static final String[] LETTERS_4 = new String[] {"g", "h", "i"};
+    private static final String[] LETTERS_5 = new String[] {"j", "k", "l"};
+    private static final String[] LETTERS_6 = new String[] {"m", "n", "o"};
+    private static final String[] LETTERS_7 = new String[] {"p", "q", "r", "s"};
+    private static final String[] LETTERS_8 = new String[] {"t", "u", "v"};
+    private static final String[] LETTERS_9 = new String[] {"w", "x", "y", "z"};
+
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<>();
 
@@ -28,14 +37,14 @@ class Solution {
 
     private static String[] getLettersForDigit(char c) {
         return switch (c) {
-            case '2' -> new String[] {"a", "b", "c"};
-            case '3' -> new String[] {"d", "e", "f"};
-            case '4' -> new String[] {"g", "h", "i"};
-            case '5' -> new String[] {"j", "k", "l"};
-            case '6' -> new String[] {"m", "n", "o"};
-            case '7' -> new String[] {"p", "q", "r", "s"};
-            case '8' -> new String[] {"t", "u", "v"};
-            case '9' -> new String[] {"w", "x", "y", "z"};
+            case '2' -> LETTERS_2;
+            case '3' -> LETTERS_3;
+            case '4' -> LETTERS_4;
+            case '5' -> LETTERS_5;
+            case '6' -> LETTERS_6;
+            case '7' -> LETTERS_7;
+            case '8' -> LETTERS_8;
+            case '9' -> LETTERS_9;
             default -> throw new RuntimeException("Invalid number: " + c);
         };
     }
