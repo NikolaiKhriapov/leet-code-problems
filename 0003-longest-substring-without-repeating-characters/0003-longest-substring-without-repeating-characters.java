@@ -10,15 +10,14 @@ class Solution {
         int l = 0;
         int r = 0;
         
-        Set<Character> set = new HashSet<>();
+        Set<Character> currChars = new HashSet<>();
         while (l < sArr.length && r < sArr.length) {
-            boolean isAdded = set.add(sArr[r]);
+            boolean isAdded = currChars.add(sArr[r]);
             if (isAdded) {
-                int lengthCurr = r - l + 1;
-                lengthMax = Math.max(lengthMax, lengthCurr);
+                lengthMax = Math.max(lengthMax, r - l + 1);
             } else {
                 while (l < sArr.length && sArr[l] != sArr[r]) {
-                    set.remove(sArr[l]);
+                    currChars.remove(sArr[l]);
                     l++;
                 }
                 l++;
