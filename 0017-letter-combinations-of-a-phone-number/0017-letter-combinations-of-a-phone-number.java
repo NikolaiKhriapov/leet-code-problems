@@ -15,13 +15,13 @@ class Solution {
             return result;
         }
 
-        helper(digits, 0, "", result);
+        addLetterCombinations(digits, 0, new StringBuilder(), result);
         return result;
     }
 
-    private static void helper(String digits, int i, String curr, List<String> result) {
+    private static void addLetterCombinations(String digits, int i, StringBuilder curr, List<String> result) {
         if (i >= digits.length()) {
-            result.add(curr);
+            result.add(curr.toString());
             return;
         }
 
@@ -29,9 +29,9 @@ class Solution {
 
         int index = curr.length();
         for (String letter : letters) {
-            curr += letter;
-            helper(digits, i + 1, curr, result);
-            curr = curr.substring(0, index);
+            curr.append(letter);
+            addLetterCombinations(digits, i + 1, curr, result);
+            curr.delete(index, curr.length());
         }
     }
 
