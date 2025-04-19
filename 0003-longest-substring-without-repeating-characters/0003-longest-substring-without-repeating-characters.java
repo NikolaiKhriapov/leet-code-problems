@@ -7,22 +7,22 @@ class Solution {
         }
 
         int lengthMax = 0;
-        int l = 0;
-        int r = 0;
+        int left = 0;
+        int right = 0;
         
         Set<Character> currChars = new HashSet<>();
-        while (l < sArr.length && r < sArr.length) {
-            boolean isAdded = currChars.add(sArr[r]);
+        while (left < sArr.length && right < sArr.length) {
+            boolean isAdded = currChars.add(sArr[right]);
             if (isAdded) {
-                lengthMax = Math.max(lengthMax, r - l + 1);
+                lengthMax = Math.max(lengthMax, right - left + 1);
             } else {
-                while (l < sArr.length && sArr[l] != sArr[r]) {
-                    currChars.remove(sArr[l]);
-                    l++;
+                while (left < sArr.length && sArr[left] != sArr[right]) {
+                    currChars.remove(sArr[left]);
+                    left++;
                 }
-                l++;
+                left++;
             }
-            r++;
+            right++;
         }
 
         return lengthMax;
