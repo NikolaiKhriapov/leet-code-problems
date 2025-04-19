@@ -1,7 +1,7 @@
 class RandomizedSet {
     private List<Integer> list;
     private Map<Integer, Integer> map;
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public RandomizedSet() {
         list = new ArrayList<>();
