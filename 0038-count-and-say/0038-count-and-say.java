@@ -3,12 +3,12 @@ class Solution {
         if (n < 1) {
             return "";
         }
-        if (n == 1) {
-            return "1";
+        
+        String result = "1";
+        for (int i = 2; i <= n; i++) {
+            result = generateCurrString(result);
         }
-
-        String prevString = countAndSay(n - 1);
-        return generateCurrString(prevString);
+        return result;
     }
 
     private static String generateCurrString(String str) {
@@ -23,9 +23,6 @@ class Solution {
                 count = 0;
             }
         }
-        // if (count > 0) {
-        //     sb.append(count).append(str.charAt(str.length() - 1));
-        // }
         return sb.toString();
 
     }
