@@ -8,8 +8,11 @@ class Solution {
 
         int index = 0;
         int sign = 1;
-        if (s.startsWith("+") || s.startsWith("-")) {
-            if (s.charAt(index) == '-') sign = -1;
+        char firstChar = s.charAt(index);
+        if (firstChar == '+' || firstChar == '-') {
+            if (firstChar == '-') {
+                sign = -1;
+            }
             index++;
         }
 
