@@ -1,7 +1,11 @@
 class Solution {
     public int numDecodings(String s) {
-        if (s == null || s.startsWith("0")) return 0;
-        if (s.length() <= 1) return s.length();
+        if (s == null || s.startsWith("0")) {
+            return 0;
+        }
+        if (s.length() <= 1) {
+            return s.length();
+        }
 
         return numDecodings(s, 0, new HashMap<>());
     }
@@ -15,11 +19,12 @@ class Solution {
             return memo.get(idx);
         }
 
-        if (s.charAt(idx) - '0' == 0) {
-            return 0;
-        }
-
         int count = 0;
+
+        if (s.charAt(idx) - '0' == 0) {
+            memo.put(idx, count);
+            return count;
+        }
 
         int one = numDecodings(s, idx + 1, memo);
         count += one;
