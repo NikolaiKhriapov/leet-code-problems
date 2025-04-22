@@ -21,9 +21,8 @@ class Solution {
             carry = 0;
             
             if (sum > 9) {
-                int temp = sum;
+                carry = sum / 10;
                 sum = sum % 10;
-                carry = temp / 10;
             }
             
             curr.next = new ListNode(sum);
@@ -34,8 +33,7 @@ class Solution {
         if (carry != 0) {
             curr.next = new ListNode(carry);
         }
-        curr = dummy.next;
 
-        return curr;
+        return dummy.next;
     }
 }
