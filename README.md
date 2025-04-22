@@ -169,6 +169,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0116-populating-next-right-pointers-in-each-node](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0116-populating-next-right-pointers-in-each-node) |
 | [0138-copy-list-with-random-pointer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0141-linked-list-cycle) |
+| [0148-sort-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0148-sort-list) |
 | [0160-intersection-of-two-linked-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0160-intersection-of-two-linked-lists) |
 | [0203-remove-linked-list-elements](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0203-remove-linked-list-elements) |
 | [0206-reverse-linked-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0206-reverse-linked-list) |
@@ -303,6 +304,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0088-merge-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0088-merge-sorted-array) |
 | [0125-valid-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0125-valid-palindrome) |
 | [0141-linked-list-cycle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0141-linked-list-cycle) |
+| [0148-sort-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0148-sort-list) |
 | [0160-intersection-of-two-linked-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0160-intersection-of-two-linked-lists) |
 | [0189-rotate-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0189-rotate-array) |
 | [0202-happy-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0202-happy-number) |
@@ -369,6 +371,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0056-merge-intervals](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0056-merge-intervals) |
 | [0075-sort-colors](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0075-sort-colors) |
 | [0088-merge-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0088-merge-sorted-array) |
+| [0148-sort-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0148-sort-list) |
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
 | [0179-largest-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0179-largest-number) |
 | [0215-kth-largest-element-in-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0215-kth-largest-element-in-an-array) |
@@ -542,6 +545,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0053-maximum-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0053-maximum-subarray) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
+| [0148-sort-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0148-sort-list) |
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
 | [0190-reverse-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0190-reverse-bits) |
 | [0191-number-of-1-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0191-number-of-1-bits) |
@@ -756,4 +760,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0380-insert-delete-getrandom-o1](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0380-insert-delete-getrandom-o1) |
 | [0384-shuffle-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0384-shuffle-an-array) |
+## Merge Sort
+|  |
+| ------- |
+| [0148-sort-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0148-sort-list) |
 <!---LeetCode Topics End-->
