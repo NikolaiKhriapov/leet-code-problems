@@ -27,19 +27,19 @@ class Solution {
             return null;
         }
 
-        helper(root.left, root.right);
+        connect(root.left, root.right);
         return root;
     }
 
-    private static void helper(Node left, Node right) {
-        if (left == null) {
+    private static void connect(Node left, Node right) {
+        if (left == null || right == null) {
             return;
         }
 
         left.next = right;
 
-        helper(left.left, left.right);
-        helper(left.right, right.left);
-        helper(right.left, right.right);
+        connect(left.left, left.right);
+        connect(left.right, right.left);
+        connect(right.left, right.right);
     }
 }
