@@ -24,14 +24,11 @@ class Solution {
     private static ListNode getMid(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
-
-        ListNode prev = null;
-        while (fast != null && fast.next != null) {
-            prev = slow;
+        while (fast != null && fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        return prev;
+        return slow;
     }
 
     private static ListNode merge(ListNode first, ListNode second) {
