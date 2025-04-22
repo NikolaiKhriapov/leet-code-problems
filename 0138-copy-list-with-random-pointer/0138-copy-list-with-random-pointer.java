@@ -19,7 +19,6 @@ class Solution {
             return null;
         }
 
-        // add copies after originals
         Map<Node, Node> map = new HashMap<>();
         Node current = head;
         while (current != null) {
@@ -29,7 +28,6 @@ class Solution {
             current = copy.next;
         }
 
-        // add random references
         current = head;
         while (current != null) {
             if (current.random != null) {
@@ -38,17 +36,14 @@ class Solution {
             current = current.next.next;
         }
 
-        // remove originals
         current = head;
         Node dummy = new Node(-1);
         Node copyDummy = dummy;
         while (current != null) {
             Node copy = current.next;
             current.next = current.next.next;
-            
             copyDummy.next = copy;
             copyDummy = copyDummy.next;
-            
             current = current.next;
         }
 
