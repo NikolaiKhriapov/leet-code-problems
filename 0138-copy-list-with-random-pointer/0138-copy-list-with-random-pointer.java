@@ -19,21 +19,39 @@ class Solution {
             return null;
         }
 
+        // add copies after originals
         Map<Node, Node> map = new HashMap<>();
-        Node oldNode = head;
-        while (oldNode != null) {
-            map.put(oldNode, new Node(oldNode.val));
-            oldNode = oldNode.next;
+        Node current = head;
+        while (current != null) {
+            Node copy = new Node(current.val);
+            copy.next = current.next;
+            current.next = copy;
+            current = copy.next;
         }
 
-        oldNode = head;
-        while (oldNode != null) {
-            Node newNode = map.get(oldNode);
-            newNode.next = map.get(oldNode.next);
-            newNode.random = map.get(oldNode.random);
-            oldNode = oldNode.next;
+        // add random references
+        current = head;
+        while (current != null) {
+            if (current.random != null) {
+                current.next.random = current.random.next;
+            }
+            current = current.next.next;
         }
-        
-        return map.get(head);
+
+        // remove originals
+        current = head;
+        Node dummy = new Node(-1);
+        Node copyDummy = dummy;
+        while (current != null) {
+            Node copy = current.next;
+            current.next = current.next.next;
+            
+            copyDummy.next = copy;
+            copyDummy = copyDummy.next;
+            
+            current = current.next;
+        }
+
+        return dummy.next;
     }
 }
