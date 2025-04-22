@@ -92,6 +92,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0073-set-matrix-zeroes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0073-set-matrix-zeroes) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0128-longest-consecutive-sequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0128-longest-consecutive-sequence) |
+| [0138-copy-list-with-random-pointer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0138-copy-list-with-random-pointer) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
 | [0141-linked-list-cycle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0141-linked-list-cycle) |
 | [0160-intersection-of-two-linked-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0160-intersection-of-two-linked-lists) |
@@ -166,6 +167,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0021-merge-two-sorted-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0021-merge-two-sorted-lists) |
 | [0083-remove-duplicates-from-sorted-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0083-remove-duplicates-from-sorted-list) |
 | [0116-populating-next-right-pointers-in-each-node](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0116-populating-next-right-pointers-in-each-node) |
+| [0138-copy-list-with-random-pointer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0141-linked-list-cycle) |
 | [0160-intersection-of-two-linked-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0160-intersection-of-two-linked-lists) |
 | [0203-remove-linked-list-elements](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0203-remove-linked-list-elements) |
