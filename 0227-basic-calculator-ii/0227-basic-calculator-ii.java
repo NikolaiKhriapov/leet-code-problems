@@ -36,6 +36,6 @@ class Solution {
             }
         }
 
-        return result += lastNumber;
+        return result + lastNumber;
     }
 }
