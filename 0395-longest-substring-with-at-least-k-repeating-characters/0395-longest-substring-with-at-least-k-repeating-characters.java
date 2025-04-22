@@ -1,27 +1,27 @@
 class Solution {
     public int longestSubstring(String s, int k) {
+        if (s == null || s.length() < k || k < 1) {
+            return 0;
+        }
         return longestSubstring(s, 0, s.length(), k);
     }
 
     private static int longestSubstring(String s, int left, int right, int k) {
-        if (s == null || right - left < k || k < 1) {
+        if (right - left < k) {
             return 0;
         }
 
-        int[] map = new int[26];
+        int[] count = new int[26];
         for (int i = left; i < right; i++) {
-            char c = s.charAt(i);
-            map[c - 'a']++;
+            count[s.charAt(i) - 'a']++;
         }
         
         for (int i = left; i < right; i++) {
-            int charCount = map[s.charAt(i) - 'a'];
-            if (charCount < k) {
-                int l = longestSubstring(s, left, i, k);
-                int r = (i + 1 < right)
-                    ? longestSubstring(s, i + 1, right, k)
-                    : 0;
-                return Math.max(l, r);
+            if (count[s.charAt(i) - 'a'] < k) {
+                return Math.max(
+                    longestSubstring(s, left, i, k),
+                    longestSubstring(s, i + 1, right, k)
+                );
             }
         }
 
