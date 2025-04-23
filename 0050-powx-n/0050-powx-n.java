@@ -1,7 +1,9 @@
 class Solution {
     public double myPow(double x, int n) {
-        if (x == 0) return 0;
-        
+        if (x == 0) {
+            return 0;
+        }
+
         long nLong = n;
         if (nLong < 0) {
             x = 1 / x;
