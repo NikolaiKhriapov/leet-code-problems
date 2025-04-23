@@ -31,7 +31,11 @@ class Solution {
 
             for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
-                list.add(node.val);
+                if (leftToRight) {
+                    list.add(node.val);
+                } else {
+                    list.add(0, node.val);
+                }
 
                 if (node.left != null) {
                     q.add(node.left);
@@ -39,9 +43,6 @@ class Solution {
                 if (node.right != null) {
                     q.add(node.right);
                 }
-            }
-            if (!leftToRight) {
-                Collections.reverse(list);
             }
 
             leftToRight = !leftToRight;
