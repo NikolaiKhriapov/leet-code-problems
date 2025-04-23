@@ -19,21 +19,21 @@ class Solution {
             return true;
         }
 
-        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return isValidBST(root, (long) (Integer.MIN_VALUE) - 1, (long) (Integer.MAX_VALUE) + 1);
     }
 
-    private boolean isValidBST(TreeNode node, int min, int max) {
+    private boolean isValidBST(TreeNode node, long min, long max) {
         if (node == null) {
             return true;
         }
 
-        if (node.left != null && (node.left.val >= node.val || node.left.val < min)) {
+        if (node.left != null && (node.left.val >= node.val || (long) node.left.val <= min)) {
             return false;
         }
-        if (node.right != null && (node.right.val <= node.val || node.right.val > max)) {
+        if (node.right != null && (node.right.val <= node.val || (long) node.right.val >= max)) {
             return false;
         }
 
-        return isValidBST(node.left, min, node.val - 1) && isValidBST(node.right, node.val + 1, max);
+        return isValidBST(node.left, min, node.val) && isValidBST(node.right, node.val, max);
     }
 }
