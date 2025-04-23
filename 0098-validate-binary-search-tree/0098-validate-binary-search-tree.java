@@ -27,10 +27,10 @@ class Solution {
             return true;
         }
 
-        if (node.left != null && (node.left.val >= node.val || (long) node.left.val <= min)) {
+        if (node.left != null && (node.left.val >= node.val || node.left.val <= min)) {
             return false;
         }
-        if (node.right != null && (node.right.val <= node.val || (long) node.right.val >= max)) {
+        if (node.right != null && (node.right.val <= node.val || node.right.val >= max)) {
             return false;
         }
 
