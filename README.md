@@ -70,6 +70,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0227-basic-calculator-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0227-basic-calculator-ii) |
 | [0232-implement-queue-using-stacks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0232-implement-queue-using-stacks) |
 | [0234-palindrome-linked-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0234-palindrome-linked-list) |
+| [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
 | [0496-next-greater-element-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0496-next-greater-element-i) |
 | [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
 | [0775-n-ary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0775-n-ary-tree-preorder-traversal) |
@@ -424,6 +425,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0222-count-complete-tree-nodes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0222-count-complete-tree-nodes) |
 | [0226-invert-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0226-invert-binary-tree) |
 | [0257-binary-tree-paths](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0257-binary-tree-paths) |
+| [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
@@ -454,6 +456,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0200-number-of-islands](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0200-number-of-islands) |
 | [0226-invert-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0226-invert-binary-tree) |
 | [0257-binary-tree-paths](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0257-binary-tree-paths) |
+| [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
@@ -632,6 +635,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0225-implement-stack-using-queues](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0225-implement-stack-using-queues) |
 | [0232-implement-queue-using-stacks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0232-implement-queue-using-stacks) |
+| [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
 | [0387-first-unique-character-in-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0387-first-unique-character-in-a-string) |
 | [0969-number-of-recent-calls](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0969-number-of-recent-calls) |
 | [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
@@ -669,6 +673,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0225-implement-stack-using-queues](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0225-implement-stack-using-queues) |
 | [0232-implement-queue-using-stacks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0232-implement-queue-using-stacks) |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
+| [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
 | [0380-insert-delete-getrandom-o1](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0380-insert-delete-getrandom-o1) |
 | [0384-shuffle-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0384-shuffle-an-array) |
 | [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
@@ -768,4 +773,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0148-sort-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0148-sort-list) |
+## Iterator
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
 <!---LeetCode Topics End-->
