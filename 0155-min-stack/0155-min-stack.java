@@ -14,15 +14,27 @@ class MinStack {
     }
     
     public void pop() {
+        if (stack.isEmpty()) {
+            throw new RuntimeException("Stack is empty");
+        }
+
         stack.pop();
         stackMin.pop();
     }
     
     public int top() {
+        if (stack.isEmpty()) {
+            throw new RuntimeException("Stack is empty");
+        }
+
         return stack.peek();
     }
     
     public int getMin() {
+        if (stack.isEmpty()) {
+            throw new RuntimeException("Stack is empty");
+        }
+
         return stackMin.peek();
     }
 }
