@@ -15,10 +15,6 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-
         return isValidBST(root, (long) (Integer.MIN_VALUE) - 1, (long) (Integer.MAX_VALUE) + 1);
     }
 
@@ -26,14 +22,9 @@ class Solution {
         if (node == null) {
             return true;
         }
-
-        if (node.left != null && (node.left.val >= node.val || node.left.val <= min)) {
+        if (node.val <= min || node.val >= max) {
             return false;
         }
-        if (node.right != null && (node.right.val <= node.val || node.right.val >= max)) {
-            return false;
-        }
-
         return isValidBST(node.left, min, node.val) && isValidBST(node.right, node.val, max);
     }
 }
