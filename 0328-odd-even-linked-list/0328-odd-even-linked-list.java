@@ -13,10 +13,9 @@ class Solution {
         if (head == null) {
             return null;
         }
-        
-        // split
-        ListNode currOdd = head;
+
         ListNode headEven = head.next;
+        ListNode currOdd = head;
         ListNode currEven = headEven;
         while (currEven != null && currEven.next != null) {
             currOdd.next = currEven.next;
@@ -25,9 +24,8 @@ class Solution {
             currEven = currEven.next;
         }
 
-        // connect
         currOdd.next = headEven;
-
+        
         return head;
     }
 }
