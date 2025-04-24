@@ -1,12 +1,19 @@
 class Solution {
     public int uniquePaths(int m, int n) {
+        if (m <= 0 || n <= 0) {
+            return 0;
+        }
 
         return uniquePaths(m, n, 0, 0, new HashMap<>());
     }
 
     private int uniquePaths(int m, int n, int row, int col, Map<String, Integer> memo) {
-        if (row < 0 || col < 0 || row >= m || col >= n) return 0;
-        if (row == m - 1 && col == n - 1) return 1;
+        if (row < 0 || col < 0 || row >= m || col >= n) {
+            return 0;
+        }
+        if (row == m - 1 && col == n - 1) {
+            return 1;
+        }
 
         String key = String.valueOf(row) + "-" + String.valueOf(col);
         if (memo.containsKey(key)) {
