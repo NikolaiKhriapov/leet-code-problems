@@ -15,9 +15,9 @@ class Solution {
 
         int min = n;
         for (int i : perfectSquareNumbers) {
-            int res = numSquares(n - i, perfectSquareNumbers, memo);
-            if (res != -1) {
-                min = Math.min(min, res);
+            if (n - i >= 0) {
+                int numSquares = numSquares(n - i, perfectSquareNumbers, memo);
+                min = Math.min(min, numSquares);
             }
         }
 
