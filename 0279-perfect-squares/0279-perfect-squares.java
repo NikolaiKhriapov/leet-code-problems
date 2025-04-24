@@ -4,14 +4,14 @@ class Solution {
         if (n == 1) return 1;
 
         List<Integer> perfectSquareNumbers = getPerfectSquares(n);
-        return numSquares(n, perfectSquareNumbers, new HashMap<>());
+        return numSquares(n, perfectSquareNumbers, new int[n + 1]);
     }
 
-    private int numSquares(int n, List<Integer> perfectSquareNumbers, Map<Integer, Integer> memo) {
+    private int numSquares(int n, List<Integer> perfectSquareNumbers, int[] memo) {
         if (n < 0) return -1;
         if (n == 0) return 0;
 
-        if (memo.containsKey(n)) return memo.get(n);
+        if (memo[n] != 0) return memo[n];
 
         int min = n;
         for (int i : perfectSquareNumbers) {
@@ -22,7 +22,7 @@ class Solution {
         }
 
         int result = 1 + min;
-        memo.put(n, result);
+        memo[n] = result;
         return result;
     }
 
