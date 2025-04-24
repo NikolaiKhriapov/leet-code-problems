@@ -1,27 +1,17 @@
 class Solution {
     public int uniquePaths(int m, int n) {
-        if (m <= 0 || n <= 0) {
-            return 0;
+        
+        int[][] dp = new int[m][n];
+        
+        for (int r = 0; r < m; r++) dp[r][0] = 1;
+        for (int c = 0; c < n; c++) dp[0][c] = 1;
+
+        for (int r = 1; r < m; r++) {
+            for (int c = 1; c < n; c++) {
+                dp[r][c] = dp[r - 1][c] + dp[r][c - 1];
+            }
         }
 
-        return uniquePaths(m, n, 0, 0, new int[m][n]);
-    }
-
-    private int uniquePaths(int m, int n, int row, int col, int[][] memo) {
-        if (row < 0 || col < 0 || row >= m || col >= n) {
-            return 0;
-        }
-        if (row == m - 1 && col == n - 1) {
-            return 1;
-        }
-
-        if (memo[row][col] != 0) {
-            return memo[row][col];
-        }
-
-        int result = uniquePaths(m, n, row + 1, col, memo) + uniquePaths(m, n, row, col + 1, memo);
-        memo[row][col] = result;
-
-        return result;
+        return dp[m - 1][n - 1];
     }
 }
