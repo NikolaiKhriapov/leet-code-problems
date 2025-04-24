@@ -8,8 +8,8 @@ class Solution {
             map.put(prerequisite[1], list);
         }
 
-        Set<Integer> visited = new HashSet<>();
-        Set<Integer> visiting = new HashSet<>();
+        boolean[] visited = new boolean[numCourses];
+        boolean[] visiting = new boolean[numCourses];
         List<Integer> visitedList = new ArrayList<>();
         for (int course = 0; course < numCourses; course++) {
             if (hasCycle(course, map, visited, visiting, visitedList)) {
@@ -25,10 +25,10 @@ class Solution {
         return result;
     }
 
-    private boolean hasCycle(int course, Map<Integer, List<Integer>> map, Set<Integer> visited, Set<Integer> visiting, List<Integer> visitedList) {
-        if (visited.contains(course)) return false;
-        if (visiting.contains(course)) return true;
-        visiting.add(course);
+    private boolean hasCycle(int course, Map<Integer, List<Integer>> map, boolean[] visited, boolean[] visiting, List<Integer> visitedList) {
+        if (visited[course]) return false;
+        if (visiting[course]) return true;
+        visiting[course] = true;
 
         for (int el : map.getOrDefault(course, new ArrayList<>())) {
             if (hasCycle(el, map, visited, visiting, visitedList)) {
@@ -36,8 +36,8 @@ class Solution {
             }
         }
 
-        visiting.remove(course);
-        visited.add(course);
+        visiting[course] = false;
+        visited[course] = true;
         visitedList.add(course);
         return false;
     }
