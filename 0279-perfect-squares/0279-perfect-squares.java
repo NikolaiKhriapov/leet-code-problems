@@ -13,6 +13,11 @@ class Solution {
 
         if (memo[n] != 0) return memo[n];
 
+        if (perfectSquareNumbers.contains(n)) {
+            memo[n] = 1;
+            return 1;
+        }
+
         int min = Integer.MAX_VALUE;
         for (int i : perfectSquareNumbers) {
             if (n - i >= 0) {
