@@ -13,11 +13,13 @@ class Solution {
 
         if (memo[n] != 0) return memo[n];
 
-        int min = n;
+        int min = Integer.MAX_VALUE;
         for (int i : perfectSquareNumbers) {
             if (n - i >= 0) {
                 int numSquares = numSquares(n - i, perfectSquareNumbers, memo);
-                min = Math.min(min, numSquares);
+                if (numSquares != -1) {
+                    min = Math.min(min, numSquares);
+                }
             }
         }
 
