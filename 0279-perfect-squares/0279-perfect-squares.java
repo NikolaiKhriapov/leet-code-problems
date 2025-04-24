@@ -3,11 +3,11 @@ class Solution {
         if (n <= 0) return 0;
         if (n == 1) return 1;
 
-        List<Integer> perfectSquareNumbers = getPerfectSquares(n);
+        Set<Integer> perfectSquareNumbers = getPerfectSquares(n);
         return numSquares(n, perfectSquareNumbers, new int[n + 1]);
     }
 
-    private int numSquares(int n, List<Integer> perfectSquareNumbers, int[] memo) {
+    private int numSquares(int n, Set<Integer> perfectSquareNumbers, int[] memo) {
         if (n < 0) return -1;
         if (n == 0) return 0;
 
@@ -33,8 +33,8 @@ class Solution {
         return result;
     }
 
-    private List<Integer> getPerfectSquares(int n) {
-        List<Integer> result = new ArrayList<>();
+    private Set<Integer> getPerfectSquares(int n) {
+        Set<Integer> result = new HashSet<>();
         int nSqrt = (int) Math.sqrt(n);
         for (int i = 1; i <= nSqrt; i++) {
             result.add(i * i);
