@@ -12,9 +12,9 @@ class Solution {
         while (dividendPos >= divisorPos) {
             long temp = divisorPos;
             int multiple = 1;
-            while (dividendPos >= temp << 2) {
-                temp <<= 2;
-                multiple <<= 2;
+            while (dividendPos >= temp << 1) {
+                temp <<= 1;
+                multiple <<= 1;
             }
             dividendPos -= temp;
             result += multiple;
