@@ -134,6 +134,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0002-add-two-numbers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0002-add-two-numbers) |
 | [0007-reverse-integer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0007-reverse-integer) |
 | [0013-roman-to-integer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0013-roman-to-integer) |
+| [0029-divide-two-integers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0029-divide-two-integers) |
 | [0048-rotate-image](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0048-rotate-image) |
 | [0050-powx-n](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0050-powx-n) |
 | [0062-unique-paths](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0062-unique-paths) |
@@ -518,6 +519,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Bit Manipulation
 |  |
 | ------- |
+| [0029-divide-two-integers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0029-divide-two-integers) |
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
 | [0078-subsets](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0078-subsets) |
 | [0136-single-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0136-single-number) |
