@@ -8,10 +8,7 @@ class Solution {
         }
 
         int l = findLeft(nums, target, 0, nums.length - 1);
-        int r = -1;
-        if (l != -1) {
-            r = findRight(nums, target, l, nums.length - 1);
-        }
+        int r = findRight(nums, target, l, nums.length - 1);
         return new int[] {l, r};
     }
 
@@ -35,7 +32,7 @@ class Solution {
     }
 
     private int findRight(int[] nums, int target, int l, int r) {
-        if (l > r) {
+        if (l == - 1 || l > r) {
             return -1;
         }
 
