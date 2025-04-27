@@ -1,39 +1,41 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
+        if (nums == null || nums.length < 3) return new ArrayList<>();
+
         List<List<Integer>> result = new ArrayList<>();
 
+        // sort
         Arrays.sort(nums);
 
-        for (int i = 0; i < nums.length - 2; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            }
+        // 1 fixed pointer from the left, 1 pointer from the left, 1 pointer from the right
+        int p1 = 0;
+        int p2 = 1;
+        int p3 = nums.length - 1;
 
-            int curr = nums[i];
-            int l = i + 1;
-            int r = nums.length - 1;
-
-            while (l < r) {
-                int sum = curr + nums[l] + nums[r];
-                
+        // if sum is <0 move left pointers, if >0 shift right pointer, skipping values
+        while (p1 < nums.length - 2) {
+            while (p2 < p3) {
+                int sum = nums[p1] + nums[p2] + nums[p3];
                 if (sum == 0) {
-                    result.add(List.of(curr, nums[l], nums[r]));
-
-                    while (l < r && nums[l] == nums[l + 1]) {
-                        l++;
-                    }
-                    while (l < r && nums[r] == nums[r - 1]) {
-                        r--;
-                    }
-
-                    l++;
-                    r--;
+                    result.add(List.of(nums[p1], nums[p2], nums[p3]));
+                    do {
+                        p2++;
+                    } while (p2 < p3 && nums[p2] == nums[p2 - 1]);
                 } else if (sum < 0) {
-                    l++;
+                    do {
+                        p2++;
+                    } while (p2 < p3 && nums[p2] == nums[p2 - 1]);
                 } else {
-                    r--;
+                    do {
+                        p3--;
+                    } while (p2 < p3 && nums[p3] == nums[p3 + 1]);
                 }
             }
+            do {
+                p1++;
+            } while (p1 < nums.length - 2 && nums[p1] == nums[p1 - 1]);
+            p2 = p1 + 1;
+            p3 = nums.length - 1;
         }
 
         return result;
