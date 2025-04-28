@@ -1,7 +1,11 @@
 class Solution {
     public void sortColors(int[] nums) {
-        
-        if (nums.length <= 1) return;
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
+        if (nums.length <= 1) {
+            return;
+        }
 
         int p0 = 0;
         int p1 = p0;
