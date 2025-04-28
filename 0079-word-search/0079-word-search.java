@@ -1,18 +1,13 @@
 class Solution {
     public boolean exist(char[][] board, String word) {
-        if (word == null || word.length() == 0) {
-            return true;
-        }
-        if (word.length() > 0 && (board == null || board.length == 0)) {
-            return false;
-        }
 
         boolean[][] visited = new boolean[board.length][board[0].length];
-        char firstChar = word.charAt(0);
-        for (int r = 0; r < board.length; r++) {
-            for (int c = 0; c < board[0].length; c++) {
-                if (board[r][c] == firstChar && exist(board, word, r, c, visited, 0)) {
-                    return true;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (board[i][j] == word.charAt(0)) {
+                    if (exist(board, 0, i, j, word, visited)) {
+                        return true;
+                    }
                 }
             }
         }
@@ -20,37 +15,20 @@ class Solution {
         return false;
     }
 
-    private boolean exist(char[][] board, String word, int r, int c, boolean[][] visited, int currLength) {
-        if (visited[r][c]) {
-            return false;
-        }
+    private boolean exist(char[][] board, int index, int row, int col, String word, boolean[][] visited) {
+        if (index == word.length()) return true;
+        if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) return false;
+        if (board[row][col] != word.charAt(index)) return false;
+        
+        if (visited[row][col]) return false;
+        visited[row][col] = true;
 
-        char currChar = board[r][c];
-        char expChar = word.charAt(currLength);
-        if (currChar != expChar) {
-            return false;
-        }
+        boolean found = exist(board, index + 1, row + 1, col, word, visited) ||
+                        exist(board, index + 1, row, col + 1, word, visited) ||
+                        exist(board, index + 1, row - 1, col, word, visited) ||
+                        exist(board, index + 1, row, col - 1, word, visited);
 
-        currLength++;
-        if (currLength >= word.length()) {
-            return true;
-        }
-
-        visited[r][c] = true;
-        if (c - 1 >= 0 && exist(board, word, r, c - 1, visited, currLength)) {
-            return true;
-        }
-        if (c + 1 < board[0].length && exist(board, word, r, c + 1, visited, currLength)) {
-            return true;
-        }
-        if (r - 1 >= 0 && exist(board, word, r - 1, c, visited, currLength)) {
-            return true;
-        }
-        if (r + 1 < board.length && exist(board, word, r + 1, c, visited, currLength)) {
-            return true;
-        }
-        visited[r][c] = false;
-
-        return false;
+        visited[row][col] = false;
+        return found;
     }
 }
