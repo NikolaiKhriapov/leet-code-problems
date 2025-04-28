@@ -28,19 +28,25 @@ class Solution {
     }
 
     private boolean isSubboxesValid(char[][] board) {
-        Map<String, Set<Character>> map = new HashMap<>();
-
-        for (int r = 0; r < board.length; r++) {
-            for (int c = 0; c < board[0].length; c++) {
-                String key = String.valueOf(r / 3) + String.valueOf(c / 3);
-                Set<Character> value = map.getOrDefault(key, new HashSet<>());
-                if (board[r][c] != '.' && !value.add(board[r][c])) {
+        for (int r = 0; r < board.length; r += 3) {
+            for (int c = 0; c < board[0].length; c += 3) {
+                if (!isSubboxValid(board, r, c)) {
                     return false;
                 }
-                map.put(key, value);
             }
         }
         return true;
     }
 
+    private boolean isSubboxValid(char[][] board, int row, int col) {
+        Set<Character> set = new HashSet<>();
+        for (int r = row; r < row + 3; r++) {
+            for (int c = col; c < col + 3; c++) {
+                if (board[r][c] != '.' && !set.add(board[r][c])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
