@@ -1,16 +1,21 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return false;
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
+        if (nums.length <= 1) {
+            return true;
         }
 
-        int reachable = 0;
+        int maxIdx = 0;
+
         for (int i = 0; i < nums.length; i++) {
-            if (reachable < i) {
+            if (i > maxIdx) {
                 return false;
             }
-            reachable = Math.max(reachable, i + nums[i]);
+            maxIdx = Math.max(maxIdx, i + nums[i]);
         }
+        
         return true;
     }
 }
