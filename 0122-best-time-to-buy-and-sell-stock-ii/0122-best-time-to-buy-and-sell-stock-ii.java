@@ -7,16 +7,12 @@ class Solution {
             return 0;
         }
 
-        int maxProfit = 0;
-        int buyPrice = Integer.MAX_VALUE;
-        
-        for (int price : prices) {
-            if (price > buyPrice) {
-                maxProfit += price - buyPrice;
+        int maxProfit = 0;        
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                maxProfit += prices[i] - prices[i - 1];
             }
-            buyPrice = price;
         }
-
         return maxProfit;
     }
 }
