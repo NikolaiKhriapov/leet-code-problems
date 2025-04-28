@@ -1,13 +1,22 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int profitTotal = 0;
-
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1]) {
-                profitTotal += prices[i] - prices[i - 1];
-            }
+        if (prices == null) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
+        if (prices.length <= 1) {
+            return 0;
+        }
+
+        int maxProfit = 0;
+        int buyPrice = Integer.MAX_VALUE;
         
-        return profitTotal;
+        for (int price : prices) {
+            if (price > buyPrice) {
+                maxProfit += price - buyPrice;
+            }
+            buyPrice = price;
+        }
+
+        return maxProfit;
     }
 }
