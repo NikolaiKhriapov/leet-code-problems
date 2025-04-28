@@ -1,10 +1,13 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
-        if (intervals == null || intervals[0].length != 2) {
+        if (intervals == null) {
             throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
         if (intervals.length == 0) {
             return new int[0][2];
+        }
+        if (intervals[0].length != 2) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
 
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
