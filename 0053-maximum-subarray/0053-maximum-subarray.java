@@ -10,7 +10,7 @@ class Solution {
         int maxSum = Integer.MIN_VALUE;
         int runningSum = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (runningSum < 0 && nums[i] > runningSum) {
+            if (runningSum < 0) {
                 runningSum = 0;
             }
             runningSum += nums[i];
