@@ -8,7 +8,6 @@ class Solution {
         }
         
         Set<Integer> numbers = new HashSet<>();
-        Set<Integer> visited = new HashSet<>();
         for (int n : nums) {
             numbers.add(n);
         }
@@ -18,13 +17,11 @@ class Solution {
             if (numbers.contains(n - 1)) {
                 continue;
             }
-            visited.add(n);
 
             int currNumber = n + 1;
             int count = 1;
-            while (numbers.contains(currNumber)) {
+            while (numbers.contains(currNumber++)) {
                 count++;
-                visited.add(currNumber++);
             }
             maxCount = Math.max(maxCount, count);
         }
