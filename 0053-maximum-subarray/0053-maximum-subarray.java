@@ -1,18 +1,21 @@
 class Solution {
     public int maxSubArray(int[] nums) {
-        int sumMax = Integer.MIN_VALUE;
-        int p = 0;
-
-        int sum = 0;
-        for (int n : nums) {
-            sum += n;
-            sumMax = Math.max(sumMax, sum);
-
-            if (sum < 0) {
-                sum = 0;
-            }
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
+        if (nums.length == 1) {
+            return nums[0];
         }
 
-        return sumMax;
+        int maxSum = Integer.MIN_VALUE;
+        int runningSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (runningSum < 0 && nums[i] > runningSum) {
+                runningSum = 0;
+            }
+            runningSum += nums[i];
+            maxSum = Math.max(maxSum, runningSum);
+        }
+        return maxSum;
     }
 }
