@@ -25,10 +25,10 @@ class Solution {
         }
 
         Map<Integer, Integer> inorderMap = createInorderMap(inorder);
-        return helper(preorder, inorder, 0, inorder.length - 1, inorderMap);
+        return helper(preorder, 0, inorder.length - 1, inorderMap);
     }
 
-    private TreeNode helper(int[] preorder, int[] inorder, int inStart, int inEnd, Map<Integer, Integer> inorderMap) {
+    private TreeNode helper(int[] preorder, int inStart, int inEnd, Map<Integer, Integer> inorderMap) {
         if (inStart > inEnd) {
             return null;
         }
@@ -37,8 +37,8 @@ class Solution {
         int inorderIndex = inorderMap.get(val);
         return new TreeNode(
             val,
-            helper(preorder, inorder, inStart, inorderIndex - 1, inorderMap),
-            helper(preorder, inorder, inorderIndex + 1, inEnd, inorderMap)
+            helper(preorder, inStart, inorderIndex - 1, inorderMap),
+            helper(preorder, inorderIndex + 1, inEnd, inorderMap)
         );
     }
 
