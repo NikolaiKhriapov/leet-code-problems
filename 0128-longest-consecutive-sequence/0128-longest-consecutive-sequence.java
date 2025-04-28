@@ -15,16 +15,16 @@ class Solution {
 
         int maxCount = 0;
         for (int n : numbers) {
-            if (numbers.contains(n - 1) || visited.contains(n)) {
+            if (numbers.contains(n - 1)) {
                 continue;
             }
             visited.add(n);
 
             int currNumber = n + 1;
             int count = 1;
-            while (numbers.contains(currNumber++)) {
+            while (numbers.contains(currNumber)) {
                 count++;
-                visited.add(currNumber);
+                visited.add(currNumber++);
             }
             maxCount = Math.max(maxCount, count);
         }
