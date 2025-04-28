@@ -1,14 +1,19 @@
 class Solution {
     public void rotate(int[][] matrix) {
-        if (matrix == null || matrix.length == 0) return;
+        if (matrix == null) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
+        if (matrix.length == 0 || matrix[0].length == 0) {
+            return;
+        }
 
-        transpose(matrix);
-        mirror(matrix);
+        mirrorDiagonally(matrix);
+        mirrorVertically(matrix);
     }
 
-    private void transpose(int[][] matrix) {
+    private void mirrorDiagonally(int[][] matrix) {
         for (int r = 0; r < matrix.length; r++) {
-            for (int c = r; c < matrix[0].length; c++) {
+            for (int c = r + 1; c < matrix[0].length; c++) {
                 int temp = matrix[r][c];
                 matrix[r][c] = matrix[c][r];
                 matrix[c][r] = temp;
@@ -16,17 +21,13 @@ class Solution {
         }
     }
 
-    private void mirror(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            reverseRow(matrix[i]);
-        }
-    }
-
-    private void reverseRow(int[] row) {
-        for (int i = 0; i < row.length / 2; i++) {
-            int temp = row[i];
-            row[i] = row[row.length - 1 - i];
-            row[row.length - 1 - i] = temp;
+    private void mirrorVertically(int[][] matrix) {
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[0].length / 2; c++) {
+                int temp = matrix[r][c];
+                matrix[r][c] = matrix[r][matrix[0].length - 1 - c];
+                matrix[r][matrix[0].length - 1 - c] = temp;
+            }
         }
     }
 }
