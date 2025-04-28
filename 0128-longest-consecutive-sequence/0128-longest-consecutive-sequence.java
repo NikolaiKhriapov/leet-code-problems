@@ -15,7 +15,7 @@ class Solution {
 
         int maxCount = 0;
         for (int n : numbers) {
-            if (numbers.contains(n - 1)) {
+            if (numbers.contains(n - 1) || visited.contains(n)) {
                 continue;
             }
             visited.add(n);
