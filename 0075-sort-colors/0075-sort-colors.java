@@ -7,27 +7,27 @@ class Solution {
             return;
         }
 
-        int p0 = 0;
-        int p1 = p0;
-        int p2 = nums.length - 1;
+        int left = 0;
+        int current = left;
+        int right = nums.length - 1;
         
-        while (p1 <= p2) {
-            if (nums[p1] == 0) {
-                swap(nums, p1, p0);
-                p0++;
-                p1++;
-            } else if (nums[p1] == 2) {
-                swap(nums, p1, p2);
-                p2--;
+        while (current <= right) {
+            if (nums[current] == 0) {
+                swap(nums, current, left);
+                left++;
+                current++;
+            } else if (nums[current] == 2) {
+                swap(nums, current, right);
+                right--;
             } else {
-                p1++;
+                current++;
             }
         }
     }
 
-    private void swap(int[] nums, int l, int r) {
-        int temp = nums[l];
-        nums[l] = nums[r];
-        nums[r] = temp;
+    private void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
     }
 }
