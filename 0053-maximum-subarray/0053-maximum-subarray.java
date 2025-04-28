@@ -3,9 +3,6 @@ class Solution {
         if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
-        if (nums.length == 1) {
-            return nums[0];
-        }
 
         int maxSum = Integer.MIN_VALUE;
         int runningSum = 0;
