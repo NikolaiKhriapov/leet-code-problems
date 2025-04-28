@@ -1,29 +1,26 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        if (strs == null || strs.length == 0) return new ArrayList<>();
+        
 
         Map<String, List<String>> map = new HashMap<>();
-
         for (String str : strs) {
             String strSorted = sortString(str);
-            
-            if (!map.containsKey(strSorted)) {
-                map.put(strSorted, new ArrayList<>());
-            }
-            map.get(strSorted).add(str);
+            List<String> list = map.getOrDefault(strSorted, new LinkedList<>());
+            list.add(str);
+            map.put(strSorted, list);
         }
-        
+
         List<List<String>> result = new ArrayList<>();
-        for (var el : map.entrySet()) {
-            result.add(el.getValue());
+        for (var entry : map.entrySet()) {
+            result.add(entry.getValue());
         }
 
         return result;
     }
 
     private String sortString(String str) {
-        char[] strArr = str.toCharArray();
-        Arrays.sort(strArr);
-        return new String(strArr);
+        char[] arr = str.toCharArray();
+        Arrays.sort(arr);
+        return new String(arr);
     }
 }
