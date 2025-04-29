@@ -47,12 +47,12 @@ class Solution {
     private int countLiveNeighbours(int[][] board, int row, int col) {
         int count = 0;
         for (int[] neighbor : NEIGHBORS) {
-            int neigborRow = row + neighbor[0];
-            int neigborCol = col + neighbor[1];
-            if (neigborRow < 0 || neigborRow >= board.length || neigborCol < 0 || neigborCol >= board[0].length) {
+            int neighborRow = row + neighbor[0];
+            int neighborCol = col + neighbor[1];
+            if (neighborRow < 0 || neighborRow >= board.length || neighborCol < 0 || neighborCol >= board[0].length) {
                 continue;
             }
-            if (board[neigborRow][neigborCol] == LIVE || board[neigborRow][neigborCol] == LIVE_TO_DEAD) {
+            if (board[neighborRow][neighborCol] == LIVE || board[neighborRow][neighborCol] == LIVE_TO_DEAD) {
                 count++;
             }
         }
