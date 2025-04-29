@@ -1,7 +1,7 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        if (nums.length == 0) {
-            return new int[nums.length];
+        if (nums == null || nums.length <= 1) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
 
         int[] result = new int[nums.length];
@@ -18,7 +18,7 @@ class Solution {
             product *= nums[i + 1];
             result[i] *= product;
         }
-
+        
         return result;
     }
 }
