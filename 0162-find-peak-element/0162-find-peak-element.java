@@ -1,17 +1,25 @@
 class Solution {
     public int findPeakElement(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
 
         return helper(nums, 0, nums.length - 1);
     }
 
-    private int helper(int[] nums, int l, int r) {
-        if (l > r) return -1;
+    private int helper(int[] nums, int left, int right) {
+        if (left > right) {
+            return -1;
+        }
 
-        int m = l + (r - l) / 2;
+        int mid = left + (right - left) / 2;
 
-        if (m != 0 && nums[m] < nums[m - 1]) return helper(nums, l, m - 1);
-        if (m != nums.length - 1 && nums[m] < nums[m + 1]) return helper(nums, m + 1, r);
-
-        return m;
+        if (mid != 0 && nums[mid] < nums[mid - 1]) {
+            return helper(nums, left, mid - 1);
+        }
+        if (mid != nums.length - 1 && nums[mid] < nums[mid + 1]) {
+            return helper(nums, mid + 1, right);
+        }
+        return mid;
     }
 }
