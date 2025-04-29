@@ -1,5 +1,8 @@
 class Solution {
     public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
         
         int[] memo = new int[nums.length];
         Arrays.fill(memo, -1);
