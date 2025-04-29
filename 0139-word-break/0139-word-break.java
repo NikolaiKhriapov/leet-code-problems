@@ -1,27 +1,25 @@
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
-        if (s == null || s.length() == 0) return true;
-        if (wordDict.size() == 0) return false;
 
-        return wordBreak(s, wordDict, new HashMap<>());
+        Boolean[] memo = new Boolean[s.length()];
+        return wordBreak(s, 0, wordDict, memo);
     }
 
-    private boolean wordBreak(String s, List<String> wordDict, Map<String, Boolean> memo) {
-        if (memo.containsKey(s)) {
-            return memo.get(s);
-        }
+    public boolean wordBreak(String s, int currentIndex, List<String> wordDict, Boolean[] memo) {
+        if (currentIndex > s.length()) return false;
+        if (currentIndex == s.length()) return true;
+
+        if (memo[currentIndex] != null) return memo[currentIndex];
 
         for (String word : wordDict) {
-            if (s.startsWith(word)) {
-                if (wordBreak(s.substring(word.length()), wordDict, memo)) {
-                    memo.put(s, true);
+            if (s.startsWith(word, currentIndex)) {
+                if (wordBreak(s, currentIndex + word.length(), wordDict, memo)) {
                     return true;
                 }
             }
         }
 
-        boolean result = s.length() == 0;
-        memo.put(s, result);
-        return result;
+        memo[currentIndex] = false;
+        return false;
     }
 }
