@@ -3,28 +3,18 @@ class Solution {
         if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
-        
-        int[] memo = new int[nums.length];
-        Arrays.fill(memo, -1);
-        return Math.max(helper(nums, 0, memo), helper(nums, 1, memo));
-    }
-
-    private int helper(int[] nums, int currentIndex, int[] memo) {
-        if (currentIndex >= nums.length) {
-            return -1;
+        if (nums.length == 1) {
+            return nums[0];
         }
 
-        if (memo[currentIndex] != -1) {
-            return memo[currentIndex];
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+
+        for (int i = 2; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
         }
 
-        int sum = nums[currentIndex];
-
-        if (currentIndex < nums.length - 2) {
-            sum += Math.max(helper(nums, currentIndex + 2, memo), helper(nums, currentIndex + 3, memo));
-        }
-
-        memo[currentIndex] = sum;
-        return sum;
+        return dp[nums.length - 1];
     }
 }
