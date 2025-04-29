@@ -4,9 +4,14 @@ class Solution {
     private static final char MARK_TEMP = '.';
 
     public int numIslands(char[][] grid) {
+        if (grid == null) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
+        if (grid.length == 0 || grid[0].length == 0) {
+            return 0;
+        }
 
         int count = 0;
-
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[0].length; c++) {
                 if (grid[r][c] == MARK_ISLAND) {
@@ -14,8 +19,7 @@ class Solution {
                     markIsland(grid, r, c);
                 }
             }
-        }
-        
+        }  
         return count;
     }
 
