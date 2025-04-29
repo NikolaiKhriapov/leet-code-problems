@@ -1,14 +1,27 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-
-        int[] count = new int[nums.length + 1];
-        for (int n : nums) {
-            count[n]++;
-            if (count[n] > 1) {
-                return n;
-            }
+        if (nums == null || nums.length < 2) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
         
-        return -1;
+        int slow = nums[0];
+        int fast = nums[0];
+
+        // find the cycle
+        slow = nums[slow];
+        fast = nums[nums[fast]];
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }
+
+        // find the cycle entrance
+        slow = nums[0];
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+
+        return slow;
     }
 }
