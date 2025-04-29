@@ -9,9 +9,9 @@ class Solution {
         primes[0] = false;
         primes[1] = false;
         
-        for (int i = 2; i < primes.length; i++) {
+        for (int i = 2; i * i < primes.length; i++) {
             if (primes[i]) {
-                for (int j = i * 2; j < primes.length; j += i) {
+                for (int j = i * i; j < primes.length; j += i) {
                     primes[j] = false;
                 }
             }
