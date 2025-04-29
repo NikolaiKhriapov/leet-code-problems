@@ -14,6 +14,7 @@ class Solution {
         for (String word : wordDict) {
             if (s.startsWith(word, currentIndex)) {
                 if (wordBreak(s, currentIndex + word.length(), wordDict, memo)) {
+                    memo[currentIndex] = true;
                     return true;
                 }
             }
