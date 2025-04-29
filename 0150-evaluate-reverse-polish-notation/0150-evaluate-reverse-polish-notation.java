@@ -2,14 +2,16 @@ class Solution {
     private static final Set<String> OPERATIONS = new HashSet(Set.of("+", "-", "/", "*"));
 
     public int evalRPN(String[] tokens) {
-        if (tokens == null || tokens.length == 2) {
+        if (tokens == null) {
             throw new IllegalArgumentException("Invalid input");
         }
 
         Stack<Integer> stack = new Stack<>();
         for (String token : tokens) {
             if (OPERATIONS.contains(token)) {
-                stack.add(applyOperation(stack.pop(), stack.pop(), token));
+                int b = stack.pop();
+                int a = stack.pop();
+                stack.add(applyOperation(a, b, token));
             } else {
                 stack.add(Integer.parseInt(token));
             }
@@ -19,10 +21,10 @@ class Solution {
 
     private int applyOperation(int a, int b, String operation) {
         return switch (operation) {
-            case "+" -> b + a;
-            case "-" -> b - a;
-            case "*" -> b * a;
-            case "/" -> b / a;
+            case "+" -> a + b;
+            case "-" -> a - b;
+            case "*" -> a * b;
+            case "/" -> a / b;
             default -> throw new IllegalArgumentException("Invalid operation: " + operation);
         };
     }
