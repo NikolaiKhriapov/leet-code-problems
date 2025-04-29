@@ -6,20 +6,17 @@ class Solution {
         if (matrix.length == 0 || matrix[0].length == 0) {
             return false;
         }
-        
-        int row = matrix.length - 1;
-        int col = matrix[0].length - 1;
 
-        int r = row;
-        int c = 0;
-        while (r >= 0 && c >= 0 && c <= col) {
-            if (matrix[r][c] == target) {
+        int row = matrix.length - 1;
+        int col = 0;
+        while (row >= 0 && col <= matrix[0].length - 1) {
+            if (matrix[row][col] == target) {
                 return true;
             }
-            if (matrix[r][c] > target) {
-                r--;
+            if (matrix[row][col] > target) {
+                row--;
             } else {
-                c++;
+                col++;
             }
         }
 
