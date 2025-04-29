@@ -1,24 +1,29 @@
 class Solution {
     public int countPrimes(int n) {
-        int count = 0;
-
-        boolean[] primes = new boolean[n];
-        for (int i = 2; i < primes.length; i++) {
-            primes[i] = true;
+        if (n <= 2) {
+            return 0;
         }
 
-        int limit = (int) Math.sqrt(n);
-        for (int i = 2; i < n; i++) {
+        boolean[] primes = new boolean[n];
+        Arrays.fill(primes, true);
+        primes[0] = false;
+        primes[1] = false;
+        
+        for (int i = 2; i < primes.length; i++) {
             if (primes[i]) {
-                count++;
-                if (i <= limit) {
-                    for (int j = i * i; j < n; j += i) {
-                        primes[j] = false;
-                    }
+                for (int j = i * 2; j < primes.length; j += i) {
+                    primes[j] = false;
                 }
             }
         }
-        
+
+        int count = 0;
+        for (boolean isPrime : primes) {
+            if (isPrime) {
+                count++;
+            }
+        }
+
         return count;
     }
 }
