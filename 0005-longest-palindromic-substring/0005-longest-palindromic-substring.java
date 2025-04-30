@@ -6,27 +6,24 @@ class Solution {
 
         String longestPalindrome = "";
         for (int i = 0; i < s.length(); i++) {
-            String palindromeA = getLongestPalindrome(s, i, i);
-            if (palindromeA.length() > longestPalindrome.length()) {
-                longestPalindrome = palindromeA;
+            String currentLongest = getLongestPalindrome(s, i, i);
+            if (currentLongest.length() > longestPalindrome.length()) {
+                longestPalindrome = currentLongest;
             }
 
-            String palindromeB = getLongestPalindrome(s, i, i + 1);
-            if (palindromeB.length() > longestPalindrome.length()) {
-                longestPalindrome = palindromeB;
+            currentLongest = getLongestPalindrome(s, i, i + 1);
+            if (currentLongest.length() > longestPalindrome.length()) {
+                longestPalindrome = currentLongest;
             }
         }
         return longestPalindrome;
     }
 
-    private String getLongestPalindrome(String s, int l, int r) {
-        while (l >= 0 && r < s.length()) {
-            if (s.charAt(l) != s.charAt(r)) {
-                break;
-            }
-            l--;
-            r++;
+    private String getLongestPalindrome(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
         }
-        return s.substring(l + 1, r);
+        return s.substring(left + 1, right);
     }
 }
