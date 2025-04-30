@@ -26,14 +26,11 @@ class Solution {
 
     private static void shuffleArray(int[] arr) {
         for (int i = arr.length - 1; i >= 0; i--) {
-            swap(arr, i, random.nextInt(i + 1));
+            int randomIndex = random.nextInt(i + 1);
+            int temp = arr[i];
+            arr[i] = arr[randomIndex];
+            arr[randomIndex] = temp;
         }
-    }
-
-    private static void swap(int[] arr, int indexA, int indexB) {
-        int temp = arr[indexA];
-        arr[indexA] = arr[indexB];
-        arr[indexB] = temp;
     }
 }
 
