@@ -4,18 +4,12 @@ class Solution {
     private static final Random random = new Random();
 
     public Solution(int[] nums) {
-        array = new int[nums.length];
-        originalArray = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            array[i] = nums[i];
-            originalArray[i] = nums[i];
-        }
+        array = Arrays.copyOf(nums, nums.length);
+        originalArray = Arrays.copyOf(nums, nums.length);
     }
     
     public int[] reset() {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = originalArray[i];
-        }
+        array = Arrays.copyOf(originalArray, originalArray.length);
         return array;
     }
     
