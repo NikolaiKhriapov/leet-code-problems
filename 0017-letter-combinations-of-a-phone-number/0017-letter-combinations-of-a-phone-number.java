@@ -6,30 +6,22 @@ class Solution {
             return new ArrayList<>();
         }
         
-        List<String> list = new ArrayList<>();
-        
-        // add first letters
-        int firstDigit = digits.charAt(0) - '0';
-        for (char c : DIGIT_TO_LETTERS_MAP[firstDigit].toCharArray()) {
-            list.add(String.valueOf(c));
-        }
-
-        // add other letters
-        for (int i = 1; i < digits.length(); i++) {
-            list = addDigitToList(list, digits.charAt(i) - '0');
-        }
-
-        return list;
+        List<String> result = new ArrayList<>();
+        addLetterToCombinations(digits, 0, new StringBuilder(), result);
+        return result;
     }
 
-    private List<String> addDigitToList(List<String> list, int digit) {
-        List<String> result = new ArrayList<>();
-
-        for (String curr : list) {
-            for (char c : DIGIT_TO_LETTERS_MAP[digit].toCharArray()) {
-                result.add(curr + c);
-            }
+    private void addLetterToCombinations(String digits, int index, StringBuilder curr, List<String> list) {
+        if (index == digits.length()) {
+            list.add(curr.toString());
+            return;
         }
-        return result;
+        
+        int length = curr.length();
+        for (char c : DIGIT_TO_LETTERS_MAP[digits.charAt(index) - '0'].toCharArray()) {
+            curr.append(c);
+            addLetterToCombinations(digits, index + 1, curr, list);
+            curr.delete(length, curr.length());
+        }
     }
 }
