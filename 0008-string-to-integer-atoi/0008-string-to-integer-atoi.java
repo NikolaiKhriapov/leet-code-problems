@@ -24,13 +24,13 @@ class Solution {
         int left = p;
         int right = p;
         while (right < s.length() && Character.isDigit(s.charAt(right))) {
-            String currString = s.substring(left, right + 1);
-            if (right - left > 7 && Long.parseLong(currString) > Integer.MAX_VALUE) {
+            if (right - left > 7 && Long.parseLong(s.substring(left, right + 1)) > Integer.MAX_VALUE) {
                 return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
-            } else {
-                number = Integer.parseInt(currString);
             }
             right++;
+        }
+        if (right - left > 0) {
+            number = Integer.parseInt(s.substring(left, right));
         }
         
         return isNegative ? -number : number;
