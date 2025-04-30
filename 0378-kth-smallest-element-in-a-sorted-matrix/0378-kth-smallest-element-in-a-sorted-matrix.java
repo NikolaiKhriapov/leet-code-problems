@@ -1,27 +1,24 @@
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
-        int n = matrix.length;
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0 || k < 1) {
+            return -1;
+        }
 
-        Queue<int[]> minHeap = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
-        minHeap.add(new int[] {matrix[0][0], 0, 0});
-        boolean[][] visited = new boolean[n][n];
-
-        while (--k > 0) {
-            int[] curr = minHeap.poll();
-            int val = curr[0];
-            int row = curr[1];
-            int col = curr[2];
-
-            if (row + 1 < n && !visited[row + 1][col]) {
-                minHeap.add(new int[] {matrix[row + 1][col], row + 1, col});
-                visited[row + 1][col] = true;
-            }
-            if (col + 1 < n && !visited[row][col + 1]) {
-                minHeap.add(new int[] {matrix[row][col + 1], row, col + 1});
-                visited[row][col + 1] = true;
+        Queue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[0].length; c++) {
+                pq.add(matrix[r][c]);
+                if (pq.size() > k) {
+                    pq.poll();
+                }
             }
         }
-        
-        return minHeap.poll()[0];
+        return pq.peek();
     }
 }
+
+// [
+//  [ 1, 5, 9],
+//  [10,11,13],
+//  [12,13,15]
+// ]
