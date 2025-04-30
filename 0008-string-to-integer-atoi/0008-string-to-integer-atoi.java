@@ -19,17 +19,18 @@ class Solution {
             p++;
         }
         
-        // build number as StringBuilder
+        // build number
         int number = 0;
-        StringBuilder sb = new StringBuilder();
-        while (p < s.length() && Character.isDigit(s.charAt(p))) {
-            sb.append(s.charAt(p));
-            if (Long.parseLong(sb.toString()) > Integer.MAX_VALUE) {
+        int left = p;
+        int right = p;
+        while (right < s.length() && Character.isDigit(s.charAt(right))) {
+            String currString = s.substring(left, right + 1);
+            if (Long.parseLong(currString) > Integer.MAX_VALUE) {
                 return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
             } else {
-                number = Integer.parseInt(sb.toString());
+                number = Integer.parseInt(currString);
             }
-            p++;
+            right++;
         }
         
         return isNegative ? -number : number;
