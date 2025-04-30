@@ -1,33 +1,39 @@
 class Solution {
-    private int[] arrayOriginal;
     private int[] array;
+    private int[] originalArray;
     private static final Random random = new Random();
 
     public Solution(int[] nums) {
-        arrayOriginal = nums.clone();
-        array = nums.clone();
+        array = new int[nums.length];
+        originalArray = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            array[i] = nums[i];
+            originalArray[i] = nums[i];
+        }
     }
     
     public int[] reset() {
-        array = arrayOriginal.clone();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = originalArray[i];
+        }
         return array;
     }
     
     public int[] shuffle() {
-        shuffle(array);
+        shuffleArray(array);
         return array;
     }
 
-    private static void shuffle(int[] array) {
-        for (int i = array.length - 1; i > 0; i--) {
-            swap(array, i, random.nextInt(i + 1));
+    private static void shuffleArray(int[] arr) {
+        for (int i = arr.length - 1; i >= 0; i--) {
+            swap(arr, i, random.nextInt(i + 1));
         }
     }
 
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+    private static void swap(int[] arr, int indexA, int indexB) {
+        int temp = arr[indexA];
+        arr[indexA] = arr[indexB];
+        arr[indexB] = temp;
     }
 }
 
