@@ -5,37 +5,29 @@ class Solution {
         }
 
         String longestPalindrome = "";
-
         for (int i = 0, sl = s.length(); i < sl; i++) {
-            int l = i;
-            int r = l;
-            while (l >= 0 && r < sl) {
-                if (s.charAt(l) != s.charAt(r)) {
-                    break;
-                }
-                l--;
-                r++;
-            }
-            String palindrome = s.substring(l + 1, r);
-            if (palindrome.length() > longestPalindrome.length()) {
-                longestPalindrome = palindrome;
+            String palindromeA = getLongestPalindrome(s, i, i);
+            if (palindromeA.length() > longestPalindrome.length()) {
+                longestPalindrome = palindromeA;
             }
 
-            l = i;
-            r = l + 1;
-            while (l >= 0 && r < sl) {
-                if (s.charAt(l) != s.charAt(r)) {
-                    break;
-                }
-                l--;
-                r++;
-            }
-            palindrome = s.substring(l + 1, r);
-            if (palindrome.length() > longestPalindrome.length()) {
-                longestPalindrome = palindrome;
+            String palindromeB = getLongestPalindrome(s, i, i + 1);
+            if (palindromeB.length() > longestPalindrome.length()) {
+                longestPalindrome = palindromeB;
             }
         }
-
         return longestPalindrome;
+    }
+
+    private String getLongestPalindrome(String s, int l, int r) {
+        int sl = s.length();
+        while (l >= 0 && r < sl) {
+            if (s.charAt(l) != s.charAt(r)) {
+                break;
+            }
+            l--;
+            r++;
+        }
+        return s.substring(l + 1, r);
     }
 }
