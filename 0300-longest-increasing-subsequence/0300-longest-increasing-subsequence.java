@@ -15,14 +15,22 @@ class Solution {
             if (n > largest) {
                 list.add(n);
             } else {
-                int position = findPosition(list, n, 0, list.size() - 1);
-                list.set(position, n);
+                // int index = findPosition(list, n, 0, list.size() - 1);
+                int index = Collections.binarySearch(list, n);
+                if (index < 0) {
+                    index = -index - 1;
+                }
+                list.set(index, n);
             }
         }
         return list.size();
     }
 
     private int findPosition(List<Integer> list, int target, int left, int right) {
+        if (left > right) {
+            return left;
+        }
+
         int mid = left + (right - left) / 2;
 
         if (target == list.get(mid)) {
