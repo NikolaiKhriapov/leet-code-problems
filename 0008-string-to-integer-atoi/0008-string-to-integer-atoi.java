@@ -25,10 +25,14 @@ class Solution {
         int right = p;
         while (right < s.length() && Character.isDigit(s.charAt(right))) {
             String currString = s.substring(left, right + 1);
-            if (Long.parseLong(currString) > Integer.MAX_VALUE) {
-                return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
-            } else {
+            if (right - left < 7) {
                 number = Integer.parseInt(currString);
+            } else {
+                if (Long.parseLong(currString) > Integer.MAX_VALUE) {
+                    return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+                } else {
+                    number = Integer.parseInt(currString);
+                }
             }
             right++;
         }
