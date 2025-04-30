@@ -1,31 +1,32 @@
 class Solution {
-    private static final String[] LETTERS = new String[] {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private final static String[] DIGIT_TO_LETTERS_MAP = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
     public List<String> letterCombinations(String digits) {
-        List<String> result = new ArrayList<>();
-
-        if (digits == null || digits.length() == 0) {
-            return result;
+        if (digits == null || digits.isEmpty()) {
+            return new ArrayList<>();
         }
-
-        addLetterCombinations(digits, 0, new StringBuilder(), result);
-        return result;
+        
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < digits.length(); i++) {
+            list = addDigitToList(list, digits.charAt(i) - '0');
+        }
+        return list;
     }
 
-    private static void addLetterCombinations(String digits, int i, StringBuilder curr, List<String> result) {
-        if (i >= digits.length()) {
-            result.add(curr.toString());
-            return;
-        }
-        if (digits.charAt(i) < '2' || digits.charAt(i) > '9') {
-            throw new RuntimeException("Invalid digit: " + digits.charAt(i));
-        }
+    private List<String> addDigitToList(List<String> list, int digit) {
+        List<String> result = new ArrayList<>();
 
-        int index = curr.length();
-        for (char letter : LETTERS[digits.charAt(i) - '0'].toCharArray()) {
-            curr.append(letter);
-            addLetterCombinations(digits, i + 1, curr, result);
-            curr.delete(index, curr.length());
+        if (list.isEmpty()) {
+            for (char c : DIGIT_TO_LETTERS_MAP[digit].toCharArray()) {
+                result.add(String.valueOf(c));
+            }
+        } else {
+            for (String curr : list) {
+                for (char c : DIGIT_TO_LETTERS_MAP[digit].toCharArray()) {
+                    result.add(curr + c);
+                }
+            }
         }
+        return result;
     }
 }
