@@ -1,31 +1,37 @@
 class Solution {
     public int myAtoi(String s) {
-        s = s.trim();
-
-        if (s.length() == 0) {
+        if (s == null || s.isEmpty()) {
             return 0;
         }
 
-        int index = 0;
-        int sign = 1;
-        char firstChar = s.charAt(index);
-        if (firstChar == '+' || firstChar == '-') {
-            if (firstChar == '-') {
-                sign = -1;
-            }
-            index++;
+        // ignore leading whitespaces
+        int p = 0;
+        while (p < s.length() && s.charAt(p) == ' ') {
+            p++;
         }
 
-        int result = 0;
-        while (index < s.length() && Character.isDigit(s.charAt(index))) {
-            int digit = (s.charAt(index) - '0');
-            if (result > (Integer.MAX_VALUE - digit) / 10) {
-                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        // save the sign
+        boolean isNegative = false;
+        if (p < s.length() && (s.charAt(p) == '-' || s.charAt(p) == '+')) {
+            if (s.charAt(p) == '-') {
+                isNegative = true;
             }
-            result = result * 10 + digit;
-            index++;
+            p++;
         }
-
-        return sign * result;
+        
+        // build number as StringBuilder
+        int number = 0;
+        StringBuilder sb = new StringBuilder();
+        while (p < s.length() && Character.isDigit(s.charAt(p))) {
+            sb.append(s.charAt(p));
+            if (Long.parseLong(sb.toString()) > Integer.MAX_VALUE) {
+                return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            } else {
+                number = Integer.parseInt(sb.toString());
+            }
+            p++;
+        }
+        
+        return isNegative ? -number : number;
     }
 }
