@@ -4,26 +4,26 @@ class Solution {
             return "";
         }
 
-        String longestPalindrome = "";
+        int start = 0;
+        int end = 0;
         for (int i = 0; i < s.length(); i++) {
-            String currentLongest = getLongestPalindrome(s, i, i);
-            if (currentLongest.length() > longestPalindrome.length()) {
-                longestPalindrome = currentLongest;
-            }
+            int length1 = getLongestPalindrome(s, i, i);
+            int length2 = getLongestPalindrome(s, i, i + 1);
+            int length = Math.max(length1, length2);
 
-            currentLongest = getLongestPalindrome(s, i, i + 1);
-            if (currentLongest.length() > longestPalindrome.length()) {
-                longestPalindrome = currentLongest;
+            if (length > end - start) {
+                start = i - (length - 1) / 2;
+                end = i + length / 2;
             }
         }
-        return longestPalindrome;
+        return s.substring(start, end + 1);
     }
 
-    private String getLongestPalindrome(String s, int left, int right) {
+    private int getLongestPalindrome(String s, int left, int right) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
         }
-        return s.substring(left + 1, right);
+        return right - left - 1;
     }
 }
