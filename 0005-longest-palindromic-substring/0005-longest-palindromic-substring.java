@@ -5,7 +5,7 @@ class Solution {
         }
 
         String longestPalindrome = "";
-        for (int i = 0, sl = s.length(); i < sl; i++) {
+        for (int i = 0; i < s.length(); i++) {
             String palindromeA = getLongestPalindrome(s, i, i);
             if (palindromeA.length() > longestPalindrome.length()) {
                 longestPalindrome = palindromeA;
@@ -20,8 +20,7 @@ class Solution {
     }
 
     private String getLongestPalindrome(String s, int l, int r) {
-        int sl = s.length();
-        while (l >= 0 && r < sl) {
+        while (l >= 0 && r < s.length()) {
             if (s.charAt(l) != s.charAt(r)) {
                 break;
             }
