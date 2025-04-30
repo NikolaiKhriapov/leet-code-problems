@@ -4,24 +4,16 @@ class Solution {
             return false;
         }
 
-        List<Integer> list = new ArrayList<>();
-        list.add(nums[0]);
+        int first = Integer.MAX_VALUE;
+        int second = Integer.MAX_VALUE;
 
-        for (int i = 1; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int n = nums[i];
-            int prev = list.get(list.size() - 1);
-
-            if (n > prev) {
-                list.add(n);
-            } else {
-                int index = Collections.binarySearch(list, n);
-                if (index < 0) {
-                    index = -index - 1;
-                }
-                list.set(index, n);
-            }
-
-            if (list.size() >= 3) {
+            if (n < first && n > second) {
+                first = n;
+            } else if (n < first && n < second) {
+                second = n;
+            } else if (n > first) {
                 return true;
             }
         }
