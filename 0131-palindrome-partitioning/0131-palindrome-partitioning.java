@@ -32,12 +32,13 @@ class Solution {
         if (memo[left][right] != null) {
             return memo[left][right];
         }
-        
+
         while (left < right) {
             if (s.charAt(left) != s.charAt(right)) {
                 memo[left][right] = false;
                 return false;
             }
+
             left++;
             right--;
         }
