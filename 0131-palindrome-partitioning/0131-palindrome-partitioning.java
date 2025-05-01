@@ -1,31 +1,37 @@
 class Solution {
     public List<List<String>> partition(String s) {
-        
+
         List<List<String>> result = new ArrayList<>();
-        helper(s, 0, new ArrayList<>(), result);
+        
+        partition(s, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private static void helper(String s, int l, List<String> curr, List<List<String>> result) {
-        if (l >= s.length()) {
+    private void partition(String s, int index, List<String> curr, List<List<String>> result) {
+        if (index == s.length()) {
             result.add(new ArrayList<>(curr));
-            return;
         }
 
-        for (int r = l; r < s.length(); r++) {
-            if (isPalindrome(s, l, r)) {
+        int l = index;
+        int r = index;
+        while (r < s.length()) { 
+            boolean isPalindrome = isPalindrome(s, l, r);
+            if (isPalindrome) {
                 curr.add(s.substring(l, r + 1));
-                helper(s, r + 1, curr, result);
+                partition(s, r + 1, curr, result);
                 curr.remove(curr.size() - 1);
             }
+            r++;
         }
     }
 
-    private static boolean isPalindrome(String s, int l, int r) {
+    private boolean isPalindrome(String s, int l, int r) {
         while (l < r) {
-            if (s.charAt(l++) != s.charAt(r--)) {
+            if (s.charAt(l) != s.charAt(r)) {
                 return false;
             }
+            l++;
+            r--;
         }
         return true;
     }
