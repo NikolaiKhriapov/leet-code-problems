@@ -13,24 +13,21 @@ class Solution {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
+        boolean isValid = true;
         int currentLongest = 0;
         int start = left;
-        boolean isCurrentValid = true;
         for (int i = left; i < right; i++) {
             if (map.get(s.charAt(i)) < k) {
-                if (i > start) {
-                    currentLongest = Math.max(currentLongest, longestSubstring(s, k, start, i));
-                }
+                currentLongest = Math.max(currentLongest, longestSubstring(s, k, start, i));
+                isValid = false;
                 start = i + 1;
-                isCurrentValid = false;
             }
         }
 
-        if (isCurrentValid) {
+        if (isValid) {
             return right - left;
         }
-
-        if (start < right) {
+        if (right > start) {
             currentLongest = Math.max(currentLongest, longestSubstring(s, k, start, right));
         }
 
