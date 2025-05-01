@@ -1,41 +1,57 @@
 class Solution {
+    private static final Set<Character> OPERATIONS = Set.of('*', '/', '+', '-');
+
     public int calculate(String s) {
-        if (s == null || s.isEmpty()) {
-            return 0;
-        }
+        if (s == null) return -1;
+        s = s.replaceAll(" ", "");
+        if (s.isEmpty()) return -1;
 
-        int sLength = s.length();
-
-        int result = 0;
-        int currNumber = 0;
-        int lastNumber = 0;
-        char operation = '+';
+        Stack<Integer> stack = new Stack<>();
         
-        for (int i = 0; i < sLength; i++) {
-            char c = s.charAt(i);
-
-            if (Character.isDigit(c)) {
-                currNumber = currNumber * 10 + (c - '0');
-            } 
-            if ((!Character.isDigit(c) && c != ' ') || i == sLength - 1) {
-                switch (operation) {
-                    case '+' -> {
-                        result += lastNumber;
-                        lastNumber = currNumber;
-                    }
-                    case '-' -> {
-                        result += lastNumber;
-                        lastNumber = -currNumber;
-                    }
-                    case '*' -> lastNumber *= currNumber;
-                    case '/' -> lastNumber /= currNumber;
-                    default -> throw new RuntimeException("Invalid operation: " + operation);
+        char operation = '+';
+        int number = 0;
+        for (char c : s.toCharArray()) {
+            if (OPERATIONS.contains(c)) {
+                stack.add(number);
+                number = 0;
+                if (operation == '-') {
+                    stack.add(stack.pop() * -1);
+                } else if (operation == '*' || operation == '/') {
+                    int b = stack.pop();
+                    int a = stack.pop();
+                    stack.add(calculate(a, b, operation));
                 }
                 operation = c;
-                currNumber = 0;
+            } else {
+                number = number * 10 + (c - '0');
             }
         }
+        if (operation == '-') {
+            stack.add(-number);
+        } else {
+            stack.add(number);
+        }
+        if (stack.size() > 1 && (operation == '*' || operation == '/')) {
+            int b = stack.pop();
+            int a = stack.pop();
+            stack.add(calculate(a, b, operation));
+        }
 
-        return result + lastNumber;
+        int result = 0;
+        while (!stack.isEmpty()) {
+            result += stack.pop();
+        }
+
+        return result;
+    }
+
+    private static int calculate(int a, int b, char operation) {
+        return switch (operation) {
+            case '*' -> a * b;
+            case '/' -> a / b;
+            case '+' -> a + b;
+            case '-' -> a - b;
+            default -> throw new IllegalArgumentException("Invalid operation: " + operation);
+        };
     }
 }
