@@ -19,8 +19,7 @@ class Solution {
         int left = index;
         int right = index;
         while (right < s.length()) { 
-            boolean isPalindrome = isPalindrome(s, left, right, memo);
-            if (isPalindrome) {
+            if (isPalindrome(s, left, right, memo)) {
                 curr.add(s.substring(left, right + 1));
                 partition(s, right + 1, curr, result, memo);
                 curr.remove(curr.size() - 1);
