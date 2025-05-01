@@ -1,8 +1,10 @@
 class Solution {
     public List<List<String>> partition(String s) {
+        if (s == null || s.length() == 0) {
+            return new ArrayList<>();
+        }
 
         List<List<String>> result = new ArrayList<>();
-        
         partition(s, 0, new ArrayList<>(), result);
         return result;
     }
@@ -12,26 +14,26 @@ class Solution {
             result.add(new ArrayList<>(curr));
         }
 
-        int l = index;
-        int r = index;
-        while (r < s.length()) { 
-            boolean isPalindrome = isPalindrome(s, l, r);
+        int left = index;
+        int right = index;
+        while (right < s.length()) { 
+            boolean isPalindrome = isPalindrome(s, left, right);
             if (isPalindrome) {
-                curr.add(s.substring(l, r + 1));
-                partition(s, r + 1, curr, result);
+                curr.add(s.substring(left, right + 1));
+                partition(s, right + 1, curr, result);
                 curr.remove(curr.size() - 1);
             }
-            r++;
+            right++;
         }
     }
 
-    private boolean isPalindrome(String s, int l, int r) {
-        while (l < r) {
-            if (s.charAt(l) != s.charAt(r)) {
+    private boolean isPalindrome(String s, int left, int right) {
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
                 return false;
             }
-            l++;
-            r--;
+            left++;
+            right--;
         }
         return true;
     }
