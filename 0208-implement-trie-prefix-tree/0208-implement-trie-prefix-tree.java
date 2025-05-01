@@ -1,5 +1,5 @@
 class Trie {
-    private final TrieNode root;
+    private TrieNode root;
 
     public Trie() {
         root = new TrieNode();
@@ -8,11 +8,10 @@ class Trie {
     public void insert(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
-            int idx = c - 'a';
-            if (node.children[idx] == null) {
-                node.children[idx] = new TrieNode();
+            if (root.children[c - 'a'] == null) {
+                root.children[c - 'a'] = new TrieNode();
             }
-            node = node.children[idx];
+            node = root.children[c - 'a'];
         }
         node.isEnd = true;
     }
@@ -20,11 +19,10 @@ class Trie {
     public boolean search(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
-            int idx = c - 'a';
-            if (node.children[idx] == null) {
+            if (root.children[c - 'a'] == null) {
                 return false;
             }
-            node = node.children[idx];
+            node = root.children[c - 'a'];
         }
         return node.isEnd;
     }
@@ -32,18 +30,17 @@ class Trie {
     public boolean startsWith(String prefix) {
         TrieNode node = root;
         for (char c : prefix.toCharArray()) {
-            int idx = c - 'a';
-            if (node.children[idx] == null) {
+            if (root.children[c - 'a'] == null) {
                 return false;
             }
-            node = node.children[idx];
+            node = root.children[c - 'a'];
         }
         return true;
     }
 
-    class TrieNode {
-        TrieNode[] children = new TrieNode[26];
-        boolean isEnd = false;
+    private class TrieNode {
+        private TrieNode[] children = new TrieNode[26];
+        private boolean isEnd = false;
     }
 }
 
