@@ -1,57 +1,37 @@
 class Solution {
-    private static final Set<Character> OPERATIONS = Set.of('*', '/', '+', '-');
-
     public int calculate(String s) {
-        if (s == null) return -1;
-        s = s.replaceAll(" ", "");
-        if (s.isEmpty()) return -1;
+        if (s == null || s.isEmpty()) return 0;
 
-        Stack<Integer> stack = new Stack<>();
-        
-        char operation = '+';
-        int number = 0;
-        for (char c : s.toCharArray()) {
-            if (OPERATIONS.contains(c)) {
-                stack.add(number);
-                number = 0;
-                if (operation == '-') {
-                    stack.add(stack.pop() * -1);
-                } else if (operation == '*' || operation == '/') {
-                    int b = stack.pop();
-                    int a = stack.pop();
-                    stack.add(calculate(a, b, operation));
-                }
-                operation = c;
-            } else {
-                number = number * 10 + (c - '0');
-            }
-        }
-        if (operation == '-') {
-            stack.add(-number);
-        } else {
-            stack.add(number);
-        }
-        if (stack.size() > 1 && (operation == '*' || operation == '/')) {
-            int b = stack.pop();
-            int a = stack.pop();
-            stack.add(calculate(a, b, operation));
-        }
+        s = s.replaceAll(" ", "");
 
         int result = 0;
-        while (!stack.isEmpty()) {
-            result += stack.pop();
-        }
+        int lastNumber = 0;
+        int currNumber = 0;
+        char operation = '+';
 
-        return result;
-    }
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                currNumber = currNumber * 10 + (c - '0');
+            }
+            if (!Character.isDigit(c) || i == s.length() - 1) {
+                switch (operation) {
+                    case '+' -> {
+                        result += lastNumber;
+                        lastNumber = currNumber;
+                    }
+                    case '-' -> {
+                        result += lastNumber;
+                        lastNumber = -currNumber;
+                    }
+                    case '*' -> lastNumber *= currNumber;
+                    case '/' -> lastNumber /= currNumber;
+                }
+                operation = c;
+                currNumber = 0;
+            }
+        }        
 
-    private static int calculate(int a, int b, char operation) {
-        return switch (operation) {
-            case '*' -> a * b;
-            case '/' -> a / b;
-            case '+' -> a + b;
-            case '-' -> a - b;
-            default -> throw new IllegalArgumentException("Invalid operation: " + operation);
-        };
+        return result + lastNumber;
     }
 }
