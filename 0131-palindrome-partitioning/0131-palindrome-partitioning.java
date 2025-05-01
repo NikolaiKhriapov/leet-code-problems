@@ -33,14 +33,16 @@ class Solution {
             return memo[left][right];
         }
 
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                memo[left][right] = false;
+        int l = left;
+        int r = right;
+        while (l < r) {
+            if (s.charAt(l) != s.charAt(r)) {
+                memo[l][r] = false;
                 return false;
             }
 
-            left++;
-            right--;
+            l++;
+            r--;
         }
         
         memo[left][right] = true;
