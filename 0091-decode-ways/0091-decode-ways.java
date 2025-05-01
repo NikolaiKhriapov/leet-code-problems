@@ -8,12 +8,13 @@ class Solution {
     }
 
     private int numDecodings(String s, int index, Map<Integer, Integer> memo) {
-        if (index == s.length()) {
-            return 1;
-        }
-
         if (memo.containsKey(index)) {
             return memo.get(index);
+        }
+
+        if (index == s.length()) {
+            memo.put(index, 1);
+            return 1;
         }
 
         int currentNumber = s.charAt(index) - '0';
@@ -29,6 +30,7 @@ class Solution {
                 total += numDecodings(s, index + 2, memo);
             }
         }
+
         memo.put(index, total);
         return total;
     }
