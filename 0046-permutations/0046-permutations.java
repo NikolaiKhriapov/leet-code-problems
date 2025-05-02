@@ -5,21 +5,24 @@ class Solution {
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        helper(nums, new ArrayList<>(), result);
+        boolean[] used = new boolean[nums.length];
+        helper(nums, new ArrayList<>(), result, used);
         return result;
     }
 
-    private void helper(int[] nums, List<Integer> curr, List<List<Integer>> result) {
+    private void helper(int[] nums, List<Integer> curr, List<List<Integer>> result, boolean[] used) {
         if (curr.size() == nums.length) {
             result.add(new ArrayList<>(curr));
             return;
         }
         
-        for (int n : nums) {
-            if (!curr.contains(n)) {
-                curr.add(n);
-                helper(nums, curr, result);
+        for (int i = 0; i < nums.length; i++) {
+            if (!used[i]) {
+                curr.add(nums[i]);
+                used[i] = true;
+                helper(nums, curr, result, used);
                 curr.remove(curr.size() - 1);
+                used[i] = false;
             }
         }
     }
