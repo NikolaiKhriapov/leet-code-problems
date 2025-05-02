@@ -1,28 +1,34 @@
 class Solution {
     public int divide(int dividend, int divisor) {
-        // handle overflow
+        if (divisor == 0 || dividend == 0) {
+            return 0;
+        }
         if (dividend == Integer.MIN_VALUE && divisor == -1) {
             return Integer.MAX_VALUE;
         }
 
+        int sign = 1;
+        if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)) {
+            sign = -1;
+        }
+
+        int dividendNeg = dividend > 0 ? -dividend : dividend;
+        int divisorNeg = divisor > 0 ? -divisor : divisor;
+        
         int result = 0;
-
-        // to avoid overflow
-        long dividendPos = Math.abs((long) dividend);
-        long divisorPos = Math.abs((long) divisor);
-
-        while (dividendPos >= divisorPos) {
-            long temp = divisorPos;
+        while (dividendNeg <= divisorNeg) {
+            int temp = divisorNeg;
             int multiple = 1;
-            while (dividendPos >= (temp << 1)) {
-                temp <<= 1;
-                multiple <<= 1;
+
+            while (temp >= Integer.MIN_VALUE / 2 && dividendNeg <= temp + temp) {
+                temp += temp;
+                multiple += multiple;
             }
-            dividendPos -= temp;
+
+            dividendNeg -= temp;
             result += multiple;
         }
-        
-        boolean isNegative = (dividend < 0) ^ (divisor < 0);
-        return isNegative ? -result : result;
+
+        return sign * result;
     }
 }
