@@ -7,22 +7,21 @@ class Solution {
         }
 
         List<String> result = new ArrayList<>();
-        result.add("");
-
-        for (char c : digits.toCharArray()) {
-            result = addDigitToCombinations(c - '0', result);
-        }
-        
+        addDigitToCombinations(digits, 0, result, new StringBuilder());
         return result;
     }
 
-    private List<String> addDigitToCombinations(int digit, List<String> result) {
-        List<String> list = new ArrayList<>();
-        for (String str : result) {
-            for (char c : LETTERS[digit].toCharArray()) {
-                list.add(str + c);
-            }
+    private void addDigitToCombinations(String digits, int index, List<String> result, StringBuilder curr) {
+        if (index == digits.length()) {
+            result.add(curr.toString());
+            return;
         }
-        return list;
+
+        int digit = digits.charAt(index) - '0';
+        for (char c : LETTERS[digit].toCharArray()) {
+            curr.append(c);
+            addDigitToCombinations(digits, index + 1, result, curr);
+            curr.delete(index, curr.length());
+        }
     }
 }
