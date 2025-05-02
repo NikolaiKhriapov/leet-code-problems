@@ -5,12 +5,12 @@ class Solution {
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        helper(nums, 0, new ArrayList<>(), result);
+        helper(nums, new ArrayList<>(), result);
         return result;
     }
 
-    private void helper(int[] nums, int index, List<Integer> curr, List<List<Integer>> result) {
-        if (index == nums.length) {
+    private void helper(int[] nums, List<Integer> curr, List<List<Integer>> result) {
+        if (curr.size() == nums.length) {
             result.add(new ArrayList<>(curr));
             return;
         }
@@ -18,7 +18,7 @@ class Solution {
         for (int n : nums) {
             if (!curr.contains(n)) {
                 curr.add(n);
-                helper(nums, index + 1, curr, result);
+                helper(nums, curr, result);
                 curr.remove(curr.size() - 1);
             }
         }
