@@ -13,11 +13,11 @@ class Solution {
         int xReversed = 0;
         while (xPos > 0) {
             int digit = xPos % 10;
-            xPos /= 10;
-            if (xReversed > Integer.MAX_VALUE / 10 || xReversed > Integer.MAX_VALUE / 10 && digit >= 7) {
+            if (xReversed > Integer.MAX_VALUE / 10 || xReversed == Integer.MAX_VALUE / 10 && digit >= 7) {
                 return 0;
             }
             xReversed = xReversed * 10 + digit;
+            xPos /= 10;
         }
 
         return sign * xReversed;
