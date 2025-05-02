@@ -6,12 +6,12 @@ class Solution {
 
         boolean isNegative = x < 0;
 
-        long xLong = Math.abs((long) x);
+        long xPos = Math.abs((long) x);
 
         long xReversed = 0;
-        while (xLong > 0) {
-            int digit = (int) (xLong % 10);
-            xLong /= 10;
+        while (xPos > 0) {
+            int digit = (int) (xPos % 10);
+            xPos /= 10;
             xReversed = xReversed * 10 + digit;
         }
 
