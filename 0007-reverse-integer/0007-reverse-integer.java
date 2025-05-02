@@ -3,21 +3,23 @@ class Solution {
         if (x >= 0 && x <= 9) {
             return x;
         }
+        if (x == Integer.MIN_VALUE) {
+            return 0;
+        }
 
         int sign = x < 0 ? -1 : 1;
-        long xPos = Math.abs((long) x);
+        int xPos = Math.abs(x);
 
-        long xReversed = 0;
+        int xReversed = 0;
         while (xPos > 0) {
-            int digit = (int) (xPos % 10);
+            int digit = xPos % 10;
             xPos /= 10;
+            if (xReversed > Integer.MAX_VALUE / 10 || xReversed > Integer.MAX_VALUE / 10 && digit >= 7) {
+                return 0;
+            }
             xReversed = xReversed * 10 + digit;
         }
 
-        long result = sign * xReversed;
-        if (xReversed >= Integer.MAX_VALUE || xReversed <= Integer.MIN_VALUE) {
-            result = 0;
-        }
-        return (int) result;
+        return sign * xReversed;
     }
 }
