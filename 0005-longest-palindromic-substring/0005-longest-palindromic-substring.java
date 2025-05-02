@@ -6,7 +6,7 @@ class Solution {
 
         int start = 0;
         int end = 0;
-        for (int i = 0; i < s.length() - 1; i++) {
+        for (int i = 0; i < s.length(); i++) {
             int longestA = countLongest(s, i, i);
             int longestB = countLongest(s, i, i + 1);
             int longest = Math.max(longestA, longestB);
@@ -15,7 +15,6 @@ class Solution {
                 end = i + (longest) / 2;
             }
         }
-
         return s.substring(start, end + 1);
     }
 
