@@ -26,8 +26,7 @@ class Solution {
         while (index < s.length() && Character.isDigit(s.charAt(index))) {
             int digit = s.charAt(index) - '0';
             if (number > Integer.MAX_VALUE / 10 || (number == Integer.MAX_VALUE / 10 && digit >= (sign == 1 ? 7 : 8))) {
-                number = sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-                break;
+                return (sign == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
             number = number * 10 + digit;
             index++;
