@@ -4,7 +4,6 @@ class Solution {
             return 0;
         }
 
-        // remove leading whitespaces
         s = s.trim();
 
         if (s.isEmpty()) {
@@ -12,7 +11,6 @@ class Solution {
         }
 
         int index = 0;
-        // append sign if negative
         int sign = 1;
         if (s.charAt(index) == '-' || s.charAt(index) == '+') {
             if (s.charAt(index) == '-') {
@@ -21,7 +19,6 @@ class Solution {
             index++;
         }
 
-        // read the integer
         int number = 0;
         while (index < s.length() && Character.isDigit(s.charAt(index))) {
             int digit = s.charAt(index) - '0';
