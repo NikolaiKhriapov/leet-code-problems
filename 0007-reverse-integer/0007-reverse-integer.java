@@ -4,8 +4,7 @@ class Solution {
             return x;
         }
 
-        boolean isNegative = x < 0;
-
+        int sign = x < 0 ? -1 : 1;
         long xPos = Math.abs((long) x);
 
         long xReversed = 0;
@@ -15,9 +14,10 @@ class Solution {
             xReversed = xReversed * 10 + digit;
         }
 
-        if (xReversed >= Integer.MAX_VALUE) {
-            return 0;
+        long result = sign * xReversed;
+        if (xReversed >= Integer.MAX_VALUE || xReversed <= Integer.MIN_VALUE) {
+            result = 0;
         }
-        return isNegative ? (int) -xReversed : (int) xReversed;
+        return (int) result;
     }
 }
