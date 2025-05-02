@@ -35,11 +35,12 @@ class Solution {
             index++;
         }
 
-        // append all buckets to the first one
-        for (int i = 1; i < buckets.length; i++) {
-            buckets[0].append(buckets[i]);
+        // merge all buckets
+        StringBuilder result = new StringBuilder();
+        for (StringBuilder bucket : buckets) {
+            result.append(bucket);
         }
 
-        return buckets[0].toString();
+        return result.toString();
     }
 }
