@@ -1,7 +1,7 @@
 class Solution {
     public String intToRoman(int num) {
 
-        Map<Integer, String> map = new HashMap<>();
+        Map<Integer, String> map = new LinkedHashMap<>();
         map.put(1000, "M");
         map.put(900, "CM");
         map.put(500, "D");
@@ -22,8 +22,10 @@ class Solution {
             int currNum = 0;
             for (var entry : map.entrySet()) {
                 int curr = entry.getKey();
-                if (curr <= num && curr > currNum) currNum = curr;
-                // else break;
+                if (curr <= num) {
+                    currNum = curr;
+                    break;
+                }
             }
             result.append(map.get(currNum));
             num -= currNum;
