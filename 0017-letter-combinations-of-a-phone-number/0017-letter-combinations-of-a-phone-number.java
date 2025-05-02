@@ -1,27 +1,28 @@
 class Solution {
-    private final static String[] DIGIT_TO_LETTERS_MAP = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+    private static final String[] LETTERS = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public List<String> letterCombinations(String digits) {
         if (digits == null || digits.isEmpty()) {
             return new ArrayList<>();
         }
-        
+
         List<String> result = new ArrayList<>();
-        addLetterToCombinations(digits, 0, new StringBuilder(), result);
+        result.add("");
+
+        for (char c : digits.toCharArray()) {
+            result = addDigitToCombinations(c - '0', result);
+        }
+        
         return result;
     }
 
-    private void addLetterToCombinations(String digits, int index, StringBuilder curr, List<String> list) {
-        if (index == digits.length()) {
-            list.add(curr.toString());
-            return;
+    private List<String> addDigitToCombinations(int digit, List<String> result) {
+        List<String> list = new ArrayList<>();
+        for (String str : result) {
+            for (char c : LETTERS[digit].toCharArray()) {
+                list.add(str + c);
+            }
         }
-        
-        int length = curr.length();
-        for (char c : DIGIT_TO_LETTERS_MAP[digits.charAt(index) - '0'].toCharArray()) {
-            curr.append(c);
-            addLetterToCombinations(digits, index + 1, curr, list);
-            curr.delete(length, curr.length());
-        }
+        return list;
     }
 }
