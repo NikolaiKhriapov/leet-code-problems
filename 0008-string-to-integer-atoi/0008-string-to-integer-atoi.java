@@ -1,5 +1,10 @@
 class Solution {
     public int myAtoi(String s) {
+        if (s == null) {
+            return 0;
+        }
+
+        // remove leading whitespaces
         s = s.trim();
 
         if (s.isEmpty()) {
@@ -7,26 +12,27 @@ class Solution {
         }
 
         int index = 0;
-        boolean isNegative = false;
-        // save the sign
+        // append sign if negative
+        int sign = 1;
         if (s.charAt(index) == '-' || s.charAt(index) == '+') {
             if (s.charAt(index) == '-') {
-                isNegative = true;
+                sign = -1;
             }
             index++;
         }
-        
-        // build number
+
+        // read the integer
         int number = 0;
         while (index < s.length() && Character.isDigit(s.charAt(index))) {
             int digit = s.charAt(index) - '0';
-            if (number > (Integer.MAX_VALUE - digit) / 10) {
-                return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            if (number > Integer.MAX_VALUE / 10 || (number == Integer.MAX_VALUE / 10 && digit >= (sign == 1 ? 7 : 8))) {
+                number = sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+                break;
             }
             number = number * 10 + digit;
             index++;
         }
-        
-        return isNegative ? -number : number;
+
+        return sign * number;
     }
 }
