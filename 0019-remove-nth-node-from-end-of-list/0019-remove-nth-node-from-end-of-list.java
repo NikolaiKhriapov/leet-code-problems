@@ -20,7 +20,7 @@ class Solution {
             curr1 = curr1.next;
             n--;
         }
-        while (curr1 != null && curr1.next != null) {
+        while (curr1.next != null) {
             curr1 = curr1.next;
             curr2 = curr2.next;
         }
