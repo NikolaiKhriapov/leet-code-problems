@@ -1,5 +1,8 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        if (candidates == null || candidates.length == 0) {
+            return new ArrayList<>();
+        }
     
         List<List<Integer>> result = new ArrayList<>();
         helper(candidates, target, 0, new ArrayList<>(), 0, result);
