@@ -2,11 +2,11 @@ class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
 
         List<List<Integer>> result = new ArrayList<>();
-        helper(candidates, target, new ArrayList<>(), result);
+        helper(candidates, target, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private void helper(int[] candidates, int target, List<Integer> curr, List<List<Integer>> result) {
+    private void helper(int[] candidates, int target, int start, List<Integer> curr, List<List<Integer>> result) {
         int sum = getSum(curr);
 
         if (sum > target) {
@@ -16,12 +16,10 @@ class Solution {
             return;
         }
 
-        for (int i = 0; i < candidates.length; i++) {
-            int currSize = curr.size();
-            if (currSize > 0 && candidates[i] < curr.get(currSize - 1)) continue;
+        for (int i = start; i < candidates.length; i++) {
             curr.add(candidates[i]);
-            helper(candidates, target, curr, result);
-            curr.remove(currSize);
+            helper(candidates, target, i, curr, result);
+            curr.remove(curr.size() - 1);
         }
     }
 
