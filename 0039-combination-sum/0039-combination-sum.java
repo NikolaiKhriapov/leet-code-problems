@@ -1,6 +1,6 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-
+    
         List<List<Integer>> result = new ArrayList<>();
         helper(candidates, target, 0, new ArrayList<>(), 0, result);
         return result;
@@ -9,7 +9,8 @@ class Solution {
     private void helper(int[] candidates, int target, int start, List<Integer> curr, int sum, List<List<Integer>> result) {
         if (sum > target) {
             return;
-        } else if (sum == target) {
+        }
+        if (sum == target) {
             result.add(new ArrayList<>(curr));
             return;
         }
@@ -19,13 +20,5 @@ class Solution {
             helper(candidates, target, i, curr, sum + candidates[i], result);
             curr.remove(curr.size() - 1);
         }
-    }
-
-    private int getSum(List<Integer> list) {
-        int sum = 0;
-        for (int n : list) {
-            sum += n;
-        }
-        return sum;
     }
 }
