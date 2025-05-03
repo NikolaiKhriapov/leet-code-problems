@@ -7,18 +7,13 @@ class Solution {
         }
         
         int index = 0;
-        while (index < intervals.length && intervals[index][0] < newInterval[0]) {
+        while (index < intervals.length && intervals[index][1] < newInterval[0]) {
             list.add(intervals[index]);
             index++;
         }
 
-        while (list.size() > 0 && list.get(list.size() - 1)[1] >= newInterval[0]) {
-            newInterval[0] = Math.min(newInterval[0], list.get(list.size() - 1)[0]);
-            newInterval[1] = Math.max(newInterval[1], list.get(list.size() - 1)[1]);
-            list.remove(list.size() - 1);
-        }
-
         while (index < intervals.length && intervals[index][0] <= newInterval[1]) {
+            newInterval[0] = Math.min(newInterval[0], intervals[index][0]);
             newInterval[1] = Math.max(newInterval[1], intervals[index][1]);
             index++;
         }
