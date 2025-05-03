@@ -2,16 +2,16 @@ class Solution {
     private static final String[] LETTERS = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public List<String> letterCombinations(String digits) {
-        if (digits == null || digits.isEmpty()) {
+        if (digits == null || digits.length() == 0) {
             return new ArrayList<>();
         }
-
+        
         List<String> result = new ArrayList<>();
-        addDigitToCombinations(digits, 0, result, new StringBuilder());
+        addLetterToCombinations(digits, 0, new StringBuilder(), result);
         return result;
     }
 
-    private void addDigitToCombinations(String digits, int index, List<String> result, StringBuilder curr) {
+    private void addLetterToCombinations(String digits, int index, StringBuilder curr, List<String> result) {
         if (index == digits.length()) {
             result.add(curr.toString());
             return;
@@ -20,8 +20,8 @@ class Solution {
         int digit = digits.charAt(index) - '0';
         for (char c : LETTERS[digit].toCharArray()) {
             curr.append(c);
-            addDigitToCombinations(digits, index + 1, result, curr);
-            curr.delete(index, curr.length());
+            addLetterToCombinations(digits, index + 1, curr, result);
+            curr.deleteCharAt(curr.length() - 1);
         }
     }
 }
