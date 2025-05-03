@@ -3,15 +3,15 @@ class Solution {
     private static final String[] LETTERS = new String[] {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
     public String intToRoman(int num) {
+        if (num <= 0) {
+            return "";
+        }
 
         StringBuilder result = new StringBuilder();
-        while (num > 0) {
-            for (int i = 0; i < NUMBERS.length; i++) {
-                if (NUMBERS[i] <= num) {
-                    result.append(LETTERS[i]);
-                    num -= NUMBERS[i];
-                    break;
-                }
+        for (int i = 0; i < NUMBERS.length; i++) {
+            while (num >= NUMBERS[i]) {
+                result.append(LETTERS[i]);
+                num -= NUMBERS[i];
             }
         }
         return result.toString();
