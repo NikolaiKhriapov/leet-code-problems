@@ -5,22 +5,22 @@ class Solution {
         }
     
         List<List<Integer>> result = new ArrayList<>();
-        helper(candidates, target, 0, new ArrayList<>(), 0, result);
+        helper(candidates, target, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private void helper(int[] candidates, int target, int start, List<Integer> curr, int sum, List<List<Integer>> result) {
-        if (sum > target) {
+    private void helper(int[] candidates, int target, int start, List<Integer> curr, List<List<Integer>> result) {
+        if (target < 0) {
             return;
         }
-        if (sum == target) {
+        if (target == 0) {
             result.add(new ArrayList<>(curr));
             return;
         }
 
         for (int i = start; i < candidates.length; i++) {
             curr.add(candidates[i]);
-            helper(candidates, target, i, curr, sum + candidates[i], result);
+            helper(candidates, target - candidates[i], i, curr, result);
             curr.remove(curr.size() - 1);
         }
     }
