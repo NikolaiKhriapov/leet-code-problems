@@ -1,5 +1,8 @@
 class Solution {
     public int jump(int[] nums) {
+        if (nums == null || nums.length <= 1) {
+            return 0;
+        }
 
         int result = 0;
         int currReachable = 0;
