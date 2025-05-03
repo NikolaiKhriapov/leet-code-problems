@@ -2,10 +2,6 @@ class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> list = new ArrayList<>();
 
-        if (intervals.length == 0) {
-            return new int[][] {newInterval};
-        }
-        
         int index = 0;
         while (index < intervals.length && intervals[index][1] < newInterval[0]) {
             list.add(intervals[index]);
