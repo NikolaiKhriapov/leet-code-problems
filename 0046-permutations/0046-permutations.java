@@ -1,5 +1,8 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return new ArrayList<>();
+        }
 
         List<List<Integer>> result = new ArrayList<>();
         helper(nums, new ArrayList<>(), result, new boolean[nums.length]);
@@ -13,8 +16,9 @@ class Solution {
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (visited[i]) continue;
-
+            if (visited[i]) {
+                continue;
+            }
             curr.add(nums[i]);
             visited[i] = true;
             helper(nums, curr, result, visited);
