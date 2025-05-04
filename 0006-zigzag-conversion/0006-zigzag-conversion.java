@@ -1,9 +1,12 @@
 class Solution {
     public String convert(String s, int numRows) {
-        if (numRows <= 0) {
-            return null;
+        if (s == null || numRows < 1) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
-        if (s == null || s.isEmpty() || numRows == 1) {
+        if (numRows == 0) {
+            return "";
+        }
+        if (s.length() <= 2 || numRows == 1) {
             return s;
         }
 
@@ -21,7 +24,7 @@ class Solution {
             if (bucketIndex == 0) {
                 isForward = true;
             }
-            if (bucketIndex == buckets.length - 1) {
+            if (bucketIndex == numRows - 1) {
                 isForward = false;
             }
 
@@ -30,8 +33,8 @@ class Solution {
             } else {
                 bucketIndex--;
             }
-        } 
-        
+        }
+
         StringBuilder result = new StringBuilder();
         for (StringBuilder bucket : buckets) {
             result.append(bucket);
