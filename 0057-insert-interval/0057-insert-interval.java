@@ -1,5 +1,9 @@
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
+        if (intervals == null || newInterval == null) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
+
         List<int[]> list = new ArrayList<>();
 
         int index = 0;
@@ -7,7 +11,7 @@ class Solution {
             list.add(intervals[index]);
             index++;
         }
-
+        
         while (index < intervals.length && intervals[index][0] <= newInterval[1]) {
             newInterval[0] = Math.min(newInterval[0], intervals[index][0]);
             newInterval[1] = Math.max(newInterval[1], intervals[index][1]);
@@ -22,9 +26,10 @@ class Solution {
         }
 
         int[][] result = new int[list.size()][2];
-        for (int i = 0; i < result.length; i++) {
+        for (int i = 0; i < list.size(); i++) {
             result[i] = list.get(i);
         }
+
         return result;
     }
 }
