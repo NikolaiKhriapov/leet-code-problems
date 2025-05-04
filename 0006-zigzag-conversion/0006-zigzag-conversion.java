@@ -1,6 +1,6 @@
 class Solution {
     public String convert(String s, int numRows) {
-        if (s == null || numRows < 1) {
+        if (s == null || numRows < 0) {
             throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
         if (numRows == 0) {
