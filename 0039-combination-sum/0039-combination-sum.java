@@ -1,10 +1,6 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        if (candidates == null || candidates.length == 0) {
-            return new ArrayList<>();
-        }
 
-        Arrays.sort(candidates);
         List<List<Integer>> result = new ArrayList<>();
         helper(candidates, target, 0, new ArrayList<>(), result);
         return result;
@@ -20,9 +16,6 @@ class Solution {
         }
 
         for (int i = start; i < candidates.length; i++) {
-            if (candidates[i] > target) {
-                break;
-            }
             curr.add(candidates[i]);
             helper(candidates, target - candidates[i], i, curr, result);
             curr.remove(curr.size() - 1);
