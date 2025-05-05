@@ -1,9 +1,11 @@
 class Solution {
     public double myPow(double x, int n) {
+        if (x == 0) return 0;
+
         long nLong = (long) n;
         if (nLong < 0) {
-            nLong = -nLong;
             x = 1 / x;
+            nLong = -nLong;
         }
 
         double result = 1;
@@ -11,10 +13,10 @@ class Solution {
             if (nLong % 2 == 1) {
                 result *= x;
             }
-            x *= x;
             nLong /= 2;
+            x *= x;
         }
-
+        
         return result;
     }
 }
