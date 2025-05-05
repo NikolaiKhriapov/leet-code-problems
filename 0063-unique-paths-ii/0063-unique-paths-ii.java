@@ -22,7 +22,6 @@ class Solution {
                 int prev = c > 0 ? dp[c - 1] : 0;
                 dp[c] = dp[c] + prev;
             }
-            System.out.println(Arrays.toString(dp));
         }
 
         return dp[cols - 1];
