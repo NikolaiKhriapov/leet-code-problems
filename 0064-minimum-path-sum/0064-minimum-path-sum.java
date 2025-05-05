@@ -7,21 +7,18 @@ class Solution {
         int rows = grid.length;
         int cols = grid[0].length;
 
-        int[] dp = new int[cols];
-        Arrays.fill(dp, Integer.MAX_VALUE);
-
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                if (r == 0 && c == 0) {
-                    dp[c] = grid[r][c];
-                    continue;
-                }
-                int top = dp[c];
-                int left = c > 0 ? dp[c - 1] : Integer.MAX_VALUE;
-                dp[c] = grid[r][c] + Math.min(top, left);
+        for (int c = 1; c < cols; c++) {
+            grid[0][c] += grid[0][c - 1];
+        }
+        for (int r = 1; r < rows; r++) {
+            grid[r][0] += grid[r - 1][0];
+        }
+        for (int r = 1; r < rows; r++) {
+            for (int c = 1; c < cols; c++) {
+                grid[r][c] += Math.min(grid[r - 1][c], grid[r][c - 1]);
             }
         }
 
-        return dp[cols - 1];
+        return grid[rows - 1][cols - 1];
     }
 }
