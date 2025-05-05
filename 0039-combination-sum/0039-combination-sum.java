@@ -1,5 +1,11 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        if (candidates == null || target < 0) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
+        if (candidates.length == 0 || target == 0) {
+            return new ArrayList<>();
+        }
 
         List<List<Integer>> result = new ArrayList<>();
         helper(candidates, 0, target, new ArrayList<>(), result);
