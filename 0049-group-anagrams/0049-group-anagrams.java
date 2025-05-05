@@ -8,7 +8,7 @@ class Solution {
         for (String str : strs) {
             char[] strChars = str.toCharArray();
             Arrays.sort(strChars);
-            String key = new String(strChars);
+            String key = String.valueOf(strChars);
             List<String> value = map.getOrDefault(key, new ArrayList<>());
             value.add(str);
             map.put(key, value);
