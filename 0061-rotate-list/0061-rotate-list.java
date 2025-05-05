@@ -23,6 +23,10 @@ class Solution {
         }
         k %= length;
         
+        if (k == 0) {
+            return head;
+        }
+
         curr.next = head;
         
         for (int i = 0; i < length - k; i++) {
