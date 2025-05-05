@@ -1,20 +1,20 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        if (nums == null) {
-            return false;
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
-        if (nums.length <= 1) {
+        if (nums.length == 1) {
             return true;
         }
 
-        int farthest = 0;
+        int maxReachable = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (i > farthest) {
+            if (i > maxReachable) {
                 return false;
             }
-            farthest = Math.max(farthest, i + nums[i]);
-            if (farthest > nums.length - 1) {
-                return true;
+            maxReachable = Math.max(maxReachable, i + nums[i]);
+            if (maxReachable >= nums.length - 1) {
+                break;
             }
         }
         return true;
