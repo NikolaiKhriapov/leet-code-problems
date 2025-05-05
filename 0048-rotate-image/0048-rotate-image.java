@@ -1,11 +1,11 @@
 class Solution {
     public void rotate(int[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix.length != matrix[0].length) {
-            return;
+        if (matrix == null || matrix.length != matrix[0].length) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
 
         transpose(matrix);
-        mirrorHorizontally(matrix);
+        reverseRows(matrix);
     }
 
     private void transpose(int[][] matrix) {
@@ -18,7 +18,7 @@ class Solution {
         }
     }
 
-    private void mirrorHorizontally(int[][] matrix) {
+    private void reverseRows(int[][] matrix) {
         for (int r = 0; r < matrix.length; r++) {
             for (int c = 0; c < matrix[0].length / 2; c++) {
                 int temp = matrix[r][c];
