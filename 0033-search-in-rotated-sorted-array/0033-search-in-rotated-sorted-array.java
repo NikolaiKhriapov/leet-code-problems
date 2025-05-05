@@ -3,26 +3,29 @@ class Solution {
         if (nums == null) {
             throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
+        if (nums.length == 0) {
+            return -1;
+        }
 
-        int l = 0;
-        int r = nums.length - 1;
-        while (l <= r) {
-            int m = l + (r - l) / 2;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if (nums[m] == target) {
-                return m;
+            if (nums[mid] == target) {
+                return mid;
             }
-            if (nums[l] <= nums[m]) {
-                if (nums[l] <= target && target <= nums[m]) {
-                    r = m - 1;
+            if (nums[left] <= nums[mid]) {
+                if (nums[left] <= target && target <= nums[mid]) {
+                    right = mid - 1;
                 } else {
-                    l = m + 1;
+                    left = mid + 1;
                 }
             } else {
-                if (nums[m] <= target && target <= nums[r]) {
-                    l = m + 1;
+                if (nums[mid] <= target && target <= nums[right]) {
+                    left = mid + 1;
                 } else {
-                    r = m - 1;
+                    right = mid - 1;
                 }
             }
         }
