@@ -3,7 +3,7 @@ class Solution {
         if (obstacleGrid == null || obstacleGrid.length == 0 || obstacleGrid[0].length == 0) {
             throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
-        if ((obstacleGrid.length == 1 || obstacleGrid[0].length == 1) && obstacleGrid[0][0] == 1) {
+        if (obstacleGrid[0][0] == 1) {
             return 0;
         }
 
