@@ -4,16 +4,18 @@ class Solution {
             return 0;
         }
 
-        s = s.trim();
-
         if (s.isEmpty()) {
             return 0;
         }
 
         int index = 0;
         
+        while (index < s.length() && s.charAt(index) == ' ') {
+            index++;
+        }
+
         int sign = 1;
-        if (s.charAt(index) == '-' || s.charAt(index) == '+') {
+        if (index < s.length() && (s.charAt(index) == '-' || s.charAt(index) == '+')) {
             if (s.charAt(index) == '-') {
                 sign = -1;
             }
