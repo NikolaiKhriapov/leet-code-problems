@@ -3,7 +3,7 @@ class Solution {
         if (candidates == null || target < 0) {
             throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
-        if (candidates.length == 0 || target == 0) {
+        if (candidates.length == 0) {
             return new ArrayList<>();
         }
 
