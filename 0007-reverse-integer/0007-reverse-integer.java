@@ -1,25 +1,21 @@
 class Solution {
     public int reverse(int x) {
-        if (x == Integer.MIN_VALUE) {
-            return 0;
-        }
-        if (x >= 0 && x <= 9) {
-            return x;
-        }
 
-        int sign = (x < 0) ? -1 : 1;
-        int xPos = Math.abs(x);
+        int sign = x < 0 ? -1 : 1;
+        long xLong = Math.abs((long) x);
 
-        int xReversed = 0;
-        while (xPos != 0) {
-            int digit = xPos % 10;
-            if ((xReversed > Integer.MAX_VALUE / 10) || (xReversed == Integer.MAX_VALUE / 10 && (digit > 7))) {
+        long result = 0;
+        while (xLong > 0) {
+            long digit = xLong % 10;
+            
+            if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && digit > (sign == 1 ? 7 : 8))) {
                 return 0;
             }
-            xReversed = xReversed * 10 + digit;
-            xPos /= 10;
+
+            result = result * 10 + digit;
+            xLong /= 10;
         }
         
-        return sign * xReversed;
+        return (int) (sign * result);
     }
 }
