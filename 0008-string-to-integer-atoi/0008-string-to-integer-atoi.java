@@ -1,10 +1,6 @@
 class Solution {
     public int myAtoi(String s) {
-        if (s == null) {
-            return 0;
-        }
-
-        if (s.isEmpty()) {
+        if (s == null || s.isEmpty()) {
             return 0;
         }
 
