@@ -7,6 +7,7 @@ class Solution {
             return new ArrayList<>();
         }
 
+        Arrays.sort(candidates);
         List<List<Integer>> result = new ArrayList<>();
         helper(candidates, 0, target, new ArrayList<>(), result);
         return result;
@@ -20,7 +21,7 @@ class Solution {
 
         for (int i = start; i < candidates.length; i++) {
             if (target < candidates[i]) {
-                continue;
+                break;
             }
             curr.add(candidates[i]);
             helper(candidates, i, target - candidates[i], curr, result);
