@@ -1,11 +1,10 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         if (nums == null || nums.length < 3) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
+            return new ArrayList<>();
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length; i++) {
