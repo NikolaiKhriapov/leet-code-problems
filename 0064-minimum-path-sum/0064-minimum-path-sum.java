@@ -1,5 +1,8 @@
 class Solution {
     public int minPathSum(int[][] grid) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {
+            throw new IllegalArgumentException("Invalid input"); //for simplicity
+        }
 
         int rows = grid.length;
         int cols = grid[0].length;
