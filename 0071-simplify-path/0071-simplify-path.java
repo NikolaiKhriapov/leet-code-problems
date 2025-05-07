@@ -8,11 +8,11 @@ class Solution {
         String[] dirs = path.split("/");
 
         for (String dir : dirs) {
-            if (dir.equals("..")) {
+            if (Objects.equals(dir, "..")) {
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
-            } else if (!dir.isEmpty() && !dir.equals(".")) {
+            } else if (!dir.isEmpty() && !Objects.equals(dir, ".")) {
                 stack.add(dir);
             }
         }
