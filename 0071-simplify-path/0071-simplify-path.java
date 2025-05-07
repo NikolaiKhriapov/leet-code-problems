@@ -3,19 +3,16 @@ class Solution {
         if (path == null) {
             throw new IllegalArgumentException("Invalid input"); // for simplicity
         }
-        if (path.isEmpty()) {
-            return "/";
-        }
 
         Stack<String> stack = new Stack<>();
         String[] dirs = path.split("/");
 
         for (String dir : dirs) {
-            if (Objects.equals(dir, "..")) {
+            if (dir.equals("..")) {
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
-            } else if (!dir.isEmpty() && !Objects.equals(dir, ".")) {
+            } else if (!dir.isEmpty() && !dir.equals(".")) {
                 stack.add(dir);
             }
         }
