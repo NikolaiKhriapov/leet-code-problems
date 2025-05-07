@@ -1,25 +1,28 @@
 class Solution {
     public String simplifyPath(String path) {
+        if (path == null) {
+            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        }
+        if (path.isEmpty()) {
+            return "/";
+        }
 
         Stack<String> stack = new Stack<>();
-        String[] parts = path.split("/");
+        String[] dirs = path.split("/");
 
-        for (String part : parts) {
-            if (part.isEmpty() || Objects.equals(part, ".")) {
-                continue;
-            }
-            if (Objects.equals(part, "..")) {
+        for (String dir : dirs) {
+            if (Objects.equals(dir, "..")) {
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
-            } else {
-                stack.add(part);
+            } else if (!dir.isEmpty() && !Objects.equals(dir, ".")) {
+                stack.add(dir);
             }
         }
-
+        
         StringBuilder result = new StringBuilder();
-        for (String el : stack) {
-            result.append("/").append(el);
+        for (String dir : stack) {
+            result.append("/").append(dir);
         }
         if (result.isEmpty()) {
             result.append("/");
