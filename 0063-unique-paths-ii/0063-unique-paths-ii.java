@@ -1,11 +1,5 @@
 class Solution {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        if (obstacleGrid == null || obstacleGrid.length == 0 || obstacleGrid[0].length == 0) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
-        }
-        if (obstacleGrid[0][0] == 1) {
-            return 0;
-        }
 
         int rows = obstacleGrid.length;
         int cols = obstacleGrid[0].length;
@@ -13,17 +7,22 @@ class Solution {
         int[] dp = new int[cols];
         dp[0] = 1;
 
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                if (obstacleGrid[r][c] == 1) {
-                    dp[c] = 0;
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (obstacleGrid[row][col] == 1) {
+                    dp[col] = 0;
                     continue;
+                } else {
+                    if (row == 0 && col == 0) {
+                        continue;
+                    }
+                    int top = dp[col];
+                    int left = col > 0 ? dp[col - 1] : 0;
+                    dp[col] = top + left;
                 }
-                int left = c > 0 ? dp[c - 1] : 0;
-                dp[c] = dp[c] + left;
             }
         }
-
+        
         return dp[cols - 1];
     }
 }
