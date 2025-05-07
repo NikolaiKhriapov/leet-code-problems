@@ -1,7 +1,7 @@
 class Solution {
     public int jump(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return -1;
+        if (nums == null || nums.length <= 1) {
+            return 0;
         }
 
         int currFarthest = 0;
