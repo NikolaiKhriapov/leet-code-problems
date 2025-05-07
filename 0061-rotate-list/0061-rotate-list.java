@@ -15,27 +15,22 @@ class Solution {
         }
 
         ListNode curr = head;
-        
-        int length = 1;
+        int count = 1;
         while (curr.next != null) {
             curr = curr.next;
-            length++;
+            count++;
         }
-        k %= length;
-        
-        if (k == 0) {
-            return head;
-        }
+        k %= count;
 
         curr.next = head;
-        
-        for (int i = 0; i < length - k; i++) {
+
+        for (int i = 0; i < count - k; i++) {
             curr = curr.next;
         }
 
         ListNode newHead = curr.next;
         curr.next = null;
-        
+
         return newHead;
     }
 }
