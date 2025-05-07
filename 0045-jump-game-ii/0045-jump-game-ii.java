@@ -1,6 +1,8 @@
 class Solution {
     public int jump(int[] nums) {
-
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
 
         int currFarthest = 0;
         int maxFarthest = 0;
@@ -11,7 +13,7 @@ class Solution {
                 count++;
                 currFarthest = maxFarthest;
             }
-            if (currFarthest >= nums.length) {
+            if (currFarthest >= nums.length - 1) {
                 break;
             }
         }
