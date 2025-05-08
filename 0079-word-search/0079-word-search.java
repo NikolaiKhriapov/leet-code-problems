@@ -2,6 +2,15 @@ class Solution {
     private static final int[][] NEIGHBORS = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
     public boolean exist(char[][] board, String word) {
+        if (board == null || word == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if ( board.length == 0 || board[0].length == 0) {
+            return false;
+        }
+        if (word.isEmpty()) {
+            return true;
+        }
 
         boolean[][] visited = new boolean[board.length][board[0].length];
         for (int r = 0; r < board.length; r++) {
