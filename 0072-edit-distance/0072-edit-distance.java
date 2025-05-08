@@ -1,5 +1,8 @@
 class Solution {
     public int minDistance(String word1, String word2) {
+        if (word1 == null || word2 == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int length1 = word1.length();
         int length2 = word2.length();
