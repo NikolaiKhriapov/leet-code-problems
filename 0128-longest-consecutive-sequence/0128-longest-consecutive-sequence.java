@@ -11,16 +11,15 @@ class Solution {
         for (int n : nums) {
             set.add(n);
         }
-        Set<Integer> visited = new HashSet<>();
 
         int longestCount = 0;
-        for (int n : set) {
-            if (set.contains(n - 1) || visited.contains(n)) {
+        for (int n : nums) {
+            if (set.contains(n - 1)) {
                 continue;
             }
             int count = 0;
             while (set.contains(n + count)) {
-                visited.add(n + count);
+                set.remove(n + count);
                 count++;
             }
             longestCount = Math.max(longestCount, count);
