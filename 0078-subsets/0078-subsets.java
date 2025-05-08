@@ -1,20 +1,21 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        if (nums == null) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
-        }
 
         List<List<Integer>> result = new ArrayList<>();
-        helper(nums, 0, new ArrayList<>(), result);
+        addSubsetsToList(nums, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private void helper(int[] nums, int idx, List<Integer> curr, List<List<Integer>> result) {
+    private void addSubsetsToList(int[] nums, int index, List<Integer> curr, List<List<Integer>> result) {
         result.add(new ArrayList<>(curr));
+        
+        if (index >= nums.length) {
+            return;
+        }
 
-        for (int i = idx; i < nums.length; i++) {
+        for (int i = index; i < nums.length; i++) {
             curr.add(nums[i]);
-            helper(nums, i + 1, curr, result);
+            addSubsetsToList(nums, i + 1, curr, result);
             curr.remove(curr.size() - 1);
         }
     }
