@@ -13,7 +13,7 @@ class Solution {
             } else {
                 dp[i] = dp[i + 1];
                 if (i < s.length() - 1 && Integer.parseInt(s.substring(i, i + 2)) <= 26) {
-                    dp[i] = dp[i + 1] + dp[i + 2];
+                    dp[i] += dp[i + 2];
                 }
             }
         }
