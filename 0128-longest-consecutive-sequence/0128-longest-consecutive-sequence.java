@@ -7,20 +7,20 @@ class Solution {
             return nums.length;
         }
 
-        Set<Integer> set = new HashSet<>();
-        for (int n : nums) {
-            set.add(n);
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
         }
 
         int longestCount = 0;
-        Set<Integer> visited = new HashSet<>();
-        for (int n : nums) {
-            if (visited.contains(n) || set.contains(n - 1)) {
+        for (int i = 0; i < nums.length; i++) {
+            int n = nums[i];
+            if (map.containsKey(n - 1)) {
                 continue;
             }
             int count = 0;
-            while (set.contains(n + count)) {
-                visited.add(n + count);
+            while (map.containsKey(n + count)) {
+                map.remove(n + count);
                 count++;
             }
             longestCount = Math.max(longestCount, count);
