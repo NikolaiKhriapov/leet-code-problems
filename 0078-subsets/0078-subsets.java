@@ -11,11 +11,6 @@ class Solution {
 
     private void addSubsetsToList(int[] nums, int index, List<Integer> curr, List<List<Integer>> result) {
         result.add(new ArrayList<>(curr));
-
-        if (index >= nums.length) {
-            return;
-        }
-
         for (int i = index; i < nums.length; i++) {
             curr.add(nums[i]);
             addSubsetsToList(nums, i + 1, curr, result);
