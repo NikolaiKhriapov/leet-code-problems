@@ -3,10 +3,9 @@ class Solution {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return false;
         }
-        return binarySearch(matrix, target, 0, matrix.length * matrix[0].length - 1);
-    }
 
-    private boolean binarySearch(int[][] matrix, int target, int left, int right) {
+        int left = 0;
+        int right = matrix.length * matrix[0].length - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
             int midVal = matrix[mid / matrix[0].length][mid % matrix[0].length];
