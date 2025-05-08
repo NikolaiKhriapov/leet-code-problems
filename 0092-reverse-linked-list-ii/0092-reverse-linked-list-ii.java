@@ -22,6 +22,7 @@ class Solution {
         
         ListNode prev = null;
         ListNode listMid = listLeft.next;
+        ListNode listMidTail = listMid;
 
         while (count <= right) {
             ListNode temp = listMid.next;
@@ -31,8 +32,8 @@ class Solution {
             count++;
         }
         
-        listLeft.next.next = listMid;
         listLeft.next = prev;
+        listMidTail.next = listMid;
 
         return dummy.next;
     }
