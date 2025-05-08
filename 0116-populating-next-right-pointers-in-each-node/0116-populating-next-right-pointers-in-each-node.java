@@ -23,14 +23,14 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
-        
         helper(root, null);
         return root;
     }
 
     private void helper(Node node, Node next) {
-        if (node == null) return;
-
+        if (node == null) {
+            return;
+        }
         node.next = next;
         helper(node.left, node.right);
         helper(node.right, next != null ? next.left : null);
