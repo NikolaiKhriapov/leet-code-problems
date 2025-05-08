@@ -1,27 +1,24 @@
 class Solution {
     public int minDistance(String word1, String word2) {
-        if (word1 == null || word2 == null) {
-            return 0;
-        }
 
         int length1 = word1.length();
         int length2 = word2.length();
 
         int[][] dp = new int[length1 + 1][length2 + 1];
 
-        for (int i = 0; i <= length1; i++) {
-            dp[i][0] = i;
+        for (int row = 1; row <= length1; row++) {
+            dp[row][0] = row;
         }
-        for (int j = 0; j <= length2; j++) {
-            dp[0][j] = j;
+        for (int col = 1; col <= length2; col++) {
+            dp[0][col] = col;
         }
 
-        for (int i = 1; i <= length1; i++) {
-            for (int j = 1; j <= length2; j++) {
-                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
+        for (int row = 1; row <= length1; row++) {
+            for (int col = 1; col <= length2; col++) {
+                if (word1.charAt(row - 1) == word2.charAt(col - 1)) {
+                    dp[row][col] = dp[row - 1][col - 1];
                 } else {
-                    dp[i][j] = 1 + Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1]));
+                    dp[row][col] = 1 + Math.min(dp[row - 1][col - 1], Math.min(dp[row - 1][col], dp[row][col - 1]));
                 }
             }
         }
@@ -31,7 +28,7 @@ class Solution {
 }
 
 //      r o s
-//   [0,1,2,3]
+//   [0,1,3,4]
 // h [1,1,2,3]
 // o [2,2,1,2]
 // r [3,2,2,2]
