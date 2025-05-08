@@ -1,5 +1,8 @@
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
+        if (n < 0 || k < 0 || k > n) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         List<List<Integer>> result = new ArrayList<>();
         helper(n, k, 1, new ArrayList<>(), result);
