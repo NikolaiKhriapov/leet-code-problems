@@ -13,10 +13,11 @@ class Solution {
         }
 
         boolean[][] visited = new boolean[board.length][board[0].length];
+        char[] wordArray = word.toCharArray();
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
                 if (board[r][c] == word.charAt(0)) {
-                    if (exists(board, r, c, word.toCharArray(), 0, visited)) {
+                    if (exists(board, r, c, wordArray, 0, visited)) {
                         return true;
                     }
                 }
