@@ -5,7 +5,7 @@ class Solution {
         if (board == null || word == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if ( board.length == 0 || board[0].length == 0) {
+        if (board.length == 0 || board[0].length == 0 || board.length * board[0].length < word.length()) {
             return false;
         }
         if (word.isEmpty()) {
