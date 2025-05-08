@@ -15,13 +15,14 @@ class Solution {
         }
 
         ListNode curr = head;
+
         int count = 1;
         while (curr.next != null) {
             curr = curr.next;
             count++;
         }
         k %= count;
-
+        
         curr.next = head;
 
         for (int i = 0; i < count - k; i++) {
