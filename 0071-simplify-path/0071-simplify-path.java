@@ -3,9 +3,6 @@ class Solution {
         if (path == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (path.isEmpty()) {
-            return "/";
-        }
 
         Stack<String> stack = new Stack<>();
         
