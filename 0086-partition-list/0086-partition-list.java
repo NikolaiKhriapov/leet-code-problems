@@ -10,6 +10,9 @@
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
+        if (head == null || head.next == null) {
+            return head;
+        }
         
         ListNode leftHead = new ListNode(0);
         ListNode rightHead = new ListNode(0);
