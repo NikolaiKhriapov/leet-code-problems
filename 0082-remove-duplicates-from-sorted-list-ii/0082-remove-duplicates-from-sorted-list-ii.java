@@ -11,23 +11,22 @@
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
 
-        Map<Integer, Integer> map = new HashMap<>();
-        
+        ListNode dummy = new ListNode(0, head);
+        ListNode left = dummy;
+
         ListNode curr = head;
-        while (curr != null) {
-            map.put(curr.val, map.getOrDefault(curr.val, 0) + 1);
+        while (curr != null && curr.next != null) {
+            if (curr.val == curr.next.val) {
+                while (curr.next != null && curr.val == curr.next.val) {
+                    curr = curr.next;
+                }
+            } else {
+                left.next = curr;
+                left = left.next;
+            }
             curr = curr.next;
         }
-
-        ListNode dummy = new ListNode(0, head);
-        curr = dummy;
-        while (curr.next != null) {
-            if (map.get(curr.next.val) > 1) {
-                curr.next = curr.next.next;
-            } else {
-                curr = curr.next;
-            }
-        }
+        left.next = curr;
 
         return dummy.next;
     }
