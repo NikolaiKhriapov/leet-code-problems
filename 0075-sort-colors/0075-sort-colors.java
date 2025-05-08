@@ -1,33 +1,30 @@
 class Solution {
     public void sortColors(int[] nums) {
-        if (nums == null) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
-        }
-        if (nums.length <= 1) {
+        if (nums == null || nums.length <= 1) {
             return;
         }
 
-        int left = 0;
-        int current = left;
-        int right = nums.length - 1;
+        int p0 = 0;
+        int p1 = p0;
+        int p2 = nums.length - 1;
         
-        while (current <= right) {
-            if (nums[current] == 0) {
-                swap(nums, current, left);
-                left++;
-                current++;
-            } else if (nums[current] == 2) {
-                swap(nums, current, right);
-                right--;
+        while (p1 <= p2) {
+            if (nums[p1] == 0) {
+                swap(nums, p0, p1);
+                p0++;
+                p1++;
+            } else if (nums[p1] == 1) {
+                p1++;
             } else {
-                current++;
+                swap(nums, p1, p2);
+                p2--;
             }
         }
     }
 
-    private void swap(int[] nums, int left, int right) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
+    private void swap(int[] arr, int left, int right) {
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
     }
 }
