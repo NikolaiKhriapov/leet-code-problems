@@ -5,11 +5,11 @@ class Solution {
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        helper(n, k, 1, new ArrayList<>(), result);
+        backtrack(n, k, 1, new ArrayList<>(), result);
         return result;
     }
 
-    private void helper(int n, int k, int start, List<Integer> curr, List<List<Integer>> result) {
+    private void backtrack(int n, int k, int start, List<Integer> curr, List<List<Integer>> result) {
         if (curr.size() == k) {
             result.add(new ArrayList<>(curr));
             return;
@@ -17,7 +17,7 @@ class Solution {
 
         for (int i = start; i <= n; i++) {
             curr.add(i);
-            helper(n, k, i + 1, curr, result);
+            backtrack(n, k, i + 1, curr, result);
             curr.remove(curr.size() - 1);
         }
     }
