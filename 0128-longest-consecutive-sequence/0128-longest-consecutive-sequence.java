@@ -7,27 +7,24 @@ class Solution {
             return nums.length;
         }
 
-        Set<Integer> numSet = new HashSet<>();
-        for (int num : nums) {
-            numSet.add(num);
+        Set<Integer> set = new HashSet<>();
+        for (int n : nums) {
+            set.add(n);
         }
 
-        int maxStreak = 0;
-
-        for (int num : numSet) { // iterate directly over set to avoid duplicates
-            if (!numSet.contains(num - 1)) { // only start from sequence beginnings
-                int currentNum = num;
-                int currentStreak = 1;
-
-                while (numSet.contains(currentNum + 1)) {
-                    currentNum++;
-                    currentStreak++;
-                }
-
-                maxStreak = Math.max(maxStreak, currentStreak);
+        int longestCount = 0;
+        for (int n : set) {
+            if (set.contains(n - 1)) {
+                continue;
             }
+            int count = 0;
+            while (set.contains(n + count)) {
+                // set.remove(n + count);
+                count++;
+            }
+            longestCount = Math.max(longestCount, count);
         }
-
-        return maxStreak;
+        
+        return longestCount;
     }
 }
