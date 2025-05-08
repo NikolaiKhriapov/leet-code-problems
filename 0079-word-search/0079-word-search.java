@@ -3,10 +3,11 @@ class Solution {
 
     public boolean exist(char[][] board, String word) {
 
+        boolean[][] visited = new boolean[board.length][board[0].length];
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
                 if (board[r][c] == word.charAt(0)) {
-                    if (exists(board, r, c, word, 0, new boolean[board.length][board[0].length])) {
+                    if (exists(board, r, c, word.toCharArray(), 0, visited)) {
                         return true;
                     }
                 }
@@ -15,10 +16,10 @@ class Solution {
         return false;
     }
 
-    private boolean exists(char[][] board, int row, int col, String word, int index, boolean[][] visited) {
-        if (index >= word.length()) return true;
+    private boolean exists(char[][] board, int row, int col, char[] word, int index, boolean[][] visited) {
+        if (index == word.length) return true;
         if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) return false;
-        if (board[row][col] != word.charAt(index) || visited[row][col]) return false;
+        if (board[row][col] != word[index] || visited[row][col]) return false;
 
         visited[row][col] = true;
         for (int[] neighbor : NEIGHBORS) {
