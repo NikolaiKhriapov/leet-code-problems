@@ -23,7 +23,7 @@ class Solution {
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
 
-        boolean isReversed = true;
+        boolean isReversed = false;
         while (!q.isEmpty()) {
             int size = q.size();
             List<Integer> list = new ArrayList<>();
@@ -37,10 +37,10 @@ class Solution {
                     q.add(curr.right);
                 }
             }
-            isReversed = !isReversed;
             if (isReversed) {
                 Collections.reverse(list);
             }
+            isReversed = !isReversed;
             result.add(list);
         }
         
