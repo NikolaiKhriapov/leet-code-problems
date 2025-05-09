@@ -20,27 +20,21 @@ class Solution {
         }
 
         List<Integer> list = new ArrayList<>();
-        StringBuilder curr = new StringBuilder(root.val);
-        curr.append(root.val);
-        helper(root, curr, list);
+        helper(root, root.val, list);
         return getSum(list);
     }
 
-    private void helper(TreeNode node, StringBuilder curr, List<Integer> list) {
+    private void helper(TreeNode node, Integer curr, List<Integer> list) {
         if (node.left == null && node.right == null) {
-            list.add(Integer.parseInt(curr.toString()));
+            list.add(curr);
             return;
         }
 
         if (node.left != null) {
-            curr.append(node.left.val);
-            helper(node.left, curr, list);
-            curr.deleteCharAt(curr.length() - 1);
+            helper(node.left, curr * 10 + node.left.val, list);
         }
         if (node.right != null) {
-            curr.append(node.right.val);
-            helper(node.right, curr, list);
-            curr.deleteCharAt(curr.length() - 1);
+            helper(node.right, curr * 10 + node.right.val, list);
         }
     }
 
