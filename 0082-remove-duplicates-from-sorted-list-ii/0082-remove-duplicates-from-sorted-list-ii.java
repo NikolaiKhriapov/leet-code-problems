@@ -13,22 +13,20 @@ class Solution {
         if (head == null || head.next == null) {
             return head;
         }
-
-        ListNode dummy = new ListNode(-1, head);
         
+        ListNode dummy = new ListNode(0, head);
         ListNode curr = dummy;
-        while (curr.next != null && curr.next.next != null) {
-            if (curr.next.val == curr.next.next.val) {
-                while (curr.next.next != null && curr.next.val == curr.next.next.val) {
-                    curr.next = curr.next.next;
+        while (head != null) {
+            if (head.next != null && head.val == head.next.val) {
+                while (head.next != null && head.val == head.next.val) {
+                    head = head.next;
                 }
-                curr.next = curr.next.next;
+                curr.next = head.next;
             } else {
                 curr = curr.next;
             }
+            head = head.next;
         }
-        curr = curr.next;
-
         return dummy.next;
     }
 }
