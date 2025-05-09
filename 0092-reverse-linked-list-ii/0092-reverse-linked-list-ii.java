@@ -13,16 +13,15 @@ class Solution {
 
         ListNode dummy = new ListNode(0, head);
         ListNode listLeft = dummy;
-
+        
         int count = 1;
         while (count < left) {
             listLeft = listLeft.next;
             count++;
         }
 
-        ListNode listMid = listLeft.next;
-        ListNode listMidTail = listMid;
-        
+        ListNode listMidHead = listLeft.next;
+        ListNode listMid = listMidHead;
         ListNode prev = null;
         while (count <= right) {
             ListNode temp = listMid.next;
@@ -31,9 +30,9 @@ class Solution {
             listMid = temp;
             count++;
         }
-
+        
         listLeft.next = prev;
-        listMidTail.next = listMid;
+        listMidHead.next = listMid;
 
         return dummy.next;
     }
