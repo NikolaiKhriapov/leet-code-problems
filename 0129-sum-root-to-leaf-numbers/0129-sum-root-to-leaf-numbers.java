@@ -16,24 +16,22 @@
 class Solution {
     public int sumNumbers(TreeNode root) {
         if (root == null) {
-            throw new IllegalArgumentException("Invalid input");
+            return 0;
         }
-
-        return helper(root, root.val, 0);
+        return helper(root, 0);
     }
 
-    private int helper(TreeNode node, Integer curr, int firstDigit) {
+    private int helper(TreeNode node, int curr) {
+        if (node == null) {
+            return 0;
+        }
+
+        curr = curr * 10 + node.val;
+
         if (node.left == null && node.right == null) {
             return curr;
         }
 
-        int lastDigits = 0;
-        if (node.left != null) {
-            lastDigits += helper(node.left, curr * 10 + node.left.val, firstDigit);
-        }
-        if (node.right != null) {
-            lastDigits += helper(node.right, curr * 10 + node.right.val, firstDigit);
-        }
-        return firstDigit * 10 + lastDigits;
+        return helper(node.left, curr) + helper(node.right, curr);
     }
 }
