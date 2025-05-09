@@ -19,30 +19,21 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        List<Integer> list = new ArrayList<>();
-        helper(root, root.val, list);
-        return getSum(list);
+        return helper(root, root.val, 0);
     }
 
-    private void helper(TreeNode node, Integer curr, List<Integer> list) {
+    private int helper(TreeNode node, Integer curr, int total) {
         if (node.left == null && node.right == null) {
-            list.add(curr);
-            return;
+            return curr;
         }
 
+        int sub = 0;
         if (node.left != null) {
-            helper(node.left, curr * 10 + node.left.val, list);
+            sub += helper(node.left, curr * 10 + node.left.val, total);
         }
         if (node.right != null) {
-            helper(node.right, curr * 10 + node.right.val, list);
+            sub += helper(node.right, curr * 10 + node.right.val, total);
         }
-    }
-
-    private int getSum(List<Integer> list) {
-        int result = 0;
-        for (int n : list) {
-            result += n;
-        }
-        return result;
+        return total * 10 + sub;
     }
 }
