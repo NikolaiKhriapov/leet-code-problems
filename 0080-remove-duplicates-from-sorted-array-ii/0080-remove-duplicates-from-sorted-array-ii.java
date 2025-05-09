@@ -9,16 +9,10 @@ class Solution {
         int left = MAX_FREQUENCY;
         for (int i = MAX_FREQUENCY; i < nums.length; i++) {
             if (nums[i] != nums[left - MAX_FREQUENCY]) {
-                swap(nums, i, left);
+                nums[left] = nums[i];
                 left++;
             }
         }
         return left;
-    }
-
-    private void swap(int[] arr, int l, int r) {
-        int temp = arr[l];
-        arr[l] = arr[r];
-        arr[r] = temp;
     }
 }
