@@ -1,5 +1,8 @@
 class Solution {
     public List<List<String>> partition(String s) {
+        if (s == null || s.isEmpty()) {
+            return new ArrayList<>();
+        }
 
         List<List<String>> result = new ArrayList<>();
         partition(s, 0, new ArrayList<>(), result);
