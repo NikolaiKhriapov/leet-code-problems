@@ -14,25 +14,27 @@
  * }
  */
 class Solution {
-    private int postorderIndex = 0;
-
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        
-        postorderIndex = postorder.length - 1;
+        if (inorder.length != postorder.length || inorder.length == 0) {
+            return null;
+        }
+
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
-        return helper(postorder, 0, inorder.length - 1, inorderMap);
+        return helper(postorder, 0, inorder.length - 1, inorderMap, new int[] {postorder.length - 1});
     }
 
-    private TreeNode helper(int[] postorder, int inLeft, int inRight, Map<Integer, Integer> inorderMap) {
-        if (inLeft > inRight) return null;
+    private TreeNode helper(int[] postorder, int inorderLeft, int inorderRight, Map<Integer, Integer> inorderMap, int[] postorderIndex) {
+        if (inorderLeft > inorderRight) {
+            return null;
+        }
 
-        int postorderValue = postorder[postorderIndex--];
-        int inorderIndex = inorderMap.get(postorderValue);
-
-        TreeNode root = new TreeNode(postorderValue);
-        root.right = helper(postorder, inorderIndex + 1, inRight, inorderMap);
-        root.left = helper(postorder, inLeft, inorderIndex - 1, inorderMap);
-
+        int value = postorder[postorderIndex[0]--];
+        int inorderIndex = inorderMap.get(value);
+        
+        TreeNode root = new TreeNode(value);
+        root.right = helper(postorder, inorderIndex + 1, inorderRight, inorderMap, postorderIndex);
+        root.left = helper(postorder, inorderLeft, inorderIndex - 1, inorderMap, postorderIndex);
+        
         return root;
     }
 
