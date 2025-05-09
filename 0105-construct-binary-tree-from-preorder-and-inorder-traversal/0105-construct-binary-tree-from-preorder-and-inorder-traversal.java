@@ -17,13 +17,18 @@ class Solution {
     private int preorderIndex = 0;
     
     public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (preorder.length != inorder.length || inorder.length == 0) {
+            return null;
+        }
         
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
         return helper(preorder, 0, inorder.length - 1, inorderMap);
     }
 
     private TreeNode helper(int[] preorder, int inorderLeft, int inorderRight, Map<Integer, Integer> inorderMap) {
-        if (inorderLeft > inorderRight) return null;
+        if (inorderLeft > inorderRight) {
+            return null;
+        }
 
         int preorderValue = preorder[preorderIndex++];
         int inorderIndex = inorderMap.get(preorderValue);
