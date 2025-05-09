@@ -14,19 +14,21 @@ class Solution {
             return head;
         }
 
-        ListNode dummy = new ListNode(0, head);
-        ListNode prev = dummy;
-        while (head != null) {
-            if (head.next != null && head.val == head.next.val) {
-                while (head.next != null && head.val == head.next.val) {
-                    head = head.next;
+        ListNode dummy = new ListNode(-1, head);
+        
+        ListNode curr = dummy;
+        while (curr.next != null && curr.next.next != null) {
+            if (curr.next.val == curr.next.next.val) {
+                while (curr.next.next != null && curr.next.val == curr.next.next.val) {
+                    curr.next = curr.next.next;
                 }
-                prev.next = head.next;
+                curr.next = curr.next.next;
             } else {
-                prev = prev.next;
+                curr = curr.next;
             }
-            head = head.next;
         }
+        curr = curr.next;
+
         return dummy.next;
     }
 }
