@@ -22,18 +22,18 @@ class Solution {
         return helper(root, root.val, 0);
     }
 
-    private int helper(TreeNode node, Integer curr, int total) {
+    private int helper(TreeNode node, Integer curr, int firstDigit) {
         if (node.left == null && node.right == null) {
             return curr;
         }
 
-        int sub = 0;
+        int lastDigits = 0;
         if (node.left != null) {
-            sub += helper(node.left, curr * 10 + node.left.val, total);
+            lastDigits += helper(node.left, curr * 10 + node.left.val, firstDigit);
         }
         if (node.right != null) {
-            sub += helper(node.right, curr * 10 + node.right.val, total);
+            lastDigits += helper(node.right, curr * 10 + node.right.val, firstDigit);
         }
-        return total * 10 + sub;
+        return firstDigit * 10 + lastDigits;
     }
 }
