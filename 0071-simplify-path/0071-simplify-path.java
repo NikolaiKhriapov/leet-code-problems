@@ -4,9 +4,9 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Stack<String> stack = new Stack<>();
-        
         String[] dirs = path.split("/");
+
+        Stack<String> stack = new Stack<>();
         for (String dir : dirs) {
             if (dir.equals("..")) {
                 if (!stack.isEmpty()) {
@@ -24,7 +24,7 @@ class Solution {
         if (result.isEmpty()) {
             result.append("/");
         }
-
+        
         return result.toString();
     }
 }
