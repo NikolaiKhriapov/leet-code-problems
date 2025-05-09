@@ -25,21 +25,23 @@ class Solution {
         }
     }
 
-    private boolean isPalindrome(String s, int l, int r, Boolean[][] memo) {
-        if (memo[l][r] != null) {
-            return memo[l][r];
+    private boolean isPalindrome(String s, int left, int right, Boolean[][] memo) {
+        if (memo[left][right] != null) {
+            return memo[left][right];
         }
 
+        int l = left;
+        int r = right;
         while (l < r) {
             if (s.charAt(l) != s.charAt(r)) {
-                memo[l][r] = false;
+                memo[left][right] = false;
                 return false;
             }
             l++;
             r--;
         }
 
-        memo[l][r] = true;
+        memo[left][right] = true;
         return true;
     }
 }
