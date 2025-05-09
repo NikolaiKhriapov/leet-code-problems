@@ -1,36 +1,47 @@
 class Solution {
     public List<List<String>> partition(String s) {
-        int n = s.length();
-        List<List<String>> result = new ArrayList<>();
-        boolean[][] dp = new boolean[n][n];
-
-        // Step 1: Precompute all palindromes
-        for (int right = 0; right < n; right++) {
-            for (int left = 0; left <= right; left++) {
-                if (s.charAt(left) == s.charAt(right) &&
-                    (right - left <= 2 || dp[left + 1][right - 1])) {
-                    dp[left][right] = true;
-                }
-            }
+        if (s == null || s.isEmpty()) {
+            return new ArrayList<>();
         }
 
-        // Step 2: Backtracking using precomputed DP
-        backtrack(s, 0, new ArrayList<>(), result, dp);
+        List<List<String>> result = new ArrayList<>();
+        Boolean[][] memo = new Boolean[s.length()][s.length()];
+        partition(s, 0, new ArrayList<>(), result, memo);
         return result;
     }
 
-    private void backtrack(String s, int start, List<String> path, List<List<String>> result, boolean[][] dp) {
-        if (start == s.length()) {
-            result.add(new ArrayList<>(path));
+    private void partition(String s, int start, List<String> curr, List<List<String>> result, Boolean[][] memo) {
+        if (start >= s.length()) {
+            result.add(new ArrayList<>(curr));
             return;
         }
 
-        for (int end = start; end < s.length(); end++) {
-            if (dp[start][end]) {
-                path.add(s.substring(start, end + 1));
-                backtrack(s, end + 1, path, result, dp);
-                path.remove(path.size() - 1);
+        for (int i = start; i < s.length(); i++) {
+            if (isPalindrome(s, start, i, memo)) {
+                curr.add(s.substring(start, i + 1));
+                partition(s, i + 1, curr, result, memo);
+                curr.remove(curr.size() - 1);
             }
         }
+    }
+
+    private boolean isPalindrome(String s, int left, int right, Boolean[][] memo) {
+        if (memo[left][right] != null) {
+            return memo[left][right];
+        }
+
+        int l = left;
+        int r = right;
+        while (l < r) {
+            if (s.charAt(l) != s.charAt(r)) {
+                memo[left][right] = false;
+                return false;
+            }
+            l++;
+            r--;
+        }
+
+        memo[left][right] = true;
+        return true;
     }
 }
