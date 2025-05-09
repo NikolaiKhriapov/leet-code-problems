@@ -17,36 +17,33 @@ class Solution {
     private int preorderIndex = 0;
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder == null || inorder == null || preorder.length != inorder.length) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-        if (preorder.length == 0) {
+        if (preorder.length != inorder.length || preorder.length == 0) {
             return null;
         }
 
-        Map<Integer, Integer> inorderMap = createInorderMap(inorder);
+        Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
         return helper(preorder, 0, inorder.length - 1, inorderMap);
     }
 
-    private TreeNode helper(int[] preorder, int inStart, int inEnd, Map<Integer, Integer> inorderMap) {
-        if (inStart > inEnd) {
+    private TreeNode helper(int[] preorder, int inLeft, int inRight, Map<Integer, Integer> inorderMap) {
+        if (inLeft > inRight) {
             return null;
         }
 
-        int val = preorder[preorderIndex++];
-        int inorderIndex = inorderMap.get(val);
+        int preorderValue = preorder[preorderIndex++];
+        int inorderIndex = inorderMap.get(preorderValue);
         return new TreeNode(
-            val,
-            helper(preorder, inStart, inorderIndex - 1, inorderMap),
-            helper(preorder, inorderIndex + 1, inEnd, inorderMap)
+            preorderValue,
+            helper(preorder, inLeft, inorderIndex - 1, inorderMap),
+            helper(preorder, inorderIndex + 1, inRight, inorderMap)
         );
     }
 
-    private Map<Integer, Integer> createInorderMap(int[] inorder) {
-        Map<Integer, Integer> inorderMap = new HashMap<>();
+    private Map<Integer, Integer> buildInorderMap(int[] inorder) {
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
-            inorderMap.put(inorder[i], i);
+            map.put(inorder[i], i);
         }
-        return inorderMap;
+        return map;
     }
 }
