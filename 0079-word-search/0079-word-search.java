@@ -7,10 +7,10 @@ class Solution {
         }
 
         boolean[][] visited = new boolean[board.length][board[0].length];
-        char firstChar = word.charAt(0);
+        char[] wordArray = word.toCharArray();
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[0].length; col++) {
-                if (board[row][col] == firstChar && exists(board, word, 0, row, col, visited)) {
+                if (board[row][col] == wordArray[0] && exists(board, wordArray, 0, row, col, visited)) {
                     return true;
                 }
             }
@@ -18,20 +18,20 @@ class Solution {
         return false;
     }
 
-    private boolean exists(char[][] board, String word, int index, int row, int col, boolean[][] visited) {
-        if (index >= word.length()) {
+    private boolean exists(char[][] board, char[] wordArray, int index, int row, int col, boolean[][] visited) {
+        if (index >= wordArray.length) {
             return true;
         }
         if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) {
             return false;
         }
-        if (board[row][col] != word.charAt(index) || visited[row][col]) {
+        if (board[row][col] != wordArray[index] || visited[row][col]) {
             return false;
         }
         
         visited[row][col] = true;
         for (int[] neighbor : NEIGHBORS) {
-            if (exists(board, word, index + 1, row + neighbor[0], col + neighbor[1], visited)) {
+            if (exists(board, wordArray, index + 1, row + neighbor[0], col + neighbor[1], visited)) {
                 return true;
             }
         }
