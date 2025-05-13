@@ -1,5 +1,6 @@
 class Solution {
     public double myPow(double x, int n) {
+
         long nLong = n;
         if (nLong < 0) {
             x = 1 / x;
