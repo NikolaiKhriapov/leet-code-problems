@@ -19,7 +19,6 @@ class Solution {
             }
             int count = 0;
             while (set.contains(n + count)) {
-                // set.remove(n + count);
                 count++;
             }
             longestCount = Math.max(longestCount, count);
