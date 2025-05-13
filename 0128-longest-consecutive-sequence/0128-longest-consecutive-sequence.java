@@ -12,19 +12,20 @@ class Solution {
             set.add(n);
         }
 
-        int longestCount = 0;
-        for (int n : set) {
+        int longest = 0;
+        for (int n : nums) {
             if (set.contains(n - 1)) {
                 continue;
             }
-            int count = 0;
-            while (set.contains(n + count)) {
-                // set.remove(n + count);
-                count++;
+            int currLongest = 0;
+            while (set.contains(n)) {
+                set.remove(n);
+                currLongest++;
+                n++;
             }
-            longestCount = Math.max(longestCount, count);
+            longest = Math.max(longest, currLongest);
         }
         
-        return longestCount;
+        return longest;
     }
 }
