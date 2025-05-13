@@ -20,13 +20,13 @@ class Solution {
             curr = curr.next;
             count++;
         }
+        
         k %= count;
-        curr.next = head;
-
-        if (k == count) {
+        if (k % count == 0) {
             return head;
         }
-
+        
+        curr.next = head;
         for (int i = 0; i < count - k; i++) {
             curr = curr.next;
         }
