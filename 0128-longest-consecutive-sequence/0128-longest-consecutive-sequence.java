@@ -13,13 +13,13 @@ class Solution {
         }
 
         int longestCount = 0;
-        for (int n : nums) {
+        for (int n : set) {
             if (set.contains(n - 1)) {
                 continue;
             }
             int count = 0;
             while (set.contains(n + count)) {
-                set.remove(n + count);
+                // set.remove(n + count);
                 count++;
             }
             longestCount = Math.max(longestCount, count);
