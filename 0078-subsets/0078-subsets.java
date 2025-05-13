@@ -1,15 +1,15 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return new ArrayList(List.of());
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        helper(nums, 0, new ArrayList<>(), result);
+        backtrack(nums, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private void helper(int[] nums, int start, List<Integer> curr, List<List<Integer>> result) {
+    private void backtrack(int[] nums, int start, List<Integer> curr, List<List<Integer>> result) {
         result.add(new ArrayList<>(curr));
 
         if (start >= nums.length) {
@@ -18,7 +18,7 @@ class Solution {
         
         for (int i = start; i < nums.length; i++) {
             curr.add(nums[i]);
-            helper(nums, i + 1, curr, result);
+            backtrack(nums, i + 1, curr, result);
             curr.remove(curr.size() - 1);
         }
     }
