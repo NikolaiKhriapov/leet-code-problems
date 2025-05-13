@@ -1,7 +1,7 @@
 class Solution {
     public int minDistance(String word1, String word2) {
         if (word1 == null || word2 == null) {
-            throw new IllegalArgumentException("Invalid input");
+            throw new IllegalArgumentException("Invalid state");
         }
         if (word1.isEmpty()) {
             return word2.length();
@@ -12,27 +12,25 @@ class Solution {
 
         int length1 = word1.length();
         int length2 = word2.length();
+        int[][] dp = new int[length1 + 1][length2 + 1];
 
-        int[] prev = new int[length2 + 1];
-        int[] curr = new int[length2 + 1];
-
-        for (int c = 0; c <= length2; c++) {
-            prev[c] = c;
+        for (int row = 0; row <= length1; row++) {
+            dp[row][0] = row;
         }
-
-        for (int r = 1; r <= length1; r++) {
-            curr[0] = r;
-            for (int c = 1; c <= length2; c++) {
-                if (word1.charAt(r - 1) == word2.charAt(c - 1)) {
-                    curr[c] = prev[c - 1];
+        for (int col = 0; col <= length2; col++) {
+            dp[0][col] = col;
+        }
+        for (int row = 1; row <= length1; row++) {
+            for (int col = 1; col <= length2; col++) {
+                if (word1.charAt(row - 1) == word2.charAt(col - 1)) {
+                    dp[row][col] = dp[row - 1][col - 1];
                 } else {
-                    curr[c] = 1 + Math.min(prev[c - 1], Math.min(prev[c], curr[c - 1]));
+                    dp[row][col] = 1 + Math.min(dp[row - 1][col - 1], Math.min(dp[row - 1][col], dp[row][col - 1]));
                 }
             }
-            prev = Arrays.copyOf(curr, curr.length);
         }
-
-        return curr[length2];
+        
+        return dp[length1][length2];
     }
 }
 
