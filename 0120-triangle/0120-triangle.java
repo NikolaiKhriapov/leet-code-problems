@@ -1,5 +1,8 @@
 class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
+        if (triangle == null || triangle.size() == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int[] dp = new int[triangle.size()];
         for (int i = 0; i < triangle.size(); i++) {
