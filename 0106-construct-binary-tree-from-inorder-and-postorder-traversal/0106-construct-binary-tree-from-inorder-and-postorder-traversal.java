@@ -15,26 +15,26 @@
  */
 class Solution {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (inorder.length != postorder.length || inorder.length == 0) {
-            return null;
+        if (inorder == null || postorder == null || inorder.length != postorder.length) {
+            throw new IllegalArgumentException("Invalid input");
         }
-
+        
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
         return helper(postorder, 0, inorder.length - 1, inorderMap, new int[] {postorder.length - 1});
     }
 
-    private TreeNode helper(int[] postorder, int inorderLeft, int inorderRight, Map<Integer, Integer> inorderMap, int[] postorderIndex) {
-        if (inorderLeft > inorderRight) {
+    private TreeNode helper(int[] postorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap, int[] postorderIndex) {
+        if (inorderStart > inorderEnd) {
             return null;
         }
 
-        int value = postorder[postorderIndex[0]--];
-        int inorderIndex = inorderMap.get(value);
-        
-        TreeNode root = new TreeNode(value);
-        root.right = helper(postorder, inorderIndex + 1, inorderRight, inorderMap, postorderIndex);
-        root.left = helper(postorder, inorderLeft, inorderIndex - 1, inorderMap, postorderIndex);
-        
+        int postorderValue = postorder[postorderIndex[0]--];
+        int inorderIndex = inorderMap.get(postorderValue);
+
+        TreeNode root = new TreeNode(postorderValue);
+        root.right = helper(postorder, inorderIndex + 1, inorderEnd, inorderMap, postorderIndex);
+        root.left = helper(postorder, inorderStart, inorderIndex - 1, inorderMap, postorderIndex);
+
         return root;
     }
 
