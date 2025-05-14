@@ -1,28 +1,30 @@
 class Solution {
     public boolean isInterleave(String s1, String s2, String s3) {
-        int rows = s1.length();
-        int cols = s2.length();
-
-        if (rows + cols != s3.length()) {
+        if (s1 == null || s2 == null || s3 == null || (s1.length() + s2.length() != s3.length())) {
             return false;
         }
 
-        boolean[] dp = new boolean[cols + 1];
-        dp[0] = true;
-
-        for (int c = 1; c <= cols; c++) {
-            dp[c] = dp[c - 1] && s2.charAt(c - 1) == s3.charAt(c - 1);
-        }
+        int rows = s1.length() + 1;
+        int cols = s2.length() + 1;
         
-        for (int r = 1; r <= rows; r++) {
-            dp[0] = dp[0] && s1.charAt(r - 1) == s3.charAt(r - 1);
-            for (int c = 1; c <= cols; c++) {
-                dp[c] = (dp[c] && s1.charAt(r - 1) == s3.charAt(r + c - 1)) ||
-                        (dp[c - 1] && s2.charAt(c - 1) == s3.charAt(r + c - 1));
+        boolean[][] dp = new boolean[rows][cols];
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (row == 0 && col == 0) {
+                    dp[row][col] = true;
+                    continue;
+                }
+                if (row > 0 && dp[row - 1][col] && s1.charAt(row - 1) == s3.charAt(row + col - 1)) {
+                    dp[row][col] = true;
+                }
+                if (col > 0 && dp[row][col - 1] && s2.charAt(col - 1) == s3.charAt(row + col - 1)) {
+                    dp[row][col] = true;
+                }
             }
         }
-
-        return dp[cols];
+        
+        return dp[rows - 1][cols - 1];
     }
 }
 
@@ -33,5 +35,5 @@ class Solution {
 // b [-,+,+,-,+,-]
 // c [-,-,+,+,+,+]
 // c [-,-,-,+,-,+]
-//
-// a a d b b c b c a c
+
+// aadbbcbcac
