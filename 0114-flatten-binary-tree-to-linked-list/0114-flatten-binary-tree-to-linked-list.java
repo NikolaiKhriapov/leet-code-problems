@@ -15,21 +15,18 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        flattenAndReturnNode(root);
+        helper(root);
     }
 
-    private TreeNode flattenAndReturnNode(TreeNode node) {
+    private TreeNode helper(TreeNode node) {
         if (node == null) {
             return null;
         }
 
-        TreeNode leftTail = flattenAndReturnNode(node.left);
-        TreeNode rightTail = flattenAndReturnNode(node.right);
+        TreeNode leftTail = helper(node.left);
+        TreeNode rightTail = helper(node.right);
 
-        if (leftTail != null) {
+        if (node.left != null) {
             leftTail.right = node.right;
             node.right = node.left;
             node.left = null;
