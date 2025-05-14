@@ -13,13 +13,13 @@ class Solution {
         if (head == null || head.next == null) {
             return head;
         }
-        
+
         ListNode leftHead = new ListNode(0);
         ListNode rightHead = new ListNode(0);
 
         ListNode left = leftHead;
         ListNode right = rightHead;
-
+        
         while (head != null) {
             if (head.val < x) {
                 left.next = head;
@@ -30,9 +30,8 @@ class Solution {
             }
             head = head.next;
         }
-
-        right.next = null;
         left.next = rightHead.next;
+        right.next = null;
 
         return leftHead.next;
     }
