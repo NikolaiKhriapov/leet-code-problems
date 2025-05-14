@@ -14,28 +14,26 @@
  * }
  */
 class Solution {
-    int preorderIndex = 0;
-
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if (preorder == null || inorder == null || preorder.length != inorder.length) {
             throw new IllegalArgumentException("Invalid input");
         }
 
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
-        return helper(preorder, 0, inorder.length - 1, inorderMap);
+        return helper(preorder, 0, inorder.length - 1, inorderMap, new int[] {0});
     }
 
-    private TreeNode helper(int[] preorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap) {
+    private TreeNode helper(int[] preorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap, int[] preorderIndex) {
         if (inorderStart > inorderEnd) {
             return null;
         }
 
-        int preorderValue = preorder[preorderIndex++];
+        int preorderValue = preorder[preorderIndex[0]++];
         int inorderIndex = inorderMap.get(preorderValue);
 
         TreeNode root = new TreeNode(preorderValue);
-        root.left = helper(preorder, inorderStart, inorderIndex - 1, inorderMap);
-        root.right = helper(preorder, inorderIndex + 1, inorderEnd, inorderMap);
+        root.left = helper(preorder, inorderStart, inorderIndex - 1, inorderMap, preorderIndex);
+        root.right = helper(preorder, inorderIndex + 1, inorderEnd, inorderMap, preorderIndex);
 
         return root;
     }
