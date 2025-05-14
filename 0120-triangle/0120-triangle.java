@@ -5,8 +5,9 @@ class Solution {
         }
 
         int[] dp = new int[triangle.size()];
+        List<Integer> lastLevel = triangle.get(triangle.size() - 1);
         for (int i = 0; i < triangle.size(); i++) {
-            dp[i] = triangle.get(triangle.size() - 1).get(i);
+            dp[i] = lastLevel.get(i);
         }
 
         for (int i = triangle.size() - 2; i >= 0; i--) {
@@ -19,7 +20,3 @@ class Solution {
         return dp[0];
     }
 }
-
-// [4,1,8,3]
-// [7,6,10,3]
-// [11,10,10,3]
