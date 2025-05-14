@@ -18,20 +18,35 @@ class Solution {
         if (root == null) {
             return 0;
         }
-        return helper(root, 0);
+
+        List<Integer> listOfSums = new ArrayList<>();
+        helper(root, 0, listOfSums);
+        return calculateTotal(listOfSums);        
     }
 
-    private int helper(TreeNode node, int curr) {
-        if (node == null) {
-            return 0;
-        }
-
-        curr = curr * 10 + node.val;
+    private void helper(TreeNode node, int currSum, List<Integer> listOfSums) {
+        if (node == null) return;
+        
+        currSum = currSum * 10 + node.val;
 
         if (node.left == null && node.right == null) {
-            return curr;
+            listOfSums.add(currSum);
+            return;
         }
 
-        return helper(node.left, curr) + helper(node.right, curr);
+        if (node.left != null) {
+            helper(node.left, currSum, listOfSums);
+        }
+        if (node.right != null) {
+            helper(node.right, currSum, listOfSums);
+        }
+    }
+
+    private int calculateTotal(List<Integer> listOfSums) {
+        int result = 0;
+        for (int sum : listOfSums) {
+            result += sum;
+        }
+        return result;
     }
 }
