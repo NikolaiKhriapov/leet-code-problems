@@ -27,25 +27,24 @@ class Solution {
             return root;
         }
         
-        Queue<Node> q = new LinkedList<>();
-        q.add(root);
-        while (!q.isEmpty()) {
-            int size = q.size();
-            Node prev = null;
-            for (int i = 0; i < size; i++) {
-                Node node = q.poll();
-                if (prev != null) {
-                    prev.next = node;
+        Node curr = root;
+        while (curr != null) {
+            Node dummy = new Node(0);
+            Node tail = dummy;
+            while (curr != null) {
+                if (curr.left != null) {
+                    tail.next = curr.left;
+                    tail = tail.next;
                 }
-                if (node.left != null) {
-                    q.add(node.left);
+                if (curr.right != null) {
+                    tail.next = curr.right;
+                    tail = tail.next;
                 }
-                if (node.right != null) {
-                    q.add(node.right);
-                }
-                prev = node;
+                curr = curr.next;
             }
+            curr = dummy.next;
         }
+
         return root;
     }
 }
