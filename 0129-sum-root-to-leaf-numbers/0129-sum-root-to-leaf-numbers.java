@@ -19,34 +19,26 @@ class Solution {
             return 0;
         }
 
-        List<Integer> listOfSums = new ArrayList<>();
-        helper(root, 0, listOfSums);
-        return calculateTotal(listOfSums);        
+        int[] result = new int[1];
+        helper(root, 0, result);
+        return result[0];
     }
 
-    private void helper(TreeNode node, int currSum, List<Integer> listOfSums) {
+    private void helper(TreeNode node, int currSum, int[] result) {
         if (node == null) return;
         
         currSum = currSum * 10 + node.val;
 
         if (node.left == null && node.right == null) {
-            listOfSums.add(currSum);
+            result[0] += currSum;
             return;
         }
 
         if (node.left != null) {
-            helper(node.left, currSum, listOfSums);
+            helper(node.left, currSum, result);
         }
         if (node.right != null) {
-            helper(node.right, currSum, listOfSums);
+            helper(node.right, currSum, result);
         }
-    }
-
-    private int calculateTotal(List<Integer> listOfSums) {
-        int result = 0;
-        for (int sum : listOfSums) {
-            result += sum;
-        }
-        return result;
     }
 }
