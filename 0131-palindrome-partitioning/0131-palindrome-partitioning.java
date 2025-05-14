@@ -5,21 +5,20 @@ class Solution {
         }
 
         List<List<String>> result = new ArrayList<>();
-        Boolean[][] memo = new Boolean[s.length()][s.length()];
-        partition(s, 0, new ArrayList<>(), result, memo);
+        helper(s, 0, new ArrayList<>(), result, new Boolean[s.length()][s.length()]);
         return result;
     }
 
-    private void partition(String s, int start, List<String> curr, List<List<String>> result, Boolean[][] memo) {
+    private void helper(String s, int start, List<String> curr, List<List<String>> result, Boolean[][] memo) {
         if (start >= s.length()) {
             result.add(new ArrayList<>(curr));
             return;
         }
 
-        for (int i = start; i < s.length(); i++) {
-            if (isPalindrome(s, start, i, memo)) {
-                curr.add(s.substring(start, i + 1));
-                partition(s, i + 1, curr, result, memo);
+        for (int end = start; end < s.length(); end++) {
+            if (isPalindrome(s, start, end, memo)) {
+                curr.add(s.substring(start, end + 1));
+                helper(s, end + 1, curr, result, memo);
                 curr.remove(curr.size() - 1);
             }
         }
