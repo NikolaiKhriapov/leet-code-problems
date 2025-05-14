@@ -3,17 +3,17 @@ class Solution {
         if (s == null || wordDict == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        return helper(s, wordDict, 0, new HashSet<>());
+        return helper(s, wordDict, 0, new Boolean[s.length()]);
     }
 
-    private boolean helper(String s, List<String> wordDict, int start, Set<Integer> memo) {
+    private boolean helper(String s, List<String> wordDict, int start, Boolean[] memo) {
         if (start > s.length()) {
             return false;
         }
         if (start == s.length()) {
             return true;
         }
-        if (memo.contains(start)) {
+        if (memo[start] != null) {
             return false;
         }
 
@@ -24,7 +24,7 @@ class Solution {
                 }
             }
         }
-        memo.add(start);
+        memo[start] = false;
         return false;
     }
 }
