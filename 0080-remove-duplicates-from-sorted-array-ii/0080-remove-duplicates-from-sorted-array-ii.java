@@ -11,7 +11,7 @@ class Solution {
         
         int index = SEQUENCE;
         for (int i = index; i < nums.length; i++) {
-            if (nums[i] > nums[index - 2]) {
+            if (nums[i] != nums[index - SEQUENCE]) {
                 nums[index] = nums[i];
                 index++;
             }
