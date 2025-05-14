@@ -19,7 +19,6 @@ class Solution {
 
         ListNode left = leftHead;
         ListNode right = rightHead;
-        
         while (head != null) {
             if (head.val < x) {
                 left.next = head;
