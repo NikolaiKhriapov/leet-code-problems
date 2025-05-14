@@ -18,27 +18,20 @@ class Solution {
         if (root == null) {
             return 0;
         }
-
-        int[] result = new int[1];
-        helper(root, 0, result);
-        return result[0];
+        return helper(root, 0);
     }
 
-    private void helper(TreeNode node, int currSum, int[] result) {
-        if (node == null) return;
+    private int helper(TreeNode node, int currSum) {
+        if (node == null) {
+            return 0;
+        }
         
         currSum = currSum * 10 + node.val;
 
         if (node.left == null && node.right == null) {
-            result[0] += currSum;
-            return;
+            return currSum;
         }
 
-        if (node.left != null) {
-            helper(node.left, currSum, result);
-        }
-        if (node.right != null) {
-            helper(node.right, currSum, result);
-        }
+        return helper(node.left, currSum) + helper(node.right, currSum);
     }
 }
