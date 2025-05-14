@@ -24,26 +24,30 @@ class Node {
 class Solution {
     public Node connect(Node root) {
         if (root == null) {
-            return null;
+            return root;
+        }
+        
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Node> list = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                Node node = q.poll();
+                list.add(node);
+                if (node.left != null) {
+                    q.add(node.left);
+                }
+                if (node.right != null) {
+                    q.add(node.right);
+                }
+            }
+            for (int i = 0; i < size - 1; i++) {
+                list.get(i).next = list.get(i + 1);
+            }
         }
 
-        Node curr = root;
-        while (curr != null) {
-            Node dummy = new Node(0);
-            Node tail = dummy;
-            while (curr != null) {
-                if (curr.left != null) {
-                    tail.next = curr.left;
-                    tail = tail.next;
-                }
-                if (curr.right != null) {
-                    tail.next = curr.right;
-                    tail = tail.next;
-                }
-                curr = curr.next;
-            }
-            curr = dummy.next;
-        }
         return root;
     }
 }
