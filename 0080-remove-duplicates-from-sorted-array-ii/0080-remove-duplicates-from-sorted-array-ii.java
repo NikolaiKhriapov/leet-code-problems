@@ -1,18 +1,21 @@
 class Solution {
-    private static final int MAX_FREQUENCY = 2;
+    private static final int SEQUENCE = 2;
 
     public int removeDuplicates(int[] nums) {
-        if (nums.length <= MAX_FREQUENCY) {
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (nums.length <= SEQUENCE) {
             return nums.length;
         }
         
-        int left = MAX_FREQUENCY;
-        for (int i = MAX_FREQUENCY; i < nums.length; i++) {
-            if (nums[i] != nums[left - MAX_FREQUENCY]) {
-                nums[left] = nums[i];
-                left++;
+        int index = SEQUENCE;
+        for (int i = index; i < nums.length; i++) {
+            if (nums[i] > nums[index - 2]) {
+                nums[index] = nums[i];
+                index++;
             }
         }
-        return left;
+        return index;
     }
 }
