@@ -1,26 +1,30 @@
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
-
-        Boolean[] memo = new Boolean[s.length()];
-        return wordBreak(s, 0, wordDict, memo);
+        if (s == null || wordDict == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        return helper(s, wordDict, 0, new HashSet<>());
     }
 
-    public boolean wordBreak(String s, int currentIndex, List<String> wordDict, Boolean[] memo) {
-        if (currentIndex > s.length()) return false;
-        if (currentIndex == s.length()) return true;
-
-        if (memo[currentIndex] != null) return memo[currentIndex];
+    private boolean helper(String s, List<String> wordDict, int start, Set<Integer> memo) {
+        if (start > s.length()) {
+            return false;
+        }
+        if (start == s.length()) {
+            return true;
+        }
+        if (memo.contains(start)) {
+            return false;
+        }
 
         for (String word : wordDict) {
-            if (s.startsWith(word, currentIndex)) {
-                if (wordBreak(s, currentIndex + word.length(), wordDict, memo)) {
-                    memo[currentIndex] = true;
+            if (s.startsWith(word, start)) {
+                if (helper(s, wordDict, start + word.length(), memo)) {
                     return true;
                 }
             }
         }
-
-        memo[currentIndex] = false;
+        memo.add(start);
         return false;
     }
 }
