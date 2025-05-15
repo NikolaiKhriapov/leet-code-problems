@@ -8,22 +8,13 @@ class LRUCache {
     }
     
     public int get(int key) {
-        if (map.containsKey(key)) {
-            int value = map.get(key);
-            return value;
-        }
-        return -1;
+        return map.getOrDefault(key, -1);
     }
     
     public void put(int key, int value) {
         map.put(key, value);
-        updateCapacity();
-    }
-
-    private void updateCapacity() {
         if (map.size() > capacity) {
-            Integer key = map.keySet().iterator().next();
-            map.remove(key);
+            map.remove(map.keySet().iterator().next());
         }
     }
 }
