@@ -25,7 +25,7 @@ class Solution {
         if (node == null) {
             return 0;
         }
-        
+
         currSum = currSum * 10 + node.val;
 
         if (node.left == null && node.right == null) {
