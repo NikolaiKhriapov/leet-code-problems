@@ -8,9 +8,6 @@ class Solution {
     }
 
     private void helper(String s, int start, List<String> curr, List<List<String>> result, Boolean[][] memo) {
-        if (start > s.length()) {
-            return;
-        }
         if (start == s.length()) {
             result.add(new ArrayList<>(curr));
             return;
@@ -40,7 +37,7 @@ class Solution {
             l++;
             r--;
         }
-        
+
         memo[left][right] = true;
         return true;
     }
