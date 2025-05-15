@@ -18,17 +18,17 @@ class Solution {
         if (root == null) {
             return;
         }
-        helper(root);
+        flattenAndReturnTail(root);
     }
 
-    private TreeNode helper(TreeNode node) {
+    private TreeNode flattenAndReturnTail(TreeNode node) {
         if (node == null) {
             return null;
         }
 
-        TreeNode leftTail = helper(node.left);
-        TreeNode rightTail = helper(node.right);
-        if (node.left != null) {
+        TreeNode leftTail = flattenAndReturnTail(node.left);
+        TreeNode rightTail = flattenAndReturnTail(node.right);
+        if (leftTail != null) {
             leftTail.right = node.right;
             node.right = node.left;
             node.left = null;
