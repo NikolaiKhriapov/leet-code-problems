@@ -15,12 +15,11 @@
  */
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder == null || inorder == null || preorder.length != inorder.length) {
+        if (preorder == null || inorder == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
-        return helper(preorder, 0, inorder.length - 1, inorderMap, new int[] {0});
+        return helper(preorder, 0, inorder.length - 1, inorderMap, new int[]{0});
     }
 
     private TreeNode helper(int[] preorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap, int[] preorderIndex) {
