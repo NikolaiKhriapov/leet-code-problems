@@ -15,6 +15,9 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
+        if (root == null) {
+            return;
+        }
         helper(root);
     }
 
@@ -25,7 +28,6 @@ class Solution {
 
         TreeNode leftTail = helper(node.left);
         TreeNode rightTail = helper(node.right);
-
         if (node.left != null) {
             leftTail.right = node.right;
             node.right = node.left;
