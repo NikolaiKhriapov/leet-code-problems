@@ -7,31 +7,22 @@ class Solution {
         int rows = s1.length() + 1;
         int cols = s2.length() + 1;
 
-        boolean[][] dp = new boolean[rows][cols];
-        dp[0][0] = true;
-        for (int row = 1; row < rows; row++) {
-            if (dp[row - 1][0] && s1.charAt(row - 1) == s3.charAt(row - 1)) {
-                dp[row][0] = true;
-            }
-        }
+        boolean[] dp = new boolean[cols];
+        dp[0] = true;
         for (int col = 1; col < cols; col++) {
-            if (dp[0][col - 1] && s2.charAt(col - 1) == s3.charAt(col - 1)) {
-                dp[0][col] = true;
+            if (dp[col - 1] && s2.charAt(col - 1) == s3.charAt(col - 1)) {
+                dp[col] = true;
             }
         }
-
         for (int row = 1; row < rows; row++) {
+            dp[0] = dp[0] && s1.charAt(row - 1) == s3.charAt(row - 1);
             for (int col = 1; col < cols; col++) {
-                if (row == 0 && col == 0) {
-                    dp[row][col] = true;
-                    continue;
-                }
-                dp[row][col] = (dp[row - 1][col] && s1.charAt(row - 1) == s3.charAt(row + col - 1))
-                            || (dp[row][col - 1] && s2.charAt(col - 1) == s3.charAt(row + col - 1));
+                dp[col] = (dp[col] && s1.charAt(row - 1) == s3.charAt(row + col - 1))
+                       || (dp[col - 1] && s2.charAt(col - 1) == s3.charAt(row + col - 1));
             }
         }
 
-        return dp[rows - 1][cols - 1];
+        return dp[cols - 1];
     }
 }
 
