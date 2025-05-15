@@ -18,9 +18,8 @@ class Solution {
         if (inorder == null || postorder == null || inorder.length != postorder.length) {
             throw new IllegalArgumentException("Invalid input");
         }
-        
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
-        return helper(postorder, 0, inorder.length - 1, inorderMap, new int[] {postorder.length - 1});
+        return helper(postorder, 0, inorder.length - 1, inorderMap, new int[]{postorder.length - 1});
     }
 
     private TreeNode helper(int[] postorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap, int[] postorderIndex) {
