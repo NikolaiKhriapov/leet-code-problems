@@ -23,31 +23,21 @@ class Solution {
         if (node == null) {
             return null;
         }
-        
+
         Map<Node, Node> map = new HashMap<>();
-        Queue<Node> q = new LinkedList<>();
-        Set<Node> visited = new HashSet<>();
+        Queue<Node> queue = new LinkedList<>();
 
-        q.add(node);
-        visited.add(node);
-
-        while (!q.isEmpty()) {
-            Node curr = q.poll();
-            if (!map.containsKey(curr)) {
-                map.put(curr, new Node(curr.val));
-            }
-            Node currCopy = map.get(curr);
-
+        map.put(node, new Node(node.val));
+        queue.add(node);
+        
+        while (!queue.isEmpty()) {
+            Node curr = queue.poll();
             for (Node neighbor : curr.neighbors) {
                 if (!map.containsKey(neighbor)) {
                     map.put(neighbor, new Node(neighbor.val));
+                    queue.add(neighbor);
                 }
-                Node neighborCopy = map.get(neighbor);
-                currCopy.neighbors.add(neighborCopy);
-                if (!visited.contains(neighbor)) {
-                    q.add(neighbor);
-                    visited.add(neighbor);
-                }
+                map.get(curr).neighbors.add(map.get(neighbor));
             }
         }
 
