@@ -17,7 +17,7 @@ class Solution {
         for (int i = 0; i < 32; i++) {
             if (bitCount[i] % 3 != 0) {
                 int bit = 1 << i;
-                result += bit;
+                result |= bit;
             }
         }
 
