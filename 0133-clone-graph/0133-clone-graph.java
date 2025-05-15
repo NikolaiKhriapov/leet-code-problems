@@ -26,10 +26,10 @@ class Solution {
         
         Map<Node, Node> map = new HashMap<>();
         Queue<Node> q = new LinkedList<>();
-        Set<Integer> visited = new HashSet<>();
+        Set<Node> visited = new HashSet<>();
 
         q.add(node);
-        visited.add(node.val);
+        visited.add(node);
 
         while (!q.isEmpty()) {
             Node curr = q.poll();
@@ -44,9 +44,9 @@ class Solution {
                 }
                 Node neighborCopy = map.get(neighbor);
                 currCopy.neighbors.add(neighborCopy);
-                if (!visited.contains(neighbor.val)) {
+                if (!visited.contains(neighbor)) {
                     q.add(neighbor);
-                    visited.add(neighbor.val);
+                    visited.add(neighbor);
                 }
             }
         }
