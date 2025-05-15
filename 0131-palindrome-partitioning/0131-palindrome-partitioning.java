@@ -1,16 +1,17 @@
 class Solution {
     public List<List<String>> partition(String s) {
-        if (s == null || s.isEmpty()) {
-            return new ArrayList<>();
-        }
 
         List<List<String>> result = new ArrayList<>();
-        helper(s, 0, new ArrayList<>(), result, new Boolean[s.length()][s.length()]);
+        Boolean[][] memo = new Boolean[s.length()][s.length()];
+        helper(s, 0, new ArrayList<>(), result, memo);
         return result;
     }
 
     private void helper(String s, int start, List<String> curr, List<List<String>> result, Boolean[][] memo) {
-        if (start >= s.length()) {
+        if (start > s.length()) {
+            return;
+        }
+        if (start == s.length()) {
             result.add(new ArrayList<>(curr));
             return;
         }
@@ -39,7 +40,7 @@ class Solution {
             l++;
             r--;
         }
-
+        
         memo[left][right] = true;
         return true;
     }
