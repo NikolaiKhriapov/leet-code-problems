@@ -24,7 +24,7 @@ class Solution {
             return null;
         }
         
-        Map<Integer, Node> map = new HashMap<>();
+        Map<Node, Node> map = new HashMap<>();
         Queue<Node> q = new LinkedList<>();
         Set<Integer> visited = new HashSet<>();
 
@@ -33,16 +33,16 @@ class Solution {
 
         while (!q.isEmpty()) {
             Node curr = q.poll();
-            if (!map.containsKey(curr.val)) {
-                map.put(curr.val, new Node(curr.val));
+            if (!map.containsKey(curr)) {
+                map.put(curr, new Node(curr.val));
             }
-            Node currCopy = map.get(curr.val);
+            Node currCopy = map.get(curr);
 
             for (Node neighbor : curr.neighbors) {
-                if (!map.containsKey(neighbor.val)) {
-                    map.put(neighbor.val, new Node(neighbor.val));
+                if (!map.containsKey(neighbor)) {
+                    map.put(neighbor, new Node(neighbor.val));
                 }
-                Node neighborCopy = map.get(neighbor.val);
+                Node neighborCopy = map.get(neighbor);
                 currCopy.neighbors.add(neighborCopy);
                 if (!visited.contains(neighbor.val)) {
                     q.add(neighbor);
@@ -51,6 +51,6 @@ class Solution {
             }
         }
 
-        return map.get(node.val);
+        return map.get(node);
     }
 }
