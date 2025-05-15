@@ -2,6 +2,9 @@ class Solution {
     private static final Set<String> OPERATIONS = Set.of("+", "-", "/", "*");
 
     public int evalRPN(String[] tokens) {
+        if (tokens == null || tokens.length == 0) {
+            return 0;
+        }
 
         Stack<Integer> stack = new Stack<>();
         for (String token : tokens) {
