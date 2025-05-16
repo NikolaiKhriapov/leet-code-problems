@@ -1,7 +1,10 @@
 class Solution {
     public String reverseWords(String s) {
+        if (s == null || s.isEmpty()) {
+            return s;
+        }
         
-        String[] parts = s.split(" ");
+        String[] parts = s.split("\\s+");
         for (int i = 0; i < parts.length / 2; i++) {
             String temp = parts[i];
             parts[i] = parts[parts.length - 1 - i];
@@ -10,9 +13,7 @@ class Solution {
 
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < parts.length; i++) {
-            if (!parts[i].isEmpty()) {
-                result.append(parts[i]).append(" ");
-            }
+            result.append(parts[i]).append(" ");
         }
 
         return result.toString().trim();
