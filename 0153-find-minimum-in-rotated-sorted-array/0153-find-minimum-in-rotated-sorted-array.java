@@ -6,17 +6,13 @@ class Solution {
         
         int l = 0;
         int r = nums.length - 1;
-        while (l <= r) {
+        while (l < r) {
             int m = l + (r - l) / 2;
             
-            if ((m == 0 && nums[m] <= nums[r]) || (m > 0 && nums[m] < nums[m - 1])) {
-                return nums[m];
-            }
-            
-            if (nums[m] < nums[r]) {
-                r = m - 1;
-            } else {
+            if (nums[m] > nums[r]) {
                 l = m + 1;
+            } else {
+                r = m;
             }
         }
         return nums[l];
