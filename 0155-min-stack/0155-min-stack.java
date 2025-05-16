@@ -8,33 +8,30 @@ class MinStack {
     }
     
     public void push(int val) {
-        stack.push(val);
-        int minVal = stackMin.isEmpty() ? val : Math.min(val, stackMin.peek());
-        stackMin.push(minVal);
+        stack.add(val);
+        int valMin = stackMin.isEmpty() ? val : Math.min(val, stackMin.peek());
+        stackMin.add(valMin);
     }
     
     public void pop() {
         if (stack.isEmpty()) {
-            throw new RuntimeException("Stack is empty");
+            throw new IllegalArgumentException("Stack is empty");
         }
-
         stack.pop();
         stackMin.pop();
     }
     
     public int top() {
         if (stack.isEmpty()) {
-            throw new RuntimeException("Stack is empty");
+            throw new IllegalArgumentException("Stack is empty");
         }
-
         return stack.peek();
     }
     
     public int getMin() {
-        if (stack.isEmpty()) {
-            throw new RuntimeException("Stack is empty");
+        if (stackMin.isEmpty()) {
+            throw new IllegalArgumentException("Stack is empty");
         }
-
         return stackMin.peek();
     }
 }
