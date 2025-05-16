@@ -25,17 +25,17 @@ class Solution {
         }
 
         Map<Node, Node> map = new HashMap<>();
-        Queue<Node> queue = new LinkedList<>();
+        Queue<Node> q = new LinkedList<>();
 
+        q.add(node);
         map.put(node, new Node(node.val));
-        queue.add(node);
         
-        while (!queue.isEmpty()) {
-            Node curr = queue.poll();
+        while (!q.isEmpty()) {
+            Node curr = q.poll();
             for (Node neighbor : curr.neighbors) {
                 if (!map.containsKey(neighbor)) {
+                    q.add(neighbor);
                     map.put(neighbor, new Node(neighbor.val));
-                    queue.add(neighbor);
                 }
                 map.get(curr).neighbors.add(map.get(neighbor));
             }
