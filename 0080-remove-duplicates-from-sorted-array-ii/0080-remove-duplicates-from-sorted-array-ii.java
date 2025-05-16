@@ -14,16 +14,9 @@ class Solution {
             if (nums[i] == nums[left - MAX_APPEARANCES]) {
                 continue;
             } else {
-                swap(nums, i, left);
-                left++;
+                nums[left++] = nums[i];
             }
         }
         return left;
-    }
-
-    private void swap(int[] arr, int l, int r) {
-        int temp = arr[l];
-        arr[l] = arr[r];
-        arr[r] = temp;
     }
 }
