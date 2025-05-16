@@ -3,23 +3,20 @@ class Solution {
         if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        
-        int maxProduct = nums[0];
-        int currentMaxProduct = nums[0];
-        int currentMinProduct = nums[0];
 
+        int maxProduct = nums[0];
+        int currMaxProduct = nums[0];
+        int currMinProduct = nums[0];
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] < 0) {
-                int temp = currentMaxProduct;
-                currentMaxProduct = currentMinProduct;
-                currentMinProduct = temp;
+                int temp = currMaxProduct;
+                currMaxProduct = currMinProduct;
+                currMinProduct = temp;
             }
-
-            currentMaxProduct = Math.max(nums[i], currentMaxProduct * nums[i]);
-            currentMinProduct = Math.min(nums[i], currentMinProduct * nums[i]);
-            maxProduct = Math.max(maxProduct, currentMaxProduct);
+            currMaxProduct = Math.max(nums[i], nums[i] * currMaxProduct);
+            currMinProduct = Math.min(nums[i], nums[i] * currMinProduct);
+            maxProduct = Math.max(maxProduct, currMaxProduct);
         }
-
         return maxProduct;
     }
 }
