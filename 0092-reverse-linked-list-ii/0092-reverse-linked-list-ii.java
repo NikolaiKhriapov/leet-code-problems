@@ -10,7 +10,10 @@
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        if (head == null || head.next == null) {
+        if (left > right || left < 1) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (head == null || head.next == null || left == right) {
             return head;
         }
 
