@@ -17,7 +17,7 @@ class Solution {
         ListNode mid = getMid(head);
         ListNode right = mid.next;
         mid.next = null;
-        
+
         ListNode leftSorted = sortList(head);
         ListNode rightSorted = sortList(right);
 
