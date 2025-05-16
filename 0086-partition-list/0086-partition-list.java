@@ -16,7 +16,7 @@ class Solution {
 
         ListNode leftHead = new ListNode(0);
         ListNode rightHead = new ListNode(0);
-
+        
         ListNode left = leftHead;
         ListNode right = rightHead;
         while (head != null) {
@@ -29,9 +29,9 @@ class Solution {
             }
             head = head.next;
         }
-        left.next = rightHead.next;
         right.next = null;
-
+        left.next = rightHead.next;
+        
         return leftHead.next;
     }
 }
