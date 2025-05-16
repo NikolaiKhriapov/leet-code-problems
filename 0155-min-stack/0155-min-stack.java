@@ -14,24 +14,15 @@ class MinStack {
     }
     
     public void pop() {
-        if (stack.isEmpty()) {
-            throw new IllegalArgumentException("Stack is empty");
-        }
         stack.pop();
         stackMin.pop();
     }
     
     public int top() {
-        if (stack.isEmpty()) {
-            throw new IllegalArgumentException("Stack is empty");
-        }
         return stack.peek();
     }
     
     public int getMin() {
-        if (stackMin.isEmpty()) {
-            throw new IllegalArgumentException("Stack is empty");
-        }
         return stackMin.peek();
     }
 }
