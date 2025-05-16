@@ -23,8 +23,8 @@ class Solution {
         while (curr != null) {
             Node copy = new Node(curr.val);
             Node temp = curr.next;
-            curr.next = copy;
             copy.next = temp;
+            curr.next = copy;
             curr = copy.next;
         }
 
@@ -36,16 +36,16 @@ class Solution {
             curr = curr.next.next;
         }
 
-        curr = head;
         Node dummyHead = new Node(0);
         Node dummy = dummyHead;
+        curr = head;
         while (curr != null) {
             dummy.next = curr.next;
             dummy = dummy.next;
             curr.next = curr.next.next;
             curr = curr.next;
         }
-
+        
         return dummyHead.next;
     }
 }
