@@ -13,9 +13,8 @@ class Solution {
             int mid = left + (right - left) / 2;
             int midVal = matrix[mid / matrix[0].length][mid % matrix[0].length];
 
-            if (midVal == target) {
-                return true;
-            } else if (midVal > target) {
+            if (midVal == target) return true;
+            if (midVal > target) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
