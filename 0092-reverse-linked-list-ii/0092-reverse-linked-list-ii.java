@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        if (head == null || head.next == null || left == right) {
+        if (head == null || head.next == null) {
             return head;
         }
 
@@ -22,9 +22,10 @@ class Solution {
             curr = curr.next;
             count++;
         }
-        
+
         ListNode midHead = curr.next;
         ListNode mid = midHead;
+
         ListNode prev = null;
         while (count <= right) {
             ListNode temp = mid.next;
@@ -33,6 +34,7 @@ class Solution {
             mid = temp;
             count++;
         }
+
         curr.next = prev;
         midHead.next = mid;
 
