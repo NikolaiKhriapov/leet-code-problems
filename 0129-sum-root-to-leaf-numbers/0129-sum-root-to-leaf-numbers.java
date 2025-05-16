@@ -18,6 +18,7 @@ class Solution {
         if (root == null) {
             return 0;
         }
+
         return helper(root, 0);
     }
 
