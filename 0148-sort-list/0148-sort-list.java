@@ -20,7 +20,7 @@ class Solution {
 
         ListNode leftSorted = sortList(head);
         ListNode rightSorted = sortList(right);
-
+        
         return mergeLists(leftSorted, rightSorted);
     }
 
