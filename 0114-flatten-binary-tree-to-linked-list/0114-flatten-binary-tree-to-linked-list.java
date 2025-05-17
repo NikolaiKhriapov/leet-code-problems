@@ -23,11 +23,12 @@ class Solution {
 
     private TreeNode flattenAndReturnTail(TreeNode node) {
         if (node == null) {
-            return null;
+            return node;
         }
 
         TreeNode leftTail = flattenAndReturnTail(node.left);
         TreeNode rightTail = flattenAndReturnTail(node.right);
+
         if (leftTail != null) {
             leftTail.right = node.right;
             node.right = node.left;
@@ -36,8 +37,7 @@ class Solution {
 
         if (rightTail != null) {
             return rightTail;
-        }
-        if (leftTail != null) {
+        } else if (leftTail != null) {
             return leftTail;
         }
         return node;
