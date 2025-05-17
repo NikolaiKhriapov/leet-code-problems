@@ -3,6 +3,9 @@ class Solution {
         if (nums == null || nums.length == 0 || k < 0) {
             throw new IllegalArgumentException("Invalid input");
         }
+        if (nums.length == 1 || k % nums.length == 0) {
+            return;
+        }
 
         k %= nums.length;
 
