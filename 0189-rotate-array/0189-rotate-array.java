@@ -7,10 +7,9 @@ class Solution {
             return;
         }
 
-        k %= nums.length;
         mirror(nums, 0, nums.length - 1);
-        mirror(nums, 0, k - 1);
-        mirror(nums, k, nums.length - 1);
+        mirror(nums, 0, (k % nums.length) - 1);
+        mirror(nums, k % nums.length, nums.length - 1);
     }
 
     private void mirror(int[] nums, int left, int right) {
