@@ -1,5 +1,8 @@
 class Solution {
     public List<List<String>> partition(String s) {
+        if (s == null || s.isEmpty()) {
+            return new ArrayList<>();
+        }
 
         List<List<String>> result = new ArrayList<>();
         Boolean[][] memo = new Boolean[s.length()][s.length()];
