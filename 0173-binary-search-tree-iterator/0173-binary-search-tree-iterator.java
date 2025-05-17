@@ -1,9 +1,7 @@
 class BSTIterator {
-    private TreeNode node;
     private Stack<TreeNode> stack;
 
     public BSTIterator(TreeNode root) {
-        node = root;
         stack = new Stack<>();
         pushLeft(root);
     }
