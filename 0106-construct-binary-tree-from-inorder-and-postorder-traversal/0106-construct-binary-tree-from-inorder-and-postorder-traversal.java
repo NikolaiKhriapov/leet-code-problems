@@ -18,21 +18,22 @@ class Solution {
         if (inorder == null || postorder == null || inorder.length != postorder.length) {
             throw new IllegalArgumentException("Invalid input");
         }
+        
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
-        return helper(postorder, 0, inorder.length - 1, inorderMap, new int[]{postorder.length - 1});
+        return buildSubtree(postorder, 0, inorder.length - 1, inorderMap, new int[]{postorder.length - 1});
     }
 
-    private TreeNode helper(int[] postorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap, int[] postorderIndex) {
+    private TreeNode buildSubtree(int[] postorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap, int[] postorderIndex) {
         if (inorderStart > inorderEnd) {
             return null;
         }
 
-        int postorderValue = postorder[postorderIndex[0]--];
-        int inorderIndex = inorderMap.get(postorderValue);
+        int value = postorder[postorderIndex[0]--];
+        int inorderIndex = inorderMap.get(value);
 
-        TreeNode root = new TreeNode(postorderValue);
-        root.right = helper(postorder, inorderIndex + 1, inorderEnd, inorderMap, postorderIndex);
-        root.left = helper(postorder, inorderStart, inorderIndex - 1, inorderMap, postorderIndex);
+        TreeNode root = new TreeNode(value);
+        root.right = buildSubtree(postorder, inorderIndex + 1, inorderEnd, inorderMap, postorderIndex);
+        root.left = buildSubtree(postorder, inorderStart, inorderIndex - 1, inorderMap, postorderIndex);
 
         return root;
     }
