@@ -22,8 +22,7 @@ class Solution {
         Node curr = head;
         while (curr != null) {
             Node copy = new Node(curr.val);
-            Node temp = curr.next;
-            copy.next = temp;
+            copy.next = curr.next;
             curr.next = copy;
             curr = copy.next;
         }
@@ -36,16 +35,16 @@ class Solution {
             curr = curr.next.next;
         }
 
-        Node dummyHead = new Node(0);
-        Node dummy = dummyHead;
         curr = head;
+        Node dummy = new Node(0);
+        Node dummyTail = dummy;
         while (curr != null) {
-            dummy.next = curr.next;
-            dummy = dummy.next;
+            dummyTail.next = curr.next;
+            dummyTail = dummyTail.next;
             curr.next = curr.next.next;
             curr = curr.next;
         }
-        
-        return dummyHead.next;
+
+        return dummy.next;
     }
 }
