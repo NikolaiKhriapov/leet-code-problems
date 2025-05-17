@@ -13,8 +13,8 @@ class Solution {
                 currMaxProduct = currMinProduct;
                 currMinProduct = temp;
             }
-            currMaxProduct = Math.max(nums[i], nums[i] * currMaxProduct);
-            currMinProduct = Math.min(nums[i], nums[i] * currMinProduct);
+            currMaxProduct = Math.max(currMaxProduct * nums[i], nums[i]);
+            currMinProduct = Math.min(currMinProduct * nums[i], nums[i]);
             maxProduct = Math.max(maxProduct, currMaxProduct);
         }
         return maxProduct;
