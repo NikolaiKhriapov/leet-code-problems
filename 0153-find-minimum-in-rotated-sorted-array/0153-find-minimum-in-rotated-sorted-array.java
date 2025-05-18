@@ -3,7 +3,7 @@ class Solution {
         if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        
+
         int left = 0;
         int right = nums.length - 1;
         while (left < right) {
