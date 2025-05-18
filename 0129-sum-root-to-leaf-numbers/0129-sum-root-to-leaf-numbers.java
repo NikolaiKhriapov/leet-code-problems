@@ -18,21 +18,20 @@ class Solution {
         if (root == null) {
             return 0;
         }
-
         return helper(root, 0);
     }
 
-    private int helper(TreeNode node, int currSum) {
+    private int helper(TreeNode node, int subSum) {
         if (node == null) {
             return 0;
         }
 
-        currSum = currSum * 10 + node.val;
+        subSum = subSum * 10 + node.val;
 
         if (node.left == null && node.right == null) {
-            return currSum;
+            return subSum;
         }
 
-        return helper(node.left, currSum) + helper(node.right, currSum);
+        return helper(node.left, subSum) + helper(node.right, subSum);
     }
 }
