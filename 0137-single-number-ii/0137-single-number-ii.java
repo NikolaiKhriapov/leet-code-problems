@@ -1,5 +1,8 @@
 class Solution {
     public int singleNumber(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int[] bitCount = new int[32];
         for (int num : nums) {
