@@ -4,10 +4,9 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int currentGas = 0;
         int totalGas = 0;
+        int currentGas = 0;
         int startingStation = 0;
-
         for (int i = 0; i < gas.length; i++) {
             int gasGain = gas[i] - cost[i];
             currentGas += gasGain;
@@ -17,7 +16,7 @@ class Solution {
                 startingStation = i + 1;
             }
         }
-        
-        return totalGas >= 0 ? startingStation : -1;
+        return totalGas >= 0 ? startingStation : - 1;
+
     }
 }
