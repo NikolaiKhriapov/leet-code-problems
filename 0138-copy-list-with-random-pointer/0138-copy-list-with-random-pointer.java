@@ -26,7 +26,7 @@ class Solution {
             curr.next = copy;
             curr = copy.next;
         }
-
+        
         curr = head;
         while (curr != null) {
             if (curr.random != null) {
@@ -36,15 +36,15 @@ class Solution {
         }
 
         curr = head;
-        Node dummy = new Node(0);
-        Node dummyTail = dummy;
+        Node dummyHead = new Node(-1);
+        Node dummy = dummyHead;
         while (curr != null) {
-            dummyTail.next = curr.next;
-            dummyTail = dummyTail.next;
+            dummy.next = curr.next;
+            dummy = dummy.next;
             curr.next = curr.next.next;
             curr = curr.next;
         }
 
-        return dummy.next;
+        return dummyHead.next;
     }
 }
