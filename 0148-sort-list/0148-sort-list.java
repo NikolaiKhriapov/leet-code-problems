@@ -17,10 +17,10 @@ class Solution {
         ListNode mid = getMid(head);
         ListNode right = mid.next;
         mid.next = null;
-
+        
         ListNode leftSorted = sortList(head);
         ListNode rightSorted = sortList(right);
-        
+
         return mergeLists(leftSorted, rightSorted);
     }
 
@@ -35,10 +35,10 @@ class Solution {
     }
 
     private ListNode mergeLists(ListNode list1, ListNode list2) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode(-1);
         ListNode curr = dummy;
         while (list1 != null && list2 != null) {
-            if (list1.val < list2.val) {
+            if (list1.val <= list2.val) {
                 curr.next = list1;
                 list1 = list1.next;
             } else {
