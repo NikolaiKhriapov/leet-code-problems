@@ -1,44 +1,49 @@
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        
-        Map<Integer, List<Integer>> graph = new HashMap<>();
-        for (int[] prerequisite : prerequisites) {
-            List<Integer> list = graph.getOrDefault(prerequisite[1], new ArrayList<>());
-            list.add(prerequisite[0]);
-            graph.put(prerequisite[1], list);
+        if (prerequisites == null || numCourses < 0) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        boolean[] visited = new boolean[numCourses];
-        boolean[] visiting = new boolean[numCourses];
-        List<Integer> visitedList = new ArrayList<>();
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        for (int[] prerequisite : prerequisites) {
+            if (!graph.containsKey(prerequisite[1])) {
+                graph.put(prerequisite[1], new ArrayList<>());
+            }
+            graph.get(prerequisite[1]).add(prerequisite[0]);
+        }
+
+        Set<Integer> visited = new HashSet<>();
+        Set<Integer> visiting = new HashSet<>();
+        List<Integer> coursesList = new LinkedList<>();
+
         for (int course = 0; course < numCourses; course++) {
-            if (hasCycle(course, graph, visited, visiting, visitedList)) {
-                return new int[] {};
+            if (hasCycle(graph, course, visited, visiting, coursesList)) {
+                return new int[0];
             }
         }
 
-        int[] result = new int[visitedList.size()];
-        for (int i = 0; i < result.length; i++) {
-            result[result.length - 1 - i] = visitedList.get(i);
+        int[] result = new int[numCourses];
+        for (int i = 0; i < coursesList.size(); i++) {
+            result[i] = coursesList.get(i);
         }
 
         return result;
     }
 
-    private boolean hasCycle(int course, Map<Integer, List<Integer>> graph, boolean[] visited, boolean[] visiting, List<Integer> visitedList) {
-        if (visited[course]) return false;
-        if (visiting[course]) return true;
-        visiting[course] = true;
+    private boolean hasCycle(Map<Integer, List<Integer>> graph, int course, Set<Integer> visited, Set<Integer> visiting, List<Integer> coursesList) {
+        if (visited.contains(course)) return false;
+        if (visiting.contains(course)) return true;
+        visiting.add(course);
 
         for (int el : graph.getOrDefault(course, new ArrayList<>())) {
-            if (hasCycle(el, graph, visited, visiting, visitedList)) {
+            if (hasCycle(graph, el, visited, visiting, coursesList)) {
                 return true;
             }
         }
 
-        visiting[course] = false;
-        visited[course] = true;
-        visitedList.add(course);
+        visiting.remove(course);
+        visited.add(course);
+        coursesList.add(0, course);
         return false;
     }
 }
