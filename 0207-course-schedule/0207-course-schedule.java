@@ -9,10 +9,10 @@ class Solution {
 
         Map<Integer, List<Integer>> graph = new HashMap<>();
         for (int[] prerequisite : prerequisites) {
-            if (!graph.containsKey(prerequisite[0])) {
-                graph.put(prerequisite[0], new ArrayList<>());
+            if (!graph.containsKey(prerequisite[1])) {
+                graph.put(prerequisite[1], new ArrayList<>());
             }
-            graph.get(prerequisite[0]).add(prerequisite[1]);
+            graph.get(prerequisite[1]).add(prerequisite[0]);
         }
 
         Set<Integer> visited = new HashSet<>();
