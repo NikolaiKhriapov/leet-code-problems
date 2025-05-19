@@ -8,10 +8,10 @@ class Trie {
     public void insert(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
-            if (root.children[c - 'a'] == null) {
-                root.children[c - 'a'] = new TrieNode();
+            if (node.children[c - 'a'] == null) {
+                node.children[c - 'a'] = new TrieNode();
             }
-            node = root.children[c - 'a'];
+            node = node.children[c - 'a'];
         }
         node.isEnd = true;
     }
@@ -19,10 +19,10 @@ class Trie {
     public boolean search(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
-            if (root.children[c - 'a'] == null) {
+            if (node.children[c - 'a'] == null) {
                 return false;
             }
-            node = root.children[c - 'a'];
+            node = node.children[c - 'a'];
         }
         return node.isEnd;
     }
@@ -30,10 +30,10 @@ class Trie {
     public boolean startsWith(String prefix) {
         TrieNode node = root;
         for (char c : prefix.toCharArray()) {
-            if (root.children[c - 'a'] == null) {
+            if (node.children[c - 'a'] == null) {
                 return false;
             }
-            node = root.children[c - 'a'];
+            node = node.children[c - 'a'];
         }
         return true;
     }
