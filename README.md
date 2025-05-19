@@ -34,6 +34,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0179-largest-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0179-largest-number) |
 | [0205-isomorphic-strings](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0205-isomorphic-strings) |
 | [0208-implement-trie-prefix-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0208-implement-trie-prefix-tree) |
+| [0211-design-add-and-search-words-data-structure](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0227-basic-calculator-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0227-basic-calculator-ii) |
 | [0242-valid-anagram](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0242-valid-anagram) |
 | [0257-binary-tree-paths](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0257-binary-tree-paths) |
@@ -64,6 +65,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0014-longest-common-prefix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0014-longest-common-prefix) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
 | [0208-implement-trie-prefix-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0208-implement-trie-prefix-tree) |
+| [0211-design-add-and-search-words-data-structure](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0211-design-add-and-search-words-data-structure) |
 ## Stack
 |  |
 | ------- |
@@ -534,6 +536,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0200-number-of-islands](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0200-number-of-islands) |
 | [0207-course-schedule](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0210-course-schedule-ii) |
+| [0211-design-add-and-search-words-data-structure](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0226-invert-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0226-invert-binary-tree) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
@@ -796,6 +799,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0155-min-stack](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0155-min-stack) |
 | [0173-binary-search-tree-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0173-binary-search-tree-iterator) |
 | [0208-implement-trie-prefix-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0208-implement-trie-prefix-tree) |
+| [0211-design-add-and-search-words-data-structure](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0225-implement-stack-using-queues](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0225-implement-stack-using-queues) |
 | [0232-implement-queue-using-stacks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0232-implement-queue-using-stacks) |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
