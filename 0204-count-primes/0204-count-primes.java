@@ -1,6 +1,6 @@
 class Solution {
     public int countPrimes(int n) {
-        if (n < 2) {
+        if (n <= 2) {
             return 0;
         }
 
@@ -9,8 +9,8 @@ class Solution {
         primes[0] = false;
         primes[1] = false;
 
-        for (int i = 2; i < primes.length; i++) {
-            for (int j = i * 2; j < n; j += i) {
+        for (int i = 2; i * i < primes.length; i++) {
+            for (int j = i * i; j < primes.length; j += i) {
                 primes[j] = false;
             }
         }
