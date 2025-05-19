@@ -8,10 +8,10 @@ class WordDictionary {
     public void addWord(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
-            if (node.children[c - 'a'] == null) {
-                node.children[c - 'a'] = new TrieNode();
+            if (!node.children.containsKey(c)) {
+                node.children.put(c, new TrieNode());
             }
-            node = node.children[c - 'a'];
+            node = node.children.get(c);
         }
         node.isEnd = true;
     }
@@ -24,22 +24,22 @@ class WordDictionary {
         for (int i = index; i < word.length(); i++) {
             char c = word.charAt(i);
             if (c == '.') {
-                for (TrieNode child : node.children) {
-                    if (child != null && search(word, i + 1, child)) {
+                for (var entry : node.children.entrySet()) {
+                    if (search(word, i + 1, entry.getValue())) {
                         return true;
                     }
                 }
                 return false;
-            } else if (node.children[c - 'a'] == null) {
+            } else if (!node.children.containsKey(c)) {
                 return false;
             }
-            node = node.children[c - 'a'];
+            node = node.children.get(c);
         }
         return node.isEnd;
     }
 
     private class TrieNode {
-        private TrieNode[] children = new TrieNode[26];
+        private Map<Character, TrieNode> children = new HashMap<>();
         private boolean isEnd = false;
     }
 }
