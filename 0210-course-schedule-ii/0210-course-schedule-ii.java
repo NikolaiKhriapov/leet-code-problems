@@ -14,7 +14,7 @@ class Solution {
 
         Set<Integer> visited = new HashSet<>();
         Set<Integer> visiting = new HashSet<>();
-        List<Integer> coursesList = new LinkedList<>();
+        List<Integer> coursesList = new ArrayList<>();
 
         for (int course = 0; course < numCourses; course++) {
             if (hasCycle(graph, course, visited, visiting, coursesList)) {
@@ -24,7 +24,7 @@ class Solution {
 
         int[] result = new int[numCourses];
         for (int i = 0; i < coursesList.size(); i++) {
-            result[i] = coursesList.get(i);
+            result[i] = coursesList.get(result.length - 1 - i);
         }
 
         return result;
@@ -43,7 +43,7 @@ class Solution {
 
         visiting.remove(course);
         visited.add(course);
-        coursesList.add(0, course);
+        coursesList.add(course);
         return false;
     }
 }
