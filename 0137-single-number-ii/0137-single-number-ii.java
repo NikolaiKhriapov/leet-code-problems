@@ -1,10 +1,5 @@
 class Solution {
-    private static final int OCCURENCES = 3;
-
     public int singleNumber(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            throw new IllegalArgumentException("Invalid input");
-        }
 
         int[] bitCount = new int[32];
         for (int num : nums) {
@@ -15,7 +10,7 @@ class Solution {
 
         int result = 0;
         for (int i = 0; i < bitCount.length; i++) {
-            if (bitCount[i] % OCCURENCES != 0) {
+            if (bitCount[i] % 3 != 0) {
                 result |= (1 << i);
             }
         }
