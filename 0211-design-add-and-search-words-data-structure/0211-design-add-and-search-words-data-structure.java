@@ -31,7 +31,7 @@ class WordDictionary {
                 }
                 return false;
             } else if (node.children[c - 'a'] == null) {
-                    node.children[c - 'a'] = new TrieNode();
+                return false;
             }
             node = node.children[c - 'a'];
         }
