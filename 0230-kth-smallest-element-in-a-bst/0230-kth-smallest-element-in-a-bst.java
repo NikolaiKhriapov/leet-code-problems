@@ -15,6 +15,9 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
+        if (root == null || k <= 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         List<Integer> list = new ArrayList<>();
         helper(root, k, list);
@@ -23,6 +26,8 @@ class Solution {
 
     private void helper(TreeNode node, int k, List<Integer> list) {
         if (node == null) return;
+
+        if (list.size() >= k) return;
 
         if (node.left != null) helper(node.left, k, list);
         list.add(node.val);
