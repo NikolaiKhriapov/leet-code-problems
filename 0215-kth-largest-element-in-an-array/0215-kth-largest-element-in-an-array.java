@@ -1,6 +1,6 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        if (nums == null || nums.length == 0) {
+        if (nums == null || nums.length == 0 || k <= 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
