@@ -4,32 +4,31 @@ class Solution {
             return s;
         }
 
-        StringBuilder sb = new StringBuilder();
-        int right = s.length() - 1;
-        int left = right;
-        
-        while (right >= 0) {
-            while (right >= 0 && s.charAt(right) == ' ') {
-                right--;
+        StringBuilder result = new StringBuilder();
+        int r = s.length() - 1;
+        int l = r;
+        while (r >= 0) {
+            while (r >= 0 && s.charAt(r) == ' ') {
+                r--;
             }
 
-            if (right < 0) {
+            if (r < 0) {
                 break;
             }
 
-            left = right;
-            while (left >= 0 && s.charAt(left) != ' ') {
-                left--;
+            l = r;
+            while (l >= 0 && s.charAt(l) != ' ') {
+                l--;
             }
 
-            sb.append(s.substring(left + 1, right + 1))
-              .append(" ");
-            right = left - 1;
+            result.append(s.substring(l + 1, r + 1)).append(" ");
+            r = l;
+        }
+
+        if (result.length() > 0) {
+            result.setLength(result.length() - 1);
         }
         
-        if (sb.length() > 0) {
-            sb.setLength(sb.length() - 1);
-        }
-        return sb.toString();
+        return result.toString();
     }
 }
