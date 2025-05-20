@@ -1,8 +1,15 @@
 class Solution {
     public int hIndex(int[] citations) {
+        if (citations == null || citations.length == 0) {
+            return 0;
+        }
 
+        int[] count = countCitations(citations);
+        return calculateHIndex(count);
+    }
+
+    private int[] countCitations(int[] citations) {
         int[] count = new int[citations.length + 1];
-        
         for (int citation : citations) {
             if (citation > citations.length) {
                 count[count.length - 1]++;
@@ -10,7 +17,10 @@ class Solution {
                 count[citation]++;
             }
         }
-        
+        return count;
+    }
+
+    private int calculateHIndex(int[] count) {
         int total = 0;
         for (int i = count.length - 1; i > 0; i--) {
             total += count[i];
@@ -18,7 +28,6 @@ class Solution {
                 return i;
             }
         }
-
         return 0;
     }
 }
