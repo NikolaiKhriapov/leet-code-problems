@@ -19,7 +19,6 @@ class Solution {
                 col++;
             }
         }
-
         return false;
     }
 }
