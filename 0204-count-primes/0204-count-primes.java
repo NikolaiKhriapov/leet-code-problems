@@ -10,7 +10,7 @@ class Solution {
             if (!primes[i]) {
                 continue;
             }
-            for (int j = i * 2; j < primes.length; j += i) {
+            for (int j = i * i; j < primes.length; j += i) {
                 primes[j] = false;
             }
         }
