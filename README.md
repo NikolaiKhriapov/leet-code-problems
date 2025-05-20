@@ -294,6 +294,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0238-product-of-array-except-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0238-product-of-array-except-self) |
 | [0240-search-a-2d-matrix-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0240-search-a-2d-matrix-ii) |
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
+| [0274-h-index](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0274-h-index) |
 | [0283-move-zeroes](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0283-move-zeroes) |
 | [0287-find-the-duplicate-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0287-find-the-duplicate-number) |
 | [0289-game-of-life](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0289-game-of-life) |
@@ -444,6 +445,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0217-contains-duplicate](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0242-valid-anagram) |
 | [0268-missing-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0268-missing-number) |
+| [0274-h-index](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0274-h-index) |
 | [0324-wiggle-sort-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0324-wiggle-sort-ii) |
 | [0349-intersection-of-two-arrays](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0349-intersection-of-two-arrays) |
 | [0350-intersection-of-two-arrays-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0350-intersection-of-two-arrays-ii) |
@@ -853,6 +855,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Counting Sort
 |  |
 | ------- |
+| [0274-h-index](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0274-h-index) |
 | [0561-array-partition](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0561-array-partition) |
 ## Data Stream
 |  |
