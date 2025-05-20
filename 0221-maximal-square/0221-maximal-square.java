@@ -7,25 +7,25 @@ class Solution {
         int rows = matrix.length;
         int cols = matrix[0].length;
 
-        int[][] dp = new int[rows][cols];
+        int[] prev = new int[cols];
+        int[] curr = new int[cols];
         int max = 0;
         
-        for (int row = 0; row < rows; row++) {
-            dp[row][0] = matrix[row][0] - '0';
-            max = Math.max(max, dp[row][0]);
-        }
         for (int col = 0; col < cols; col++) {
-            dp[0][col] = matrix[0][col] - '0';
-            max = Math.max(max, dp[0][col]);
+            prev[col] = matrix[0][col] - '0';
+            max = Math.max(max, prev[col]);
         }
 
         for (int row = 1; row < rows; row++) {
+            curr[0] = matrix[row][0] - '0';
+            max = Math.max(max, curr[0]);
             for (int col = 1; col < cols; col++) {
-                dp[row][col] = (matrix[row][col] == '1')
-                    ? (1 + Math.min(dp[row - 1][col], Math.min(dp[row][col - 1], dp[row - 1][col - 1])))
+                curr[col] = (matrix[row][col] == '1')
+                    ? (1 + Math.min(curr[col - 1], Math.min(prev[col], prev[col - 1])))
                     : 0;
-                max = Math.max(max, dp[row][col]);
+                max = Math.max(max, curr[col]);
             }
+            prev = Arrays.copyOf(curr, curr.length);
         }
 
         return max * max;
