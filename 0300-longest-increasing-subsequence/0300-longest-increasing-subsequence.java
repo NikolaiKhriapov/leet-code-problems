@@ -1,48 +1,39 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
-        if (nums == null) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
-        }
-        if (nums.length <= 1) {
-            return nums.length;
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
         List<Integer> list = new ArrayList<>();
         list.add(nums[0]);
         for (int i = 1; i < nums.length; i++) {
-            int n = nums[i];
-            int largest = list.get(list.size() - 1);
-            if (n > largest) {
-                list.add(n);
+            if (nums[i] > list.get(list.size() - 1)) {
+                list.add(nums[i]);
             } else {
-                // int index = findPosition(list, n, 0, list.size() - 1);
-                int index = Collections.binarySearch(list, n);
-                if (index < 0) {
-                    index = -index - 1;
-                }
-                list.set(index, n);
+                // int insertionIndex = Collections.binarySearch(list, nums[i]);
+                int insertionIndex = getInsertionIndex(list, nums[i]);
+                // if (insertionIndex < 0) {
+                //     insertionIndex = -insertionIndex - 1;
+                // }
+                list.set(insertionIndex, nums[i]);
             }
         }
         return list.size();
     }
 
-    private int findPosition(List<Integer> list, int target, int left, int right) {
-        if (left > right) {
-            return left;
-        }
-
-        int mid = left + (right - left) / 2;
-
-        if (target == list.get(mid)) {
-            return mid;
-        }
-        if (target < list.get(mid)) {
-            if (mid == 0 || target > list.get(mid - 1)) {
-                return mid;
+    private int getInsertionIndex(List<Integer> list, int n) {
+        int left = 0;
+        int right = list.size() - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (list.get(mid) < n) {
+                left = mid + 1;
             } else {
-                return findPosition(list, target, left, mid - 1);
+                right = mid - 1;
             }
         }
-        return findPosition(list, target, mid + 1, right);
+        return left;
     }
 }
+
+// 2,3,7,101
