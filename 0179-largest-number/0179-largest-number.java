@@ -1,11 +1,8 @@
 class Solution {
     public String largestNumber(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            throw new IllegalArgumentException("Invalid input");
-        }
 
         String[] strs = new String[nums.length];
-        for (int i = 0; i < strs.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             strs[i] = String.valueOf(nums[i]);
         }
 
@@ -19,7 +16,6 @@ class Solution {
         for (String str : strs) {
             result.append(str);
         }
-        
         return result.toString();
     }
 }
