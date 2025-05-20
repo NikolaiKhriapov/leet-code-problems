@@ -5,18 +5,18 @@ class Solution {
         }
 
         int[] result = new int[nums.length];
-        Arrays.fill(result, 1);
+        result[0] = 1;
 
-        int prod = 1;
+        int product = 1;
         for (int i = 1; i < result.length; i++) {
-            prod *= nums[i - 1];
-            result[i] *= prod;
+            product *= nums[i - 1];
+            result[i] = product;
         }
         
-        prod = 1;
+        product = 1;
         for (int i = result.length - 2; i >= 0; i--) {
-            prod *= nums[i + 1];
-            result[i] *= prod;
+            product *= nums[i + 1];
+            result[i] *= product;
         }
 
         return result;
