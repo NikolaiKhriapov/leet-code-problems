@@ -8,7 +8,6 @@ class Solution {
         int currNumber = 0;
         int lastNumber = 0;
         char operation = '+';
-        
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (Character.isDigit(c)) {
@@ -31,7 +30,6 @@ class Solution {
                 currNumber = 0;
             }
         }
-
         return result + lastNumber;
     }
 }
