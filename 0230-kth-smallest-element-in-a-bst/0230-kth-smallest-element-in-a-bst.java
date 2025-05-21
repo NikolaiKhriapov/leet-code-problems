@@ -18,7 +18,11 @@ class Solution {
         if (k <= 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        return helper(root, new int[]{k});
+        int kthSmallest = helper(root, new int[]{k});
+        if (k == -1) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        return kthSmallest;
     }
 
     private int helper(TreeNode node, int[] count) {
