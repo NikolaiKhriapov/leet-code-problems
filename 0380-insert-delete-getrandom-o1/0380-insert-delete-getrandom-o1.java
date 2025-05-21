@@ -31,7 +31,7 @@ class RandomizedSet {
     }
     
     public int getRandom() {
-        int randomIndex = RANDOM.nextInt(0, list.size());
+        int randomIndex = RANDOM.nextInt(list.size());
         return list.get(randomIndex);
     }
 }
