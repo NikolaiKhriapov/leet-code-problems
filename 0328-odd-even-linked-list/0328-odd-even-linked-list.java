@@ -14,28 +14,16 @@ class Solution {
             return head;
         }
 
-        ListNode dummyOddHead = new ListNode(-1);
-        ListNode dummyEvenHead = new ListNode(-1);
-        
-        ListNode dummyOdd = dummyOddHead;
-        ListNode dummyEven = dummyEvenHead;
-
-        boolean isOdd = true;
-        while (head != null) {
-            if (isOdd) {
-                dummyOdd.next = head;
-                dummyOdd = dummyOdd.next;
-            } else {
-                dummyEven.next = head;
-                dummyEven = dummyEven.next;
-            }
-            isOdd = !isOdd;
-            head = head.next;
+        ListNode evenHead = head.next;
+        ListNode odd = head;
+        ListNode even = evenHead;
+        while (even != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
         }
-
-        dummyOdd.next = dummyEvenHead.next;
-        dummyEven.next = null;
-
-        return dummyOddHead.next;
+        odd.next = evenHead;
+        return head;
     }
 }
