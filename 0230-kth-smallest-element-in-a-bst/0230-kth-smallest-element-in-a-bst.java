@@ -19,7 +19,7 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
         int kthSmallest = helper(root, new int[]{k});
-        if (k == -1) {
+        if (kthSmallest == -1) {
             throw new IllegalArgumentException("Invalid input");
         }
         return kthSmallest;
