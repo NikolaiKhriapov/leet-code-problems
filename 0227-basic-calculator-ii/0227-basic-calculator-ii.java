@@ -1,5 +1,8 @@
 class Solution {
     public int calculate(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int result = 0;
         int prevNumber = 0;
