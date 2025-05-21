@@ -1,36 +1,35 @@
 class Solution {
     private int[] array;
-    private int[] originalArray;
-    private static final Random random = new Random();
+    private int[] arrayOriginal;
+    private final static Random RANDOM = new Random();
 
     public Solution(int[] nums) {
-        array = Arrays.copyOf(nums, nums.length);
-        originalArray = Arrays.copyOf(nums, nums.length);
+        arrayOriginal = Arrays.copyOf(nums, nums.length);
+        array = Arrays.copyOf(arrayOriginal, arrayOriginal.length);
     }
     
     public int[] reset() {
-        array = Arrays.copyOf(originalArray, originalArray.length);
+        array = Arrays.copyOf(arrayOriginal, arrayOriginal.length);
         return array;
     }
     
     public int[] shuffle() {
-        shuffleArray(array);
+        shuffle(array);
         return array;
     }
 
-    private static void shuffleArray(int[] arr) {
-        for (int i = arr.length - 1; i >= 0; i--) {
-            int randomIndex = random.nextInt(i + 1);
-            int temp = arr[i];
-            arr[i] = arr[randomIndex];
-            arr[randomIndex] = temp;
+    private void shuffle(int[] array) {
+        for (int i = array.length - 1; i > 0; i--) {
+            swap(array, i, RANDOM.nextInt(i + 1));
         }
+    }
+
+    private void swap(int[] array, int l, int r) {
+        int temp = array[l];
+        array[l] = array[r];
+        array[r] = temp;
     }
 }
 
-/**
- * Your Solution object will be instantiated and called as such:
- * Solution obj = new Solution(nums);
- * int[] param_1 = obj.reset();
- * int[] param_2 = obj.shuffle();
- */
+// [1,2,3,4,5]
+// [-,-,-,-,-]
