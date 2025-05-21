@@ -1,27 +1,28 @@
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0 || k < 1 || k > matrix.length * matrix[0].length) {
-            return -1;
-        }
-        
-        int left = matrix[0][0];
-        int right = matrix[matrix.length - 1][matrix[0].length - 1];
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            int count = countLessOrEqual(matrix, mid);
-            if (count < k) left = mid + 1;
-            else right = mid - 1;
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return 0;
         }
 
-        return left;
+        int l = matrix[0][0];
+        int r = matrix[matrix.length - 1][matrix[0].length - 1];
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            int count = countLessOrEqual(matrix, m);
+            if (count < k) {
+                l = m + 1;
+            } else {
+                r = m;
+            }
+        }
+        return l;
     }
 
     private int countLessOrEqual(int[][] matrix, int target) {
+        int count = 0;
+        
         int row = matrix.length - 1;
         int col = 0;
-
-        int count = 0;
         while (row >= 0 && col < matrix[0].length) {
             if (matrix[row][col] <= target) {
                 count += row + 1;
@@ -30,6 +31,7 @@ class Solution {
                 row--;
             }
         }
+
         return count;
     }
 }
