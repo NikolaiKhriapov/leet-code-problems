@@ -15,8 +15,8 @@ class Solution {
             graph.get(prerequisite[1]).add(prerequisite[0]);
         }
 
-        Set<Integer> visited = new HashSet<>();
-        Set<Integer> visiting = new HashSet<>();
+        boolean[] visited = new boolean[numCourses];
+        boolean[] visiting = new boolean[numCourses];
         for (int course = 0; course < numCourses; course++) {
             if (hasCycle(graph, course, visited, visiting)) {
                 return false;
@@ -26,10 +26,10 @@ class Solution {
         return true;
     }
 
-    private boolean hasCycle(Map<Integer, List<Integer>> graph, int course, Set<Integer> visited, Set<Integer> visiting) {
-        if (visited.contains(course)) return false;
-        if (visiting.contains(course)) return true;
-        visiting.add(course);
+    private boolean hasCycle(Map<Integer, List<Integer>> graph, int course, boolean[] visited, boolean[] visiting) {
+        if (visited[course]) return false;
+        if (visiting[course]) return true;
+        visiting[course] = true;
 
         for (int neighbor : graph.getOrDefault(course, new ArrayList<>())) {
             if (hasCycle(graph, neighbor, visited, visiting)) {
@@ -37,8 +37,8 @@ class Solution {
             }
         }
 
-        visiting.remove(course);
-        visited.add(course);
+        visiting[course] = false;
+        visited[course] = true;
         return false;
     }
 }
