@@ -176,6 +176,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0326-power-of-three](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0326-power-of-three) |
 | [0342-power-of-four](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0342-power-of-four) |
 | [0367-valid-perfect-square](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0367-valid-perfect-square) |
+| [0371-sum-of-two-integers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0371-sum-of-two-integers) |
 | [0380-insert-delete-getrandom-o1](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0380-insert-delete-getrandom-o1) |
 | [0384-shuffle-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0384-shuffle-an-array) |
 | [0412-fizz-buzz](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0412-fizz-buzz) |
@@ -614,6 +615,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0287-find-the-duplicate-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0287-find-the-duplicate-number) |
 | [0338-counting-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0338-counting-bits) |
 | [0342-power-of-four](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0342-power-of-four) |
+| [0371-sum-of-two-integers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0371-sum-of-two-integers) |
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
 | [0401-binary-watch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0401-binary-watch) |
 | [0461-hamming-distance](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0461-hamming-distance) |
