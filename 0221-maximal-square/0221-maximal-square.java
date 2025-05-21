@@ -4,28 +4,29 @@ class Solution {
             return 0;
         }
 
-        int rows = matrix.length;
         int cols = matrix[0].length;
 
-        int[] dpPrev = new int[cols];        
         int[] dpCurr = new int[cols];
+        int diag = 0;
         int maxSide = 0;
 
         for (int col = 0; col < cols; col++) {
-            dpPrev[col] = matrix[0][col] - '0';
-            maxSide = Math.max(maxSide, dpPrev[col]);
+            dpCurr[col] = matrix[0][col] - '0';
+            maxSide = Math.max(maxSide, dpCurr[col]);
         }
 
-        for (int row = 1; row < rows; row++) {
+        for (int row = 1; row < matrix.length; row++) {
+            diag = dpCurr[0];
             dpCurr[0] = matrix[row][0] - '0';
             maxSide = Math.max(maxSide, dpCurr[0]);
             for (int col = 1; col < cols; col++) {
+                int temp = dpCurr[col];
                 dpCurr[col] = (matrix[row][col] == '1')
-                    ? (1 + getMin(dpCurr[col - 1], dpPrev[col - 1], dpPrev[col]))
+                    ? (1 + getMin(dpCurr[col - 1], diag, dpCurr[col]))
                     : 0;
+                diag = temp;
                 maxSide = Math.max(maxSide, dpCurr[col]);
             }
-            dpPrev = Arrays.copyOf(dpCurr, dpCurr.length);
         }
 
         return maxSide * maxSide;
