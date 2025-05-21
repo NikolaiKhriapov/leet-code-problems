@@ -3,7 +3,10 @@ class Solution {
         if (numCourses < 0 || prerequisites == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
+        if (numCourses == 0 || prerequisites.length == 0) {
+            return true;
+        }
+        
         Map<Integer, List<Integer>> graph = new HashMap<>();
         for (int course = 0; course < numCourses; course++) {
             graph.put(course, new ArrayList<>());
@@ -14,12 +17,12 @@ class Solution {
 
         Set<Integer> visited = new HashSet<>();
         Set<Integer> visiting = new HashSet<>();
-
         for (int course = 0; course < numCourses; course++) {
             if (hasCycle(graph, course, visited, visiting)) {
                 return false;
             }
         }
+
         return true;
     }
 
