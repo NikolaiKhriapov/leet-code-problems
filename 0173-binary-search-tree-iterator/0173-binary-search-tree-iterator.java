@@ -18,13 +18,14 @@ class BSTIterator {
 
     public BSTIterator(TreeNode root) {
         stack = new Stack<>();
-        stack.add(root);
-        pushLeft(root.left);
+        pushLeft(root);
     }
     
     public int next() {
         TreeNode curr = stack.pop();
-        pushLeft(curr.right);
+        if (curr.right != null) {
+            pushLeft(curr.right);
+        }
         return curr.val;
     }
     
