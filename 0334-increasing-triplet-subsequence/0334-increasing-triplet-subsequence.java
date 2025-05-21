@@ -11,11 +11,9 @@ class Solution {
         int second = Integer.MAX_VALUE;
         for (int num : nums) {
             if (num <= first) {
-                if (num > second) {
-                    first = num;
-                } else {
-                    second = num;
-                }
+                first = num;
+            } else if (num <= second) {
+                second = num;
             } else {
                 return true;
             }
