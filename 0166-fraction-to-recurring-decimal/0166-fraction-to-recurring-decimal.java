@@ -1,14 +1,8 @@
 class Solution {
     public String fractionToDecimal(int numerator, int denominator) {
-        if (denominator == 0) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-        if (numerator == 0) {
-            return "0";
-        }
 
         StringBuilder result = new StringBuilder();
-        
+
         if ((numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0)) {
             result.append("-");
         }
@@ -40,7 +34,6 @@ class Solution {
     }
 }
 
-//  40 / 333 = 0
-// 400 / 333 = 1
-// 670 / 333 = 2
-//  40 / 333 = 0
+//  40 / 333 = 0 |  40 % 333 = 40 * 10 = 400
+// 400 / 333 = 1 | 400 % 333 = 67 * 10 = 670
+// 670 / 333 = 2 | 670 % 333 =  4 * 10 = 40
