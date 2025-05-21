@@ -16,7 +16,7 @@
  * }
  */
 public class NestedIterator implements Iterator<Integer> {
-    private Stack<NestedInteger> stack;
+    Stack<NestedInteger> stack;
 
     public NestedIterator(List<NestedInteger> nestedList) {
         stack = new Stack<>();
@@ -25,18 +25,21 @@ public class NestedIterator implements Iterator<Integer> {
 
     @Override
     public Integer next() {
+        if (!hasNext()) {
+            throw new IllegalArgumentException("Stack is empty");
+        }
         return stack.pop().getInteger();
     }
 
     @Override
     public boolean hasNext() {
         while (!stack.isEmpty()) {
-            NestedInteger top = stack.peek();
-            if (top.isInteger()) {
+            NestedInteger curr = stack.peek();
+            if (curr.isInteger()) {
                 return true;
             } else {
                 stack.pop();
-                pushListToStack(top.getList());
+                pushListToStack(curr.getList());
             }
         }
         return false;
@@ -44,7 +47,7 @@ public class NestedIterator implements Iterator<Integer> {
 
     private void pushListToStack(List<NestedInteger> list) {
         for (int i = list.size() - 1; i >= 0; i--) {
-            stack.push(list.get(i));
+            stack.add(list.get(i));
         }
     }
 }
