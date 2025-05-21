@@ -7,33 +7,32 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         list.add(nums[0]);
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] > list.get(list.size() - 1)) {
-                list.add(nums[i]);
+            int num = nums[i];
+            if (num > list.get(list.size() - 1)) {
+                list.add(num);
             } else {
-                // int insertionIndex = Collections.binarySearch(list, nums[i]);
-                int insertionIndex = getInsertionIndex(list, nums[i]);
-                // if (insertionIndex < 0) {
-                //     insertionIndex = -insertionIndex - 1;
+                int index = binarySearch(list, num);
+                // int index = Collections.binarySearch(list, num);
+                // if (index < 0) {
+                //     index = -index - 1;
                 // }
-                list.set(insertionIndex, nums[i]);
+                list.set(index, num);
             }
         }
         return list.size();
     }
 
-    private int getInsertionIndex(List<Integer> list, int n) {
+    private int binarySearch(List<Integer> list, int target) {
         int left = 0;
         int right = list.size() - 1;
-        while (left <= right) {
+        while (left < right) {
             int mid = left + (right - left) / 2;
-            if (list.get(mid) < n) {
+            if (list.get(mid) < target) {
                 left = mid + 1;
             } else {
-                right = mid - 1;
+                right = mid;
             }
         }
         return left;
     }
 }
-
-// 2,3,7,101
