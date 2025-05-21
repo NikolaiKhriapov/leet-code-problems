@@ -12,7 +12,6 @@ class Solution {
         if (root == null || p == null || q == null) {
             return null;
         }
-
         if (root == p || root == q) {
             return root;
         }
