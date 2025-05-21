@@ -1,38 +1,36 @@
 class Solution {
     public int longestSubstring(String s, int k) {
-        if (s == null || s.isEmpty() || k <= 0) {
+        if (s == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        return helper(s, k, 0, s.length());
+        return longestSubstring(s, k, 0, s.length());
     }
 
-    private int helper(String s, int k, int l, int r) {
-        
+    private int longestSubstring(String s, int k, int left, int right) {
         Map<Character, Integer> map = new HashMap<>();
-        for (int i = l; i < r; i++) {
+        for (int i = left; i < right; i++) {
             char c = s.charAt(i);
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
         boolean isValid = true;
-        int longest = 0;
-        int start = l;
-        for (int i = l; i < r; i++) {
+        int currentLongest = 0;
+        int start = left;
+        for (int i = left; i < right; i++) {
             if (map.get(s.charAt(i)) < k) {
                 isValid = false;
-                longest = Math.max(longest, helper(s, k, start, i));
+                currentLongest = Math.max(currentLongest, longestSubstring(s, k, start, i));
                 start = i + 1;
             }
         }
 
         if (isValid) {
-            return r - l;
+            return right - left;
         }
-        if (r > start) {
-            longest = Math.max(longest, helper(s, k, start, r));
+        
+        if (right > start) {
+            currentLongest = Math.max(currentLongest, longestSubstring(s, k, start, right));
         }
-
-        return longest;
-
+        return currentLongest;
     }
 }
