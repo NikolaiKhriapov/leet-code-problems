@@ -5,7 +5,7 @@ class Solution {
         }
 
         Arrays.sort(points, (a, b) -> Integer.compare(a[1], b[1]));
-
+        
         int count = 0;
         for (int i = 0; i < points.length; i++) {
             int right = points[i][1];
@@ -15,9 +15,6 @@ class Solution {
             i--;
             count++;
         }
-        
         return count;
     }
 }
-
-// [[1,6],[2,8],[7,12],[10,16]]
