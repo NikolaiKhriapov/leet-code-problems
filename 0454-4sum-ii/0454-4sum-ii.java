@@ -1,27 +1,28 @@
 class Solution {
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
-
-        int result = 0;
-
-        int n = nums1.length;
+        if (
+            nums1 == null || nums2 == null || nums3 == null || nums4 == null ||
+            nums1.length == 0 || nums2.length == 0 || nums3.length == 0 || nums4.length == 0
+        ) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                int key = nums1[i] + nums2[j];
-                map.put(key, map.getOrDefault(key, 0) + 1);
-            }
-        }
-        
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                int complement = 0 - nums3[i] - nums4[j];
-                if (map.containsKey(complement)) {
-                    result += map.get(complement);
-                }
+        for (int i = 0; i < nums1.length; i++) {
+            for (int j = 0; j < nums2.length; j++) {
+                int sum = nums1[i] + nums2[j];
+                map.put(sum, map.getOrDefault(sum, 0) + 1);
             }
         }
 
-        return result;
+        int count = 0;
+        for (int i = 0; i < nums3.length; i++) {
+            for (int j = 0; j < nums4.length; j++) {
+                int sum = nums3[i] + nums4[j];
+                count += map.getOrDefault(-sum, 0);
+            }
+        }
+
+        return count;
     }
 }
