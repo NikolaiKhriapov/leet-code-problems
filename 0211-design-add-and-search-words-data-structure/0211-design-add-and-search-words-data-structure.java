@@ -30,10 +30,12 @@ class WordDictionary {
                     }
                 }
                 return false;
-            } else if (node.children[c - 'a'] == null) {
-                return false;
+            } else {
+                if (node.children[c - 'a'] == null) {
+                    return false;
+                }
+                node = node.children[c - 'a'];
             }
-            node = node.children[c - 'a'];
         }
         return node.isEnd;
     }
