@@ -1,21 +1,21 @@
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return 0;
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        int l = matrix[0][0];
-        int r = matrix[matrix.length - 1][matrix[0].length - 1];
-        while (l < r) {
-            int m = l + (r - l) / 2;
-            int count = countLessOrEqual(matrix, m);
+        int left = matrix[0][0];
+        int right = matrix[matrix.length - 1][matrix[0].length - 1];
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            int count = countLessOrEqual(matrix, mid);
             if (count < k) {
-                l = m + 1;
+                left = mid + 1;
             } else {
-                r = m;
+                right = mid;
             }
         }
-        return l;
+        return left;
     }
 
     private int countLessOrEqual(int[][] matrix, int target) {
