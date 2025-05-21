@@ -15,22 +15,31 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
-        if (root == null || k <= 0) {
+        if (k <= 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-
-        List<Integer> list = new ArrayList<>();
-        helper(root, k, list);
-        return list.get(k - 1);
+        return helper(root, new int[]{k});
     }
 
-    private void helper(TreeNode node, int k, List<Integer> list) {
-        if (node == null) return;
+    private int helper(TreeNode node, int[] count) {
+        if (node == null) {
+            return -1;
+        }
 
-        if (list.size() >= k) return;
+        int left = helper(node.left, count);
+        if (left != -1) {
+            return left;
+        }
 
-        if (node.left != null) helper(node.left, k, list);
-        list.add(node.val);
-        if (node.right != null) helper(node.right, k, list);
+        if (--count[0] == 0) {
+            return node.val;
+        }
+
+        int right = helper(node.right, count);
+        if (right != -1) {
+            return right;
+        }
+
+        return -1;
     }
 }
