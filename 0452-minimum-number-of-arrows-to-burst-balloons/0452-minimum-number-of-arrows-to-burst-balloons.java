@@ -4,16 +4,12 @@ class Solution {
             return 0;
         }
 
-        List<int[]> list = new ArrayList<>();
-        for (int[] point : points) {
-            list.add(point);
-        }
-        Collections.sort(list, (a, b) -> Integer.compare(a[1], b[1]));
+        Arrays.sort(points, (a, b) -> Integer.compare(a[1], b[1]));
 
         int count = 0;
-        for (int i = 0; i < list.size(); i++) {
-            int right = list.get(i)[1];
-            while (i < list.size() && list.get(i)[0] <= right) {
+        for (int i = 0; i < points.length; i++) {
+            int right = points[i][1];
+            while (i < points.length && points[i][0] <= right) {
                 i++;
             }
             i--;
