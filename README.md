@@ -337,6 +337,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0817-design-hashmap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0817-design-hashmap) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [0941-sort-array-by-parity](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0941-sort-array-by-parity) |
+| [0945-snakes-and-ladders](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0945-snakes-and-ladders) |
 | [0958-sort-array-by-parity-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0958-sort-array-by-parity-ii) |
 | [1018-largest-perimeter-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1018-largest-perimeter-triangle) |
 | [1019-squares-of-a-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1019-squares-of-a-sorted-array) |
@@ -671,6 +672,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0637-average-of-levels-in-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0637-average-of-levels-in-binary-tree) |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0653-two-sum-iv-input-is-a-bst) |
 | [0774-maximum-depth-of-n-ary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0774-maximum-depth-of-n-ary-tree) |
+| [0945-snakes-and-ladders](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0945-snakes-and-ladders) |
 | [2121-find-if-path-exists-in-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2121-find-if-path-exists-in-graph) |
 ## Divide and Conquer
 |  |
@@ -811,6 +813,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0289-game-of-life](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0289-game-of-life) |
 | [0378-kth-smallest-element-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0378-kth-smallest-element-in-a-sorted-matrix) |
 | [0772-construct-quad-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0772-construct-quad-tree) |
+| [0945-snakes-and-ladders](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0945-snakes-and-ladders) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1476-count-negative-numbers-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1476-count-negative-numbers-in-a-sorted-matrix) |
