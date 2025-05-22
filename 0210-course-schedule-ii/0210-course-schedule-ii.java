@@ -22,8 +22,8 @@ class Solution {
 
     private List<Integer> getOrderedListOfCourses(Map<Integer, List<Integer>> graph, int numCourses) {
         List<Integer> list = new ArrayList<>();
-        Set<Integer> visited = new HashSet<>();
-        Set<Integer> visiting = new HashSet<>();
+        boolean[] visited = new boolean[numCourses];
+        boolean[] visiting = new boolean[numCourses];
         for (int course = 0; course < numCourses; course++) {
             if (hasCycle(graph, course, visited, visiting, list)) {
                 return new ArrayList<>();
@@ -32,10 +32,10 @@ class Solution {
         return list;
     }
 
-    private boolean hasCycle(Map<Integer, List<Integer>> graph, int course, Set<Integer> visited, Set<Integer> visiting, List<Integer> list) {
-        if (visited.contains(course)) return false;
-        if (visiting.contains(course)) return true;
-        visiting.add(course);
+    private boolean hasCycle(Map<Integer, List<Integer>> graph, int course, boolean[] visited, boolean[] visiting, List<Integer> list) {
+        if (visited[course]) return false;
+        if (visiting[course]) return true;
+        visiting[course] = true;
 
         for (int neighbor : graph.getOrDefault(course, new ArrayList<>())) {
             if (hasCycle(graph, neighbor, visited, visiting, list)) {
@@ -44,8 +44,8 @@ class Solution {
         }
 
         list.add(course);
-        visiting.remove(course);
-        visited.add(course);
+        visiting[course] = false;
+        visited[course] = true;
         return false;
     }
 
