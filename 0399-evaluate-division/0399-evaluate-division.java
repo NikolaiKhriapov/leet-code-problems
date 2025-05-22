@@ -1,7 +1,11 @@
 class Solution {
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+        // if (equations.size() != values.length) {
+        //     throw new IllegalArgumentException("Invalid input");
+        // }
+
         Map<String, Map<String, Double>> graph = buildGraph(equations, values);
-        return calculateQueries(queries, graph);
+        return calcQueries(graph, queries);
     }
 
     private Map<String, Map<String, Double>> buildGraph(List<List<String>> equations, double[] values) {
@@ -22,35 +26,34 @@ class Solution {
         return graph;
     }
 
-    private double[] calculateQueries(List<List<String>> queries, Map<String, Map<String, Double>> graph) {
-        double[] result = new double[queries.size()];
+    private double[] calcQueries(Map<String, Map<String, Double>> graph, List<List<String>> queries) {
+        double[] results = new double[queries.size()];
         for (int i = 0; i < queries.size(); i++) {
             String first = queries.get(i).get(0);
             String second = queries.get(i).get(1);
-            result[i] = calculateQuery(first, second, graph);
+            results[i] = calcQuery(first, second, graph);
         }
-        return result;
+        return results;
     }
 
-    private double calculateQuery(String first, String second, Map<String, Map<String, Double>> graph) {
+    private double calcQuery(String first, String second, Map<String, Map<String, Double>> graph) {
         if (!graph.containsKey(first) || !graph.containsKey(second)) return -1.0;
         if (Objects.equals(first, second)) return 1.0;
 
-        return calculateQuery(first, second, graph, new HashSet<>(), 1.0);
+        return calcQuery(first, second, graph, new HashSet<>(), 1.0);
     }
 
-    private double calculateQuery(String first, String second, Map<String, Map<String, Double>> graph, Set<String> visited, double product) {
-        visited.add(first);
-        Map<String, Double> neighbors = graph.get(first);
+    private double calcQuery(String first, String second, Map<String, Map<String, Double>> graph, Set<String> visited, double product) {
+        if (visited.contains(second)) return -1.0;
 
+        Map<String, Double> neighbors = graph.get(first);
         if (neighbors.containsKey(second)) {
             return product * neighbors.get(second);
         }
-
         for (var entry : neighbors.entrySet()) {
             String next = entry.getKey();
             if (visited.contains(next)) continue;
-            double result = calculateQuery(next, second, graph, visited, product * entry.getValue());
+            double result = calcQuery(next, second, graph, visited, product * entry.getValue());
             if (result != -1.0) return result;
         }
         return -1.0;
