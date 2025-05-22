@@ -1,6 +1,6 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        if (nums == null || nums.length < 2) {
+        if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
@@ -13,7 +13,7 @@ class Solution {
             slow = nums[slow];
             fast = nums[nums[fast]];
         }
-
+        
         slow = nums[0];
         while (slow != fast) {
             slow = nums[slow];
