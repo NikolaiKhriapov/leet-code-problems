@@ -1,10 +1,16 @@
 class Solution {
     public int longestSubstring(String s, int k) {
-
+        if (s == null || k <= 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
         return longestSubstring(s, k, 0, s.length());
     }
 
     private int longestSubstring(String s, int k, int left, int right) {
+        if (right - left < k) {
+            return 0;
+        }
+        
         Map<Character, Integer> map = new HashMap();
         for (int i = left; i < right; i++) {
             char c = s.charAt(i);
