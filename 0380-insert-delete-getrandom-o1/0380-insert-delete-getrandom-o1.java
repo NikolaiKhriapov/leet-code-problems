@@ -20,19 +20,18 @@ class RandomizedSet {
     public boolean remove(int val) {
         boolean contains = map.containsKey(val);
         if (contains) {
-            int listIndex = map.get(val);
+            int index = map.get(val);
             int listLast = list.get(list.size() - 1);
-            list.set(listIndex, listLast);
-            map.put(listLast, listIndex);
+            list.set(index, listLast);
             list.remove(list.size() - 1);
+            map.put(listLast, index);
             map.remove(val);
         }
         return contains;
     }
     
     public int getRandom() {
-        int randomIndex = RANDOM.nextInt(list.size());
-        return list.get(randomIndex);
+        return list.get(RANDOM.nextInt(list.size()));
     }
 }
 
