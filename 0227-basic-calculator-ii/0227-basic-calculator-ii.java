@@ -5,8 +5,8 @@ class Solution {
         }
 
         int result = 0;
-        int prevNumber = 0;
         int currNumber = 0;
+        int prevNumber = 0;
         char operation = '+';
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
@@ -27,8 +27,8 @@ class Solution {
                     case '/' -> prevNumber /= currNumber;
                     default -> throw new RuntimeException("Invalid operation: " + operation);
                 }
-                operation = c;
                 currNumber = 0;
+                operation = c;
             }
         }
         return result + prevNumber;
