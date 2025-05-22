@@ -15,31 +15,33 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
-        if (k <= 0) {
+        if (root == null || k <= 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        int kthSmallest = helper(root, new int[]{k});
+
+        int kthSmallest = kthSmallest(root, new int[]{k});
         if (kthSmallest == -1) {
             throw new IllegalArgumentException("Invalid input");
         }
+
         return kthSmallest;
     }
 
-    private int helper(TreeNode node, int[] count) {
+    private int kthSmallest(TreeNode node, int[] k) {
         if (node == null) {
             return -1;
         }
 
-        int left = helper(node.left, count);
+        int left = kthSmallest(node.left, k);
         if (left != -1) {
             return left;
         }
 
-        if (--count[0] == 0) {
+        if (--k[0] == 0) {
             return node.val;
         }
 
-        int right = helper(node.right, count);
+        int right = kthSmallest(node.right, k);
         if (right != -1) {
             return right;
         }
