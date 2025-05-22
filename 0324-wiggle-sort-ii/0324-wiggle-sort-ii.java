@@ -3,6 +3,9 @@ class Solution {
         if (nums == null) {
             throw new IllegalArgumentException("Invalid input");
         }
+        if (nums.length <= 1) {
+            return;
+        }
 
         int[] sorted = Arrays.copyOf(nums, nums.length);
         Arrays.sort(sorted);
