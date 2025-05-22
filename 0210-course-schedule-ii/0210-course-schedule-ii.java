@@ -1,6 +1,8 @@
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-
+        if (numCourses < 1 || prerequisites == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         Map<Integer, List<Integer>> graph = buildGraph(numCourses, prerequisites);
         List<Integer> list = getOrderedListOfCourses(graph, numCourses);
