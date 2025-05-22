@@ -44,7 +44,7 @@ class Solution {
     }
 
     private double calcQuery(String first, String second, Map<String, Map<String, Double>> graph, Set<String> visited, double product) {
-        if (visited.contains(second)) return -1.0;
+        visited.add(first);
 
         Map<String, Double> neighbors = graph.get(first);
         if (neighbors.containsKey(second)) {
