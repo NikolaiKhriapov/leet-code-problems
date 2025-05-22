@@ -2,10 +2,10 @@ class Solution {
     public int snakesAndLadders(int[][] board) {
 
         Queue<Integer> queue = new LinkedList<>();
-        Set<Integer> visited = new HashSet<>();
+        boolean[] visited = new boolean[board.length * board.length + 1];
 
         queue.add(1);
-        visited.add(1);
+        visited[1] = true;
 
         int count = 0;
         while (!queue.isEmpty()) {
@@ -20,9 +20,9 @@ class Solution {
                     int value = board[nextCoord[0]][nextCoord[1]];
                     if (value != -1) next = value;
 
-                    if (!visited.contains(next)) {
+                    if (!visited[next]) {
                         queue.add(next);
-                        visited.add(next);
+                        visited[next] = true;
                     }
                 }
             }
