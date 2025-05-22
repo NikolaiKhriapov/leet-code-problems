@@ -1,6 +1,6 @@
 class Solution {
     public int minMutation(String startGene, String endGene, String[] bank) {
-        if (startGene == null || endGene == null || startGene.length() != 8 || endGene.length() != 8 || bank == null) {
+        if (startGene == null || endGene == null || bank == null) {
             throw new IllegalArgumentException("Invalid input");
         }
 
@@ -8,39 +8,36 @@ class Solution {
         for (String gene : bank) {
             bankSet.add(gene);
         }
-        if (!bankSet.contains(endGene)) {
-            return -1;
-        }
+        
+        if (!bankSet.contains(endGene)) return -1;
 
         char[] genes = {'A', 'C', 'G', 'T'};
 
-        Queue<String> q = new LinkedList<>();
+        Queue<String> queue = new LinkedList<>();
         Set<String> visited = new HashSet<>();
 
-        q.add(startGene);
+        queue.add(startGene);
         visited.add(startGene);
 
         int count = 0;
-        while (!q.isEmpty()) {
-            int size = q.size();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
             for (int i = 0; i < size; i++) {
-                String curr = q.poll();
-                if (Objects.equals(curr, endGene)) {
-                    return count;
-                }
-                char[] currArray = curr.toCharArray();
-                for (int j = 0; j < curr.length(); j++) {
-                    char oldChar = currArray[j];
+                String curr = queue.poll();
+                if (Objects.equals(curr, endGene)) return count;
+                char[] arr = curr.toCharArray();
+                for (int j = 0; j < arr.length; j++) {
+                    char old = arr[j];
                     for (char g : genes) {
-                        if (g == oldChar) continue;
-                        currArray[j] = g;
-                        String newGene = new String(currArray);
+                        if (g == old) continue;
+                        arr[j] = g;
+                        String newGene = new String(arr);
                         if (bankSet.contains(newGene) && !visited.contains(newGene)) {
-                            q.add(newGene);
+                            queue.add(newGene);
                             visited.add(newGene);
                         }
                     }
-                    currArray[j] = oldChar;
+                    arr[j] = old;
                 }
             }
             count++;
