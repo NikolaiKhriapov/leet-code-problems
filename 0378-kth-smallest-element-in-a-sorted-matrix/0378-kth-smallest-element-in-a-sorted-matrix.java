@@ -1,6 +1,6 @@
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0 || k <= 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
@@ -20,18 +20,16 @@ class Solution {
 
     private int countLessOrEqual(int[][] matrix, int target) {
         int count = 0;
-        
         int row = matrix.length - 1;
         int col = 0;
         while (row >= 0 && col < matrix[0].length) {
-            if (matrix[row][col] <= target) {
+            if (matrix[row][col] > target) {
+                row--;
+            } else {
                 count += row + 1;
                 col++;
-            } else {
-                row--;
             }
         }
-
         return count;
     }
 }
