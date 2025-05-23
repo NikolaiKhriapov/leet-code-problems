@@ -1,6 +1,6 @@
 class Solution {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
-        if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0 || k < 0) {
+        if (nums1 == null || nums2 == null || k < 0 || nums1.length == 0 || nums2.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
@@ -11,11 +11,11 @@ class Solution {
             pq.add(new int[]{i, 0});
         }
 
-        while (k-- > 0 && !pq.isEmpty()) {
-            int[] currPair = pq.poll();
-            result.add(List.of(nums1[currPair[0]], nums2[currPair[1]]));
-            if (currPair[1] + 1 < nums2.length) {
-                pq.add(new int[]{currPair[0], currPair[1] + 1});
+        while (k-- > 0) {
+            int[] pair = pq.poll();
+            result.add(List.of(nums1[pair[0]], nums2[pair[1]]));
+            if (pair[1] + 1 < nums2.length) {
+                pq.add(new int[]{pair[0], pair[1] + 1});
             }
         }
 
