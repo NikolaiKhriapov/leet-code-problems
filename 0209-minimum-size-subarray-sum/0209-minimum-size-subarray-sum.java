@@ -1,9 +1,11 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int minLength = Integer.MAX_VALUE;
         int currSum = 0;
-
         int left = 0;
         for (int right = 0; right < nums.length; right++) {
             currSum += nums[right];
