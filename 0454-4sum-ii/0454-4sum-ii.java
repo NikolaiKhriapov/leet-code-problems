@@ -5,17 +5,17 @@ class Solution {
         }
 
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < nums2.length; j++) {
-                int sum = nums1[i] + nums2[j];
+        for (int num1 : nums1) {
+            for (int num2 : nums2) {
+                int sum = num1 + num2;
                 map.put(sum, map.getOrDefault(sum, 0) + 1);
             }
         }
 
         int count = 0;
-        for (int i = 0; i < nums3.length; i++) {
-            for (int j = 0; j < nums4.length; j++) {
-                int sum = nums3[i] + nums4[j];
+        for (int num3 : nums3) {
+            for (int num4 : nums4) {
+                int sum = num3 + num4;
                 if (map.containsKey(-sum)) {
                     count += map.get(-sum);
                 }
