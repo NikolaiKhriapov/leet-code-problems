@@ -7,19 +7,18 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         list.add(nums[0]);
         for (int i = 1; i < nums.length; i++) {
-            int num = nums[i];
-            if (num > list.get(list.size() - 1)) {
-                list.add(num);
+            if (nums[i] > list.get(list.size() - 1)) {
+                list.add(nums[i]);
             } else {
-                int index = binarySearch(list, num);
-                // int index = Collections.binarySearch(list, num);
+                int index = binarySearch(list, nums[i]);
+                // int index = Collections.binarySearch(list, nums[i]);
                 // if (index < 0) {
                 //     index = -index - 1;
                 // }
-                list.set(index, num);
+                list.set(index, nums[i]);
             }
         }
-        return list.size();
+        return list.size();        
     }
 
     private int binarySearch(List<Integer> list, int target) {
@@ -36,3 +35,6 @@ class Solution {
         return left;
     }
 }
+
+// [10,9,2,5,3,7,101,18]
+// 2,3,7,18
