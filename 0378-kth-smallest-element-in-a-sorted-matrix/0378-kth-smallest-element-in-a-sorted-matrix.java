@@ -1,6 +1,6 @@
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0 || k <= 0) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
