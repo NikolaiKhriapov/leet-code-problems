@@ -1,19 +1,16 @@
 class Solution {
     public boolean increasingTriplet(int[] nums) {
-        if (nums == null) {
+        if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input");
-        }
-        if (nums.length < 3) {
-            return false;
         }
 
         int first = Integer.MAX_VALUE;
         int second = Integer.MAX_VALUE;
         for (int num : nums) {
-            if (num <= first) {
-                first = num;
-            } else if (num <= second) {
+            if (num <= second) {
                 second = num;
+            } else if (num <= first) {
+                first = num;
             } else {
                 return true;
             }
@@ -22,10 +19,5 @@ class Solution {
     }
 }
 
-// [2,1,5,0,4,6]
-// 2, -
-// 1, -
-// 1, 5
-// 1, 5
-// 0, 4
-// 0, 4, 6
+// a = 1
+// b = Integer.MAX_VALUE
