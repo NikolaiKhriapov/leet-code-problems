@@ -41,9 +41,8 @@ class Node {
 class Solution {
     public Node construct(int[][] grid) {
         if (grid == null || grid.length == 0 || grid.length != grid[0].length) {
-            throw new IllegalArgumentException("Invalid input");
+            throw new IllegalArgumentException("Invalind input");
         }
-
         return construct(grid, 0, 0, grid.length);
     }
 
@@ -51,7 +50,7 @@ class Solution {
         if (isLeaf(grid, row, col, size)) {
             return new Node(grid[row][col] == 1, true);
         }
-        
+
         int halfSize = size / 2;
         return new Node(
             false,
