@@ -4,30 +4,27 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int[] citationsCount = countCitations(citations);
-        return getHIndex(citationsCount);
-    }
-
-    private int[] countCitations(int[] citations) {
-        int[] result = new int[citations.length + 1];
+        int[] citationsCount = new int[citations.length + 1];
         for (int citation : citations) {
-            if (citation >= result.length) {
-                result[result.length - 1]++;
+            if (citation > citations.length) {
+                citationsCount[citations.length]++;
             } else {
-                result[citation]++;
+                citationsCount[citation]++;
             }
         }
-        return result;
-    }
-
-    private int getHIndex(int[] citationsCount) {
-        int count = 0;
+        
+        int currSum = 0;
         for (int i = citationsCount.length - 1; i >= 1; i--) {
-            count += citationsCount[i];
-            if (count >= i) {
+            currSum += citationsCount[i];
+            if (currSum >= i) {
                 return i;
             }
         }
-        return count;
+        return 0;
     }
 }
+
+// [3,0,6,1,5]
+// [0,1,2,3,4,5]
+// [1,1,0,1,0,2]
+// [1,1,0,3,2,2]
