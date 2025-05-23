@@ -1,9 +1,6 @@
 class Solution {
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
-        if (
-            nums1 == null || nums2 == null || nums3 == null || nums4 == null ||
-            nums1.length == 0 || nums2.length == 0 || nums3.length == 0 || nums4.length == 0
-        ) {
+        if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0 || nums3 == null || nums3.length == 0 || nums4 == null || nums4.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
@@ -19,10 +16,11 @@ class Solution {
         for (int i = 0; i < nums3.length; i++) {
             for (int j = 0; j < nums4.length; j++) {
                 int sum = nums3[i] + nums4[j];
-                count += map.getOrDefault(-sum, 0);
+                if (map.containsKey(-sum)) {
+                    count += map.get(-sum);
+                }
             }
         }
-
-        return count;
+        return count;       
     }
 }
