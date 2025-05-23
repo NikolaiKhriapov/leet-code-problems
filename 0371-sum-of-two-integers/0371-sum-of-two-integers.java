@@ -9,3 +9,7 @@ class Solution {
         return a;
     }
 }
+
+// a = 0010, b = 0011
+// a = 0001, b = 0100
+// a = 0101, b = 0000
