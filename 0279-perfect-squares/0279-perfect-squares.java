@@ -1,7 +1,7 @@
 class Solution {
     public int numSquares(int n) {
-        if (n < 0) {
-            throw new IllegalArgumentException("Invalid input");
+        if (n <= 0) {
+            return 0;
         }
 
         int[] dp = new int[n + 1];
@@ -15,9 +15,10 @@ class Solution {
             }
         }
 
-        return dp[n];     
+        return dp[n];
     }
 }
 
+// [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 // [0,12,12,12,12,12,12,12,12,12,12,12,12]
 // [0, 1, 2, 3, 1, 2, 3, 4, 2, 1, 2, 3, 3]
