@@ -1,5 +1,8 @@
 class Solution {
     public int snakesAndLadders(int[][] board) {
+        if (board == null || board.length == 0 || board.length != board[0].length) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         Queue<Integer> q = new LinkedList<>();
         boolean[] visited = new boolean[board.length * board.length + 1];
