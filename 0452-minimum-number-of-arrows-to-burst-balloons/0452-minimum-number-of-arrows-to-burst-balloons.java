@@ -6,18 +6,14 @@ class Solution {
 
         Arrays.sort(points, (a, b) -> Integer.compare(a[1], b[1]));
 
-        int right = points[0][1];
+        int target = points[0][1];
         int arrows = 1;
         for (int[] point : points) {
-            if (point[0] > right) {
+            if (point[0] > target) {
                 arrows++;
-                right = point[1];
+                target = point[1];
             }
         }
-
         return arrows;
     }
 }
-
-// [10,16],[2,8],[1,6],[7,12]
-// [1,6],[2,8],[7,12],[10,16]
