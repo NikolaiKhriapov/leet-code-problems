@@ -1,8 +1,5 @@
 class Solution {
     public int snakesAndLadders(int[][] board) {
-        if (board == null || board.length == 0 || board.length != board[0].length) {
-            throw new IllegalArgumentException("Invalid input");
-        }
 
         Queue<Integer> q = new LinkedList<>();
         boolean[] visited = new boolean[board.length * board.length + 1];
@@ -19,8 +16,8 @@ class Solution {
                 for (int i = 1; i <= 6 && curr + i <= board.length * board.length; i++) {
                     int next = curr + i;
                     int[] nextCoord = getCoordinates(next, board.length);
-                    int value = board[nextCoord[0]][nextCoord[1]];
-                    if (value != -1) next = value;
+                    int val = board[nextCoord[0]][nextCoord[1]];
+                    if (val != -1) next = val;
                     if (!visited[next]) {
                         q.add(next);
                         visited[next] = true;
@@ -29,7 +26,6 @@ class Solution {
             }
             count++;
         }
-
         return -1;
     }
 
