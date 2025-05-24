@@ -15,15 +15,15 @@ class Solution {
         }
 
         ListNode evenHead = head.next;
-        ListNode odd = head;
-        ListNode even = evenHead;
-        while (even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
+        ListNode oddTail = head;
+        ListNode evenTail = evenHead;
+        while (evenTail != null && evenTail.next != null) {
+            oddTail.next = evenTail.next;
+            oddTail = oddTail.next;
+            evenTail.next = oddTail.next;
+            evenTail = evenTail.next;
         }
-        odd.next = evenHead;
+        oddTail.next = evenHead;
         return head;
     }
 }
