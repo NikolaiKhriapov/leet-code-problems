@@ -1,10 +1,7 @@
 class Solution {
     public void wiggleSort(int[] nums) {
-        if (nums == null) {
+        if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input");
-        }
-        if (nums.length <= 1) {
-            return;
         }
 
         int[] sorted = Arrays.copyOf(nums, nums.length);
@@ -15,6 +12,6 @@ class Solution {
         
         for (int i = 0; i < nums.length; i++) {
             nums[i] = (i % 2 == 0) ? sorted[left--] : sorted[right--];
-        }
+        }        
     }
 }
