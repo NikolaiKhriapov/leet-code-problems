@@ -14,11 +14,11 @@ class Solution {
     }
     
     public int[] shuffle() {
-        for (int i = array.length - 1; i >= 0; i--) {
-            int randomIndex = RANDOM.nextInt(i + 1);
+        for (int i = array.length - 1; i > 0; i--) {
+            int index = RANDOM.nextInt(i + 1);
             int temp = array[i];
-            array[i] = array[randomIndex];
-            array[randomIndex] = temp;
+            array[i] = array[index];
+            array[index] = temp;
         }
         return array;
     }
