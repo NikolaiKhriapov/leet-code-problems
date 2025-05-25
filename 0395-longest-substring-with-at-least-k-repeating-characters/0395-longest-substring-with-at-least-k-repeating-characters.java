@@ -7,6 +7,10 @@ class Solution {
     }
 
     private int longestSubstring(String s, int k, int left, int right) {
+        if (right - left < k) {
+            return 0;
+        }
+
         Map<Character, Integer> map = new HashMap<>();
         for (int i = left; i < right; i++) {
             char c = s.charAt(i);
@@ -25,11 +29,13 @@ class Solution {
             }
         }
 
-        if (isGood) return right - left;
+        if (isGood) {
+            return right - left;
+        }
+
         if (right > start) {
             currentLongest = Math.max(currentLongest, longestSubstring(s, k, start, right));
         }
-
         return currentLongest;
     }
 }
