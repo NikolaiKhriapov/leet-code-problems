@@ -1,8 +1,5 @@
 class Solution {
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-        // if (equations.size() != values.length) {
-        //     throw new IllegalArgumentException("Invalid input");
-        // }
 
         Map<String, Map<String, Double>> graph = buildGraph(equations, values);
         return calcQueries(graph, queries);
@@ -26,36 +23,38 @@ class Solution {
         return graph;
     }
 
-    private double[] calcQueries(Map<String, Map<String, Double>> graph, List<List<String>> queries) {
-        double[] results = new double[queries.size()];
-        for (int i = 0; i < queries.size(); i++) {
-            String first = queries.get(i).get(0);
-            String second = queries.get(i).get(1);
-            results[i] = calcQuery(first, second, graph);
+    private double[] calcQueries(Map<String, Map<String, Double>> graph, List<List<String>> equations) {
+        double[] result = new double[equations.size()];
+        for (int i = 0; i < equations.size(); i++) {
+            String first = equations.get(i).get(0);
+            String second = equations.get(i).get(1);
+            result[i] = calcQuery(graph, first, second, new HashSet<>(), 1.0);
         }
-        return results;
+        return result;
     }
 
-    private double calcQuery(String first, String second, Map<String, Map<String, Double>> graph) {
+    private double calcQuery(Map<String, Map<String, Double>> graph, String first, String second, Set<String> visited, double product) {
         if (!graph.containsKey(first) || !graph.containsKey(second)) return -1.0;
         if (Objects.equals(first, second)) return 1.0;
-
-        return calcQuery(first, second, graph, new HashSet<>(), 1.0);
-    }
-
-    private double calcQuery(String first, String second, Map<String, Map<String, Double>> graph, Set<String> visited, double product) {
         visited.add(first);
 
         Map<String, Double> neighbors = graph.get(first);
+        
         if (neighbors.containsKey(second)) {
             return product * neighbors.get(second);
         }
-        for (var entry : neighbors.entrySet()) {
-            String next = entry.getKey();
+
+        for (var neighbor : neighbors.entrySet()) {
+            String next = neighbor.getKey();
             if (visited.contains(next)) continue;
-            double result = calcQuery(next, second, graph, visited, product * entry.getValue());
+            double result = calcQuery(graph, next, second, visited, product * neighbor.getValue());
             if (result != -1.0) return result;
         }
+
         return -1.0;
     }
+
 }
+
+// equations = [["a","b"],["b","c"]], values = [2.0,3.0]
+// queries =   [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
