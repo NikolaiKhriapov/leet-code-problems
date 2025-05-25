@@ -40,9 +40,6 @@ class Node {
 
 class Solution {
     public Node construct(int[][] grid) {
-        if (grid == null || grid.length == 0 || grid.length != grid[0].length) {
-            throw new IllegalArgumentException("Invalind input");
-        }
         return construct(grid, 0, 0, grid.length);
     }
 
