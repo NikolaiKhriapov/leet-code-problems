@@ -4,31 +4,34 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Queue<Integer> q = new LinkedList<>();
-        boolean[] visited = new boolean[board.length * board.length + 1];
+        Queue<Integer> queue = new LinkedList<>();
+        Set<Integer> visited = new HashSet<>();
 
-        q.add(1);
-        visited[1] = true;
+        queue.add(1);
+        visited.add(1);
 
         int count = 0;
-        while (!q.isEmpty()) {
-            int size = q.size();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
             while (size-- > 0) {
-                int curr = q.poll();
-                if (curr == board.length * board.length) return count;
+                int curr = queue.poll();
+                if (curr == board.length * board.length) {
+                    return count;
+                }
                 for (int i = 1; i <= 6 && curr + i <= board.length * board.length; i++) {
                     int next = curr + i;
                     int[] nextCoord = getCoordinates(next, board.length);
-                    int val = board[nextCoord[0]][nextCoord[1]];
-                    if (val != -1) next = val;
-                    if (!visited[next]) {
-                        q.add(next);
-                        visited[next] = true;
+                    int value = board[nextCoord[0]][nextCoord[1]];
+                    if (value != -1) next = value;
+                    if (!visited.contains(next)) {
+                        queue.add(next);
+                        visited.add(next);
                     }
                 }
             }
             count++;
         }
+        
         return -1;
     }
 
