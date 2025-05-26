@@ -26,7 +26,7 @@ public class NestedIterator implements Iterator<Integer> {
     @Override
     public Integer next() {
         if (!hasNext()) {
-            throw new RuntimeException("Stack is empty");
+            throw new RuntimeException("Empty stack");
         }
         return stack.pop().getInteger();
     }
