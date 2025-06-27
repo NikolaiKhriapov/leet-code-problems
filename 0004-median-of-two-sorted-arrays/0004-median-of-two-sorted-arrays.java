@@ -17,7 +17,6 @@ class Solution {
                 nums[p++] = nums2[p2++];
             }
         }
-        System.out.println(Arrays.toString(nums));
 
         if (nums.length % 2 != 0) {
             return nums[nums.length / 2];
