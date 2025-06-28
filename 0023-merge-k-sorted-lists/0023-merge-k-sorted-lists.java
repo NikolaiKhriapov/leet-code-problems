@@ -14,7 +14,7 @@ class Solution {
             return null;
         }
 
-        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> a.val - b.val);
+        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.val, b.val));
         
         for (ListNode node : lists) {
             if (node != null) {
