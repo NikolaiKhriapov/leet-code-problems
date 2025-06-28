@@ -19,7 +19,6 @@ class Solution {
         for (ListNode node : lists) {
             if (node != null) {
                 pq.add(node);
-                node = node.next;
             }
         }
 
