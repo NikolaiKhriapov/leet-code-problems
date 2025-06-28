@@ -74,6 +74,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0020-valid-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0020-valid-parentheses) |
+| [0042-trapping-rain-water](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0042-trapping-rain-water) |
 | [0071-simplify-path](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0071-simplify-path) |
 | [0094-binary-tree-inorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0094-binary-tree-inorder-traversal) |
 | [0114-flatten-binary-tree-to-linked-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0114-flatten-binary-tree-to-linked-list) |
@@ -255,6 +256,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0036-valid-sudoku](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0036-valid-sudoku) |
 | [0039-combination-sum](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0039-combination-sum) |
 | [0041-first-missing-positive](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0041-first-missing-positive) |
+| [0042-trapping-rain-water](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0042-trapping-rain-water) |
 | [0045-jump-game-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0045-jump-game-ii) |
 | [0046-permutations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0046-permutations) |
 | [0048-rotate-image](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0048-rotate-image) |
@@ -377,6 +379,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0026-remove-duplicates-from-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0026-remove-duplicates-from-sorted-array) |
 | [0027-remove-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0027-remove-element) |
 | [0028-find-the-index-of-the-first-occurrence-in-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0028-find-the-index-of-the-first-occurrence-in-a-string) |
+| [0042-trapping-rain-water](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0042-trapping-rain-water) |
 | [0061-rotate-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0061-rotate-list) |
 | [0075-sort-colors](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0075-sort-colors) |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
@@ -724,6 +727,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0005-longest-palindromic-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0005-longest-palindromic-substring) |
 | [0010-regular-expression-matching](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0010-regular-expression-matching) |
 | [0022-generate-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0022-generate-parentheses) |
+| [0042-trapping-rain-water](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0042-trapping-rain-water) |
 | [0045-jump-game-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0045-jump-game-ii) |
 | [0053-maximum-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0053-maximum-subarray) |
 | [0055-jump-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0055-jump-game) |
@@ -791,6 +795,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Monotonic Stack
 |  |
 | ------- |
+| [0042-trapping-rain-water](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0042-trapping-rain-water) |
 | [0496-next-greater-element-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0496-next-greater-element-i) |
 | [1570-final-prices-with-a-special-discount-in-a-shop](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1570-final-prices-with-a-special-discount-in-a-shop) |
 ## Queue
