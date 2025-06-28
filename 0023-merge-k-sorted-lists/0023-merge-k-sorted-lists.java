@@ -15,25 +15,27 @@ class Solution {
         }
 
         PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.val, b.val));
-        
+
         for (ListNode node : lists) {
             if (node != null) {
                 pq.add(node);
+                node = node.next;
             }
         }
 
-        ListNode dummyHead = new ListNode();
-        ListNode dummy = dummyHead;
+        ListNode dummy = new ListNode();
+        ListNode dummyTail = dummy;
 
         while (!pq.isEmpty()) {
             ListNode minNode = pq.poll();
-            dummy.next = minNode;
-            dummy = dummy.next;
+            dummyTail.next = minNode;
+            dummyTail = dummyTail.next;
             if (minNode.next != null) {
-                pq.add(minNode.next);
+                minNode = minNode.next;
+                pq.add(minNode);
             }
         }
 
-        return dummyHead.next;
+        return dummy.next;
     }
 }
