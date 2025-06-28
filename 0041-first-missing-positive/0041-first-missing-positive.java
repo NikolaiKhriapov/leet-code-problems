@@ -10,7 +10,7 @@ class Solution {
         }
 
         int result = 1;
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length + 1; i++) {
             if (!set.contains(result)) {
                 return result;
             }
