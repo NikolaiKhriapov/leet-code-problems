@@ -1,5 +1,8 @@
 class Solution {
     public int totalNQueens(int n) {
+        if (n <= 0) {
+            return 0;
+        }
         
         boolean[][] board = new boolean[n][n];
         int[] count = new int[]{0};
