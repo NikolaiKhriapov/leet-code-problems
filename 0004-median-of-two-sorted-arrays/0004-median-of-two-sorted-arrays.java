@@ -1,6 +1,6 @@
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        if (nums1 == null || nums2 == null) {
+        if (nums1 == null || nums2 == null || (nums1.length == 0 && nums2.length == 0)) {
             throw new IllegalArgumentException("Invalid input");
         }
 
