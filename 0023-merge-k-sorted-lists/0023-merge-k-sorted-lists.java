@@ -10,29 +10,29 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists == null) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-        if (lists.length == 0) {
+        if (lists == null || lists.length == 0) {
             return null;
         }
 
         PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> a.val - b.val);
         
         for (ListNode node : lists) {
-            while (node != null) {
+            if (node != null) {
                 pq.add(node);
-                node = node.next;
             }
         }
 
         ListNode dummyHead = new ListNode();
         ListNode dummy = dummyHead;
+
         while (!pq.isEmpty()) {
-            dummy.next = pq.poll();
+            ListNode minNode = pq.poll();
+            dummy.next = minNode;
             dummy = dummy.next;
+            if (minNode.next != null) {
+                pq.add(minNode.next);
+            }
         }
-        dummy.next = null;
 
         return dummyHead.next;
     }
