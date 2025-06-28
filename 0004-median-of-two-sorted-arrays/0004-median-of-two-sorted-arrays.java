@@ -4,12 +4,13 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        if (nums1.length > nums2.length) {
+        if (nums2.length < nums1.length) {
             return findMedianSortedArrays(nums2, nums1);
         }
 
         int left = 0;
         int right = nums1.length;
+
         while (left <= right) {
             int p1 = (left + right) / 2;
             int p2 = (nums1.length + nums2.length + 1) / 2 - p1;
@@ -23,19 +24,17 @@ class Solution {
             if (maxLeft1 <= minRight2 && maxLeft2 <= minRight1) {
                 if ((nums1.length + nums2.length) % 2 == 0) {
                     return (Math.max(maxLeft1, maxLeft2) + Math.min(minRight1, minRight2)) / 2.0;
-                } else {
-                    return Math.max(maxLeft1, maxLeft2);
                 }
-            } else if (maxLeft1 < minRight2) {
-                left = p1 + 1;
-            } else {
+                return Math.max(maxLeft1, maxLeft2);
+            } else if (maxLeft1 > minRight2) {
                 right = p1 - 1;
+            } else {
+                left = p1 + 1;
             }
         }
         
-        throw new IllegalArgumentException("Input arrays are not sorted");
+        throw new IllegalArgumentException("Invalid input");
     }
 }
 
-// [1,2,3,4,5,6,7,8,9], [5,6,7,8,9]
-//          -                  -
+// [1,2,3,4,5,6,7,8,9], []
