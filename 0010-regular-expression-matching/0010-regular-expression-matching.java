@@ -1,5 +1,8 @@
 class Solution {
     public boolean isMatch(String s, String p) {
+        if (s == null || p == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
         Boolean[][] memo = new Boolean[s.length() + 1][p.length() + 1];
         return isMatch(s, p, 0, 0, memo);
     }
@@ -14,12 +17,12 @@ class Solution {
             return memo[ps][pp];
         }
 
-        boolean isFirstMatch = ps < s.length() && (s.charAt(ps) == p.charAt(pp) || p.charAt(pp) == '.');
+        boolean isFirstCharMatch = ps < s.length() && (s.charAt(ps) == p.charAt(pp) || p.charAt(pp) == '.');
 
         if (pp + 1 < p.length() && p.charAt(pp + 1) == '*') {
-            memo[ps][pp] = isMatch(s, p, ps, pp + 2, memo) || (isFirstMatch && isMatch(s, p, ps + 1, pp, memo));
+            memo[ps][pp] = isMatch(s, p, ps, pp + 2, memo) || (isFirstCharMatch && isMatch(s, p, ps + 1, pp, memo));
         } else {
-            memo[ps][pp] = isFirstMatch && isMatch(s, p, ps + 1, pp + 1, memo);
+            memo[ps][pp] = isFirstCharMatch && isMatch(s, p, ps + 1, pp + 1, memo);
         }
         return memo[ps][pp];
     }
