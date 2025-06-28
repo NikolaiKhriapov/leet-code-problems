@@ -14,27 +14,29 @@ class Solution {
             return null;
         }
 
-        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.val, b.val));
-
-        for (ListNode node : lists) {
-            if (node != null) {
-                pq.add(node);
-            }
+        ListNode result = lists[0];
+        for (int i = 1; i < lists.length; i++) {
+            result = mergeTwoLists(result, lists[i]);
         }
+        return result;
+    }
 
-        ListNode dummy = new ListNode();
-        ListNode dummyTail = dummy;
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode();
+        ListNode dummy = dummyHead;
 
-        while (!pq.isEmpty()) {
-            ListNode minNode = pq.poll();
-            dummyTail.next = minNode;
-            dummyTail = dummyTail.next;
-            if (minNode.next != null) {
-                minNode = minNode.next;
-                pq.add(minNode);
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                dummy.next = l1;
+                l1 = l1.next;
+            } else {
+                dummy.next = l2;
+                l2 = l2.next;
             }
+            dummy = dummy.next;
         }
+        dummy.next = (l1 != null) ? l1 : l2;
 
-        return dummy.next;
+        return dummyHead.next;
     }
 }
