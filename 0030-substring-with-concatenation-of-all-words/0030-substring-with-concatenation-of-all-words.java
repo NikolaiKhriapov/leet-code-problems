@@ -12,39 +12,34 @@ class Solution {
 
         int wordLength = words[0].length();
         int wordsCount = words.length;
-
         for (int i = 0; i < wordLength; i++) {
-            int left = i;
-            int right = i;
-            int count = 0;
             Map<String, Integer> mapSeen = new HashMap<>();
-
+            int left = i;
+            int right = left;
+            int count = 0;
             while (right + wordLength <= s.length()) {
-                String newWord = s.substring(right, right + wordLength);
+                String nextWord = s.substring(right, right + wordLength);
                 right += wordLength;
-
-                if (mapWords.containsKey(newWord)) {
-                    mapSeen.put(newWord, mapSeen.getOrDefault(newWord, 0) + 1);
+                if (mapWords.containsKey(nextWord)) {
+                    mapSeen.put(nextWord, mapSeen.getOrDefault(nextWord, 0) + 1);
                     count++;
-                    
-                    while (mapSeen.get(newWord) > mapWords.get(newWord)) {
+                    while (mapSeen.get(nextWord) > mapWords.get(nextWord)) {
                         String leftWord = s.substring(left, left + wordLength);
-                        left += wordLength;
                         mapSeen.put(leftWord, mapSeen.get(leftWord) - 1);
+                        left += wordLength;
                         count--;
                     }
-
                     if (count == wordsCount) {
                         result.add(left);
                     }
                 } else {
-                    left = right;
                     count = 0;
                     mapSeen = new HashMap<>();
+                    left = right;
                 }
             }
         }
-        
+
         return result;
     }
 }
