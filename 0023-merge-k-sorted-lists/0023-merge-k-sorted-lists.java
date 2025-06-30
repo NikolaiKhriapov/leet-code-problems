@@ -14,29 +14,25 @@ class Solution {
             return null;
         }
 
-        ListNode result = lists[0];
-        for (int i = 1; i < lists.length; i++) {
-            result = mergeTwoLists(result, lists[i]);
-        }
-        return result;
-    }
+        ListNode dummy = new ListNode();
+        ListNode dummyTail = dummy;
 
-    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummyHead = new ListNode();
-        ListNode dummy = dummyHead;
-
-        while (l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                dummy.next = l1;
-                l1 = l1.next;
-            } else {
-                dummy.next = l2;
-                l2 = l2.next;
+        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.val, b.val));
+        for (ListNode list : lists) {
+            if (list != null) {
+                pq.add(list);
             }
-            dummy = dummy.next;
         }
-        dummy.next = (l1 != null) ? l1 : l2;
+        
+        while (!pq.isEmpty()) {
+            ListNode min = pq.poll();
+            dummyTail.next = min;
+            dummyTail = dummyTail.next;
+            if (min.next != null) {
+                pq.add(min.next);
+            }
+        }
 
-        return dummyHead.next;
+        return dummy.next;
     }
 }
