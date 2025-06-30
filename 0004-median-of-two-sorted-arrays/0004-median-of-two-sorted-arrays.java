@@ -3,14 +3,13 @@ class Solution {
         if (nums1 == null || nums2 == null || (nums1.length == 0 && nums2.length == 0)) {
             throw new IllegalArgumentException("Invalid input");
         }
-
+        
         if (nums2.length < nums1.length) {
             return findMedianSortedArrays(nums2, nums1);
         }
 
         int left = 0;
         int right = nums1.length;
-
         while (left <= right) {
             int p1 = (left + right) / 2;
             int p2 = (nums1.length + nums2.length + 1) / 2 - p1;
@@ -32,9 +31,10 @@ class Solution {
                 left = p1 + 1;
             }
         }
-        
-        throw new IllegalArgumentException("Invalid input");
+
+        throw new IllegalArgumentException("Invalid input: input array is not sorted");
     }
 }
 
-// [1,2,3,4,5,6,7,8,9], []
+// [1,2,3,4,5,6,7,8,9], [5,6,7,8,9]
+//          -                  -
