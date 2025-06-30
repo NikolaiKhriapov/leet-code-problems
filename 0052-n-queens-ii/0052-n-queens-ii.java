@@ -1,29 +1,25 @@
 class Solution {
-    private int count = 0;
-
     public int totalNQueens(int n) {
         if (n <= 0) {
             return 0;
         }
-
-        boolean[][] board = new boolean[n][n];
-        helper(board, n, 0);
-        return count;
+        return helper(new boolean[n][n], n, 0);
     }
 
-    private void helper(boolean[][] board, int n, int row) {
+    private int helper(boolean[][] board, int n, int row) {
         if (row == n) {
-            count++;
-            return;
+            return 1;
         }
         
+        int count = 0;
         for (int col = 0; col < n; col++) {
             if (isSafe(board, row, col)) {
                 board[row][col] = true;
-                helper(board, n, row + 1);
+                count += helper(board, n, row + 1);
                 board[row][col] = false;
             }
         }
+        return count;
     }
 
     private boolean isSafe(boolean[][] board, int row, int col) {
