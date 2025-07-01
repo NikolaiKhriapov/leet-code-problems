@@ -5,18 +5,19 @@ class Solution {
         }
 
         List<Integer> result = new ArrayList<>();
+        
         Map<String, Integer> mapWords = new HashMap<>();
         for (String word : words) {
             mapWords.put(word, mapWords.getOrDefault(word, 0) + 1);
         }
 
         int wordLength = words[0].length();
-        int wordsCount = words.length;
+
         for (int i = 0; i < wordLength; i++) {
             Map<String, Integer> mapSeen = new HashMap<>();
+            int count = 0;
             int left = i;
             int right = left;
-            int count = 0;
             while (right + wordLength <= s.length()) {
                 String nextWord = s.substring(right, right + wordLength);
                 right += wordLength;
@@ -25,17 +26,17 @@ class Solution {
                     count++;
                     while (mapSeen.get(nextWord) > mapWords.get(nextWord)) {
                         String leftWord = s.substring(left, left + wordLength);
-                        mapSeen.put(leftWord, mapSeen.get(leftWord) - 1);
                         left += wordLength;
+                        mapSeen.put(leftWord, mapSeen.get(leftWord) - 1);
                         count--;
                     }
-                    if (count == wordsCount) {
+                    if (count == words.length) {
                         result.add(left);
                     }
                 } else {
-                    count = 0;
                     mapSeen = new HashMap<>();
                     left = right;
+                    count = 0;
                 }
             }
         }
