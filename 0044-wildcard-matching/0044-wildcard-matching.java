@@ -15,14 +15,15 @@ class Solution {
             memo[ps][pp] = ps >= s.length();
             return memo[ps][pp];
         }
-
-        boolean isFirstCharMatch = ps < s.length() && (s.charAt(ps) == p.charAt(pp) || p.charAt(pp) == '?');
+        
+        boolean isFirstCharMatch = ps < s.length() && (p.charAt(pp) == s.charAt(ps) || p.charAt(pp) == '?');
 
         if (p.charAt(pp) == '*') {
             memo[ps][pp] = (ps < s.length() && isMatch(s, p, ps + 1, pp, memo)) || isMatch(s, p, ps, pp + 1, memo);
         } else {
             memo[ps][pp] = isFirstCharMatch && isMatch(s, p, ps + 1, pp + 1, memo);
         }
+        
         return memo[ps][pp];
     }
 }
