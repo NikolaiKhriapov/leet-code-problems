@@ -10,8 +10,8 @@
  */
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null) {
-            return null;
+        if (head == null || k <= 1) {
+            return head;
         }
 
         ListNode dummy = new ListNode(0, head);
@@ -31,9 +31,11 @@ class Solution {
             end.next = null;
             prev.next = reverseList(start);
             start.next = nextStart;
+
             prev = start;
             end = prev;
         }
+
         return dummy.next;
     }
 
