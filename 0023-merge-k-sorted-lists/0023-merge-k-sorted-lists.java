@@ -16,20 +16,20 @@ class Solution {
 
         ListNode dummy = new ListNode();
         ListNode dummyTail = dummy;
-
+        
         PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.val, b.val));
         for (ListNode list : lists) {
             if (list != null) {
                 pq.add(list);
             }
         }
-        
+
         while (!pq.isEmpty()) {
-            ListNode min = pq.poll();
-            dummyTail.next = min;
+            ListNode minNode = pq.poll();
+            dummyTail.next = minNode;
             dummyTail = dummyTail.next;
-            if (min.next != null) {
-                pq.add(min.next);
+            if (minNode.next != null) {
+                pq.add(minNode.next);
             }
         }
 
