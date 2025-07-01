@@ -10,7 +10,7 @@ class Solution {
         if (row == n) {
             return 1;
         }
-        
+
         int count = 0;
         for (int col = 0; col < n; col++) {
             if (isSafe(board, row, col)) {
