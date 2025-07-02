@@ -18,7 +18,7 @@ class Solution {
 
         ListNode prev = dummy;
         ListNode end = dummy;
-        while (true) {
+        while(true) {
             for (int i = 0; i < k && end != null; i++) {
                 end = end.next;
             }
