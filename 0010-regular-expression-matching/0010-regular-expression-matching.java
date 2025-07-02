@@ -2,7 +2,7 @@ class Solution {
     public boolean isMatch(String s, String p) {
         if (s == null || p == null) {
             throw new IllegalArgumentException("Invalid input");
-        }
+        }        
         return isMatch(s, p, 0, 0, new Boolean[s.length() + 1][p.length() + 1]);
     }
 
