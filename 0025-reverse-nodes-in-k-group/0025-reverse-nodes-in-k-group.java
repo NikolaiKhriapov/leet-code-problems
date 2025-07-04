@@ -15,27 +15,25 @@ class Solution {
         }
 
         ListNode dummy = new ListNode(0, head);
-
+        
         ListNode prev = dummy;
         ListNode end = dummy;
-        while(true) {
+        while (true) {
             for (int i = 0; i < k && end != null; i++) {
                 end = end.next;
             }
             if (end == null) {
                 break;
             }
-
             ListNode start = prev.next;
             ListNode nextStart = end.next;
             end.next = null;
             prev.next = reverseList(start);
             start.next = nextStart;
-
             prev = start;
             end = prev;
         }
-
+        
         return dummy.next;
     }
 
