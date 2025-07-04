@@ -29,7 +29,7 @@ class Solution {
             }
         }
         
-        throw new IllegalArgumentException("Invalid input: one of arrays is not sorted");
+        throw new IllegalArgumentException("Invalid input: one of input arrays is not sorted");
     }
 }
 
