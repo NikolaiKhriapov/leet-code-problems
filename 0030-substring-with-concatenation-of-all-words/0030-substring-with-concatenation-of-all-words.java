@@ -18,6 +18,7 @@ class Solution {
             int count = 0;
             int left = i;
             int right = left;
+
             while (right + wordLength <= s.length()) {
                 String nextWord = s.substring(right, right + wordLength);
                 right += wordLength;
@@ -40,7 +41,7 @@ class Solution {
                 }
             }
         }
-
+        
         return result;
     }
 }
