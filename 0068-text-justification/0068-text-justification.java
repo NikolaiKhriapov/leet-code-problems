@@ -5,58 +5,55 @@ class Solution {
         int wordIndex = 0;
 
         while (wordIndex < words.length) {
-            int currLength = words[wordIndex].length();
             int firstWordIndex = wordIndex;
-            int lastWordIndex = wordIndex + 1;
+            int lastWordIndex = firstWordIndex + 1;
+            int currentWidth = words[firstWordIndex].length();
 
-            while (lastWordIndex < words.length && currLength + 1 + words[lastWordIndex].length() <= maxWidth) {
-                currLength += 1 + words[lastWordIndex].length();
+            while (lastWordIndex < words.length && currentWidth + 1 + words[lastWordIndex].length() <= maxWidth) {
+                currentWidth += 1 + words[lastWordIndex].length();
                 lastWordIndex++;
             }
 
             boolean isLastLine = lastWordIndex == words.length;
-            String line = buildLine(words, maxWidth, firstWordIndex, lastWordIndex - 1, currLength, isLastLine);
-            
+            String line = buildLine(words, maxWidth, firstWordIndex, lastWordIndex - 1, currentWidth, isLastLine);
             result.add(line);
+
             wordIndex = lastWordIndex;
         }
-        
-        return result;
+
+        return result;        
     }
 
-    private String buildLine(String[] words, int maxWidth, int firstWordIndex, int lastWordIndex, int currWidth, boolean isLastLine) {
-        StringBuilder line = new StringBuilder();
-        int numWords = lastWordIndex - firstWordIndex + 1;
-        
-        if (numWords == 1 || isLastLine) {
-            for (int w = firstWordIndex; w <= lastWordIndex; w++) {
-                line.append(words[w]);
-                if (w != lastWordIndex) {
-                    line.append(" ");
+    private String buildLine(String[] words, int maxWidth, int firstWordIndex, int lastWordIndex, int currentWidth, boolean isLastLine) {
+        StringBuilder sb = new StringBuilder();
+        if (isLastLine || firstWordIndex == lastWordIndex) {
+            for (int wordIndex = firstWordIndex; wordIndex <= lastWordIndex; wordIndex++) {
+                sb.append(words[wordIndex]);
+                if (wordIndex != lastWordIndex) {
+                    sb.append(" ");
                 }
             }
-            int remainingSpaces = maxWidth - line.length();
+            int remainingSpaces = maxWidth - currentWidth;
             while (remainingSpaces-- > 0) {
-                line.append(" ");
+                sb.append(" ");
             }
         } else {
-            int totalSpaces = maxWidth - (currWidth - (numWords - 1));
-            int spacesPerGap = totalSpaces / (numWords - 1);
-            int extraSpaces = totalSpaces % (numWords - 1);
-
-            for (int w = firstWordIndex; w <= lastWordIndex; w++) {
-                line.append(words[w]);
-                if (w != lastWordIndex) {
-                    for (int i = 0; i < spacesPerGap; i++) {
-                        line.append(" ");
+            int totalWords = lastWordIndex - firstWordIndex + 1;
+            int totalSpaces = maxWidth - currentWidth + (totalWords - 1);
+            int wordSpaces = totalSpaces / (totalWords - 1);
+            int extraSpaces = totalSpaces % (totalWords - 1);
+            for (int wordIndex = firstWordIndex; wordIndex <= lastWordIndex; wordIndex++) {
+                sb.append(words[wordIndex]);
+                if (wordIndex != lastWordIndex) {
+                    for (int i = 0; i < wordSpaces; i++) {
+                        sb.append(" ");
                     }
-                    if (extraSpaces-- > 0) {
-                        line.append(" ");
-                    }
+                }
+                if (extraSpaces-- > 0) {
+                    sb.append(" ");
                 }
             }
         }
-
-        return line.toString();
+        return sb.toString();
     }
 }
