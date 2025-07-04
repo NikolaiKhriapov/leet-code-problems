@@ -1,50 +1,53 @@
 class Solution {
     public List<String> fullJustify(String[] words, int maxWidth) {
-
-        List<String> result = new ArrayList<>();
-        int wordIndex = 0;
-
-        while (wordIndex < words.length) {
-            int firstWordIndex = wordIndex;
-            int lastWordIndex = firstWordIndex + 1;
-            int currentWidth = words[firstWordIndex].length();
-
-            while (lastWordIndex < words.length && currentWidth + 1 + words[lastWordIndex].length() <= maxWidth) {
-                currentWidth += 1 + words[lastWordIndex].length();
-                lastWordIndex++;
-            }
-
-            boolean isLastLine = lastWordIndex == words.length;
-            String line = buildLine(words, maxWidth, firstWordIndex, lastWordIndex - 1, currentWidth, isLastLine);
-            result.add(line);
-
-            wordIndex = lastWordIndex;
+        if (words == null || words.length == 0 || maxWidth <= 0) {
+            return new ArrayList<>();
         }
 
-        return result;        
+        List<String> result = new ArrayList<>();
+
+        int wordIndex = 0;
+        while (wordIndex < words.length) {
+            int leftWordIndex = wordIndex;
+            int rightWordIndex = leftWordIndex + 1;
+            int currWidth = words[leftWordIndex].length();
+
+            while (rightWordIndex < words.length && currWidth + 1 + words[rightWordIndex].length() <= maxWidth) {
+                currWidth += 1 + words[rightWordIndex].length();
+                rightWordIndex++;
+            }
+
+            boolean isLastLine = rightWordIndex == words.length;
+            String line = buildLine(words, maxWidth, currWidth, leftWordIndex, rightWordIndex - 1, isLastLine);
+            result.add(line);
+
+            wordIndex = rightWordIndex;
+        }
+        
+        return result;
     }
 
-    private String buildLine(String[] words, int maxWidth, int firstWordIndex, int lastWordIndex, int currentWidth, boolean isLastLine) {
+    private String buildLine(String[] words, int maxWidth, int currWidth, int leftWordIndex, int rightWordIndex, boolean isLastLine) {
         StringBuilder sb = new StringBuilder();
-        if (isLastLine || firstWordIndex == lastWordIndex) {
-            for (int wordIndex = firstWordIndex; wordIndex <= lastWordIndex; wordIndex++) {
+        if (isLastLine || leftWordIndex == rightWordIndex) {
+            for (int wordIndex = leftWordIndex; wordIndex <= rightWordIndex; wordIndex++) {
                 sb.append(words[wordIndex]);
-                if (wordIndex != lastWordIndex) {
+                if (wordIndex != rightWordIndex) {
                     sb.append(" ");
                 }
             }
-            int remainingSpaces = maxWidth - currentWidth;
+            int remainingSpaces = maxWidth - currWidth;
             while (remainingSpaces-- > 0) {
                 sb.append(" ");
             }
         } else {
-            int totalWords = lastWordIndex - firstWordIndex + 1;
-            int totalSpaces = maxWidth - currentWidth + (totalWords - 1);
+            int totalWords = rightWordIndex - leftWordIndex + 1;
+            int totalSpaces = maxWidth - currWidth + (totalWords - 1);
             int wordSpaces = totalSpaces / (totalWords - 1);
             int extraSpaces = totalSpaces % (totalWords - 1);
-            for (int wordIndex = firstWordIndex; wordIndex <= lastWordIndex; wordIndex++) {
+            for (int wordIndex = leftWordIndex; wordIndex <= rightWordIndex; wordIndex++) {
                 sb.append(words[wordIndex]);
-                if (wordIndex != lastWordIndex) {
+                if (wordIndex != rightWordIndex) {
                     for (int i = 0; i < wordSpaces; i++) {
                         sb.append(" ");
                     }
