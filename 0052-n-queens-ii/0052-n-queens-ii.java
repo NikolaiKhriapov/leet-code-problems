@@ -3,19 +3,19 @@ class Solution {
         if (n <= 0) {
             return 0;
         }
-        return helper(new boolean[n][n], n, 0);
+        return helper(new boolean[n][n], 0);
     }
 
-    private int helper(boolean[][] board, int n, int row) {
-        if (row == n) {
+    private int helper(boolean[][] board, int row) {
+        if (row == board.length) {
             return 1;
         }
 
         int count = 0;
-        for (int col = 0; col < n; col++) {
+        for (int col = 0; col < board.length; col++) {
             if (isSafe(board, row, col)) {
                 board[row][col] = true;
-                count += helper(board, n, row + 1);
+                count += helper(board, row + 1);
                 board[row][col] = false;
             }
         }
