@@ -1,6 +1,6 @@
 class Solution {
     public int trap(int[] height) {
-        if (height == null || height.length <= 1) {
+        if (height == null || height.length <= 2) {
             return 0;
         }
 
