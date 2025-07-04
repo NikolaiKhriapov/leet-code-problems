@@ -1,6 +1,6 @@
 class Solution {
     public int trap(int[] height) {
-        if (height == null || height.length == 0) {
+        if (height == null || height.length <= 1) {
             return 0;
         }
 
@@ -12,22 +12,22 @@ class Solution {
         int rightMax = height[right];
         while (left < right) {
             if (height[left] < height[right]) {
-                left++;
                 if (height[left] > leftMax) {
                     leftMax = height[left];
                 } else {
                     result += leftMax - height[left];
                 }
+                left++;
             } else {
-                right--;
                 if (height[right] > rightMax) {
                     rightMax = height[right];
                 } else {
                     result += rightMax - height[right];
                 }
+                right--;
             }
         }
         
-        return result;
+        return result;        
     }
 }
