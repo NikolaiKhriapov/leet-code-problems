@@ -1,8 +1,6 @@
 class Solution {
     public String minWindow(String s, String t) {
 
-        String result = "";
-
         Map<Character, Integer> mapChars = new HashMap<>();
         for (char c : t.toCharArray()) {
             mapChars.put(c, mapChars.getOrDefault(c, 0) + 1);
@@ -12,6 +10,8 @@ class Solution {
         int right = 0;
         int required = mapChars.size();
         int formed = 0;
+        int start = 0;
+        int minLength = Integer.MAX_VALUE;
 
         Map<Character, Integer> mapSeen = new HashMap<>();
 
@@ -24,8 +24,9 @@ class Solution {
                 }
             }
             while (formed == required) {
-                if (result.isEmpty() || result.length() > right - left) {
-                    result = s.substring(left, right + 1);
+                if (right - left + 1 < minLength) {
+                    minLength = right - left + 1;
+                    start = left;
                 }
                 char leftChar = s.charAt(left);
                 left++;
@@ -39,6 +40,6 @@ class Solution {
             right++;
         }
 
-        return result;
+        return minLength == Integer.MAX_VALUE ? "" : s.substring(start, start + minLength);
     }
 }
