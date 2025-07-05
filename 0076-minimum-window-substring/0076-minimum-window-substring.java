@@ -10,14 +10,20 @@ class Solution {
 
         int left = 0;
         int right = 0;
+        int required = mapChars.size();
+        int formed = 0;
 
         Map<Character, Integer> mapSeen = new HashMap<>();
+
         while (right < s.length()) {
             char c = s.charAt(right);
             if (mapChars.containsKey(c)) {
                 mapSeen.put(c, mapSeen.getOrDefault(c, 0) + 1);
+                if (Objects.equals(mapSeen.get(c), mapChars.get(c))) {
+                    formed++;
+                }
             }
-            while (isAllSeen(mapChars, mapSeen)) {
+            while (formed == required) {
                 if (result.isEmpty() || result.length() > right - left) {
                     result = s.substring(left, right + 1);
                 }
@@ -25,20 +31,14 @@ class Solution {
                 left++;
                 if (mapSeen.containsKey(leftChar)) {
                     mapSeen.put(leftChar, mapSeen.get(leftChar) - 1);
+                    if (mapSeen.get(leftChar) < mapChars.get(leftChar)) {
+                        formed--;
+                    }
                 }
             }
             right++;
         }
 
         return result;
-    }
-
-    private boolean isAllSeen(Map<Character, Integer> mapChars, Map<Character, Integer> mapSeen) {
-        for (Character key : mapChars.keySet()) {
-            if (!mapSeen.containsKey(key) || mapSeen.get(key) < mapChars.get(key)) {
-                return false;
-            }
-        }
-        return true;
     }
 }
