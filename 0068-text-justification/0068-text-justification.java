@@ -5,34 +5,32 @@ class Solution {
         }
 
         List<String> result = new ArrayList<>();
-
+        
         int wordIndex = 0;
         while (wordIndex < words.length) {
-            int leftWordIndex = wordIndex;
-            int rightWordIndex = leftWordIndex + 1;
-            int currWidth = words[leftWordIndex].length();
-
-            while (rightWordIndex < words.length && currWidth + 1 + words[rightWordIndex].length() <= maxWidth) {
-                currWidth += 1 + words[rightWordIndex].length();
-                rightWordIndex++;
+            int firstWordIndex = wordIndex;
+            int lastWordIndex = firstWordIndex + 1;
+            int currWidth = words[firstWordIndex].length();
+            while (lastWordIndex < words.length && currWidth + 1 + words[lastWordIndex].length() <= maxWidth) {
+                currWidth += 1 + words[lastWordIndex].length();
+                lastWordIndex++;
             }
-
-            boolean isLastLine = rightWordIndex == words.length;
-            String line = buildLine(words, maxWidth, currWidth, leftWordIndex, rightWordIndex - 1, isLastLine);
+            boolean isLastLine = lastWordIndex == words.length;
+            String line = buildLine(words, maxWidth, currWidth, firstWordIndex, lastWordIndex - 1, isLastLine);
             result.add(line);
-
-            wordIndex = rightWordIndex;
+            wordIndex = lastWordIndex;
         }
-        
+
         return result;
     }
 
-    private String buildLine(String[] words, int maxWidth, int currWidth, int leftWordIndex, int rightWordIndex, boolean isLastLine) {
+    private String buildLine(String[] words, int maxWidth, int currWidth, int firstWordIndex, int lastWordIndex, boolean isLastLine) {
         StringBuilder sb = new StringBuilder();
-        if (isLastLine || leftWordIndex == rightWordIndex) {
-            for (int wordIndex = leftWordIndex; wordIndex <= rightWordIndex; wordIndex++) {
+        boolean isSingleWord = lastWordIndex == firstWordIndex;
+        if (isLastLine || isSingleWord) {
+            for (int wordIndex = firstWordIndex; wordIndex <= lastWordIndex; wordIndex++) {
                 sb.append(words[wordIndex]);
-                if (wordIndex != rightWordIndex) {
+                if (wordIndex != lastWordIndex) {
                     sb.append(" ");
                 }
             }
@@ -41,13 +39,13 @@ class Solution {
                 sb.append(" ");
             }
         } else {
-            int totalWords = rightWordIndex - leftWordIndex + 1;
+            int totalWords = lastWordIndex - firstWordIndex + 1;
             int totalSpaces = maxWidth - currWidth + (totalWords - 1);
             int wordSpaces = totalSpaces / (totalWords - 1);
             int extraSpaces = totalSpaces % (totalWords - 1);
-            for (int wordIndex = leftWordIndex; wordIndex <= rightWordIndex; wordIndex++) {
+            for (int wordIndex = firstWordIndex; wordIndex <= lastWordIndex; wordIndex++) {
                 sb.append(words[wordIndex]);
-                if (wordIndex != rightWordIndex) {
+                if (wordIndex != lastWordIndex) {
                     for (int i = 0; i < wordSpaces; i++) {
                         sb.append(" ");
                     }
