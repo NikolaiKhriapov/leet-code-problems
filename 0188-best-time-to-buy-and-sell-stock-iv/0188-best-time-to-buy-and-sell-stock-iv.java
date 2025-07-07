@@ -4,6 +4,16 @@ class Solution {
             return 0;
         }
 
+        if (k >= prices.length / 2) {
+            int maxProfit = 0;
+            for (int i = 1; i < prices.length; i++) {
+                if (prices[i] > prices[i - 1]) {
+                    maxProfit += prices[i] - prices[i - 1];
+                }
+            }
+            return maxProfit;
+        }
+
         int[][] dp = new int[k + 1][prices.length];
         for (int i = 1; i <= k; i++) {
             int maxDiff = -prices[0];
