@@ -33,6 +33,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0127-word-ladder](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0127-word-ladder) |
 | [0131-palindrome-partitioning](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0131-palindrome-partitioning) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
+| [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
 | [0151-reverse-words-in-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0151-reverse-words-in-a-string) |
 | [0166-fraction-to-recurring-decimal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0166-fraction-to-recurring-decimal) |
 | [0168-excel-sheet-column-title](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0168-excel-sheet-column-title) |
@@ -72,6 +73,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0014-longest-common-prefix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0014-longest-common-prefix) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
+| [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
 | [0208-implement-trie-prefix-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0211-design-add-and-search-words-data-structure) |
 ## Stack
@@ -125,6 +127,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0133-clone-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0133-clone-graph) |
 | [0138-copy-list-with-random-pointer](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0138-copy-list-with-random-pointer) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
+| [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
 | [0141-linked-list-cycle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0141-linked-list-cycle) |
 | [0146-lru-cache](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0146-lru-cache) |
 | [0160-intersection-of-two-linked-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0160-intersection-of-two-linked-lists) |
@@ -302,6 +305,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0136-single-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0136-single-number) |
 | [0137-single-number-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0137-single-number-ii) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
+| [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0152-maximum-product-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0152-maximum-product-subarray) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0153-find-minimum-in-rotated-sorted-array) |
@@ -765,6 +769,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0124-binary-tree-maximum-path-sum](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0124-binary-tree-maximum-path-sum) |
 | [0131-palindrome-partitioning](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0131-palindrome-partitioning) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
+| [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
 | [0152-maximum-product-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0152-maximum-product-subarray) |
 | [0198-house-robber](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0198-house-robber) |
 | [0221-maximal-square](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0221-maximal-square) |
@@ -894,6 +899,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0078-subsets](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0078-subsets) |
 | [0079-word-search](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0079-word-search) |
 | [0131-palindrome-partitioning](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0131-palindrome-partitioning) |
+| [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
 | [0257-binary-tree-paths](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0257-binary-tree-paths) |
 | [0401-binary-watch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0401-binary-watch) |
 ## Prefix Sum
@@ -942,6 +948,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0070-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0070-climbing-stairs) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
+| [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 | [1236-n-th-tribonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1236-n-th-tribonacci-number) |
 ## Brainteaser
