@@ -1,5 +1,8 @@
 class Solution {
     public List<String> wordBreak(String s, List<String> wordDict) {
+        if (s == null || wordDict == null || s.isEmpty() || wordDict.isEmpty()) {
+            return new ArrayList<>();
+        }
 
         Set<String> wordSet = new HashSet<>();
         for (String word : wordDict) {
