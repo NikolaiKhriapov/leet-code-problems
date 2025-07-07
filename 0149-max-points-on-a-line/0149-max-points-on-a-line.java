@@ -18,18 +18,22 @@ class Solution {
                 int dx = points[j][0] - points[i][0];
                 int dy = points[j][1] - points[i][1];
 
-                int gcd = findGcd(dx, dy);
-                dx /= gcd;
-                dy /= gcd;
+                if (dx == 0 && dy == 0) {
+                    duplicates++;
+                } else {
+                    int gcd = findGcd(dx, dy);
+                    dx /= gcd;
+                    dy /= gcd;
 
-                if (dx < 0) {
-                    dx = -dx;
-                    dy = -dy;
+                    if (dx < 0) {
+                        dx = -dx;
+                        dy = -dy;
+                    }
+
+                    String slopeKey = dy + "/" + dx;
+                    slopeCount.put(slopeKey, slopeCount.getOrDefault(slopeKey, 0) + 1);
+                    max = Math.max(max, slopeCount.get(slopeKey));
                 }
-
-                String slopeKey = dy + "/" + dx;
-                slopeCount.put(slopeKey, slopeCount.getOrDefault(slopeKey, 0) + 1);
-                max = Math.max(max, slopeCount.get(slopeKey));
             }
 
             result = Math.max(result, max + 1 + duplicates);
