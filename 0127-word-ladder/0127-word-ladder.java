@@ -31,7 +31,7 @@ class Solution {
                         wordArr[i] = (char) ('a' + j);
                         String nextWord = String.valueOf(wordArr);
                         if (wordSet.contains(nextWord) && !visited.contains(nextWord)) {
-                            if (Objects.equals(nextWord, endWord)) {
+                            if (nextWord.equals(endWord)) {
                                 return count + 1;
                             }
                             queue.add(nextWord);
