@@ -3,11 +3,14 @@ class Solution {
         if (s == null || wordDict == null || s.isEmpty() || wordDict.isEmpty()) {
             return new ArrayList<>();
         }
-
-        return helper(s, wordDict, 0);
+        return helper(s, wordDict, 0, new HashMap<>());
     }
 
-    private List<String> helper(String s, List<String> wordDict, int idx) {
+    private List<String> helper(String s, List<String> wordDict, int idx, Map<Integer, List<String>> memo) {
+        if (memo.containsKey(idx)) {
+            return memo.get(idx);
+        }
+
         List<String> result = new ArrayList<>();
 
         if (idx >= s.length()) {
@@ -17,7 +20,7 @@ class Solution {
 
         for (String word : wordDict) {
             if (s.startsWith(word, idx)) {
-                List<String> sublist = helper(s, wordDict, idx + word.length());
+                List<String> sublist = helper(s, wordDict, idx + word.length(), memo);
                 for (String sub : sublist) {
                     String spaceOptional = sub.isEmpty() ? "" : " ";
                     result.add(word + spaceOptional + sub);
@@ -25,6 +28,7 @@ class Solution {
             }
         }
 
+        memo.put(idx, result);
         return result;
     }
 }
