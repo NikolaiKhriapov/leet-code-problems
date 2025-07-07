@@ -130,6 +130,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
 | [0141-linked-list-cycle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0141-linked-list-cycle) |
 | [0146-lru-cache](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0146-lru-cache) |
+| [0149-max-points-on-a-line](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0149-max-points-on-a-line) |
 | [0160-intersection-of-two-linked-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0160-intersection-of-two-linked-lists) |
 | [0166-fraction-to-recurring-decimal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0166-fraction-to-recurring-decimal) |
 | [0169-majority-element](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0169-majority-element) |
@@ -179,6 +180,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0067-add-binary](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0067-add-binary) |
 | [0069-sqrtx](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0069-sqrtx) |
 | [0070-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0070-climbing-stairs) |
+| [0149-max-points-on-a-line](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0149-max-points-on-a-line) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0166-fraction-to-recurring-decimal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0166-fraction-to-recurring-decimal) |
 | [0168-excel-sheet-column-title](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0168-excel-sheet-column-title) |
@@ -306,6 +308,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0137-single-number-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0137-single-number-ii) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
 | [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
+| [0149-max-points-on-a-line](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0149-max-points-on-a-line) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0152-maximum-product-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0152-maximum-product-subarray) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0153-find-minimum-in-rotated-sorted-array) |
@@ -942,6 +945,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Geometry
 |  |
 | ------- |
+| [0149-max-points-on-a-line](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0149-max-points-on-a-line) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
 ## Memoization
 |  |
