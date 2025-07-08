@@ -1,9 +1,6 @@
 class Solution {
     public List<List<Integer>> getSkyline(int[][] buildings) {
-        if (buildings == null || buildings[0].length != 3) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-        if (buildings.length == 0) {
+        if (buildings == null || buildings.length == 0 || buildings[0].length != 3) {
             return new ArrayList<>();
         }
 
