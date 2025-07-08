@@ -3,7 +3,7 @@ class Solution {
         if (prices == null || prices.length <= 1) {
             return 0;
         }
-
+        
         int[] left = new int[prices.length];
         int[] right = new int[prices.length];
 
@@ -23,7 +23,7 @@ class Solution {
         for (int i = 0; i < prices.length; i++) {
             maxProfit = Math.max(maxProfit, left[i] + right[i]);
         }
-        
+
         return maxProfit;
     }
 }
