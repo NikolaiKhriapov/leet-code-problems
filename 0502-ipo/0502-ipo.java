@@ -1,6 +1,6 @@
 class Solution {
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
-        if (k < 0 || w < 0 || profits == null || capital == null) {
+        if (k < 0 || w < 0 || profits == null || capital == null || profits.length != capital.length) {
             throw new IllegalArgumentException("Invalid input");
         }
         
