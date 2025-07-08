@@ -1,23 +1,18 @@
 class Solution {
     public int maxPoints(int[][] points) {
-        if (points == null) {
+        if (points == null || points.length == 0 || points[0].length == 0) {
             return 0;
-        }
-        if (points.length <= 2) {
-            return points.length;
         }
 
         int result = 0;
-        
         for (int i = 0; i < points.length; i++) {
             Map<String, Integer> slopeCount = new HashMap<>();
             int duplicates = 0;
-            int max = 0;
+            int sum = 0;
 
             for (int j = i + 1; j < points.length; j++) {
                 int dx = points[j][0] - points[i][0];
                 int dy = points[j][1] - points[i][1];
-
                 if (dx == 0 && dy == 0) {
                     duplicates++;
                 } else {
@@ -29,23 +24,19 @@ class Solution {
                         dx = -dx;
                         dy = -dy;
                     }
-
                     String slopeKey = dy + "/" + dx;
                     slopeCount.put(slopeKey, slopeCount.getOrDefault(slopeKey, 0) + 1);
-                    max = Math.max(max, slopeCount.get(slopeKey));
+                    sum = slopeCount.get(slopeKey);
                 }
             }
-
-            result = Math.max(result, max + 1 + duplicates);
+            result = Math.max(result, sum + 1 + duplicates);
         }
 
         return result;
     }
 
     private int findGcd(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
+        if (b == 0) return a;
         return findGcd(b, a % b);
     }
 }
