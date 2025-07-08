@@ -349,6 +349,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
 | [0322-coin-change](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0322-coin-change) |
 | [0324-wiggle-sort-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0324-wiggle-sort-ii) |
+| [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [0334-increasing-triplet-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0334-increasing-triplet-subsequence) |
 | [0349-intersection-of-two-arrays](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0349-intersection-of-two-arrays) |
 | [0350-intersection-of-two-arrays-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0350-intersection-of-two-arrays-ii) |
@@ -608,6 +609,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
 | [0257-binary-tree-paths](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0257-binary-tree-paths) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0297-serialize-and-deserialize-binary-tree) |
+| [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
 | [0399-evaluate-division](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0399-evaluate-division) |
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
@@ -723,6 +725,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0279-perfect-squares](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0279-perfect-squares) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0322-coin-change](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0322-coin-change) |
+| [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [0399-evaluate-division](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0399-evaluate-division) |
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0433-minimum-genetic-mutation](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0433-minimum-genetic-mutation) |
@@ -801,6 +804,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0279-perfect-squares](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0279-perfect-squares) |
 | [0300-longest-increasing-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0300-longest-increasing-subsequence) |
 | [0322-coin-change](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0322-coin-change) |
+| [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [0338-counting-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0338-counting-bits) |
 | [0392-is-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0392-is-subsequence) |
 | [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
@@ -894,6 +898,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0221-maximal-square](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0221-maximal-square) |
 | [0240-search-a-2d-matrix-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0240-search-a-2d-matrix-ii) |
 | [0289-game-of-life](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0289-game-of-life) |
+| [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [0378-kth-smallest-element-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0378-kth-smallest-element-in-a-sorted-matrix) |
 | [0772-construct-quad-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0772-construct-quad-tree) |
 | [0945-snakes-and-ladders](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0945-snakes-and-ladders) |
@@ -985,6 +990,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0070-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0070-climbing-stairs) |
 | [0139-word-break](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0139-word-break) |
 | [0140-word-break-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0140-word-break-ii) |
+| [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 | [1236-n-th-tribonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1236-n-th-tribonacci-number) |
 ## Brainteaser
@@ -1001,6 +1007,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0133-clone-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0133-clone-graph) |
 | [0207-course-schedule](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0210-course-schedule-ii) |
+| [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [0399-evaluate-division](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0399-evaluate-division) |
 | [1039-find-the-town-judge](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1039-find-the-town-judge) |
 | [1916-find-center-of-star-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1916-find-center-of-star-graph) |
@@ -1051,6 +1058,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0207-course-schedule](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0210-course-schedule-ii) |
+| [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 ## Doubly-Linked List
 |  |
 | ------- |
