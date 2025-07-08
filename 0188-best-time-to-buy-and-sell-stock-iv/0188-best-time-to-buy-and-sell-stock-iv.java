@@ -22,14 +22,14 @@ class Solution {
                 maxDiff = Math.max(maxDiff, dp[i - 1][j] - prices[j]);
             }
         }
-        return dp[k][prices.length - 1];       
+        return dp[k][prices.length - 1];
     }
 }
 
 // [3,2,6,5,0,3]
 
 // [0,0,0,0,0,0]
-// [0,0,0,0,0,0]
-// [0,0,0,0,0,0]
+// [0,0,4,4,4,4]
+// [0,0,4,4,4,7]
 
-// maxDiff = -3
+// maxDiff = 4
