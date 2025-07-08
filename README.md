@@ -346,6 +346,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0289-game-of-life](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0289-game-of-life) |
 | [0300-longest-increasing-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0300-longest-increasing-subsequence) |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
+| [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
 | [0322-coin-change](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0322-coin-change) |
 | [0324-wiggle-sort-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0324-wiggle-sort-ii) |
 | [0334-increasing-triplet-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0334-increasing-triplet-subsequence) |
@@ -470,6 +471,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0278-first-bad-version](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0278-first-bad-version) |
 | [0287-find-the-duplicate-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0287-find-the-duplicate-number) |
 | [0300-longest-increasing-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0300-longest-increasing-subsequence) |
+| [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
 | [0349-intersection-of-two-arrays](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0349-intersection-of-two-arrays) |
 | [0350-intersection-of-two-arrays-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0350-intersection-of-two-arrays-ii) |
 | [0367-valid-perfect-square](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0367-valid-perfect-square) |
@@ -746,6 +748,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0215-kth-largest-element-in-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0215-kth-largest-element-in-an-array) |
 | [0218-the-skyline-problem](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0218-the-skyline-problem) |
 | [0240-search-a-2d-matrix-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0240-search-a-2d-matrix-ii) |
+| [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
 | [0324-wiggle-sort-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0324-wiggle-sort-ii) |
 | [0395-longest-substring-with-at-least-k-repeating-characters](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0395-longest-substring-with-at-least-k-repeating-characters) |
 | [0772-construct-quad-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0772-construct-quad-tree) |
@@ -1033,6 +1036,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0023-merge-k-sorted-lists](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0023-merge-k-sorted-lists) |
 | [0148-sort-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0148-sort-list) |
+| [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
 ## Iterator
 |  |
 | ------- |
@@ -1064,10 +1068,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0218-the-skyline-problem](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0218-the-skyline-problem) |
+| [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
 ## Segment Tree
 |  |
 | ------- |
 | [0218-the-skyline-problem](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0218-the-skyline-problem) |
+| [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
 ## Line Sweep
 |  |
 | ------- |
@@ -1076,4 +1082,5 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0218-the-skyline-problem](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0218-the-skyline-problem) |
+| [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
 <!---LeetCode Topics End-->
