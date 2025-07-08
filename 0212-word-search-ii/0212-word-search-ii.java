@@ -1,5 +1,5 @@
 class Solution {
-    private static final int[][] NEIGHBORS = new int[][] {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    private static final int[][] NEIGHBORS = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
     private static final char MARK_VISITED = '#';
 
     private class TrieNode {
@@ -8,39 +8,36 @@ class Solution {
     }
 
     public List<String> findWords(char[][] board, String[] words) {
-        if (board == null || words == null) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-        if (board.length == 0 || board[0].length == 0 || words.length == 0) {
-            return new ArrayList<>();
-        }
-
-        List<String> result = new ArrayList<>();;
+        
+        List<String> result = new ArrayList<>();
         TrieNode root = buildTrie(words);
+
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
-                helper(board, r, c, root, result);
+                helper(board, root, r, c, result);
             }
         }
+
         return result;
     }
 
-    private void helper(char[][] board, int row, int col, TrieNode node, List<String> result) {
-        if (row < 0 || col < 0 || row >= board.length || col >= board[0].length) return;
-        char ch = board[row][col];
+    private void helper(char[][] board, TrieNode node, int r, int c, List<String> result) {
+        if (r < 0 || r >= board.length || c < 0 || c >= board[0].length) return;
+        char ch = board[r][c];
         if (ch == MARK_VISITED || node.children[ch - 'a'] == null) return;
-        
+
+        board[r][c] = MARK_VISITED;
+
         node = node.children[ch - 'a'];
         if (node.word != null) {
             result.add(node.word);
             node.word = null;
         }
-
-        board[row][col] = MARK_VISITED;
         for (int[] neighbor : NEIGHBORS) {
-            helper(board, row + neighbor[0], col + neighbor[1], node, result);
+            helper(board, node, r + neighbor[0], c + neighbor[1], result);
         }
-        board[row][col] = ch;
+
+        board[r][c] = ch;
     }
 
     private TrieNode buildTrie(String[] words) {
