@@ -15,6 +15,10 @@
  */
 class Solution {
     public int maxPathSum(TreeNode root) {
+        if (root == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+
         int[] maxSum = new int[] {Integer.MIN_VALUE};
         helper(root, maxSum);
         return maxSum[0];
@@ -25,11 +29,11 @@ class Solution {
             return 0;
         }
 
-        int leftVal = Math.max(helper(node.left, maxSum), 0);
-        int rightVal = Math.max(helper(node.right, maxSum), 0);
+        int left = Math.max(helper(node.left, maxSum), 0);
+        int right = Math.max(helper(node.right, maxSum), 0);
 
-        maxSum[0] = Math.max(maxSum[0], node.val + leftVal + rightVal);
+        maxSum[0] = Math.max(maxSum[0], node.val + left + right);
 
-        return node.val + Math.max(leftVal, rightVal);
+        return node.val + Math.max(left, right);
     }
 }
