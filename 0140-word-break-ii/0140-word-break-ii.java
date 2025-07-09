@@ -1,5 +1,11 @@
 class Solution {
     public List<String> wordBreak(String s, List<String> wordDict) {
+        if (s == null || wordDict == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (s.isEmpty() || wordDict.size() == 0) {
+            return new ArrayList<>();
+        }
 
         List<String> result = new ArrayList<>();
         StringBuilder curr = new StringBuilder();
