@@ -373,6 +373,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0643-maximum-average-subarray-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0643-maximum-average-subarray-i) |
 | [0645-set-mismatch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0645-set-mismatch) |
 | [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
+| [0724-find-pivot-index](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0724-find-pivot-index) |
 | [0745-find-smallest-letter-greater-than-target](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0745-find-smallest-letter-greater-than-target) |
 | [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
 | [0748-largest-number-at-least-twice-of-others](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0748-largest-number-at-least-twice-of-others) |
@@ -953,6 +954,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0209-minimum-size-subarray-sum](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0209-minimum-size-subarray-sum) |
 | [0238-product-of-array-except-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0238-product-of-array-except-self) |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
+| [0724-find-pivot-index](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0724-find-pivot-index) |
 ## Greedy
 |  |
 | ------- |
