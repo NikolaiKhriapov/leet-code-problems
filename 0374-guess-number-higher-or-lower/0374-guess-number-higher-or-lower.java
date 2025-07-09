@@ -9,17 +9,24 @@
 
 public class Solution extends GuessGame {
     public int guessNumber(int n) {
-        return helper(n, 1, n);
-    }
+        if (n < 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
-    private int helper(int n, int l, int r) {
-        if (r < l) return l;
+        int left = 1;
+        int right = n;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
 
-        int m = l + (r - l) / 2;
-        int guess = guess(m);
-
-        if (guess == 0) return m;
-        if (guess < 0) return helper(n, l, m - 1);
-        return helper(n, m + 1, r);
+            int guess = guess(mid);
+            if (guess == 0) {
+                return mid;
+            } else if (guess == -1) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
     }
 }
