@@ -36,7 +36,7 @@ public class Codec {
         serialize(node.right, sb);
     }
 
-    private TreeNode deserialize(Queue<String> queue) {
+    private TreeNode deserialize(Queue<String> queue) {      
         String val = queue.poll();
         if (val.equals("#")) {
             return null;
