@@ -9,7 +9,7 @@
 
 public class Solution extends GuessGame {
     public int guessNumber(int n) {
-        if (n < 0) {
+        if (n < 1) {
             throw new IllegalArgumentException("Invalid input");
         }
 
@@ -17,7 +17,6 @@ public class Solution extends GuessGame {
         int right = n;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-
             int guess = guess(mid);
             if (guess == 0) {
                 return mid;
