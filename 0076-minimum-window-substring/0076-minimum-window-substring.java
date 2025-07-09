@@ -1,39 +1,36 @@
 class Solution {
     public String minWindow(String s, String t) {
-        if (s == null || t == null || s.isEmpty() || t.isEmpty()) {
-            return "";
-        }
 
         Map<Character, Integer> mapChars = new HashMap<>();
-        for (char c : t.toCharArray()) {
-            mapChars.put(c, mapChars.getOrDefault(c, 0) + 1);
+        for (char ch : t.toCharArray()) {
+            mapChars.put(ch, mapChars.getOrDefault(ch, 0) + 1);
         }
-
-        int left = 0;
-        int right = 0;
-        int minLength = Integer.MAX_VALUE;
-        int start = 0;
-        int requiredCharsCount = mapChars.size();
-        int foundCharsCount = 0;
+        
         Map<Character, Integer> mapSeen = new HashMap<>();
+        int left = 0;
+        int right = left;
+        int start = 0;
+        int minLength = Integer.MAX_VALUE;
+        int requiredSize = mapChars.size();
+        int currentSize = 0;
 
         while (right < s.length()) {
-            char nextChar = s.charAt(right);
-            if (mapChars.containsKey(nextChar)) {
-                mapSeen.put(nextChar, mapSeen.getOrDefault(nextChar, 0) + 1);
-                if (Objects.equals(mapSeen.get(nextChar), mapChars.get(nextChar))) {
-                    foundCharsCount++;
+            char ch = s.charAt(right);
+            if (mapChars.containsKey(ch)) {
+                mapSeen.put(ch, mapSeen.getOrDefault(ch, 0) + 1);
+                if (Objects.equals(mapSeen.get(ch), mapChars.get(ch))) {
+                    currentSize++;
                 }
             }
-            while (foundCharsCount == requiredCharsCount) {
-                if (right - left + 1 < minLength) {
+            while (currentSize == requiredSize) {
+                if (minLength > right - left + 1) {
                     minLength = right - left + 1;
                     start = left;
                 }
                 char leftChar = s.charAt(left);
-                if (mapSeen.containsKey(leftChar)) {
+                if (mapChars.containsKey(leftChar)) {
                     if (Objects.equals(mapSeen.get(leftChar), mapChars.get(leftChar))) {
-                        foundCharsCount--;
+                        currentSize--;
                     }
                     mapSeen.put(leftChar, mapSeen.get(leftChar) - 1);
                 }
@@ -41,7 +38,7 @@ class Solution {
             }
             right++;
         }
-
-        return minLength == Integer.MAX_VALUE ? "" : s.substring(start, start + minLength);
+        
+        return (minLength == Integer.MAX_VALUE) ? "" : s.substring(start, start + minLength);
     }
 }
