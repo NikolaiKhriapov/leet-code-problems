@@ -2,7 +2,7 @@ class Solution {
     private static final int[][] NEIGHBORS = new int[][] {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
     public int longestIncreasingPath(int[][] matrix) {
-        if (matrix == null) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
