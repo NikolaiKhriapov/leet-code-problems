@@ -2,16 +2,17 @@ class Solution {
     private static final int[][] NEIGHBORS = new int[][] {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
     public int longestIncreasingPath(int[][] matrix) {
+        if (matrix == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int longest = 0;
         int[][] memo = new int[matrix.length][matrix[0].length];
-
         for (int r = 0; r < matrix.length; r++) {
             for (int c = 0; c < matrix[0].length; c++) {
                 longest = Math.max(longest, helper(matrix, r, c, -1, memo));
             }
         }
-
         return longest;
     }
 
