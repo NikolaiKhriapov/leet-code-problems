@@ -1,6 +1,6 @@
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if (nums == null || nums.length == 0 || k <= 0 || nums.length < k) {
+        if (nums == null || nums.length < k) {
             throw new IllegalArgumentException("Invalid input");
         }
 
