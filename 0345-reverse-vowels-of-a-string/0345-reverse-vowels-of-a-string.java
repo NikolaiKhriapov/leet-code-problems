@@ -1,28 +1,31 @@
 class Solution {
+    private static final Set<Character> VOWELS = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+
     public String reverseVowels(String s) {
-        char[] sArr = s.toCharArray();
-        Set<Character> set = new HashSet<>(Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
+        char[] arr = s.toCharArray();
 
-        int pl = 0;
-        int pr = s.length() - 1;
-        
-        while (pl < pr) {
-            while (pl < pr && !set.contains(sArr[pl])) {
-                pl++;
+        int left = 0;
+        int right = arr.length - 1;
+        while (left < right) {
+            while (left < right && !VOWELS.contains(arr[left])) {
+                left++;
             }
-            while (pl < pr && !set.contains(sArr[pr])) {
-                pr--;
+            while (left < right && !VOWELS.contains(arr[right])) {
+                right--;
             }
-
-            if (pl < pr) {
-                char temp = sArr[pl];
-                sArr[pl] = sArr[pr];
-                sArr[pr] = temp;
-                pl++;
-                pr--;
+            if (left < right) {
+                swap(arr, left, right);
             }
+            left++;
+            right--;
         }
+        
+        return String.valueOf(arr);
+    }
 
-        return new String(sArr);
+    private void swap(char[] arr, int p1, int p2) {
+        char temp = arr[p1];
+        arr[p1] = arr[p2];
+        arr[p2] = temp;
     }
 }
