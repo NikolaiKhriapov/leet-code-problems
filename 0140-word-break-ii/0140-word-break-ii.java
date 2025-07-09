@@ -8,10 +8,7 @@ class Solution {
         }
 
         List<String> result = new ArrayList<>();
-        StringBuilder curr = new StringBuilder();
-
-        helper(s, wordDict, 0, curr, result);
-
+        helper(s, wordDict, 0, new StringBuilder(), result);
         return result;
     }
 
