@@ -18,7 +18,6 @@ class Solution {
         if (root == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
         int[] maxSum = new int[] {Integer.MIN_VALUE};
         helper(root, maxSum);
         return maxSum[0];
