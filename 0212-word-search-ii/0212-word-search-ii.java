@@ -8,17 +8,20 @@ class Solution {
     }
 
     public List<String> findWords(char[][] board, String[] words) {
-        // TODO
+        if (board == null || words == null || board.length == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (board[0].length == 0 || words.length == 0) {
+            return new ArrayList<>();
+        }
 
         List<String> result = new ArrayList<>();
         TrieNode root = buildTrie(words);
-
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
                 helper(board, r, c, root, result);
             }
         }
-
         return result;
     }
 
