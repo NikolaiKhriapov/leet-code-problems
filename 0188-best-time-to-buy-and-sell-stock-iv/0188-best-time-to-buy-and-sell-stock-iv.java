@@ -1,6 +1,9 @@
 class Solution {
     public int maxProfit(int k, int[] prices) {
-        if (k <= 0 || prices == null || prices.length <= 1) {
+        if (prices == null || k < 0 || prices.length == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (k == 0 || prices.length == 1) {
             return 0;
         }
 
