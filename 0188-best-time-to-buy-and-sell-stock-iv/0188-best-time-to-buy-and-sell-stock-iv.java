@@ -25,7 +25,9 @@ class Solution {
                 curr[j] = Math.max(curr[j - 1], prices[j] + maxDiff);
                 maxDiff = Math.max(maxDiff, prev[j] - prices[j]);
             }
-            prev = Arrays.copyOf(curr, curr.length);
+            int[] temp = prev;
+            prev = curr;
+            curr = temp;
         }
         return prev[prices.length - 1];
     }
