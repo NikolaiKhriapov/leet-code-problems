@@ -4,10 +4,7 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int length1 = str1.length();
-        int length2 = str2.length();
-
-        int gcd = findGcd(length1, length2);
+        int gcd = findGcd(str1.length(), str2.length());
         String gcdStr = str1.substring(0, gcd);
 
         if (isPart(str1, gcdStr) && isPart(str2, gcdStr)) {
@@ -22,13 +19,12 @@ class Solution {
     }
 
     private boolean isPart(String str, String sub) {
-        StringBuilder sb = new StringBuilder();
-        while (sb.length() < str.length()) {
-            sb.append(sub);
-            if (!str.startsWith(sb.toString())) {
-                return false;
-            }
+        if (str.length() % sub.length() != 0) return false;
+
+        String temp = sub;
+        while (temp.length() < str.length()) {
+            temp += sub;
         }
-        return sb.length() == str.length();
+        return str.equals(temp);
     }
 }
