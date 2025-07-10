@@ -3,9 +3,6 @@ class Solution {
         if (candies == null || extraCandies < 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (candies.length == 0) {
-            return new ArrayList<>();
-        }
 
         int maxCandies = 0;
         for (int n : candies) {
