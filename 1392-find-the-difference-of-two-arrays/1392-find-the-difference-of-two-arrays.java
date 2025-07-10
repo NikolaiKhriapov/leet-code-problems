@@ -10,7 +10,7 @@ class Solution {
         List<Integer> list1 = getDistinctNums(set1, set2);
         List<Integer> list2 = getDistinctNums(set2, set1);
 
-        return new ArrayList<>(List.of(list1, list2));
+        return List.of(list1, list2);
     }
 
     private Set<Integer> arrayToSet(int[] nums) {
