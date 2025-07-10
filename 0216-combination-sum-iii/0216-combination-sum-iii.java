@@ -10,6 +10,7 @@ class Solution {
     }
 
     private void helper(int k, int n, int currNumber, List<Integer> curr, List<List<Integer>> result) {
+        if (n < 0 || k < 0) return;
         if (n == 0) {
             if (k == 0) result.add(new ArrayList<>(curr));
             return;
