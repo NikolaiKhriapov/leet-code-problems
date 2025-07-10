@@ -1,17 +1,16 @@
 class RecentCounter {
-
-    Queue<Integer> q;
+    List<Integer> list;
 
     public RecentCounter() {
-        q = new LinkedList<>();
+        list = new ArrayList<>();
     }
     
     public int ping(int t) {
-        q.add(t);
-        while (!q.isEmpty() && (t - q.peek() > 3000)) {
-            q.poll();
+        while (!list.isEmpty() && list.get(0) < t - 3000) {
+            list.remove(0);
         }
-        return q.size();
+        list.add(t);
+        return list.size();
     }
 }
 
