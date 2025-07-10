@@ -407,6 +407,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1730-special-array-with-x-elements-greater-than-or-equal-x](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1730-special-array-with-x-elements-greater-than-or-equal-x) |
 | [1755-defuse-the-bomb](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1755-defuse-the-bomb) |
 | [1802-number-of-students-unable-to-eat-lunch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1802-number-of-students-unable-to-eat-lunch) |
+| [1833-find-the-highest-altitude](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1833-find-the-highest-altitude) |
 | [2112-minimum-difference-between-highest-and-lowest-of-k-scores](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2112-minimum-difference-between-highest-and-lowest-of-k-scores) |
 ## Two Pointers
 |  |
@@ -963,6 +964,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0238-product-of-array-except-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0238-product-of-array-except-self) |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
 | [0724-find-pivot-index](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0724-find-pivot-index) |
+| [1833-find-the-highest-altitude](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1833-find-the-highest-altitude) |
 ## Greedy
 |  |
 | ------- |
