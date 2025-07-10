@@ -1,16 +1,15 @@
 class Solution {
-    private static final int[][] NEIGHBORS = new int[][] {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    private static final int[][] NEIGHBORS = new int[][] {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
     public int longestIncreasingPath(int[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+        if (matrix == null || matrix.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
         int longest = 0;
-        int[][] memo = new int[matrix.length][matrix[0].length];
         for (int r = 0; r < matrix.length; r++) {
             for (int c = 0; c < matrix[0].length; c++) {
-                longest = Math.max(longest, helper(matrix, r, c, -1, memo));
+                longest = Math.max(longest, helper(matrix, r, c, -1, new int[matrix.length][matrix[0].length]));
             }
         }
         return longest;
@@ -20,12 +19,11 @@ class Solution {
         if (row < 0 || row >= matrix.length || col < 0 || col >= matrix[0].length || matrix[row][col] <= prev) {
             return 0;
         }
-        
         if (memo[row][col] != 0) {
             return memo[row][col];
         }
 
-        int longest = 1;
+        int longest = 0;
         for (int[] neighbor : NEIGHBORS) {
             longest = Math.max(longest, 1 + helper(matrix, row + neighbor[0], col + neighbor[1], matrix[row][col], memo));
         }
