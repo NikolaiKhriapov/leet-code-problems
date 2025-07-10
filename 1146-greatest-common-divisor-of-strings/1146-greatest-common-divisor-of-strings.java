@@ -14,14 +14,4 @@ class Solution {
         if (b == 0) return a;
         return findGcd(b, a % b);
     }
-
-    private boolean isPart(String str, String sub) {
-        if (str.length() % sub.length() != 0) return false;
-
-        String temp = sub;
-        while (temp.length() < str.length()) {
-            temp += sub;
-        }
-        return str.equals(temp);
-    }
 }
