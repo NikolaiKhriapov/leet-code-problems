@@ -7,9 +7,10 @@ class Solution {
         }
 
         int longest = 0;
+        int[][] memo = new int[matrix.length][matrix[0].length];
         for (int r = 0; r < matrix.length; r++) {
             for (int c = 0; c < matrix[0].length; c++) {
-                longest = Math.max(longest, helper(matrix, r, c, -1, new int[matrix.length][matrix[0].length]));
+                longest = Math.max(longest, helper(matrix, r, c, -1, memo));
             }
         }
         return longest;
