@@ -2,17 +2,22 @@ class Solution {
     public int tribonacci(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Invalid input");
-        }
-        
-        int[] dp = new int[n + 1];
+        }        
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        if (n == 2) return 1;
 
-        if (n >= 0) dp[0] = 0;
-        if (n >= 1) dp[1] = 1;
-        if (n >= 2) dp[2] = 1;
+        int prevThird = 0;
+        int prevSecond = 1;
+        int prevFirst = 1;
 
         for (int i = 3; i <= n; i++) {
-            dp[i] = dp[i - 3] + dp[i - 2] + dp[i - 1];
+            int curr = prevThird + prevSecond + prevFirst;
+            prevThird = prevSecond;
+            prevSecond = prevFirst;
+            prevFirst = curr;
         }
-        return dp[n];
+
+        return prevFirst;
     }
 }
