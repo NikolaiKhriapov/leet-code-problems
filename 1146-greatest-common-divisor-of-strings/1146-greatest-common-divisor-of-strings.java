@@ -7,10 +7,7 @@ class Solution {
         int gcd = findGcd(str1.length(), str2.length());
         String gcdStr = str1.substring(0, gcd);
 
-        if (isPart(str1, gcdStr) && isPart(str2, gcdStr)) {
-            return gcdStr;
-        }
-        return "";
+        return Objects.equals(str1 + str2, str2 + str1) ? gcdStr : "";
     }
 
     private int findGcd(int a, int b) {
