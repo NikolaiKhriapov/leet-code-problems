@@ -1,8 +1,5 @@
 class Solution {
     public List<Integer> countSmaller(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            throw new IllegalArgumentException("Invalid input");
-        }
 
         int[] result = new int[nums.length];
         int[] indexes = new int[nums.length];
@@ -14,10 +11,10 @@ class Solution {
     }
 
     private void mergeSort(int[] nums, int[] indexes, int[] result, int left, int right) {
-        if (left >= right) {
-            return;
-        }
+        if (left >= right) return;
+
         int mid = left + (right - left) / 2;
+
         mergeSort(nums, indexes, result, left, mid);
         mergeSort(nums, indexes, result, mid + 1, right);
         merge(nums, indexes, result, left, mid, right);
@@ -28,19 +25,19 @@ class Solution {
         int t = 0;
         int l = left;
         int r = mid + 1;
-        int countRight = 0;
+        int rightCount = 0;
 
         while (l <= mid && r <= right) {
             if (nums[indexes[r]] < nums[indexes[l]]) {
-                countRight++;
+                rightCount++;
                 temp[t++] = indexes[r++];
             } else {
-                result[indexes[l]] += countRight;
+                result[indexes[l]] += rightCount;
                 temp[t++] = indexes[l++];
             }
         }
         while (l <= mid) {
-            result[indexes[l]] += countRight;
+            result[indexes[l]] += rightCount;
             temp[t++] = indexes[l++];
         }
         while (r <= right) {
@@ -52,9 +49,9 @@ class Solution {
         }
     }
 
-    private List<Integer> arrayToList(int[] array) {
+    private List<Integer> arrayToList(int[] arr) {
         List<Integer> list = new ArrayList<>();
-        for (int n : array) {
+        for (int n : arr) {
             list.add(n);
         }
         return list;
