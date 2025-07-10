@@ -3,11 +3,11 @@ class Solution {
         if (str1 == null || str2 == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
-        int gcd = findGcd(str1.length(), str2.length());
-        String gcdStr = str1.substring(0, gcd);
-
-        return Objects.equals(str1 + str2, str2 + str1) ? gcdStr : "";
+        
+        if (!Objects.equals(str1 + str2, str2 + str1)) {
+            return "";
+        }
+        return str1.substring(0, findGcd(str1.length(), str2.length()));
     }
 
     private int findGcd(int a, int b) {
