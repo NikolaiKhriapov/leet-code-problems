@@ -5,22 +5,22 @@ class Solution {
         }
 
         PriorityQueue<int[]> minCapital = new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0]));
-        PriorityQueue<Integer> maxProfits = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
+        PriorityQueue<Integer> maxProfit = new PriorityQueue<>((a, b) -> b - a);
 
         for (int i = 0; i < capital.length; i++) {
             minCapital.add(new int[] {capital[i], profits[i]});
         }
-
+        
         while (k-- > 0) {
             while (!minCapital.isEmpty() && minCapital.peek()[0] <= w) {
-                maxProfits.add(minCapital.poll()[1]);
+                maxProfit.add(minCapital.poll()[1]);
             }
-            if (maxProfits.isEmpty()) {
+            if (maxProfit.isEmpty()) {
                 break;
             }
-            w += maxProfits.poll();
+            w += maxProfit.poll();
         }
-        
+
         return w;
     }
 }
