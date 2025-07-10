@@ -1,21 +1,22 @@
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
-
-        int[] memo = new int[cost.length];
-        Arrays.fill(memo, -1);
-        return Math.min(helper(cost, 0, memo), helper(cost, 1, memo));
-    }
-
-    private int helper(int[] cost, int idx, int[] memo) {
-        if (idx >= cost.length) {
-            return 0;
-        }
-        if (memo[idx] != -1) {
-            return memo[idx];
+        if (cost == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        int result = cost[idx] + Math.min(helper(cost, idx + 1, memo), helper(cost, idx + 2, memo));
-        memo[idx] = result;
-        return result;
+        int prev2 = 0;
+        int prev1 = 0;
+
+        int curr = 0;
+        for (int i = 2; i <= cost.length; i++) {
+            curr = Math.min(prev2 + cost[i - 2], prev1 + cost[i - 1]);
+            prev2 = prev1;
+            prev1 = curr;
+        }
+
+        return curr;
     }
 }
+
+// [  1,100,  1,  1,  1,100,  1,  1,100,  1]
+// [  0,  0,  1,  2,  2,  3,  3,  4,  4,  5,  6]
