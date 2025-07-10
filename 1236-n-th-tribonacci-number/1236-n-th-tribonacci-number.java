@@ -1,16 +1,18 @@
 class Solution {
     public int tribonacci(int n) {
-        return tribonacci(n, new HashMap<>());
-    }
+        if (n < 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        
+        int[] dp = new int[n + 1];
 
-    public int tribonacci(int n, Map<Integer, Integer> map) {
-        if (n == 0) return 0;
-        if (n == 1 || n == 2) return 1;
+        if (n >= 0) dp[0] = 0;
+        if (n >= 1) dp[1] = 1;
+        if (n >= 2) dp[2] = 1;
 
-        if (map.containsKey(n)) return map.get(n);
-
-        int result = tribonacci(n - 1, map) + tribonacci(n - 2, map) + tribonacci(n - 3, map);
-        map.put(n, result);
-        return result;
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 3] + dp[i - 2] + dp[i - 1];
+        }
+        return dp[n];
     }
 }
