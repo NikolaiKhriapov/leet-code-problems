@@ -167,6 +167,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0817-design-hashmap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0817-design-hashmap) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
 | [1039-find-the-town-judge](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1039-find-the-town-judge) |
+| [1319-unique-number-of-occurrences](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1319-unique-number-of-occurrences) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
 | [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 | [1987-substrings-of-size-three-with-distinct-characters](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1987-substrings-of-size-three-with-distinct-characters) |
@@ -394,6 +395,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1047-maximize-sum-of-array-after-k-negations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1047-maximize-sum-of-array-after-k-negations) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
 | [1127-last-stone-weight](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1127-last-stone-weight) |
+| [1319-unique-number-of-occurrences](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1319-unique-number-of-occurrences) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
 | [1476-count-negative-numbers-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1476-count-negative-numbers-in-a-sorted-matrix) |
