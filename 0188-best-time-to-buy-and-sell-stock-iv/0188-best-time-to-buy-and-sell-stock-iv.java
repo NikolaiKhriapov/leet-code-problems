@@ -7,6 +7,15 @@ class Solution {
             return 0;
         }
 
+        if (k >= prices.length / 2) {
+            int maxProfit = 0;
+            for (int i = 1; i < prices.length; i++) {
+                if (prices[i] > prices[i - 1]) {
+                    maxProfit = Math.max(maxProfit, prices[i] - prices[i - 1]);
+                }
+            }
+        }
+
         int[] prev = new int[prices.length];
         int[] curr = new int[prices.length];
 
