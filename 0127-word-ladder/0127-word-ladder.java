@@ -12,32 +12,32 @@ class Solution {
         if (!wordSet.contains(endWord)) {
             return 0;
         }
-        
+
         Queue<String> queue = new LinkedList<>();
         Set<String> visited = new HashSet<>();
         queue.add(beginWord);
         visited.add(beginWord);
-        int count = 1;
 
+        int count = 1;
         while (!queue.isEmpty()) {
             int size = queue.size();
             while (size-- > 0) {
                 String currWord = queue.poll();
-                char[] currWordArray = currWord.toCharArray();
-                for (int i = 0; i < currWordArray.length; i++) {
-                    char ch = currWordArray[i];
+                char[] currWordArr = currWord.toCharArray();
+                for (int i = 0; i < currWordArr.length; i++) {
+                    char currChar = currWordArr[i];
                     for (int j = 0; j < 26; j++) {
-                        currWordArray[i] = (char) ('a' + j);
-                        String newWord = String.valueOf(currWordArray);
+                        currWordArr[i] = (char) ('a' + j);
+                        String newWord = String.valueOf(currWordArr);
                         if (wordSet.contains(newWord) && !visited.contains(newWord)) {
-                            if (Objects.equals(newWord, endWord)) {
+                            if (newWord.equals(endWord)) {
                                 return count + 1;
                             }
                             queue.add(newWord);
                             visited.add(newWord);
                         }
                     }
-                    currWordArray[i] = ch;
+                    currWordArr[i] = currChar;
                 }
             }
             count++;
