@@ -10,7 +10,7 @@ class Solution {
         return str1.substring(0, findGcd(str1.length(), str2.length()));
     }
 
-    private int findGcd(int a, int b) {
+    private static int findGcd(int a, int b) {
         if (b == 0) {
             return a;
         }
