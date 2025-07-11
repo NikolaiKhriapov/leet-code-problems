@@ -368,6 +368,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0384-shuffle-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0384-shuffle-an-array) |
 | [0399-evaluate-division](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0399-evaluate-division) |
 | [0414-third-maximum-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0414-third-maximum-number) |
+| [0435-non-overlapping-intervals](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0435-non-overlapping-intervals) |
 | [0448-find-all-numbers-disappeared-in-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0448-find-all-numbers-disappeared-in-an-array) |
 | [0452-minimum-number-of-arrows-to-burst-balloons](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0452-minimum-number-of-arrows-to-burst-balloons) |
 | [0454-4sum-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0454-4sum-ii) |
@@ -527,6 +528,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0378-kth-smallest-element-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0378-kth-smallest-element-in-a-sorted-matrix) |
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
 | [0414-third-maximum-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0414-third-maximum-number) |
+| [0435-non-overlapping-intervals](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0435-non-overlapping-intervals) |
 | [0452-minimum-number-of-arrows-to-burst-balloons](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0452-minimum-number-of-arrows-to-burst-balloons) |
 | [0455-assign-cookies](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0455-assign-cookies) |
 | [0502-ipo](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0502-ipo) |
@@ -830,6 +832,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [0338-counting-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0338-counting-bits) |
 | [0392-is-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0392-is-subsequence) |
+| [0435-non-overlapping-intervals](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0435-non-overlapping-intervals) |
 | [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
 | [0954-maximum-sum-circular-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0954-maximum-sum-circular-subarray) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
@@ -988,6 +991,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0324-wiggle-sort-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0324-wiggle-sort-ii) |
 | [0334-increasing-triplet-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0334-increasing-triplet-subsequence) |
 | [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
+| [0435-non-overlapping-intervals](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0435-non-overlapping-intervals) |
 | [0452-minimum-number-of-arrows-to-burst-balloons](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0452-minimum-number-of-arrows-to-burst-balloons) |
 | [0455-assign-cookies](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0455-assign-cookies) |
 | [0502-ipo](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0502-ipo) |
