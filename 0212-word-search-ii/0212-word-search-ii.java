@@ -1,5 +1,5 @@
 class Solution {
-    private static final int[][] NEIGHBORS = new int[][] {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
+    private static final int[][] NEIGHBORS = new int[][] {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     private static final char MARK_VISITED = '#';
 
     private class TrieNode {
@@ -8,20 +8,16 @@ class Solution {
     }
 
     public List<String> findWords(char[][] board, String[] words) {
-        if (board == null || words == null || board.length == 0) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-        if (board[0].length == 0 || words.length == 0) {
-            return new ArrayList<>();
-        }
 
         List<String> result = new ArrayList<>();
         TrieNode root = buildTrie(words);
+
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
                 helper(board, r, c, root, result);
             }
         }
+        
         return result;
     }
 
