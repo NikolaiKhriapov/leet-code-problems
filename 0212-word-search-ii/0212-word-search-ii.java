@@ -8,6 +8,9 @@ class Solution {
     }
 
     public List<String> findWords(char[][] board, String[] words) {
+        if (board == null || board.length == 0 || board[0].length == 0 || words == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         List<String> result = new ArrayList<>();
         TrieNode root = buildTrie(words);
