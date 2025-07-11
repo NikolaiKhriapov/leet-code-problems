@@ -3,7 +3,7 @@ class Solution {
         if (s == null || wordDict == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (s.isEmpty() || wordDict.size() == 0) {
+        if (s.isEmpty() || wordDict.isEmpty()) {
             return new ArrayList<>();
         }
 
@@ -21,9 +21,7 @@ class Solution {
         int currLength = curr.length();
         for (String word : wordDict) {
             if (s.startsWith(word, idx)) {
-                if (!curr.isEmpty()) {
-                    curr.append(" ");
-                }
+                if (!curr.isEmpty()) curr.append(" ");
                 curr.append(word);
                 helper(s, wordDict, idx + word.length(), curr, result);
                 curr.delete(currLength, curr.length());
