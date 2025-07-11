@@ -1,5 +1,8 @@
 class Solution {
     public int[] countBits(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int[] dp = new int[n + 1];
         for (int i = 1; i < dp.length; i++) {
