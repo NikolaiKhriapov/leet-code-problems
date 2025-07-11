@@ -55,6 +55,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0387-first-unique-character-in-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0387-first-unique-character-in-a-string) |
 | [0389-find-the-difference](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0389-find-the-difference) |
 | [0392-is-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0392-is-subsequence) |
+| [0394-decode-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0394-decode-string) |
 | [0395-longest-substring-with-at-least-k-repeating-characters](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0395-longest-substring-with-at-least-k-repeating-characters) |
 | [0399-evaluate-division](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0399-evaluate-division) |
 | [0409-longest-palindrome](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0409-longest-palindrome) |
@@ -102,6 +103,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0232-implement-queue-using-stacks](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0232-implement-queue-using-stacks) |
 | [0234-palindrome-linked-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0234-palindrome-linked-list) |
 | [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
+| [0394-decode-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0394-decode-string) |
 | [0496-next-greater-element-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0496-next-greater-element-i) |
 | [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
 | [0775-n-ary-tree-preorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0775-n-ary-tree-preorder-traversal) |
@@ -265,6 +267,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0234-palindrome-linked-list](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0234-palindrome-linked-list) |
 | [0326-power-of-three](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0326-power-of-three) |
 | [0342-power-of-four](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0342-power-of-four) |
+| [0394-decode-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0394-decode-string) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 ## Array
 |  |
