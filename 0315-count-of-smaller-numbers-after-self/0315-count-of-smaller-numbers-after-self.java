@@ -1,17 +1,22 @@
 class Solution {
     public List<Integer> countSmaller(int[] nums) {
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int[] result = new int[nums.length];
         int[] indexes = new int[nums.length];
         for (int i = 0; i < indexes.length; i++) {
             indexes[i] = i;
-        }
+        }     
         mergeSort(nums, indexes, result, 0, nums.length - 1);
         return arrayToList(result);
     }
 
     private void mergeSort(int[] nums, int[] indexes, int[] result, int left, int right) {
-        if (left >= right) return;
+        if (left >= right) {
+            return;
+        }
 
         int mid = left + (right - left) / 2;
 
