@@ -1,13 +1,10 @@
 class Solution {
     public int[] countBits(int n) {
-        if (n < 0) {
-            throw new IllegalArgumentException("Invalid input");
-        }
 
-        int[] result = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            result[i] = result[i / 2] + (i % 2);
+        int[] dp = new int[n + 1];
+        for (int i = 1; i < dp.length; i++) {
+            dp[i] = dp[i >> 1] + (i & 1);
         }
-        return result;
+        return dp;
     }
 }
