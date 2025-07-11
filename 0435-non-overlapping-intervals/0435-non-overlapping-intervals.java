@@ -1,6 +1,9 @@
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
-
+        if (intervals == null || intervals.length == 0 || intervals[0].length != 2) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));
 
         int count = 1;
@@ -17,4 +20,4 @@ class Solution {
 }
 
 // [[1,2],[2,3],[3,4],[1,3]]
-// [[1,2],[1,3],[2,3],[3,4]]
+// [[1,2],[2,3],[1,3],[3,4]]
