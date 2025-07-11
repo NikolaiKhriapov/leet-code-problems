@@ -1,7 +1,8 @@
 class Solution {
     public List<List<Integer>> getSkyline(int[][] buildings) {
-
-        List<List<Integer>> result = new ArrayList<>();
+        if (buildings == null || buildings.length == 0 || buildings[0].length != 3) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         List<int[]> events = new ArrayList<>();
         for (int[] building : buildings) {
@@ -13,6 +14,7 @@ class Solution {
             return Integer.compare(a[0], b[0]);
         });
 
+        List<List<Integer>> result = new ArrayList<>();
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
         pq.add(0);
 
