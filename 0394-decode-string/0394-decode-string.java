@@ -4,7 +4,8 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Stack<String> stack = new Stack<>();
+        Stack<Integer> stackNum = new Stack<>();
+        Stack<String> stackStr = new Stack<>();
         int currNumber = 0;
         StringBuilder currString = new StringBuilder();
 
@@ -14,13 +15,13 @@ class Solution {
             } else if (Character.isLetter(ch)) {
                 currString.append(ch);
             } else if (ch == '[') {
-                stack.add(currString.toString());
-                stack.add(String.valueOf(currNumber));
+                stackStr.add(currString.toString());
+                stackNum.add(currNumber);
                 currNumber = 0;
                 currString = new StringBuilder();
             } else if (ch == ']') {
-                int prevNumber = Integer.parseInt(stack.pop());
-                StringBuilder prevString = new StringBuilder(stack.pop());
+                int prevNumber = stackNum.pop();
+                StringBuilder prevString = new StringBuilder(stackStr.pop());
                 for (int i = 0; i < prevNumber; i++) {
                     prevString.append(currString);
                 }
