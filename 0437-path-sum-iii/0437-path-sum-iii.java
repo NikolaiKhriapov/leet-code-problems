@@ -15,20 +15,25 @@
  */
 class Solution {
     public int pathSum(TreeNode root, int targetSum) {
-        if (root == null) {
-            return 0;
-        }
-        return countFromNode(root, targetSum) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);
+
+        Map<Long, Integer> map = new HashMap<>();
+        map.put(0L, 1);
+        return helper(root, targetSum, 0L, map);
     }
 
-    private int countFromNode(TreeNode node, long targetSum) {
-        if (node == null) {
-            return 0;
-        }
-        long val = targetSum - node.val;
-        int count = val == 0 ? 1 : 0;
-        count += countFromNode(node.left, val);
-        count += countFromNode(node.right, val);
+    private int helper(TreeNode node, int targetSum, long currSum, Map<Long, Integer> map) {
+        if (node == null) return 0;
+
+        currSum += node.val;
+        int count = map.getOrDefault(currSum - targetSum, 0);
+
+        map.put(currSum, map.getOrDefault(currSum, 0) + 1);
+
+        count += helper(node.left, targetSum, currSum, map);
+        count += helper(node.right, targetSum, currSum, map);
+
+        map.put(currSum, map.get(currSum) - 1);
+
         return count;
     }
 }
