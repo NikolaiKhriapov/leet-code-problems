@@ -1,26 +1,25 @@
 class Solution {
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
-        if (k < 0 || w < 0 || profits == null || capital == null || profits.length != capital.length) {
+        if (profits == null || capital == null || k < 0 || w < 0 || profits.length != capital.length) {
             throw new IllegalArgumentException("Invalid input");
         }
 
         PriorityQueue<int[]> minCapital = new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0]));
-        PriorityQueue<Integer> maxProfit = new PriorityQueue<>((a, b) -> b - a);
-
         for (int i = 0; i < capital.length; i++) {
-            minCapital.add(new int[] {capital[i], profits[i]});
+            minCapital.offer(new int[] {capital[i], profits[i]});
         }
-        
+        PriorityQueue<Integer> maxProfits = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
+
         while (k-- > 0) {
             while (!minCapital.isEmpty() && minCapital.peek()[0] <= w) {
-                maxProfit.add(minCapital.poll()[1]);
+                maxProfits.offer(minCapital.poll()[1]);
             }
-            if (maxProfit.isEmpty()) {
+            if (maxProfits.isEmpty()) {
                 break;
             }
-            w += maxProfit.poll();
+            w += maxProfits.poll();
         }
-
+        
         return w;
     }
 }
