@@ -1,37 +1,34 @@
 class Solution {
     public int compress(char[] chars) {
-        if (chars == null) {
+        if (chars == null || chars.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (chars.length == 0) {
-            return 0;
-        }
 
-        StringBuilder sb = new StringBuilder();
-        
+        char ch = chars[0];
         int count = 0;
-        char prevChar = chars[0];
-        for (char currChar : chars) {
-            if (currChar == prevChar) {
+        int idx = 0;
+
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == ch) {
                 count++;
             } else {
-                sb.append(prevChar);
+                chars[idx++] = ch;
                 if (count > 1) {
-                    sb.append(String.valueOf(count));
+                    for (char digit : String.valueOf(count).toCharArray()) {
+                        chars[idx++] = digit;
+                    }
                 }
-                prevChar = currChar;
+                ch = chars[i];
                 count = 1;
             }
         }
-        sb.append(prevChar);
+        chars[idx++] = ch;
         if (count > 1) {
-            sb.append(String.valueOf(count));
+            for (char digit : String.valueOf(count).toCharArray()) {
+                chars[idx++] = digit;
+            }
         }
 
-        for (int i = 0; i < sb.length(); i++) {
-            chars[i] = sb.charAt(i);
-        }
-
-        return sb.length();
+        return idx;
     }
 }
