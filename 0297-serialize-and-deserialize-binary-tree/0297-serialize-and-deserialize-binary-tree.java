@@ -8,6 +8,7 @@
  * }
  */
 public class Codec {
+    private static final String NULL_CHAR = "#";
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
@@ -28,7 +29,7 @@ public class Codec {
 
     private void serialize(TreeNode node, StringBuilder sb) {
         if (node == null) {
-            sb.append("#,");
+            sb.append(NULL_CHAR).append(",");
             return;
         }
         sb.append(node.val).append(",");
@@ -38,14 +39,13 @@ public class Codec {
 
     private TreeNode deserialize(Queue<String> queue) {
         String val = queue.poll();
-        
-        if (val.equals("#")) {
-            return null;
-        }
+
+        if (val.equals(NULL_CHAR)) return null;
 
         TreeNode node = new TreeNode(Integer.parseInt(val));
         node.left = deserialize(queue);
         node.right = deserialize(queue);
+        
         return node;
     }
 }
