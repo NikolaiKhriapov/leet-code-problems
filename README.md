@@ -642,6 +642,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
 | [0543-diameter-of-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0543-diameter-of-binary-tree) |
+| [0547-number-of-provinces](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0547-number-of-provinces) |
 | [0563-binary-tree-tilt](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0563-binary-tree-tilt) |
 | [0572-subtree-of-another-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0572-subtree-of-another-tree) |
 | [0637-average-of-levels-in-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0637-average-of-levels-in-binary-tree) |
@@ -761,6 +762,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0433-minimum-genetic-mutation](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0433-minimum-genetic-mutation) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
+| [0547-number-of-provinces](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0547-number-of-provinces) |
 | [0637-average-of-levels-in-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0637-average-of-levels-in-binary-tree) |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0653-two-sum-iv-input-is-a-bst) |
 | [0774-maximum-depth-of-n-ary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0774-maximum-depth-of-n-ary-tree) |
@@ -1049,6 +1051,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0210-course-schedule-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0210-course-schedule-ii) |
 | [0329-longest-increasing-path-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0329-longest-increasing-path-in-a-matrix) |
 | [0399-evaluate-division](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0399-evaluate-division) |
+| [0547-number-of-provinces](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0547-number-of-provinces) |
 | [1039-find-the-town-judge](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1039-find-the-town-judge) |
 | [1916-find-center-of-star-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1916-find-center-of-star-graph) |
 | [2121-find-if-path-exists-in-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2121-find-if-path-exists-in-graph) |
@@ -1059,6 +1062,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0130-surrounded-regions](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0200-number-of-islands) |
 | [0399-evaluate-division](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0399-evaluate-division) |
+| [0547-number-of-provinces](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0547-number-of-provinces) |
 | [2121-find-if-path-exists-in-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2121-find-if-path-exists-in-graph) |
 ## Enumeration
 |  |
