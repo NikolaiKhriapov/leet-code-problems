@@ -1,5 +1,8 @@
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
+        if (temperatures == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int[] result = new int[temperatures.length];
         Stack<Integer> stack = new Stack<>();
