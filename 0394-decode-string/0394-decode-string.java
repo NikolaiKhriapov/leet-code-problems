@@ -1,7 +1,11 @@
 class Solution {
     public String decodeString(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
-        Stack<Pair> stack = new Stack<>();
+        Stack<Integer> stackNum = new Stack<>();
+        Stack<StringBuilder> stackStr = new Stack<>();
         int currNumber = 0;
         StringBuilder currString = new StringBuilder();
 
@@ -11,29 +15,21 @@ class Solution {
             } else if (Character.isLetter(currChar)) {
                 currString.append(currChar);
             } else if (currChar == '[') {
-                stack.add(new Pair(currNumber, currString));
+                stackStr.add(currString);
+                stackNum.add(currNumber);
                 currString = new StringBuilder();
                 currNumber = 0;
             } else if (currChar == ']') {
-                Pair pair = stack.pop();
-                for (int i = 0; i < pair.prevNumber; i++) {
-                    pair.prevString.append(currString);
+                int prevNumber = stackNum.pop();
+                StringBuilder prevString = stackStr.pop();
+                for (int i = 0; i < prevNumber; i++) {
+                    prevString.append(currString);
                 }
-                currString = pair.prevString;
+                currString = prevString;
                 currNumber = 0;
             }
         }        
 
         return currString.toString();
-    }
-
-    private class Pair {
-        int prevNumber;
-        StringBuilder prevString;
-
-        Pair(int prevNumber, StringBuilder prevString) {
-            this.prevNumber = prevNumber;
-            this.prevString = prevString;
-        }
     }
 }
