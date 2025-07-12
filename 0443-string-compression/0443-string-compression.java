@@ -12,23 +12,23 @@ class Solution {
             if (chars[i] == ch) {
                 count++;
             } else {
-                chars[idx++] = ch;
-                if (count > 1) {
-                    for (char digit : String.valueOf(count).toCharArray()) {
-                        chars[idx++] = digit;
-                    }
-                }
+                idx = helper(chars, idx, ch, count);
                 ch = chars[i];
                 count = 1;
             }
         }
+        idx = helper(chars, idx, ch, count);
+
+        return idx;
+    }
+
+    private static int helper(char[] chars, int idx, char ch, int count) {
         chars[idx++] = ch;
         if (count > 1) {
             for (char digit : String.valueOf(count).toCharArray()) {
                 chars[idx++] = digit;
             }
         }
-
         return idx;
     }
 }
