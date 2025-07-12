@@ -1,5 +1,8 @@
 class Solution {
     public int[] asteroidCollision(int[] asteroids) {
+        if (asteroids == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         Stack<Integer> stack = new Stack<>();
 
