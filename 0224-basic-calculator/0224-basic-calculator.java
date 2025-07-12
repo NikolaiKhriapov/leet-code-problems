@@ -32,6 +32,8 @@ class Solution {
                 result += stack.pop();
                 sign = 1;
                 number = 0;
+            } else if (ch == ' ') {
+                continue;
             }
         }
         
