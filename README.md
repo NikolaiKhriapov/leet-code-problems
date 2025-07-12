@@ -587,6 +587,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0341-flatten-nested-list-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0341-flatten-nested-list-iterator) |
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0437-path-sum-iii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0437-path-sum-iii) |
+| [0450-delete-node-in-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0450-delete-node-in-a-bst) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
 | [0543-diameter-of-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0543-diameter-of-binary-tree) |
@@ -684,6 +685,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0404-sum-of-left-leaves) |
 | [0437-path-sum-iii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0437-path-sum-iii) |
+| [0450-delete-node-in-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0450-delete-node-in-a-bst) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
 | [0543-diameter-of-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0543-diameter-of-binary-tree) |
@@ -793,6 +795,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0173-binary-search-tree-iterator](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0173-binary-search-tree-iterator) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0230-kth-smallest-element-in-a-bst) |
+| [0450-delete-node-in-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0450-delete-node-in-a-bst) |
 | [0501-find-mode-in-binary-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0501-find-mode-in-binary-search-tree) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0530-minimum-absolute-difference-in-bst) |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0653-two-sum-iv-input-is-a-bst) |
