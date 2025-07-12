@@ -1,25 +1,27 @@
 class Solution {
     public List<String> wordBreak(String s, List<String> wordDict) {
 
-        List<String> result = new ArrayList<>();
-        helper(s, wordDict, 0, new StringBuilder(), result);
-        return result;
+        return helper(s, wordDict, 0);
     }
 
-    private void helper(String s, List<String> wordDict, int idx, StringBuilder curr, List<String> result) {
+    private List<String> helper(String s, List<String> wordDict, int idx) {
+        List<String> result = new ArrayList<>();
+
         if (idx == s.length()) {
-            result.add(curr.toString());
-            return;
+            result.add("");
+            return result;
         }
 
-        int currLength = curr.length();
         for (String word : wordDict) {
             if (s.startsWith(word, idx)) {
-                if (!curr.isEmpty()) curr.append(" ");
-                curr.append(word);
-                helper(s, wordDict, idx + word.length(), curr, result);
-                curr.delete(currLength, curr.length());
+                List<String> subs = helper(s, wordDict, idx + word.length());
+                for (String sub : subs) {
+                    String optionalSpace = sub.isEmpty() ? "" : " ";
+                    result.add(word + optionalSpace + sub);
+                }
             }
         }
+
+        return result;
     }
 }
