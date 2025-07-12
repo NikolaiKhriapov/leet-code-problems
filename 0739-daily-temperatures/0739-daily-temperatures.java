@@ -5,7 +5,7 @@ class Solution {
         }
 
         int[] result = new int[temperatures.length];
-        Deque<Integer> stack = new LinkedList<>();
+        Deque<Integer> stack = new ArrayDeque<>();
 
         for (int i = 0; i < temperatures.length; i++) {
             while (!stack.isEmpty() && temperatures[stack.peekLast()] < temperatures[i]) {
