@@ -15,7 +15,7 @@ class Solution {
                 if (dx == 0 && dy == 0) {
                     duplicates++;
                 } else {
-                    int gcd = findGcd(dx, dy);
+                    int gcd = gcd(dx, dy);
                     dx /= gcd;
                     dy /= gcd;
                     if (dx < 0) {
@@ -32,8 +32,10 @@ class Solution {
         return result;
     }
 
-    private int findGcd(int a, int b) {
-        if (b == 0) return a;
-        return findGcd(b, a % b);
+    private static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
     }
 }
