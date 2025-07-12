@@ -385,6 +385,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0643-maximum-average-subarray-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0643-maximum-average-subarray-i) |
 | [0645-set-mismatch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0645-set-mismatch) |
 | [0682-baseball-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0682-baseball-game) |
+| [0714-best-time-to-buy-and-sell-stock-with-transaction-fee](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0714-best-time-to-buy-and-sell-stock-with-transaction-fee) |
 | [0724-find-pivot-index](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0724-find-pivot-index) |
 | [0745-find-smallest-letter-greater-than-target](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0745-find-smallest-letter-greater-than-target) |
 | [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
@@ -844,6 +845,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0338-counting-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0338-counting-bits) |
 | [0392-is-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0392-is-subsequence) |
 | [0435-non-overlapping-intervals](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0435-non-overlapping-intervals) |
+| [0714-best-time-to-buy-and-sell-stock-with-transaction-fee](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0714-best-time-to-buy-and-sell-stock-with-transaction-fee) |
 | [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
 | [0954-maximum-sum-circular-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0954-maximum-sum-circular-subarray) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
@@ -1011,6 +1013,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0605-can-place-flowers](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0605-can-place-flowers) |
 | [0649-dota2-senate](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0649-dota2-senate) |
 | [0680-valid-palindrome-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0680-valid-palindrome-ii) |
+| [0714-best-time-to-buy-and-sell-stock-with-transaction-fee](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0714-best-time-to-buy-and-sell-stock-with-transaction-fee) |
 | [1018-largest-perimeter-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1018-largest-perimeter-triangle) |
 | [1047-maximize-sum-of-array-after-k-negations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1047-maximize-sum-of-array-after-k-negations) |
 ## Counting Sort
