@@ -4,15 +4,15 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        PriorityQueue<int[]> minCapital = new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0]));
+        PriorityQueue<Pair> minCapital = new PriorityQueue<>((a, b) -> Integer.compare(a.capital, b.capital));
         for (int i = 0; i < capital.length; i++) {
-            minCapital.offer(new int[] {capital[i], profits[i]});
+            minCapital.offer(new Pair(capital[i], profits[i]));
         }
         PriorityQueue<Integer> maxProfits = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
 
         while (k-- > 0) {
-            while (!minCapital.isEmpty() && minCapital.peek()[0] <= w) {
-                maxProfits.offer(minCapital.poll()[1]);
+            while (!minCapital.isEmpty() && minCapital.peek().capital <= w) {
+                maxProfits.offer(minCapital.poll().profit);
             }
             if (maxProfits.isEmpty()) {
                 break;
@@ -21,5 +21,15 @@ class Solution {
         }
         
         return w;
+    }
+
+    private class Pair {
+        int capital;
+        int profit;
+
+        public Pair(int capital, int profit) {
+            this.capital = capital;
+            this.profit = profit;
+        }
     }
 }
