@@ -4,10 +4,10 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int result = 0;
-        int number = 0;
-        int sign = 1;
         Stack<Integer> stack = new Stack<>();
+        int sign = 1;
+        int number = 0;
+        int result = 0;
 
         for (char ch : s.toCharArray()) {
             if (Character.isDigit(ch)) {
@@ -23,17 +23,18 @@ class Solution {
             } else if (ch == '(') {
                 stack.add(result);
                 stack.add(sign);
+                result = 0;
                 sign = 1;
                 number = 0;
-                result = 0;
             } else if (ch == ')') {
                 result += sign * number;
                 result *= stack.pop();
                 result += stack.pop();
+                sign = 1;
                 number = 0;
             }
         }
-
+        
         result += sign * number;
         return result;
     }
