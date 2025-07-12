@@ -1,35 +1,39 @@
 class Solution {
     public String decodeString(String s) {
-        if (s == null) {
-            throw new IllegalArgumentException("Invalid input");
-        }
 
-        Stack<Integer> stackNum = new Stack<>();
-        Stack<String> stackStr = new Stack<>();
+        Stack<Pair> stack = new Stack<>();
         int currNumber = 0;
         StringBuilder currString = new StringBuilder();
 
-        for (char ch : s.toCharArray()) {
-            if (Character.isDigit(ch)) {
-                currNumber = currNumber * 10 + (ch - '0');
-            } else if (Character.isLetter(ch)) {
-                currString.append(ch);
-            } else if (ch == '[') {
-                stackStr.add(currString.toString());
-                stackNum.add(currNumber);
-                currNumber = 0;
+        for (char currChar : s.toCharArray()) {
+            if (Character.isDigit(currChar)) {
+                currNumber = currNumber * 10 + (currChar - '0');
+            } else if (Character.isLetter(currChar)) {
+                currString.append(currChar);
+            } else if (currChar == '[') {
+                stack.add(new Pair(currNumber, currString));
                 currString = new StringBuilder();
-            } else if (ch == ']') {
-                int prevNumber = stackNum.pop();
-                StringBuilder prevString = new StringBuilder(stackStr.pop());
-                for (int i = 0; i < prevNumber; i++) {
-                    prevString.append(currString);
+                currNumber = 0;
+            } else if (currChar == ']') {
+                Pair pair = stack.pop();
+                for (int i = 0; i < pair.prevNumber; i++) {
+                    pair.prevString.append(currString);
                 }
-                currString = prevString;
+                currString = pair.prevString;
                 currNumber = 0;
             }
-        }
-        
+        }        
+
         return currString.toString();
+    }
+
+    private class Pair {
+        int prevNumber;
+        StringBuilder prevString;
+
+        Pair(int prevNumber, StringBuilder prevString) {
+            this.prevNumber = prevNumber;
+            this.prevString = prevString;
+        }
     }
 }
