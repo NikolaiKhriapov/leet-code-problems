@@ -3,10 +3,10 @@ class Solution {
         if (s == null || wordDict == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        return helper(s, wordDict, 0, new List[s.length()]);
+        return helper(s, wordDict, 0, new HashMap<>());
     }
 
-    private List<String> helper(String s, List<String> wordDict, int idx, List<String>[] memo) {
+    private List<String> helper(String s, List<String> wordDict, int idx, Map<Integer, List<String>> memo) {
         List<String> result = new ArrayList<>();
 
         if (idx == s.length()) {
@@ -14,8 +14,8 @@ class Solution {
             return result;
         }
 
-        if (memo[idx] != null) {
-            return memo[idx];
+        if (memo.containsKey(idx)) {
+            return memo.get(idx);
         }
 
         for (String word : wordDict) {
@@ -28,7 +28,7 @@ class Solution {
             }
         }
 
-        memo[idx] = result;
+        memo.put(idx, result);
         return result;
     }
 }
