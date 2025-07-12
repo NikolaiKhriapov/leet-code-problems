@@ -3,25 +3,25 @@ class Solution {
 
         Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[isConnected.length];
-        int provinces = 0;
+        int count = 0;
 
         for (int i = 0; i < isConnected.length; i++) {
             if (!visited[i]) {
                 queue.add(i);
                 visited[i] = true;
                 while (!queue.isEmpty()) {
-                    int currCity = queue.poll();
+                    int curr = queue.poll();
                     for (int j = 0; j < isConnected.length; j++) {
-                        if (isConnected[currCity][j] == 1 && !visited[j]) {
+                        if (isConnected[curr][j] == 1 && !visited[j]) {
                             queue.add(j);
                             visited[j] = true;
                         }
                     }
                 }
-                provinces++;
+                count++;
             }
         }
         
-        return provinces;
+        return count;
     }
 }
