@@ -1,6 +1,4 @@
 class Solution {
-    private static final Set<Character> VOWELS = Set.of('a', 'e', 'i', 'o', 'u');
-
     public int maxVowels(String s, int k) {
         if (s == null || k < 0) {
             throw new IllegalArgumentException("Invalid input");
@@ -12,12 +10,12 @@ class Solution {
         int maxCount = 0;
 
         while (right < s.length()) {
-            if (VOWELS.contains(s.charAt(right))) {
+            if (isVowel(s.charAt(right))) {
                 currCount++;
             }
             right++;
             if (right - left > k) {
-                if (VOWELS.contains(s.charAt(left))) {
+                if (isVowel(s.charAt(left))) {
                     currCount--;
                 }
                 left++;
@@ -26,5 +24,9 @@ class Solution {
         }
         
         return maxCount;
+    }
+
+    private static boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 }
