@@ -14,13 +14,11 @@ class Solution {
         dp[0] = 1;
         dp[1] = 1;
         dp[2] = 2;
-
+        
+        long preSum = 0;
         for (int i = 3; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
-            for (int j = i - 3; j >= 0; j--) {
-                dp[i] += 2 * dp[j];
-            }
-            dp[i] %= MODULO;
+            preSum += 2 * dp[i - 3];
+            dp[i] = (dp[i - 1] + dp[i - 2] + preSum) % MODULO;
         }
         
         return (int) dp[n];
