@@ -114,6 +114,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0776-n-ary-tree-postorder-traversal](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0776-n-ary-tree-postorder-traversal) |
 | [0874-backspace-string-compare](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0874-backspace-string-compare) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
+| [0937-online-stock-span](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0937-online-stock-span) |
 | [1078-remove-outermost-parentheses](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1078-remove-outermost-parentheses) |
 | [1128-remove-all-adjacent-duplicates-in-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1128-remove-all-adjacent-duplicates-in-string) |
 | [1570-final-prices-with-a-special-discount-in-a-shop](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1570-final-prices-with-a-special-discount-in-a-shop) |
@@ -904,6 +905,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0084-largest-rectangle-in-histogram](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0084-largest-rectangle-in-histogram) |
 | [0496-next-greater-element-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0496-next-greater-element-i) |
 | [0739-daily-temperatures](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0739-daily-temperatures) |
+| [0937-online-stock-span](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0937-online-stock-span) |
 | [1570-final-prices-with-a-special-discount-in-a-shop](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1570-final-prices-with-a-special-discount-in-a-shop) |
 ## Queue
 |  |
@@ -976,6 +978,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [0816-design-hashset](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0816-design-hashset) |
 | [0817-design-hashmap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0817-design-hashmap) |
+| [0937-online-stock-span](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0937-online-stock-span) |
 | [0969-number-of-recent-calls](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0969-number-of-recent-calls) |
 ## Backtracking
 |  |
@@ -1037,6 +1040,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0295-find-median-from-data-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0295-find-median-from-data-stream) |
 | [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
+| [0937-online-stock-span](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0937-online-stock-span) |
 | [0969-number-of-recent-calls](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0969-number-of-recent-calls) |
 ## Geometry
 |  |
