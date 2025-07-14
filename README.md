@@ -852,6 +852,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0435-non-overlapping-intervals](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0435-non-overlapping-intervals) |
 | [0714-best-time-to-buy-and-sell-stock-with-transaction-fee](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0714-best-time-to-buy-and-sell-stock-with-transaction-fee) |
 | [0747-min-cost-climbing-stairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0747-min-cost-climbing-stairs) |
+| [0806-domino-and-tromino-tiling](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0806-domino-and-tromino-tiling) |
 | [0954-maximum-sum-circular-subarray](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0954-maximum-sum-circular-subarray) |
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 | [1086-divisor-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1086-divisor-game) |
