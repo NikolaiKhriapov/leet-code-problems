@@ -4,7 +4,7 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Queue<Integer> queue = new LinkedList<>();
+        Deque<Integer> queue = new ArrayDeque<>();
         boolean[] visited = new boolean[isConnected.length];
         int provinces = 0;
 
@@ -12,13 +12,13 @@ class Solution {
             if (visited[i]) {
                 continue;
             }
-            queue.add(i);
+            queue.offerLast(i);
             visited[i] = true;
             while (!queue.isEmpty()) {
-                int city = queue.poll();
+                int city = queue.pollFirst();
                 for (int j = 0; j < isConnected.length; j++) {
                     if (isConnected[city][j] == 1 && !visited[j]) {
-                        queue.add(j);
+                        queue.offerLast(j);
                         visited[j] = true;
                     }
                 }
