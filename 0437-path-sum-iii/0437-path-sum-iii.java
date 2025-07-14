@@ -15,6 +15,9 @@
  */
 class Solution {
     public int pathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return 0;
+        }
 
         Map<Long, Integer> map = new HashMap<>();
         map.put(0L, 1);
@@ -22,9 +25,12 @@ class Solution {
     }
 
     private int helper(TreeNode node, int targetSum, long currSum, Map<Long, Integer> map) {
-        if (node == null) return 0;
+        if (node == null) {
+            return 0;
+        }
 
         currSum += node.val;
+
         int count = map.getOrDefault(currSum - targetSum, 0);
 
         map.put(currSum, map.getOrDefault(currSum, 0) + 1);
