@@ -4,31 +4,30 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Stack<Integer> stack = new Stack<>();
-
-        for (int asteroid : asteroids) {
+        Deque<Integer> deque = new ArrayDeque<>();
+        for (int i = 0; i < asteroids.length; i++) {
             boolean isDestroyed = false;
-            while (!stack.isEmpty() && asteroid < 0 && stack.peek() > 0) {
-                if (stack.peek() > -asteroid) {
+            while (!deque.isEmpty() && deque.peekLast() > 0 && asteroids[i] < 0) {
+                if (deque.peekLast() > -asteroids[i]) {
                     isDestroyed = true;
                     break;
-                } else if (stack.peek() < -asteroid) {
-                    stack.pop();
+                } else if (deque.peekLast() < -asteroids[i]) {
+                    deque.pollLast();
                 } else {
-                    stack.pop();
+                    deque.pollLast();
                     isDestroyed = true;
                     break;
                 }
             }
             if (!isDestroyed) {
-                stack.add(asteroid);
+                deque.offerLast(asteroids[i]);
             }
         }
         
-        int[] result = new int[stack.size()];
+        int[] result = new int[deque.size()];
         int idx = 0;
-        for (int asteroid : stack) {
-            result[idx++] = asteroid;
+        while (!deque.isEmpty()) {
+            result[idx++] = deque.pollFirst();
         }
 
         return result;
