@@ -8,7 +8,7 @@ class Solution {
         }
 
         Deque<Integer> stackInt = new ArrayDeque<>();
-        Deque<String> stackStr = new ArrayDeque<>();
+        Deque<StringBuilder> stackStr = new ArrayDeque<>();
         int currNumber = 0;
         StringBuilder currString = new StringBuilder();
         
@@ -19,11 +19,11 @@ class Solution {
                 currString.append(currChar);
             } else if (currChar == '[') {
                 stackInt.push(currNumber);
-                stackStr.push(currString.toString());
+                stackStr.push(currString);
                 currNumber = 0;
                 currString = new StringBuilder();
             } else if (currChar == ']') {
-                StringBuilder prevString = new StringBuilder(stackStr.pop());
+                StringBuilder prevString = stackStr.pop();
                 int prevNumber = stackInt.pop();
                 for (int i = 0; i < prevNumber; i++) {
                     prevString.append(currString);
