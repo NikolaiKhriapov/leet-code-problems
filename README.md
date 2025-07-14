@@ -613,6 +613,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [0904-leaf-similar-trees](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0904-leaf-similar-trees) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
+| [1116-maximum-level-sum-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -663,6 +664,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0871-keys-and-rooms](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0871-keys-and-rooms) |
 | [0904-leaf-similar-trees](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0904-leaf-similar-trees) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
+| [1116-maximum-level-sum-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
 | [2121-find-if-path-exists-in-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2121-find-if-path-exists-in-graph) |
 ## Binary Tree
 |  |
@@ -709,6 +711,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0789-kth-largest-element-in-a-stream](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0789-kth-largest-element-in-a-stream) |
 | [0904-leaf-similar-trees](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0904-leaf-similar-trees) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
+| [1116-maximum-level-sum-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
 ## Bit Manipulation
 |  |
 | ------- |
@@ -781,6 +784,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0871-keys-and-rooms](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0871-keys-and-rooms) |
 | [0945-snakes-and-ladders](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0945-snakes-and-ladders) |
 | [1036-rotting-oranges](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1036-rotting-oranges) |
+| [1116-maximum-level-sum-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
 | [2121-find-if-path-exists-in-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2121-find-if-path-exists-in-graph) |
 ## Divide and Conquer
 |  |
