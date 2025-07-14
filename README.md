@@ -741,6 +741,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0476-number-complement](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0476-number-complement) |
 | [0645-set-mismatch](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0645-set-mismatch) |
 | [0693-binary-number-with-alternating-bits](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0693-binary-number-with-alternating-bits) |
+| [1441-minimum-flips-to-make-a-or-b-equal-to-c](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1441-minimum-flips-to-make-a-or-b-equal-to-c) |
 | [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 ## Simulation
 |  |
