@@ -1,7 +1,10 @@
 class Solution {
-    private static final int MODULO = 1_000_000_007;
+    private static final long MODULO = 1_000_000_007;
 
     public int numTilings(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         if (n == 0) return 1;
         if (n == 1) return 1;
@@ -12,13 +15,12 @@ class Solution {
         dp[1] = 1;
         dp[2] = 2;
 
-        long prefixSum = 0;
-
-        for (int i = 3; i < dp.length; i++) {
+        for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
-            prefixSum = prefixSum + 2 * dp[i - 3];
-            dp[i] += prefixSum;
-            dp[i] = dp[i] % MODULO;
+            for (int j = i - 3; j >= 0; j--) {
+                dp[i] += 2 * dp[j];
+            }
+            dp[i] %= MODULO;
         }
         
         return (int) dp[n];
