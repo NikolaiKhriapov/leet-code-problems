@@ -7,13 +7,14 @@ class Solution {
         if (!(str1 + str2).equals(str2 + str1)) {
             return "";
         }
-        return str1.substring(0, findGcd(str1.length(), str2.length()));
+        int gcd = gcd(str1.length(), str2.length());
+        return str1.substring(0, gcd);
     }
 
-    private static int findGcd(int a, int b) {
+    private int gcd(int a, int b) {
         if (b == 0) {
             return a;
         }
-        return findGcd(b, a % b);
+        return gcd(b, a % b);
     }
 }
