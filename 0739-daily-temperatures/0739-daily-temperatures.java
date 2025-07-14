@@ -4,17 +4,15 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
+        int[] result = new int[temperatures.length];
         Deque<Integer> stack = new ArrayDeque<>();
         for (int i = 0; i < temperatures.length; i++) {
             while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[i]) {
                 int prevIndex = stack.pop();
-                temperatures[prevIndex] = i - prevIndex;
+                result[prevIndex] = i - prevIndex;
             }
             stack.push(i);
         }
-        while (!stack.isEmpty()) {
-            temperatures[stack.pop()] = 0;
-        }
-        return temperatures;
+        return result;
     }
 }
