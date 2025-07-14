@@ -407,6 +407,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0958-sort-array-by-parity-ii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0958-sort-array-by-parity-ii) |
 | [1018-largest-perimeter-triangle](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1018-largest-perimeter-triangle) |
 | [1019-squares-of-a-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1019-squares-of-a-sorted-array) |
+| [1036-rotting-oranges](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1036-rotting-oranges) |
 | [1039-find-the-town-judge](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1039-find-the-town-judge) |
 | [1047-maximize-sum-of-array-after-k-negations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1047-maximize-sum-of-array-after-k-negations) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
@@ -779,6 +780,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0774-maximum-depth-of-n-ary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0774-maximum-depth-of-n-ary-tree) |
 | [0871-keys-and-rooms](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0871-keys-and-rooms) |
 | [0945-snakes-and-ladders](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0945-snakes-and-ladders) |
+| [1036-rotting-oranges](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1036-rotting-oranges) |
 | [2121-find-if-path-exists-in-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2121-find-if-path-exists-in-graph) |
 ## Divide and Conquer
 |  |
@@ -956,6 +958,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0378-kth-smallest-element-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0378-kth-smallest-element-in-a-sorted-matrix) |
 | [0772-construct-quad-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0772-construct-quad-tree) |
 | [0945-snakes-and-ladders](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0945-snakes-and-ladders) |
+| [1036-rotting-oranges](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1036-rotting-oranges) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1476-count-negative-numbers-in-a-sorted-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1476-count-negative-numbers-in-a-sorted-matrix) |
