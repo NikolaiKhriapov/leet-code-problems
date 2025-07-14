@@ -12,17 +12,15 @@ class Solution {
         dp[1] = 1;
         dp[2] = 2;
 
+        long prefixSum = 0;
+
         for (int i = 3; i < dp.length; i++) {
-            // dp[i] = (2 * dp[i - 1] + dp[i - 3]) % MODULO;
             dp[i] = dp[i - 1] + dp[i - 2];
-            for (int j = i - 3; j >= 0; j--) {
-                dp[i] += 2 * dp[j];
-            }
+            prefixSum = prefixSum + 2 * dp[i - 3];
+            dp[i] += prefixSum;
             dp[i] = dp[i] % MODULO;
         }
         
         return (int) dp[n];
     }
 }
-
-// dp[n - 2] + dp[n - 1] = dp[n] - dp[2] + dp[n] - dp[1] = 2*dp[n] - dp[2] - dp[1]
