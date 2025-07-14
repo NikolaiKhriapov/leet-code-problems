@@ -1,32 +1,31 @@
 class Solution {
     public int compress(char[] chars) {
-        if (chars == null || chars.length == 0) {
+        if (chars == null) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        char ch = chars[0];
+        char prevChar = chars[0];
         int count = 0;
         int idx = 0;
 
-        for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == ch) {
+        for (char currChar : chars) {
+            if (currChar == prevChar) {
                 count++;
             } else {
-                idx = helper(chars, idx, ch, count);
-                ch = chars[i];
+                idx = helper(chars, idx, prevChar, count);
+                prevChar = currChar;
                 count = 1;
             }
         }
-        idx = helper(chars, idx, ch, count);
-
+        idx = helper(chars, idx, prevChar, count);
         return idx;
     }
 
-    private static int helper(char[] chars, int idx, char ch, int count) {
-        chars[idx++] = ch;
+    private int helper(char[] chars, int idx, char prevChar, int count) {
+        chars[idx++] = prevChar;
         if (count > 1) {
-            for (char digit : String.valueOf(count).toCharArray()) {
-                chars[idx++] = digit;
+            for (char ch : String.valueOf(count).toCharArray()) {
+                chars[idx++] = ch;
             }
         }
         return idx;
