@@ -14,7 +14,7 @@ class StockSpanner {
         return span;
     }
 
-    private class Stock {
+    private static class Stock {
         int price;
         int span;
 
