@@ -1,9 +1,14 @@
 class Solution {
     public String decodeString(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (s.isEmpty()) {
+            return "";
+        }
 
         Deque<Integer> stackInt = new ArrayDeque<>();
         Deque<String> stackStr = new ArrayDeque<>();
-
         int currNumber = 0;
         StringBuilder currString = new StringBuilder();
         
