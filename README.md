@@ -619,6 +619,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0904-leaf-similar-trees](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0904-leaf-similar-trees) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 | [1116-maximum-level-sum-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
+| [1474-longest-zigzag-path-in-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1474-longest-zigzag-path-in-a-binary-tree) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -670,6 +671,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0904-leaf-similar-trees](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0904-leaf-similar-trees) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 | [1116-maximum-level-sum-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
+| [1474-longest-zigzag-path-in-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1474-longest-zigzag-path-in-a-binary-tree) |
 | [2121-find-if-path-exists-in-graph](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2121-find-if-path-exists-in-graph) |
 ## Binary Tree
 |  |
@@ -717,6 +719,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0904-leaf-similar-trees](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0904-leaf-similar-trees) |
 | [0933-increasing-order-search-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0933-increasing-order-search-tree) |
 | [1116-maximum-level-sum-of-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
+| [1474-longest-zigzag-path-in-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1474-longest-zigzag-path-in-a-binary-tree) |
 ## Bit Manipulation
 |  |
 | ------- |
@@ -874,6 +877,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1013-fibonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1013-fibonacci-number) |
 | [1086-divisor-game](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1086-divisor-game) |
 | [1236-n-th-tribonacci-number](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1236-n-th-tribonacci-number) |
+| [1474-longest-zigzag-path-in-a-binary-tree](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1474-longest-zigzag-path-in-a-binary-tree) |
 | [1764-maximum-repeating-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1764-maximum-repeating-substring) |
 ## Counting
 |  |
