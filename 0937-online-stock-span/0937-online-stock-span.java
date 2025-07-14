@@ -1,5 +1,5 @@
 class StockSpanner {
-    private Deque<Stock> stack;
+    private Deque<Pair> stack;
 
     public StockSpanner() {
         stack = new ArrayDeque<>();
@@ -10,15 +10,15 @@ class StockSpanner {
         while (!stack.isEmpty() && stack.peek().price <= price) {
             span += stack.pop().span;
         }
-        stack.push(new Stock(price, span));
+        stack.push(new Pair(price, span));
         return span;
     }
 
-    private static class Stock {
+    private static class Pair {
         int price;
         int span;
 
-        Stock(int price, int span) {
+        Pair(int price, int span) {
             this.price = price;
             this.span = span;
         }
