@@ -412,6 +412,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1019-squares-of-a-sorted-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1019-squares-of-a-sorted-array) |
 | [1036-rotting-oranges](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1036-rotting-oranges) |
 | [1039-find-the-town-judge](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1039-find-the-town-judge) |
+| [1046-max-consecutive-ones-iii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1046-max-consecutive-ones-iii) |
 | [1047-maximize-sum-of-array-after-k-negations](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1047-maximize-sum-of-array-after-k-negations) |
 | [1094-matrix-cells-in-distance-order](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1094-matrix-cells-in-distance-order) |
 | [1127-last-stone-weight](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1127-last-stone-weight) |
@@ -515,6 +516,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0792-binary-search](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0792-binary-search) |
 | [0907-koko-eating-bananas](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0907-koko-eating-bananas) |
 | [0924-fair-candy-swap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0924-fair-candy-swap) |
+| [1046-max-consecutive-ones-iii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1046-max-consecutive-ones-iii) |
 | [1397-search-suggestions-system](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1397-search-suggestions-system) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
@@ -904,6 +906,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0395-longest-substring-with-at-least-k-repeating-characters](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0395-longest-substring-with-at-least-k-repeating-characters) |
 | [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
 | [0643-maximum-average-subarray-i](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0643-maximum-average-subarray-i) |
+| [1046-max-consecutive-ones-iii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1046-max-consecutive-ones-iii) |
 | [1567-maximum-number-of-vowels-in-a-substring-of-given-length](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1567-maximum-number-of-vowels-in-a-substring-of-given-length) |
 | [1755-defuse-the-bomb](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1755-defuse-the-bomb) |
 | [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
@@ -1028,6 +1031,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0238-product-of-array-except-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0238-product-of-array-except-self) |
 | [0303-range-sum-query-immutable](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0303-range-sum-query-immutable) |
 | [0724-find-pivot-index](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0724-find-pivot-index) |
+| [1046-max-consecutive-ones-iii](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1046-max-consecutive-ones-iii) |
 | [1833-find-the-highest-altitude](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1833-find-the-highest-altitude) |
 ## Greedy
 |  |
