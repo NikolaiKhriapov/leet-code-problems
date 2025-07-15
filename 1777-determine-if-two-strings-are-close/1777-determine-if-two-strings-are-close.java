@@ -18,7 +18,7 @@ class Solution {
         return isSameChars && Arrays.equals(freq1, freq2);
     }
 
-    private int[] getFrequencyArray(String word) {
+    private static int[] getFrequencyArray(String word) {
         int[] freq = new int[26];
         for (char c : word.toCharArray()) {
             freq[c - 'a']++;
@@ -26,7 +26,7 @@ class Solution {
         return freq;
     }
 
-    private boolean isSameChars(int[] arr1, int[] arr2) {
+    private static boolean isSameChars(int[] arr1, int[] arr2) {
         for (int i = 0; i < 26; i++) {
             if ((arr1[i] == 0 && arr2[i] != 0) || (arr1[i] != 0 && arr2[i] == 0)) {
                 return false;
