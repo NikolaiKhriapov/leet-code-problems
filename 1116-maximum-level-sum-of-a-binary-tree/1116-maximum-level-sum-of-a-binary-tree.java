@@ -19,7 +19,7 @@ class Solution {
             return 0;
         }
 
-        Deque<TreeNode> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
 
         int maxLevelSum = Integer.MIN_VALUE;
@@ -30,13 +30,13 @@ class Solution {
             int size = queue.size();
             int levelSum = 0;
             while (size-- > 0) {
-                TreeNode curr = queue.pollFirst();
+                TreeNode curr = queue.poll();
                 levelSum += curr.val;
                 if (curr.left != null) {
-                    queue.offerLast(curr.left);
+                    queue.offer(curr.left);
                 }
                 if (curr.right != null) {
-                    queue.offerLast(curr.right);
+                    queue.offer(curr.right);
                 }
             }
             if (levelSum > maxLevelSum) {
