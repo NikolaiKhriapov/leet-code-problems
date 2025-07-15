@@ -74,6 +74,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1567-maximum-number-of-vowels-in-a-substring-of-given-length](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1567-maximum-number-of-vowels-in-a-substring-of-given-length) |
 | [1666-make-the-string-great](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1666-make-the-string-great) |
 | [1764-maximum-repeating-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1764-maximum-repeating-substring) |
+| [1777-determine-if-two-strings-are-close](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1777-determine-if-two-strings-are-close) |
 | [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 | [1894-merge-strings-alternately](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1894-merge-strings-alternately) |
 | [1987-substrings-of-size-three-with-distinct-characters](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1987-substrings-of-size-three-with-distinct-characters) |
@@ -181,6 +182,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1319-unique-number-of-occurrences](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1319-unique-number-of-occurrences) |
 | [1392-find-the-difference-of-two-arrays](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1392-find-the-difference-of-two-arrays) |
 | [1468-check-if-n-and-its-double-exist](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1468-check-if-n-and-its-double-exist) |
+| [1777-determine-if-two-strings-are-close](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1777-determine-if-two-strings-are-close) |
 | [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 | [1987-substrings-of-size-three-with-distinct-characters](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1987-substrings-of-size-three-with-distinct-characters) |
 ## Math
@@ -571,6 +573,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1486-find-the-distance-value-between-two-arrays](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1486-find-the-distance-value-between-two-arrays) |
 | [1574-maximum-product-of-two-elements-in-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1574-maximum-product-of-two-elements-in-an-array) |
 | [1730-special-array-with-x-elements-greater-than-or-equal-x](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1730-special-array-with-x-elements-greater-than-or-equal-x) |
+| [1777-determine-if-two-strings-are-close](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1777-determine-if-two-strings-are-close) |
 | [2112-minimum-difference-between-highest-and-lowest-of-k-scores](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2112-minimum-difference-between-highest-and-lowest-of-k-scores) |
 ## Tree
 |  |
@@ -897,6 +900,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0383-ransom-note](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0383-ransom-note) |
 | [0387-first-unique-character-in-a-string](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0387-first-unique-character-in-a-string) |
 | [0594-longest-harmonious-subsequence](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0594-longest-harmonious-subsequence) |
+| [1777-determine-if-two-strings-are-close](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1777-determine-if-two-strings-are-close) |
 | [1987-substrings-of-size-three-with-distinct-characters](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1987-substrings-of-size-three-with-distinct-characters) |
 ## Sliding Window
 |  |
