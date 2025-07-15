@@ -1,10 +1,7 @@
 class Solution {
     public int findCircleNum(int[][] isConnected) {
-        if (isConnected == null) {
+        if (isConnected == null || isConnected.length == 0 || isConnected.length != isConnected[0].length) {
             throw new IllegalArgumentException("Invalid input");
-        }
-        if (isConnected.length == 0 || isConnected[0].length == 0) {
-            return 0;
         }
         
         Deque<Integer> queue = new ArrayDeque<>();
