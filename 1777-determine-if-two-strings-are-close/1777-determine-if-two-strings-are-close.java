@@ -12,10 +12,10 @@ class Solution {
         
         boolean isSameChars = isSameChars(freq1, freq2);
 
-        Arrays.sort(freq1);
-        Arrays.sort(freq2);
+        Map<Integer, Integer> freqMap1 = getFrequencyMap(freq1);
+        Map<Integer, Integer> freqMap2 = getFrequencyMap(freq2);
 
-        return isSameChars && Arrays.equals(freq1, freq2);
+        return isSameChars && freqMap1.equals(freqMap2);
     }
 
     private static int[] getFrequencyArray(String word) {
@@ -24,6 +24,16 @@ class Solution {
             freq[c - 'a']++;
         }
         return freq;
+    }
+
+    private static Map<Integer, Integer> getFrequencyMap(int[] arr) {
+        Map<Integer, Integer> result = new HashMap<>();
+        for (int n : arr) {
+            if (n > 0) {
+                result.put(n, result.getOrDefault(n, 0) + 1);
+            }
+        }
+        return result;
     }
 
     private static boolean isSameChars(int[] arr1, int[] arr2) {
