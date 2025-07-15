@@ -5,13 +5,13 @@ class Solution {
         }
 
         Deque<Integer> deque = new ArrayDeque<>();
-        for (int i = 0; i < asteroids.length; i++) {
+        for (int asteroid : asteroids) {
             boolean isDestroyed = false;
-            while (!deque.isEmpty() && deque.peekLast() > 0 && asteroids[i] < 0) {
-                if (deque.peekLast() > -asteroids[i]) {
+            while (!deque.isEmpty() && asteroid < 0 && deque.peekLast() > 0) {
+                if (deque.peekLast() > -asteroid) {
                     isDestroyed = true;
                     break;
-                } else if (deque.peekLast() < -asteroids[i]) {
+                } else if (deque.peekLast() < -asteroid) {
                     deque.pollLast();
                 } else {
                     deque.pollLast();
@@ -20,14 +20,14 @@ class Solution {
                 }
             }
             if (!isDestroyed) {
-                deque.offerLast(asteroids[i]);
+                deque.offerLast(asteroid);
             }
         }
         
         int[] result = new int[deque.size()];
         int idx = 0;
-        while (!deque.isEmpty()) {
-            result[idx++] = deque.pollFirst();
+        for (int asteroid : deque) {
+            result[idx++] = asteroid;
         }
 
         return result;
