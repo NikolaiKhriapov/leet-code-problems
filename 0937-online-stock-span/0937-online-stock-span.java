@@ -14,9 +14,9 @@ class StockSpanner {
         return span;
     }
 
-    private static class Pair {
-        int price;
-        int span;
+    private class Pair {
+        private int price;
+        private int span;
 
         Pair(int price, int span) {
             this.price = price;
@@ -30,3 +30,6 @@ class StockSpanner {
  * StockSpanner obj = new StockSpanner();
  * int param_1 = obj.next(price);
  */
+
+ // [100, 85]
+ // [  1,  6]
