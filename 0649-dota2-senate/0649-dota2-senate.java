@@ -26,7 +26,7 @@ class Solution {
             if (a < b) {
                 queue1.offerLast(a + senate.length());
             } else {
-                queue2.offerLast(a + senate.length());
+                queue2.offerLast(b + senate.length());
             }
         }
 
