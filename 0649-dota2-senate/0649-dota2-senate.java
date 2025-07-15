@@ -17,6 +17,7 @@ class Solution {
             switch (ch) {
                 case CHAR_1 -> queue1.offerLast(i);
                 case CHAR_2 -> queue2.offerLast(i);
+                default -> throw new IllegalArgumentException("Invalid input");
             }
         }
 
