@@ -19,31 +19,31 @@ class Solution {
             return 0;
         }
 
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        int maxLevelSum = Integer.MIN_VALUE;
         int level = 0;
-        int maxSum = Integer.MIN_VALUE;
 
-        Deque<TreeNode> queue = new ArrayDeque<>();
-        queue.offerLast(root);
-
-        int currLevel = 0;
+        int currLevel = 1;
         while (!queue.isEmpty()) {
             int size = queue.size();
-            currLevel++;
-            int currSum = 0;
+            int levelSum = 0;
             while (size-- > 0) {
-                TreeNode node = queue.pollFirst();
-                currSum += node.val;
-                if (node.left != null) {
-                    queue.offerLast(node.left);
+                TreeNode curr = queue.poll();
+                levelSum += curr.val;
+                if (curr.left != null) {
+                    queue.add(curr.left);
                 }
-                if (node.right != null) {
-                    queue.offerLast(node.right);
+                if (curr.right != null) {
+                    queue.add(curr.right);
                 }
             }
-            if (currSum > maxSum) {
-                maxSum = currSum;
+            if (levelSum > maxLevelSum) {
+                maxLevelSum = levelSum;
                 level = currLevel;
             }
+            currLevel++;
         }
         
         return level;
