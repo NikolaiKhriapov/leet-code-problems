@@ -7,25 +7,31 @@ class Solution {
             return false;
         }
 
-        int[] arr1 = new int[26];
-        int[] arr2 = new int[26];
+        int[] freq1 = getFrequencyArray(word1);
+        int[] freq2 = getFrequencyArray(word2);
+        
+        boolean isSameChars = isSameChars(freq1, freq2);
 
-        for (char c : word1.toCharArray()) {
-            arr1[c - 'a']++;
-        }
-        for (char c : word2.toCharArray()) {
-            arr2[c - 'a']++;
-        }
+        Arrays.sort(freq1);
+        Arrays.sort(freq2);
 
+        return isSameChars && Arrays.equals(freq1, freq2);
+    }
+
+    private int[] getFrequencyArray(String word) {
+        int[] freq = new int[26];
+        for (char c : word.toCharArray()) {
+            freq[c - 'a']++;
+        }
+        return freq;
+    }
+
+    private boolean isSameChars(int[] arr1, int[] arr2) {
         for (int i = 0; i < 26; i++) {
             if ((arr1[i] == 0 && arr2[i] != 0) || (arr1[i] != 0 && arr2[i] == 0)) {
                 return false;
             }
         }
-
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
-
-        return Arrays.equals(arr1, arr2);
+        return true;
     }
 }
