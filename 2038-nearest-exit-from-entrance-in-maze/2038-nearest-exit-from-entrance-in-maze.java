@@ -21,18 +21,15 @@ class Solution {
             int size = queue.size();
             while (size-- > 0) {
                 int[] curr = queue.poll();
-                if (isExit(maze, entrance, curr)) {
-                    return counter;
-                }
                 for (int[] neighbor : NEIGHBORS) {
                     int r = curr[0] + neighbor[0];
                     int c = curr[1] + neighbor[1];
-                    if (
-                        isWithinBounds(maze, r, c)
-                        && maze[r][c] == EMPTY
-                        && !visited[generateKey(r, c, maze[0].length)]
-                    ) {
-                        queue.add(new int[] {r, c});
+                    if (isWithinBounds(maze, r, c) && maze[r][c] == EMPTY && !visited[generateKey(r, c, maze[0].length)]) {
+                        int[] nextCell = new int[] {r, c};
+                        if (isExit(maze, entrance, nextCell)) {
+                            return counter + 1;
+                        }
+                        queue.add(nextCell);
                         visited[generateKey(r, c, maze[0].length)] = true;
                     }
                 }
@@ -52,7 +49,6 @@ class Solution {
     }
 
     private boolean isExit(char[][] maze, int[] entrance, int[] cell) {
-        return !Arrays.equals(entrance, cell) && 
-               (cell[0] == 0 || cell[0] == maze.length - 1 || cell[1] == 0 || cell[1] == maze[0].length - 1);
+        return cell[0] == 0 || cell[0] == maze.length - 1 || cell[1] == 0 || cell[1] == maze[0].length - 1;
     }
 }
