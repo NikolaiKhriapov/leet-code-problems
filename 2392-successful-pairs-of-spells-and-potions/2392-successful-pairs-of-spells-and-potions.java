@@ -8,15 +8,20 @@ class Solution {
         for (int i = 0; i < spells.length; i++) {
             int left = 0;
             int right = potions.length - 1;
-            while (left <= right) {
+            while (left < right) {
                 int mid = left + (right - left) / 2;
                 if ((long) spells[i] * (long) potions[mid] >= success) {
-                    right = mid - 1;
+                    right = mid;
                 } else {
                     left = mid + 1;
                 }
-                result[i] = potions.length - left;
             }
+            if ((long) spells[i] * (long) potions[left] >= success) {
+                result[i] = potions.length - left;
+            } else {
+                result[i] = 0;
+            }
+            
         }
         
         return result;
