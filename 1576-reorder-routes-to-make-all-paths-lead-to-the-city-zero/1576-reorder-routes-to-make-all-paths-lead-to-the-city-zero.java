@@ -3,7 +3,7 @@ class Solution {
         if (n <= 0 || connections == null || connections.length == 0 || connections[0].length != 2) {
             throw new IllegalArgumentException("Invalid input");
         }
-
+        
         Map<Integer, List<Integer>> graph = new HashMap<>();
         for (int i = 0; i < n; i++) {
             graph.put(i, new ArrayList<>());
@@ -22,18 +22,17 @@ class Solution {
         while (!queue.isEmpty()) {
             int curr = queue.poll();
             for (int neighbor : graph.get(curr)) {
-                if (visited[Math.abs(neighbor)]) {
-                    continue;
+                if (!visited[Math.abs(neighbor)]) {
+                    if (neighbor < 0) {
+                        countChanges++;
+                        neighbor = -neighbor;
+                    }
+                    queue.add(neighbor);
+                    visited[neighbor] = true;
                 }
-                if (neighbor < 0) {
-                    countChanges++;
-                    neighbor = -neighbor;
-                }
-                queue.add(neighbor);
-                visited[neighbor] = true;
             }
         }
-        
+
         return countChanges;
     }
 }
