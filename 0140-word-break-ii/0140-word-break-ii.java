@@ -1,6 +1,8 @@
 class Solution {
     public List<String> wordBreak(String s, List<String> wordDict) {
-
+        if (s == null || wordDict == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
         return helper(s, wordDict, 0, new HashMap<>());
     }
 
