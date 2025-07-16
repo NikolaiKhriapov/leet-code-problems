@@ -1,11 +1,11 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
-        if (piles == null || h < 0) {
+        if (piles == null || h < piles.length) {
             throw new IllegalArgumentException("Invalid input");
         }
 
         int left = 1;
-        int right = getMaxPileSize(piles);
+        int right = getMaxPile(piles);
         while (left < right) {
             int mid = left + (right - left) / 2;
             int hours = countHours(piles, mid);
@@ -18,18 +18,18 @@ class Solution {
         return left;
     }
 
-    private int getMaxPileSize(int[] piles) {
-        int maxPile = Integer.MIN_VALUE;
+    private int getMaxPile(int[] piles) {
+        int maxPile = 0;
         for (int pile : piles) {
             maxPile = Math.max(maxPile, pile);
         }
         return maxPile;
     }
 
-    private int countHours(int[] piles, int mid) {
+    private int countHours(int[] piles, int k) {
         int hours = 0;
         for (int pile : piles) {
-            hours += (pile / mid) + (pile % mid == 0 ? 0 : 1);
+            hours += (pile - 1) / k + 1;
         }
         return hours;
     }
