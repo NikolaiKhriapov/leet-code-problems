@@ -20,23 +20,23 @@ class Solution {
         }
 
         int[] maxLength = new int[] {0};
-        helper(root.left, true, 1, maxLength);
-        helper(root.right, false, 1, maxLength);
+        helper(root.left, 1, true, maxLength);
+        helper(root.right, 1, false, maxLength);
         return maxLength[0];
     }
 
-    private void helper(TreeNode node, boolean isLeft, int currLength, int[] maxLength) {
+    private void helper(TreeNode node, int currLength, boolean isLeft, int[] maxLength) {
         if (node == null) {
             return;
         }
 
         maxLength[0] = Math.max(maxLength[0], currLength);
         if (isLeft) {
-            helper(node.right, false, currLength + 1, maxLength);
-            helper(node.left, true, 1, maxLength);
+            helper(node.right, currLength + 1, false, maxLength);
+            helper(node.left, 1, true, maxLength);
         } else {
-            helper(node.right, false, 1, maxLength);
-            helper(node.left, true, currLength + 1, maxLength);
+            helper(node.left, currLength + 1, true, maxLength);
+            helper(node.right, 1, false, maxLength);
         }
     }
 }
