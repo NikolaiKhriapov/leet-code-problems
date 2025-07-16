@@ -12,8 +12,8 @@ class Solution {
         }
 
         Queue<int[]> queue = new ArrayDeque<>();
-        queue.add(entrance);
-        markCellAsVisited(maze, entrance);
+        queue.offer(entrance);
+        maze[entrance[0]][entrance[1]] = WALL;
 
         int counter = 0;
         while (!queue.isEmpty()) {
@@ -28,8 +28,8 @@ class Solution {
                         if (isExit(maze, entrance, nextCell)) {
                             return counter + 1;
                         }
-                        queue.add(nextCell);
-                        markCellAsVisited(maze, nextCell);
+                        queue.offer(nextCell);
+                        maze[nextCell[0]][nextCell[1]] = WALL;
                     }
                 }
             }
