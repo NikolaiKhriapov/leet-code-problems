@@ -10,7 +10,8 @@ class SmallestInfiniteSet {
     public int popSmallest() {
         int result = smallest;
         set.add(smallest);
-        while (set.contains(++smallest)) {
+        while (set.contains(smallest)) {
+            smallest++;
         }
         return result;
     }
