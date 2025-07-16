@@ -21,28 +21,19 @@ class Solution {
             first = first.next;
             second = second.next.next;
         }
-        if (second == null) {
-            throw new IllegalArgumentException("Number of nodes must be even");
-        }
         second = first.next;
         first.next = null;
 
         // reverse second half, and find max twin sum
-        ListNode firstPrev = null;
         first = head;
         second = reverse(second);
-        ListNode secondHead = second;
 
         int maxSum = Integer.MIN_VALUE;
         while (first != null && second != null) {
             maxSum = Math.max(maxSum, first.val + second.val);
-            firstPrev = first;
             first = first.next;
             second = second.next;
         }
-
-        // restore original list
-        firstPrev.next = reverse(secondHead);
         
         return maxSum;
     }
