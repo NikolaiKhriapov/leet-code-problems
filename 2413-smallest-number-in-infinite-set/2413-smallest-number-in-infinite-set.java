@@ -1,23 +1,25 @@
 class SmallestInfiniteSet {
     private Set<Integer> set;
-    // private Queue<Integer> queue;
+    private int smallest;
 
     public SmallestInfiniteSet() {
         set = new HashSet<>();
+        smallest = 1;
     }
     
     public int popSmallest() {
-        for (int i = 1; i <= Integer.MAX_VALUE; i++) {
-            if (!set.contains(i)) {
-                set.add(i);
-                return i;
-            }
+        int result = smallest;
+        while (set.contains(++smallest)) {
         }
-        throw new RuntimeException("No more positive numbers");
+        set.add(result);
+        return result;
     }
     
     public void addBack(int num) {
         set.remove(num);
+        if (num < smallest) {
+            smallest = num;
+        }
     }
 }
 
