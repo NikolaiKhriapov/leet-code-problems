@@ -9,9 +9,9 @@ class SmallestInfiniteSet {
     
     public int popSmallest() {
         int result = smallest;
+        set.add(smallest);
         while (set.contains(++smallest)) {
         }
-        set.add(result);
         return result;
     }
     
