@@ -9,11 +9,12 @@ class Solution {
         if (n == 1) return 1;
         if (n == 2) return 2;
 
+        long[] dp = new long[n + 1];
         long a = 1; // i - 3
         long b = 1; // i - 2
         long c = 2; // i - 1
         long presum = 0;
-
+        
         for (int i = 3; i <= n; i++) {
             presum += 2 * a;
             long curr = (c + b + presum) % MODULO;
@@ -21,7 +22,7 @@ class Solution {
             b = c;
             c = curr;
         }
-        
+
         return (int) c;
     }
 }
