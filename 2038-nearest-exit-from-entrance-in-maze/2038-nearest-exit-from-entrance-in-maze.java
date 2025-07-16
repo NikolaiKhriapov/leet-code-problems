@@ -11,15 +11,15 @@ class Solution {
             return -1;
         }
 
-        Queue<int[]> queue = new ArrayDeque<>();
-        queue.add(entrance);
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(encodeCell(maze, entrance));
         markCellAsVisited(maze, entrance);
 
         int counter = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
             while (size-- > 0) {
-                int[] curr = queue.poll();
+                int[] curr = decodeCell(maze, queue.poll());
                 for (int[] neighbor : NEIGHBORS) {
                     int r = curr[0] + neighbor[0];
                     int c = curr[1] + neighbor[1];
@@ -28,7 +28,7 @@ class Solution {
                         if (isExit(maze, entrance, nextCell)) {
                             return counter + 1;
                         }
-                        queue.add(nextCell);
+                        queue.offer(encodeCell(maze, nextCell));
                         markCellAsVisited(maze, nextCell);
                     }
                 }
@@ -39,8 +39,12 @@ class Solution {
         return -1;
     }
 
-    private int generateKey(int row, int col, int cols) {
-        return row * cols + col;
+    private int encodeCell(char[][] maze, int[] cell) {
+        return cell[0] * maze[0].length + cell[1];
+    }
+
+    private int[] decodeCell(char[][] maze, int encoded) {
+        return new int[] {encoded / maze[0].length, encoded % maze[0].length};
     }
 
     private boolean isWithinBounds(char[][] maze, int row, int col) {
