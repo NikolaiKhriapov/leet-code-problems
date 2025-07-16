@@ -12,9 +12,8 @@ class Solution {
         }
 
         Queue<int[]> queue = new ArrayDeque<>();
-        boolean[] visited = new boolean[maze.length * maze[0].length];
         queue.add(entrance);
-        visited[generateKey(entrance[0], entrance[1], maze[0].length)] = true;
+        markCellAsVisited(maze, entrance);
 
         int counter = 0;
         while (!queue.isEmpty()) {
@@ -24,13 +23,13 @@ class Solution {
                 for (int[] neighbor : NEIGHBORS) {
                     int r = curr[0] + neighbor[0];
                     int c = curr[1] + neighbor[1];
-                    if (isWithinBounds(maze, r, c) && maze[r][c] == EMPTY && !visited[generateKey(r, c, maze[0].length)]) {
+                    if (isWithinBounds(maze, r, c) && maze[r][c] == EMPTY) {
                         int[] nextCell = new int[] {r, c};
                         if (isExit(maze, entrance, nextCell)) {
                             return counter + 1;
                         }
                         queue.add(nextCell);
-                        visited[generateKey(r, c, maze[0].length)] = true;
+                        markCellAsVisited(maze, nextCell);
                     }
                 }
             }
@@ -50,5 +49,9 @@ class Solution {
 
     private boolean isExit(char[][] maze, int[] entrance, int[] cell) {
         return cell[0] == 0 || cell[0] == maze.length - 1 || cell[1] == 0 || cell[1] == maze[0].length - 1;
+    }
+
+    private void markCellAsVisited(char[][] maze, int[] cell) {
+        maze[cell[0]][cell[1]] = WALL;
     }
 }
