@@ -1,7 +1,7 @@
 class Solution {
     public int[] successfulPairs(int[] spells, int[] potions, long success) {
 
-        List<Integer> result = new ArrayList<>();
+        int[] result = new int[spells.length];
 
         Arrays.sort(potions);
 
@@ -17,21 +17,13 @@ class Solution {
                 }
             }
             if ((long) spells[i] * (long) potions[left] >= success) {
-                result.add(potions.length - left);
+                result[i] = potions.length - left;
             } else {
-                result.add(0);
+                result[i] = 0;
             }
             
         }
         
-        return listToArray(result);
-    }
-
-    private static int[] listToArray(List<Integer> list) {
-        int[] arr = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            arr[i] = list.get(i);
-        }
-        return arr;
+        return result;
     }
 }
