@@ -187,6 +187,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1798-max-number-of-k-sum-pairs](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1798-max-number-of-k-sum-pairs) |
 | [1873-longest-nice-substring](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1873-longest-nice-substring) |
 | [1987-substrings-of-size-three-with-distinct-characters](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1987-substrings-of-size-three-with-distinct-characters) |
+| [2413-smallest-number-in-infinite-set](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2413-smallest-number-in-infinite-set) |
 ## Math
 |  |
 | ------- |
@@ -985,6 +986,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1397-search-suggestions-system](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1397-search-suggestions-system) |
 | [1463-the-k-weakest-rows-in-a-matrix](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1463-the-k-weakest-rows-in-a-matrix) |
 | [1574-maximum-product-of-two-elements-in-an-array](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/1574-maximum-product-of-two-elements-in-an-array) |
+| [2413-smallest-number-in-infinite-set](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2413-smallest-number-in-infinite-set) |
 ## Matrix
 |  |
 | ------- |
@@ -1032,6 +1034,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0817-design-hashmap](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0817-design-hashmap) |
 | [0937-online-stock-span](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0937-online-stock-span) |
 | [0969-number-of-recent-calls](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0969-number-of-recent-calls) |
+| [2413-smallest-number-in-infinite-set](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2413-smallest-number-in-infinite-set) |
 ## Backtracking
 |  |
 | ------- |
@@ -1211,4 +1214,5 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0218-the-skyline-problem](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0218-the-skyline-problem) |
 | [0315-count-of-smaller-numbers-after-self](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/0315-count-of-smaller-numbers-after-self) |
+| [2413-smallest-number-in-infinite-set](https://github.com/NikolaiKhriapov/leet-code-problems/tree/master/2413-smallest-number-in-infinite-set) |
 <!---LeetCode Topics End-->
