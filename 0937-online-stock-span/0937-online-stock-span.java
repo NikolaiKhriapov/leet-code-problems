@@ -15,8 +15,8 @@ class StockSpanner {
     }
 
     private class Pair {
-        private int price;
-        private int span;
+        int price;
+        int span;
 
         Pair(int price, int span) {
             this.price = price;
