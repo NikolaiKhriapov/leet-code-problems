@@ -29,20 +29,20 @@ class Solution {
 
         // reverse second half, and find max twin sum
         ListNode firstPrev = null;
-        ListNode secondPrev = null;
         first = head;
         second = reverse(second);
+        ListNode secondHead = second;
+
         int maxSum = Integer.MIN_VALUE;
         while (first != null && second != null) {
             maxSum = Math.max(maxSum, first.val + second.val);
             firstPrev = first;
-            secondPrev = second;
             first = first.next;
             second = second.next;
         }
 
         // restore original list
-        firstPrev.next = reverse(secondPrev);
+        firstPrev.next = reverse(secondHead);
         
         return maxSum;
     }
