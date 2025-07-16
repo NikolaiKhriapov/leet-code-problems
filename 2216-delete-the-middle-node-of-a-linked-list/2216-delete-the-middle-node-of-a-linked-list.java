@@ -23,7 +23,7 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-        slowPrev.next = (slow.next != null) ? slow.next : null;
+        slowPrev.next = slow.next;
         
         return head;
     }
