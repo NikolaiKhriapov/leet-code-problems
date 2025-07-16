@@ -7,43 +7,46 @@ class Solution {
         if (grid == null) {
             throw new IllegalArgumentException("Invalid input");
         }
+        if (grid.length == 0 || grid[0].length == 0) {
+            return 0;
+        }
 
-        Deque<int[]> queue = new ArrayDeque<>();
-
+        Queue<int[]> queue = new ArrayDeque<>();
         int countFresh = 0;
+        int countMinutes = 0;
+
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[0].length; c++) {
                 if (grid[r][c] == ROTTEN) {
-                    queue.offerLast(new int[] {r, c});
+                    queue.add(new int[] {r, c});
                 }
                 if (grid[r][c] == FRESH) {
                     countFresh++;
                 }
             }
         }
-
-        int minutes = 0;
+        
         while (!queue.isEmpty()) {
             int size = queue.size();
             boolean isRottenThisMinute = false;
             while (size-- > 0) {
-                int[] curr = queue.pollFirst();
+                int[] curr = queue.poll();
                 for (int[] neighbor : NEIGHBORS) {
                     int r = curr[0] + neighbor[0];
                     int c = curr[1] + neighbor[1];
                     if (r >= 0 && r < grid.length && c >= 0 && c < grid[0].length && grid[r][c] == FRESH) {
-                        queue.offerLast(new int[] {r, c});
                         grid[r][c] = ROTTEN;
                         countFresh--;
                         isRottenThisMinute = true;
+                        queue.add(new int[] {r, c});
                     }
                 }
             }
             if (isRottenThisMinute) {
-                minutes++;
+                countMinutes++;
             }
         }
-        
-        return countFresh == 0 ? minutes : -1;
+
+        return countFresh == 0 ? countMinutes : -1;
     }
 }
