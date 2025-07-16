@@ -1,22 +1,36 @@
 class Solution {
-    private static final int SUGGESTIONS_SIZE = 3;
-
     public List<List<String>> suggestedProducts(String[] products, String searchWord) {
         if (products == null || searchWord == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
         Arrays.sort(products);
         TrieNode root = buildTrie(products);
         return getSuggestions(root, searchWord);
     }
 
-    private List<List<String>> getSuggestions (TrieNode root, String searchWord) {
+    private TrieNode buildTrie(String[] words) {
+        TrieNode root = new TrieNode();
+        for (String word : words) {
+            TrieNode node = root;
+            for (char c : word.toCharArray()) {
+                if (node.children[c - 'a'] == null) {
+                    node.children[c - 'a'] = new TrieNode();
+                }
+                node = node.children[c - 'a'];
+                if (node.suggestions.size() < 3) {
+                    node.suggestions.add(word);
+                }
+            }
+        }
+        return root;
+    }
+
+    private List<List<String>> getSuggestions(TrieNode root, String word) {
         List<List<String>> result = new ArrayList<>();
-        for (char ch : searchWord.toCharArray()) {
+        for (char c : word.toCharArray()) {
             List<String> suggestions = new ArrayList<>();
             if (root != null) {
-                root = root.children[ch - 'a'];
+                root = root.children[c - 'a'];
                 if (root != null) {
                     suggestions.addAll(root.suggestions);
                 }
@@ -24,23 +38,6 @@ class Solution {
             result.add(suggestions);
         }
         return result;
-    }
-
-    private TrieNode buildTrie(String[] products) {
-        TrieNode root = new TrieNode();
-        for (String word : products) {
-            TrieNode node = root;
-            for (char ch : word.toCharArray()) {
-                if (node.children[ch - 'a'] == null) {
-                    node.children[ch - 'a'] = new TrieNode();
-                }
-                node = node.children[ch - 'a'];
-                if (node.suggestions.size() < SUGGESTIONS_SIZE) {
-                    node.suggestions.add(word);
-                }
-            }
-        }
-        return root;
     }
 
     private class TrieNode {
