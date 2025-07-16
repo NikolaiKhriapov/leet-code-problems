@@ -30,13 +30,9 @@ class Solution {
         return currString.toString();
     }
 
-    private class Pair {
-        int number;
-        StringBuilder string;
-
-        Pair(int number, StringBuilder string) {
-            this.number = number;
-            this.string = string;
-        }
+    private record Pair(
+        int number,
+        StringBuilder string
+    ) {
     }
 }
