@@ -6,9 +6,9 @@ class Solution {
     public int nearestExit(char[][] maze, int[] entrance) {
 
         Queue<int[]> queue = new ArrayDeque<>();
-        Set<Integer> visited = new HashSet<>();
+        boolean[] visited = new boolean[maze.length * maze[0].length];
         queue.add(entrance);
-        visited.add(generateKey(entrance[0], entrance[1], maze[0].length));
+        visited[generateKey(entrance[0], entrance[1], maze[0].length)] = true;
 
         int counter = 0;
         while (!queue.isEmpty()) {
@@ -24,10 +24,10 @@ class Solution {
                     if (
                         r >= 0 && r < maze.length && c >= 0 && c < maze[0].length
                         && maze[r][c] == EMPTY
-                        && !visited.contains(generateKey(r, c, maze[0].length))
+                        && !visited[generateKey(r, c, maze[0].length)]
                     ) {
                         queue.add(new int[] {r, c});
-                        visited.add(generateKey(r, c, maze[0].length));
+                        visited[generateKey(r, c, maze[0].length)] = true;
                     }
                 }
             }
