@@ -4,6 +4,12 @@ class Solution {
     private static final int[][] NEIGHBORS = new int[][] {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
     public int nearestExit(char[][] maze, int[] entrance) {
+        if (maze == null || maze.length == 0 || maze[0].length == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (!isWithinBounds(maze, entrance[0], entrance[1])) {
+            return -1;
+        }
 
         Queue<int[]> queue = new ArrayDeque<>();
         boolean[] visited = new boolean[maze.length * maze[0].length];
@@ -22,7 +28,7 @@ class Solution {
                     int r = curr[0] + neighbor[0];
                     int c = curr[1] + neighbor[1];
                     if (
-                        r >= 0 && r < maze.length && c >= 0 && c < maze[0].length
+                        isWithinBounds(maze, r, c)
                         && maze[r][c] == EMPTY
                         && !visited[generateKey(r, c, maze[0].length)]
                     ) {
@@ -39,6 +45,10 @@ class Solution {
 
     private int generateKey(int row, int col, int cols) {
         return row * cols + col;
+    }
+
+    private boolean isWithinBounds(char[][] maze, int row, int col) {
+        return row >= 0 && row < maze.length && col >= 0 && col < maze[0].length;
     }
 
     private boolean isExit(char[][] maze, int[] entrance, int[] cell) {
