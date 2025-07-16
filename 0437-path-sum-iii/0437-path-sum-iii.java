@@ -21,10 +21,10 @@ class Solution {
 
         Map<Long, Integer> map = new HashMap<>();
         map.put(0L, 1);
-        return helper(root, targetSum, 0L, map);
+        return helper(root, 0L, targetSum, map);
     }
 
-    private int helper(TreeNode node, int targetSum, long currSum, Map<Long, Integer> map) {
+    private int helper(TreeNode node, long currSum, int targetSum, Map<Long, Integer> map) {
         if (node == null) {
             return 0;
         }
@@ -35,8 +35,8 @@ class Solution {
 
         map.put(currSum, map.getOrDefault(currSum, 0) + 1);
 
-        count += helper(node.left, targetSum, currSum, map);
-        count += helper(node.right, targetSum, currSum, map);
+        count += helper(node.left, currSum, targetSum, map);
+        count += helper(node.right, currSum, targetSum, map);
 
         map.put(currSum, map.get(currSum) - 1);
 
