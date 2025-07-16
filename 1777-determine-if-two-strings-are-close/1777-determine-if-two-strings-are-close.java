@@ -6,37 +6,27 @@ class Solution {
         if (word1.length() != word2.length()) {
             return false;
         }
-
+        
         int[] freq1 = getFrequencyArray(word1);
         int[] freq2 = getFrequencyArray(word2);
-        
-        boolean isSameChars = isSameChars(freq1, freq2);
 
-        Map<Integer, Integer> freqMap1 = getFrequencyMap(freq1);
-        Map<Integer, Integer> freqMap2 = getFrequencyMap(freq2);
+        boolean isSameSetOfCharacters = isSameSetOfCharacters(freq1, freq2);
 
-        return isSameChars && freqMap1.equals(freqMap2);
+        Arrays.sort(freq1);
+        Arrays.sort(freq2);
+
+        return isSameSetOfCharacters && Arrays.equals(freq1, freq2);
     }
 
     private static int[] getFrequencyArray(String word) {
-        int[] freq = new int[26];
+        int[] result = new int[26];
         for (char c : word.toCharArray()) {
-            freq[c - 'a']++;
-        }
-        return freq;
-    }
-
-    private static Map<Integer, Integer> getFrequencyMap(int[] arr) {
-        Map<Integer, Integer> result = new HashMap<>();
-        for (int n : arr) {
-            if (n > 0) {
-                result.put(n, result.getOrDefault(n, 0) + 1);
-            }
+            result[c - 'a']++;
         }
         return result;
     }
-
-    private static boolean isSameChars(int[] arr1, int[] arr2) {
+    
+    private static boolean isSameSetOfCharacters(int[] arr1, int[] arr2) {
         for (int i = 0; i < 26; i++) {
             if ((arr1[i] == 0 && arr2[i] != 0) || (arr1[i] != 0 && arr2[i] == 0)) {
                 return false;
