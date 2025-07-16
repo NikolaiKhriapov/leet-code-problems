@@ -3,29 +3,33 @@ class Solution {
         if (chars == null) {
             throw new IllegalArgumentException("Invalid input");
         }
+        if (chars.length == 0) {
+            return 0;
+        }
 
-        char prevChar = chars[0];
+        char currChar = chars[0];
         int count = 0;
         int idx = 0;
 
-        for (char currChar : chars) {
-            if (currChar == prevChar) {
+        for (char ch : chars) {
+            if (ch == currChar) {
                 count++;
             } else {
-                idx = helper(chars, idx, prevChar, count);
-                prevChar = currChar;
+                idx = helper(chars, idx, currChar, count);
+                currChar = ch;
                 count = 1;
             }
         }
-        idx = helper(chars, idx, prevChar, count);
+        idx = helper(chars, idx, currChar, count);
+
         return idx;
     }
 
-    private int helper(char[] chars, int idx, char prevChar, int count) {
-        chars[idx++] = prevChar;
+    private int helper(char[] chars, int idx, char currChar, int count) {
+        chars[idx++] = currChar;
         if (count > 1) {
-            for (char ch : String.valueOf(count).toCharArray()) {
-                chars[idx++] = ch;
+            for (char c : String.valueOf(count).toCharArray()) {
+                chars[idx++] = c;
             }
         }
         return idx;
