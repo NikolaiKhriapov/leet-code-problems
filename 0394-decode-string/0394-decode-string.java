@@ -3,12 +3,8 @@ class Solution {
         if (s == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (s.isEmpty()) {
-            return "";
-        }
 
-        Deque<Integer> stackInt = new ArrayDeque<>();
-        Deque<StringBuilder> stackStr = new ArrayDeque<>();
+        Deque<Pair> stack = new ArrayDeque<>();
         int currNumber = 0;
         StringBuilder currString = new StringBuilder();
         
@@ -18,21 +14,29 @@ class Solution {
             } else if (Character.isLetter(currChar)) {
                 currString.append(currChar);
             } else if (currChar == '[') {
-                stackInt.push(currNumber);
-                stackStr.push(currString);
+                stack.push(new Pair(currNumber, currString));
                 currNumber = 0;
                 currString = new StringBuilder();
             } else if (currChar == ']') {
-                StringBuilder prevString = stackStr.pop();
-                int prevNumber = stackInt.pop();
-                for (int i = 0; i < prevNumber; i++) {
-                    prevString.append(currString);
+                Pair prev = stack.pop();
+                for (int i = 0; i < prev.number; i++) {
+                    prev.string.append(currString);
                 }
                 currNumber = 0;
-                currString = prevString;
+                currString = prev.string;
             }
         }
 
         return currString.toString();
+    }
+
+    private class Pair {
+        int number;
+        StringBuilder string;
+
+        Pair(int number, StringBuilder string) {
+            this.number = number;
+            this.string = string;
+        }
     }
 }
