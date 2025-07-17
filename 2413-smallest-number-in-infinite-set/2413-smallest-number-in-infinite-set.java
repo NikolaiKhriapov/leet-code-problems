@@ -2,7 +2,7 @@ class SmallestInfiniteSet {
     private int next;
     private Set<Integer> addedBack;
     private PriorityQueue<Integer> minHeap;
-
+    
     public SmallestInfiniteSet() {
         next = 1;
         addedBack = new HashSet<>();
@@ -20,7 +20,7 @@ class SmallestInfiniteSet {
     
     public void addBack(int num) {
         if (num < next && addedBack.add(num)) {
-            minHeap.add(num);
+            minHeap.offer(num);
         }
     }
 }
