@@ -19,7 +19,7 @@ class Solution {
             while (!queue.isEmpty()) {
                 int curr = queue.poll();
                 for (int j = 0; j < isConnected.length; j++) {
-                    if (isConnected[curr][j] == 1 && !visited[j]) {
+                    if (isConnected[curr][j] == CONNECTED && !visited[j]) {
                         queue.add(j);
                         visited[j] = true;
                     }
