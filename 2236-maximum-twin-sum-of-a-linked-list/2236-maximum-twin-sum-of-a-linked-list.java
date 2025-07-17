@@ -10,35 +10,24 @@
  */
 class Solution {
     public int pairSum(ListNode head) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        // split list into 2 halves
-        ListNode first = head;
-        ListNode second = head.next;
-        while (second != null && second.next != null) {
-            first = first.next;
-            second = second.next.next;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        second = first.next;
-        first.next = null;
 
-        // reverse second half, and find max twin sum
-        first = head;
-        second = reverse(second);
+        ListNode second = reverseList(slow.next);
+        slow.next = null;
 
-        int maxSum = Integer.MIN_VALUE;
-        while (first != null && second != null) {
-            maxSum = Math.max(maxSum, first.val + second.val);
-            first = first.next;
-            second = second.next;
-        }
-        
-        return maxSum;
+        return findMaxPairSum(head, second);
     }
 
-    private ListNode reverse(ListNode node) {
+    private static ListNode reverseList(ListNode node) {
         ListNode prev = null;
         while (node != null) {
             ListNode temp = node.next;
@@ -47,5 +36,15 @@ class Solution {
             node = temp;
         }
         return prev;
+    }
+
+    private static int findMaxPairSum(ListNode list1, ListNode list2) {
+        int maxPairSum = Integer.MIN_VALUE;
+        while (list1 != null && list2 != null) {
+            maxPairSum = Math.max(maxPairSum, list1.val + list2.val);
+            list1 = list1.next;
+            list2 = list2.next;
+        }
+        return maxPairSum;
     }
 }
