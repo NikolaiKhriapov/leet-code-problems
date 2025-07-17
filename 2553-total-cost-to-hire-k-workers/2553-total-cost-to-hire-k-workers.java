@@ -14,21 +14,17 @@ class Solution {
         }
 
         long totalCost = 0;
-        while (k-- > 0) {
+        while (k-- > 0 && (!minHeapLeft.isEmpty() || !minHeapRight.isEmpty())) {
             if (minHeapLeft.isEmpty()) {
                 totalCost += minHeapRight.poll();
             } else if (minHeapRight.isEmpty()) {
                 totalCost += minHeapLeft.poll();
             } else if (minHeapLeft.peek() <= minHeapRight.peek()) {
                 totalCost += minHeapLeft.poll();
-                if (left <= right) {
-                    minHeapLeft.add(costs[left++]);
-                }
+                if (left <= right) minHeapLeft.add(costs[left++]);
             } else {
                 totalCost += minHeapRight.poll();
-                if (left <= right) {
-                    minHeapRight.add(costs[right--]);
-                }
+                if (left <= right) minHeapRight.add(costs[right--]);
             }
         }
         
