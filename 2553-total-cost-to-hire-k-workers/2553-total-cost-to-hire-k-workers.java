@@ -1,12 +1,11 @@
 class Solution {
     public long totalCost(int[] costs, int k, int candidates) {
 
-        int left = 0;
-        int right = costs.length - 1;
-
         PriorityQueue<Integer> minHeapLeft = new PriorityQueue<>();
         PriorityQueue<Integer> minHeapRight = new PriorityQueue<>();
         
+        int left = 0;
+        int right = costs.length - 1;
         while (left <= right && minHeapLeft.size() < candidates) {
             minHeapLeft.add(costs[left++]);
         }
@@ -15,8 +14,7 @@ class Solution {
         }
 
         long totalCost = 0;
-
-        while (k-- > 0 && (!minHeapLeft.isEmpty() || !minHeapRight.isEmpty())) {
+        while (k-- > 0) {
             if (minHeapLeft.isEmpty()) {
                 totalCost += minHeapRight.poll();
             } else if (minHeapRight.isEmpty()) {
