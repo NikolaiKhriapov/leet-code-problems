@@ -3,31 +3,27 @@ class Solution {
 
         int size = grid.length;
 
-        Map<String, int[]> map = new HashMap<>();
-        int countPairs = 0;
+        Map<String, Integer> map = new HashMap<>();
+        int pairCount = 0;
 
         for (int r = 0; r < size; r++) {
-            StringBuilder rowSb = new StringBuilder();
-            StringBuilder colSb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             for (int c = 0; c < size; c++) {
-                rowSb.append(grid[r][c]).append(",");
-                colSb.append(grid[c][r]).append(",");
+                sb.append(grid[r][c]).append(",");
             }
-            String rowKey = rowSb.toString();
-            int[] rowValue = map.getOrDefault(rowKey, new int[2]);
-            rowValue[0]++;
-            map.put(rowKey, rowValue);
-
-            String colKey = colSb.toString();
-            int[] colValue = map.getOrDefault(colKey, new int[2]);
-            colValue[1]++;
-            map.put(colKey, colValue);
+            String rowKey = sb.toString();
+            map.put(rowKey, map.getOrDefault(rowKey, 0) + 1);
         }
 
-        for (int[] value : map.values()) {
-            countPairs += value[0] * value[1];
+        for (int r = 0; r < size; r++) {
+            StringBuilder sb = new StringBuilder();
+            for (int c = 0; c < size; c++) {
+                sb.append(grid[c][r]).append(",");
+            }
+            String colKey = sb.toString();
+            pairCount += map.getOrDefault(colKey, 0);
         }
 
-        return countPairs;
+        return pairCount;
     }
 }
