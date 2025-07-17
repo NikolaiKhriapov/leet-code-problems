@@ -1,8 +1,10 @@
 class Solution {
     public int equalPairs(int[][] grid) {
+        if (grid == null || grid.length == 0 || grid.length != grid[0].length) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int size = grid.length;
-
         Map<String, Integer> map = new HashMap<>();
         int pairCount = 0;
 
