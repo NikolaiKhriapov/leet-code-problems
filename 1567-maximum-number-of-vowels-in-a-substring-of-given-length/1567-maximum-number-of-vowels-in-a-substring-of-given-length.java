@@ -3,29 +3,33 @@ class Solution {
         if (s == null || k < 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (k == 0) {
+        if (s.isBlank() || k == 0) {
             return 0;
         }
 
         int left = 0;
         int right = 0;
-        int maxCount = 0;
-        int currCount = 0;
+        int maxVowelCount = 0;
+        int currVowelCount = 0;
+
         while (right < s.length()) {
-            if (isVowel(s.charAt(right++))) {
-                currCount++;
+            if (isVowel(s.charAt(right))) {
+                currVowelCount++;
             }
+            right++;
             if (right - left > k) {
-                if (isVowel(s.charAt(left++))) {
-                    currCount--;
+                if (isVowel(s.charAt(left))) {
+                    currVowelCount--;
                 }
+                left++;
             }
-            maxCount = Math.max(maxCount, currCount);
+            maxVowelCount = Math.max(maxVowelCount, currVowelCount);
         }
-        return maxCount;
+        
+        return maxVowelCount;
     }
 
-    private boolean isVowel(char c) {
+    private static boolean isVowel(char c) {
         return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 }
