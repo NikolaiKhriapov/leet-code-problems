@@ -1,8 +1,13 @@
 class Solution {
     public int[] asteroidCollision(int[] asteroids) {
+        if (asteroids == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (asteroids.length <= 1) {
+            return asteroids;
+        }
 
         Deque<Integer> stack = new ArrayDeque<>();
-
         for (int asteroid : asteroids) {
             boolean isDestroyed = false;
             while (!stack.isEmpty() && stack.peekLast() > 0 && asteroid < 0) {
