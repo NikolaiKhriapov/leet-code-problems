@@ -7,10 +7,9 @@ class Solution {
         Map<String, Integer> colMap = new HashMap<>();
         int countMax = 0;
 
+        StringBuilder rowSb = new StringBuilder();
+        StringBuilder colSb = new StringBuilder();
         for (int r = 0; r < size; r++) {
-            StringBuilder rowSb = new StringBuilder();
-            StringBuilder colSb = new StringBuilder();
-            
             for (int c = 0; c < size; c++) {
                 rowSb.append(grid[r][c]).append(",");
                 colSb.append(grid[c][r]).append(",");
@@ -21,6 +20,9 @@ class Solution {
 
             rowMap.put(rowKey, rowMap.getOrDefault(rowKey, 0) + 1);
             colMap.put(colKey, colMap.getOrDefault(colKey, 0) + 1);
+
+            rowSb.delete(0, rowSb.length());
+            colSb.delete(0, colSb.length());
         }
 
         for (var entry : rowMap.entrySet()) {
