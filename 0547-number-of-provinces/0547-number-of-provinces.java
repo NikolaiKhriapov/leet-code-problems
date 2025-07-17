@@ -1,29 +1,33 @@
 class Solution {
+    private static final int CONNECTED = 1;
+
     public int findCircleNum(int[][] isConnected) {
         if (isConnected == null || isConnected.length == 0 || isConnected.length != isConnected[0].length) {
             throw new IllegalArgumentException("Invalid input");
         }
-        
-        Deque<Integer> queue = new ArrayDeque<>();
+
+        Queue<Integer> queue = new ArrayDeque<>();
         boolean[] visited = new boolean[isConnected.length];
-        int provinceCount = 0;
+        int countProvinces = 0;
 
         for (int i = 0; i < isConnected.length; i++) {
-            if (visited[i]) continue;
-            queue.offerLast(i);
+            if (visited[i]) {
+                continue;
+            }
+            queue.add(i);
             visited[i] = true;
             while (!queue.isEmpty()) {
-                int currCity = queue.pollFirst();
+                int curr = queue.poll();
                 for (int j = 0; j < isConnected.length; j++) {
-                    if (isConnected[currCity][j] == 1 && !visited[j]) {
-                        queue.offerLast(j);
+                    if (isConnected[curr][j] == 1 && !visited[j]) {
+                        queue.add(j);
                         visited[j] = true;
                     }
                 }
             }
-            provinceCount++;
+            countProvinces++;
         }
-
-        return provinceCount;
+        
+        return countProvinces;
     }
 }
