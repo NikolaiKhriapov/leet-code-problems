@@ -24,9 +24,6 @@ class Solution {
                 left++;
             }
             maxVowelCount = Math.max(maxVowelCount, currVowelCount);
-            if (maxVowelCount == k) {
-                break;
-            }
         }
         
         return maxVowelCount;
