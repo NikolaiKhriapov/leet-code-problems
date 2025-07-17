@@ -7,18 +7,22 @@ class Solution {
         int longest = 0;
         int left = 0;
         int right = 0;
-        int countZero = 0;
+        int countZeroes = 0;
+        
         while (right < nums.length) {
-            if (nums[right++] == 0) {
-                countZero++;
+            if (nums[right] == 0) {
+                countZeroes++;
             }
-            while (countZero > k) {
-                if (nums[left++] == 0) {
-                    countZero--;
+            right++;
+            while (countZeroes > k) {
+                if (nums[left] == 0) {
+                    countZeroes--;
                 }
+                left++;
             }
             longest = Math.max(longest, right - left);
         }
+
         return longest;
     }
 }
