@@ -1,32 +1,30 @@
 class Solution {
     public int[] asteroidCollision(int[] asteroids) {
-        if (asteroids == null) {
-            throw new IllegalArgumentException("Invalid input");
-        }
 
-        Deque<Integer> deque = new ArrayDeque<>();
+        Deque<Integer> stack = new ArrayDeque<>();
+
         for (int asteroid : asteroids) {
             boolean isDestroyed = false;
-            while (!deque.isEmpty() && asteroid < 0 && deque.peekLast() > 0) {
-                if (deque.peekLast() > -asteroid) {
+            while (!stack.isEmpty() && stack.peekLast() > 0 && asteroid < 0) {
+                if (stack.peekLast() > -asteroid) {
                     isDestroyed = true;
                     break;
-                } else if (deque.peekLast() < -asteroid) {
-                    deque.pollLast();
+                } else if (stack.peekLast() < -asteroid) {
+                    stack.pollLast();
                 } else {
-                    deque.pollLast();
+                    stack.pollLast();
                     isDestroyed = true;
                     break;
                 }
             }
             if (!isDestroyed) {
-                deque.offerLast(asteroid);
+                stack.offerLast(asteroid);
             }
         }
         
-        int[] result = new int[deque.size()];
+        int[] result = new int[stack.size()];
         int idx = 0;
-        for (int asteroid : deque) {
+        for (int asteroid : stack) {
             result[idx++] = asteroid;
         }
 
