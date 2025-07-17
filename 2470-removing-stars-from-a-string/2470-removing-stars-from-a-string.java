@@ -4,18 +4,13 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Deque<Character> deque = new ArrayDeque<>();
+        StringBuilder sb = new StringBuilder();
         for (char c : s.toCharArray()) {
             if (c == '*') {
-                deque.pollLast();
+                sb.delete(sb.length() - 1, sb.length());
             } else {
-                deque.offerLast(c);
+                sb.append(c);
             }
-        }
-        
-        StringBuilder sb = new StringBuilder();
-        while (!deque.isEmpty()) {
-            sb.append(deque.pollFirst());
         }
 
         return sb.toString();
