@@ -1,17 +1,17 @@
 class Solution {
     public int minFlips(int a, int b, int c) {
-        int countFlips = 0;
+        int flipCount = 0;
         while (a != 0 || b != 0 || c != 0) {
-            if ((c & 1) == 1) {
-                if ((a & 1) == 0 && (b & 1) == 0) countFlips++;
+            if ((c & 1) == 0) {
+                if ((a & 1) == 1) flipCount++;
+                if ((b & 1) == 1) flipCount++;
             } else {
-                if ((a & 1) == 1) countFlips++;
-                if ((b & 1) == 1) countFlips++;
+                if ((a & 1) == 0 && (b & 1) == 0) flipCount++;
             }
             a >>= 1;
             b >>= 1;
             c >>= 1;
         }
-        return countFlips;
+        return flipCount;
     }
 }
