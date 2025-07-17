@@ -5,7 +5,7 @@ class Solution {
         }
 
         int cash = 0;
-        int hold = -prices[0];
+        int hold = cash - prices[0];
         for (int i = 1; i < prices.length; i++) {
             cash = Math.max(cash, prices[i] + hold - fee);
             hold = Math.max(hold, cash - prices[i]);
