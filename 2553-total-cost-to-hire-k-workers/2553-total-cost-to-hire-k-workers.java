@@ -1,5 +1,11 @@
 class Solution {
     public long totalCost(int[] costs, int k, int candidates) {
+        if (costs == null || k < 0 || candidates < 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (k == 0 || candidates == 0 || costs.length == 0) {
+            return 0L;
+        }
 
         PriorityQueue<Integer> minHeapLeft = new PriorityQueue<>();
         PriorityQueue<Integer> minHeapRight = new PriorityQueue<>();
