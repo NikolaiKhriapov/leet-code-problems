@@ -7,7 +7,9 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         for (char c : s.toCharArray()) {
             if (c == '*') {
-                sb.setLength(sb.length() - 1);
+                if (!sb.isEmpty()) {
+                    sb.setLength(sb.length() - 1);
+                }
             } else {
                 sb.append(c);
             }
