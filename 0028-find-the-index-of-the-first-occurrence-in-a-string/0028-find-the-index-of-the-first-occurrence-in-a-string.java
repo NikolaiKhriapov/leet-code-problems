@@ -1,24 +1,33 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-        int hl = haystack.length();
-        int nl = needle.length();
-
-        int ph = 0;
-        int pn = 0;
-
-        while (ph < hl) {
-            if (haystack.charAt(ph) == needle.charAt(pn)) {
-                if (pn == nl - 1) {
-                    return ph - pn;
-                }
-                ph++;
-                pn++;
-            } else {
-                ph = ph - pn + 1;
-                pn = 0;
-            }
+        if (haystack == null || needle == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (haystack.length() < needle.length() || haystack.length() == 0) {
+            return -1;
         }
         
+        int left = 0;
+        while (left < haystack.length()) {
+            while (left < haystack.length() && haystack.charAt(left) != needle.charAt(0)) {
+                left++;
+            }
+            if (left == haystack.length()) {
+                break;
+            }
+            int right = left;
+            for (int i = 0; i < needle.length(); i++) {
+                if (right < haystack.length() && haystack.charAt(right) == needle.charAt(i)) {
+                    right++;
+                } else {
+                    break;
+                }
+            }
+            if (right - left == needle.length()) {
+                return left;
+            }
+            left++;
+        }
         return -1;
     }
 }
