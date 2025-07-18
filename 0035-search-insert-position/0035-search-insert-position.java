@@ -25,3 +25,6 @@ class Solution {
         return left;
     }
 }
+
+// time  = O(log n)
+// space = O(1)
