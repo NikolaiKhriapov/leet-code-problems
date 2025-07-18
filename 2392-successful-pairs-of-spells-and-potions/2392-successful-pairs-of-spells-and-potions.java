@@ -4,7 +4,8 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int[] result = new int[spells.length];
+        int[] pairs = new int[spells.length];
+
         Arrays.sort(potions);
 
         for (int i = 0; i < spells.length; i++) {
@@ -17,10 +18,10 @@ class Solution {
                 } else {
                     left = mid + 1;
                 }
+                pairs[i] = potions.length - left;
             }
-            result[i] = potions.length - left;
         }
         
-        return result;
+        return pairs;
     }
 }
