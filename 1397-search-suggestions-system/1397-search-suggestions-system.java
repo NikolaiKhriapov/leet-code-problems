@@ -8,6 +8,21 @@ class Solution {
         return getSuggestions(root, searchWord);
     }
 
+    private List<List<String>> getSuggestions(TrieNode root, String word) {
+        List<List<String>> result = new ArrayList<>();
+        for (char c : word.toCharArray()) {
+            List<String> suggestions = new ArrayList<>();
+            if (root != null) {
+                root = root.children[c - 'a'];
+                if (root != null) {
+                    suggestions.addAll(root.suggestions);
+                }
+            }
+            result.add(suggestions);
+        }
+        return result;
+    }
+
     private TrieNode buildTrie(String[] words) {
         TrieNode root = new TrieNode();
         for (String word : words) {
@@ -23,21 +38,6 @@ class Solution {
             }
         }
         return root;
-    }
-
-    private List<List<String>> getSuggestions(TrieNode root, String word) {
-        List<List<String>> result = new ArrayList<>();
-        for (char c : word.toCharArray()) {
-            List<String> suggestions = new ArrayList<>();
-            if (root != null) {
-                root = root.children[c - 'a'];
-                if (root != null) {
-                    suggestions.addAll(root.suggestions);
-                }
-            }
-            result.add(suggestions);
-        }
-        return result;
     }
 
     private class TrieNode {
