@@ -25,7 +25,7 @@ class Solution {
         Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
 
-        int currLevel = 0;
+        int currLevel = 1;
         while (!queue.isEmpty()) {
             int size = queue.size();
             int currLevelSum = 0;
@@ -39,11 +39,11 @@ class Solution {
                     queue.add(curr.right);
                 }
             }
-            currLevel++;
             if (currLevelSum > maxLevelSum) {
                 maxLevelSum = currLevelSum;
                 maxSumLevel = currLevel;
             }
+            currLevel++;
         }
         
         return maxSumLevel;
