@@ -5,16 +5,16 @@ class Solution {
         }
 
         int size = grid.length;
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> rowMap = new HashMap<>();
         int pairCount = 0;
-
+        
         for (int r = 0; r < size; r++) {
             StringBuilder sb = new StringBuilder();
             for (int c = 0; c < size; c++) {
                 sb.append(grid[r][c]).append(",");
             }
-            String rowKey = sb.toString();
-            map.put(rowKey, map.getOrDefault(rowKey, 0) + 1);
+            String key = sb.toString();
+            rowMap.put(key, rowMap.getOrDefault(key, 0) + 1);
         }
 
         for (int r = 0; r < size; r++) {
@@ -22,10 +22,12 @@ class Solution {
             for (int c = 0; c < size; c++) {
                 sb.append(grid[c][r]).append(",");
             }
-            String colKey = sb.toString();
-            pairCount += map.getOrDefault(colKey, 0);
+            String key = sb.toString();
+            if (rowMap.containsKey(key)) {
+                pairCount += rowMap.get(key);
+            }
         }
-
+        
         return pairCount;
     }
 }
