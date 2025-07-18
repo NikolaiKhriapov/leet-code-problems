@@ -6,9 +6,6 @@ class Solution {
         if (s == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (s.isBlank()) {
-            return true;
-        }
 
         Deque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
