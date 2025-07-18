@@ -1,5 +1,8 @@
 class Solution {
     public long maxScore(int[] nums1, int[] nums2, int k) {
+        if (nums1 == null || nums2 == null || nums1.length != nums2.length || k <= 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         int[][] pairs = new int[nums1.length][2];
         for (int i = 0; i < pairs.length; i++) {
