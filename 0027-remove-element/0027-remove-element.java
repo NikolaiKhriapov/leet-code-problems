@@ -1,25 +1,36 @@
 class Solution {
     public int removeElement(int[] nums, int val) {
-        int pl = 0;
-        int pr = nums.length - 1;
-
-        while (pr >= pl) {
-            while (pl < nums.length && nums[pl] != val) {
-                pl++;
-            }
-
-            while (pr > pl && nums[pr] == val) {
-                pr--;
-            }
-
-            if (pl < pr) {
-                nums[pl] = nums[pr];
-                nums[pr] = val;
-            }
-
-            if (pl == pr) return pl;
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
-        
-        return pl;
+
+        int left = 0;
+        while (left < nums.length && nums[left] != val) {
+            left++;
+        }
+        int right = left + 1;
+
+        while (right < nums.length) {
+            while (left < nums.length && nums[left] != val) {
+                left++;
+            }
+            right = left + 1;
+            while (right < nums.length && nums[right] == val) {
+                right++;
+            }
+            if (right < nums.length) {
+                swap(nums, left, right);
+            }
+        }
+        return left;
+    }
+
+    private static void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
     }
 }
+
+// time  - O(n)
+// space - O(1)
