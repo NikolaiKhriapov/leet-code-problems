@@ -5,20 +5,16 @@ class Solution {
         }
 
         int left = 0;
-        while (left < nums.length && nums[left] != val) {
-            left++;
-        }
-        int right = left + 1;
-
-        while (right < nums.length) {
-            while (left < nums.length && nums[left] != val) {
+        int right = nums.length - 1;
+        
+        while (left <= right) {
+            while (left <= right && nums[left] != val) {
                 left++;
             }
-            right = left + 1;
-            while (right < nums.length && nums[right] == val) {
-                right++;
+            while (left <= right && nums[right] == val) {
+                right--;
             }
-            if (right < nums.length) {
+            if (left < right) {
                 swap(nums, left, right);
             }
         }
