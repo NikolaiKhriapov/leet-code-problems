@@ -9,7 +9,7 @@ class Solution {
             if (hours > h) {
                 left = mid + 1;
             } else {
-                right = mid - 1;
+                right = mid;
             }
         }
         return left;
