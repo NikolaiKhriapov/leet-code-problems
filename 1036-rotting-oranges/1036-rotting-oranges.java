@@ -30,7 +30,7 @@ class Solution {
                 for (int[] neighbor : NEIGHBORS) {
                     int r = curr[0] + neighbor[0];
                     int c = curr[1] + neighbor[1];
-                    if (r >= 0 && r < grid.length && c >= 0 && c < grid[0].length && grid[r][c] == FRESH) {
+                    if (isCellWithinBounds(grid, r, c) && grid[r][c] == FRESH) {
                         queue.add(new int[] {r, c});
                         grid[r][c] = ROTTEN;
                         freshCount--;
@@ -44,5 +44,9 @@ class Solution {
         }
 
         return freshCount == 0 ? minuteCount : -1;
+    }
+
+    private static boolean isCellWithinBounds(int[][] grid, int r, int c) {
+        return r >= 0 && r < grid.length && c >= 0 && c < grid[0].length;
     }
 }
