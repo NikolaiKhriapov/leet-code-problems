@@ -21,17 +21,17 @@ class Solution {
 
         int maxLevelSum = Integer.MIN_VALUE;
         int maxSumLevel = 0;
-        
+
         Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
 
-        int level = 1;
+        int currLevel = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
-            int levelSum = 0;
+            int currLevelSum = 0;
             while (size-- > 0) {
                 TreeNode curr = queue.poll();
-                levelSum += curr.val;
+                currLevelSum += curr.val;
                 if (curr.left != null) {
                     queue.add(curr.left);
                 }
@@ -39,13 +39,13 @@ class Solution {
                     queue.add(curr.right);
                 }
             }
-            if (levelSum > maxLevelSum) {
-                maxLevelSum = levelSum;
-                maxSumLevel = level;
+            currLevel++;
+            if (currLevelSum > maxLevelSum) {
+                maxLevelSum = currLevelSum;
+                maxSumLevel = currLevel;
             }
-            level++;
         }
-
+        
         return maxSumLevel;
     }
 }
