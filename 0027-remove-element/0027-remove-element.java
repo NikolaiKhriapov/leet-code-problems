@@ -6,25 +6,22 @@ class Solution {
 
         int left = 0;
         int right = nums.length - 1;
-        
         while (left <= right) {
-            while (left <= right && nums[left] != val) {
+            while (left < nums.length && nums[left] != val) {
                 left++;
             }
-            while (left <= right && nums[right] == val) {
+            while (left < right && nums[right] == val) {
                 right--;
             }
             if (left < right) {
-                swap(nums, left, right);
+                nums[left] = nums[right];
+                nums[right] = val;
+            }
+            if (left == right) {
+                return left;
             }
         }
         return left;
-    }
-
-    private static void swap(int[] nums, int left, int right) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
     }
 }
 
