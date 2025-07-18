@@ -4,19 +4,17 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int count = 0;
-
+        int pairCount = 0;
         Map<Integer, Integer> map = new HashMap<>();
-        for (int n : nums) {
-            int complement = k - n;
+        for (int num : nums) {
+            int complement = k - num;
             if (map.containsKey(complement) && map.get(complement) > 0) {
                 map.put(complement, map.get(complement) - 1);
-                count++;
+                pairCount++;
             } else {
-                map.put(n, map.getOrDefault(n, 0) + 1);
+                map.put(num, map.getOrDefault(num, 0) + 1);
             }
         }
-        
-        return count;
+        return pairCount;
     }
 }
