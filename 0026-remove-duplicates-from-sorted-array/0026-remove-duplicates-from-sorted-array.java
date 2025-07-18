@@ -1,18 +1,25 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        if (nums.length < 2) return nums.length;
-
-        int pl = 0;
-        int pr = 1;
-        
-        while (pr < nums.length) {
-            if (nums[pr] > nums[pl]) {
-                pl++;
-                nums[pl] = nums[pr];
-            }
-            pr++;
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
-
-        return pl + 1;
+        if (nums.length <= 1) {
+            return nums.length;
+        }
+        
+        int left = 1;
+        int right = 1;
+        while (right < nums.length) {
+            if (nums[right] > nums[left - 1]) {
+                nums[left] = nums[right];
+                left++;
+            }
+            right++;
+        }
+        
+        return left;
     }
 }
+
+// time  - O(n)
+// space - O(1)
