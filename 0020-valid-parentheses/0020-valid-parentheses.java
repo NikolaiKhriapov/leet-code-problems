@@ -1,18 +1,20 @@
 class Solution {
-    private static final String OPENING_BRACKETS = "({[";
-    private static final String CLOSING_BRACKETS = ")}]";
-
     public boolean isValid(String s) {
         if (s == null) {
             throw new IllegalArgumentException("Invalid input");
         }
 
+        Map<Character, Character> map = new HashMap<>();
+        map.put('(', ')');
+        map.put('{', '}');
+        map.put('[', ']');
+
         Deque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
-            if (OPENING_BRACKETS.indexOf(c) != -1) {
+            if (map.containsKey(c)) {
                 stack.push(c);
             } else {
-                if (stack.isEmpty() || OPENING_BRACKETS.indexOf(stack.peek()) != CLOSING_BRACKETS.indexOf(c)) {
+                if (stack.isEmpty() || map.get(stack.peek()) != c) {
                     return false;
                 }
                 stack.pop();
