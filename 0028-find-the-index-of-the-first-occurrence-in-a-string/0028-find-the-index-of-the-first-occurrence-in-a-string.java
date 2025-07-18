@@ -3,27 +3,31 @@ class Solution {
         if (haystack == null || needle == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (haystack.length() < needle.length() || haystack.length() == 0) {
+
+        int hl = haystack.length();
+        int nl = needle.length();
+
+        if (hl < nl || hl == 0) {
             return -1;
         }
         
         int left = 0;
-        while (left < haystack.length()) {
-            while (left < haystack.length() && haystack.charAt(left) != needle.charAt(0)) {
+        while (left < hl) {
+            while (left < hl && haystack.charAt(left) != needle.charAt(0)) {
                 left++;
             }
-            if (left == haystack.length()) {
+            if (left == hl) {
                 break;
             }
             int right = left;
-            for (int i = 0; i < needle.length(); i++) {
-                if (right < haystack.length() && haystack.charAt(right) == needle.charAt(i)) {
+            for (int i = 0; i < nl; i++) {
+                if (right < hl && haystack.charAt(right) == needle.charAt(i)) {
                     right++;
                 } else {
                     break;
                 }
             }
-            if (right - left == needle.length()) {
+            if (right - left == nl) {
                 return left;
             }
             left++;
@@ -31,3 +35,6 @@ class Solution {
         return -1;
     }
 }
+
+// time  = 
+// space = 
