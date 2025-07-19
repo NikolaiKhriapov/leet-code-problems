@@ -18,30 +18,6 @@ class Solution {
         if (root == null) {
             return 0;
         }
-
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.add(root);
-
-        int depth = 0;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            while (size-- > 0) {
-                TreeNode curr = queue.poll();
-                if (curr != null) {
-                    if (curr.left != null) {
-                        queue.offer(curr.left);
-                    }
-                    if (curr.right != null) {
-                        queue.offer(curr.right);
-                    }
-                }
-            }
-            depth++;
-        }
-
-        return depth;
+        return Math.max(1 + maxDepth(root.left), 1 + maxDepth(root.right));
     }
 }
-
-// time  - O(n)
-// space - O(n)
