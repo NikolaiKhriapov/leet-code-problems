@@ -15,20 +15,25 @@
  */
 class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
-        return helper(nums, 0, nums.length - 1);
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        return sortedArrayToBST(nums, 0, nums.length - 1);
     }
 
-    private TreeNode helper(int[] nums, int l, int r) {
-        if (l > r) {
+    private TreeNode sortedArrayToBST(int[] nums, int left, int right) {
+        if (left > right) {
             return null;
         }
 
-        int m = l + (r - l) / 2;
-
+        int mid = left + (right - left) / 2;
         return new TreeNode(
-            nums[m],
-            helper(nums, l, m - 1),
-            helper(nums, m + 1, r)
+            nums[mid],
+            sortedArrayToBST(nums, left, mid - 1),
+            sortedArrayToBST(nums, mid + 1, right)
         );
     }
 }
+
+// time  - O(n)
+// space - O(n)
