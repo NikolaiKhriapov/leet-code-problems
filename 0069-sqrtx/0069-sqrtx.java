@@ -4,13 +4,25 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        long result = 0;
-        for (long i = result + 1; i * i <= x; i++) {
-            result = i;
+        int left = 0;
+        int right = x;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            long squared = (long) mid * mid;
+            if (squared == x) {
+                return mid;
+            } else if (squared > x) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
         }
-        return (int) result;
+        return right;
     }
 }
 
-// time  - O(n)
+// [1,2,3,4]
+//.   -
+
+// time  - O(log n)
 // space - O(1)
