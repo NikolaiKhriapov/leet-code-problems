@@ -1,16 +1,16 @@
 class Solution {
     public int mySqrt(int x) {
-        return helper(x, 0, x);
-    }
+        if (x < 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
-    private int helper(int x, int l, int r) {
-        if (l > r) return r;
-
-        int m = l + (r - l) / 2;
-
-        long n = (long) m * m;
-        if (n == x) return m;
-        if (n > x) return helper(x, l, m - 1);
-        else return helper(x, m + 1, r);
+        long result = 0;
+        for (long i = result + 1; i * i <= x; i++) {
+            result = i;
+        }
+        return (int) result;
     }
 }
+
+// time  - O(n)
+// space - O(1)
