@@ -1,25 +1,27 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        char[] sArr = s.toCharArray();
+        if (s == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
-        int pl = 0;
-        int pr = sArr.length - 1;
-
-        while (pl < pr) {
-            while (pl < pr && !Character.isLetterOrDigit(sArr[pl])) {
-                pl++;
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
             }
-            while (pl < pr && !Character.isLetterOrDigit(sArr[pr])) {
-                pr--;
+            while (left < right && !Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
             }
-
-            if (Character.toLowerCase(sArr[pl]) != Character.toLowerCase(sArr[pr])) {
+            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
                 return false;
             }
-            pl++;
-            pr--;
+            left++;
+            right--;
         }
-        
         return true;
     }
 }
+
+// time  - O(n)
+// space - O(1)
