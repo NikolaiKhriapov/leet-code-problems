@@ -4,11 +4,13 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
         
-        Set<Integer> set = new HashSet<>();
-        while (n > 1 && set.add(n)) {
-            n = helper(n);
+        int slow = n;
+        int fast = helper(n);
+        while (slow != fast) {
+            slow = helper(slow);
+            fast = helper(helper(fast));
         }
-        return n == 1;        
+        return slow == 1;
     }
 
     private static int helper(int n) {
@@ -22,5 +24,5 @@ class Solution {
     }
 }
 
-// time. - O(n)
-// space - O(1)
+// time. - O(log n)
+// space - O(log n)
