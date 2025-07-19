@@ -1,19 +1,19 @@
 class Solution {
     public int climbStairs(int n) {
-        return climbStairs(n, new HashMap<>());
-    }
-
-    private int climbStairs(int n, Map<Integer, Integer> map) {
-        if (n == 0 || n == 1) {
-            return 1;
+        if (n <= 0) {
+            return 0;
         }
 
-        if (map.containsKey(n)) {
-            return map.get(n);
+        int a = 1; // i - 2
+        int b = 1; // i - 1
+        for (int i = 2; i <= n; i++) {
+            int curr = a + b;
+            a = b;
+            b = curr;
         }
-        
-        int result = climbStairs(n - 1, map) + climbStairs(n - 2, map);
-        map.put(n, result);
-        return result;
+        return b;        
     }
 }
+
+// time  - O(n)
+// space - O(1)
