@@ -1,12 +1,17 @@
 class Solution {
     public int titleToNumber(String columnTitle) {
-        int result = 0;
-
-        int l = columnTitle.length();
-        for (int i = 0; i < l; i++) {
-            result += (columnTitle.charAt(i) - 'A' + 1) * Math.pow(26, l - i - 1);
+        if (columnTitle == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
+        int result = 0;
+        for (int i = columnTitle.length() - 1; i >= 0; i--) {
+            int num = columnTitle.charAt(i) - 'A' + 1;
+            result += num * Math.pow(26, columnTitle.length() - 1 - i);
+        }
         return result;
     }
 }
+
+// time  - O(n)
+// space - O(1)
