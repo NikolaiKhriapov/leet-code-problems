@@ -1,6 +1,6 @@
 class Solution {
     public int minReorder(int n, int[][] connections) {
-        if (connections == null || n <= 1 || connections.length != n - 1 || connections[0].length != 2) {
+        if (n <= 1 || connections == null || connections.length == 0 || connections[0].length != 2) {
             throw new IllegalArgumentException("Invalid input");
         }
 
