@@ -4,28 +4,24 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int size = grid.length;
-        Map<String, Integer> rowMap = new HashMap<>();
-        int pairCount = 0;
-        
-        for (int r = 0; r < size; r++) {
+        Map<String, Integer> rowsMap = new HashMap<>();
+        for (int r = 0; r < grid.length; r++) {
             StringBuilder sb = new StringBuilder();
-            for (int c = 0; c < size; c++) {
+            for (int c = 0; c < grid.length; c++) {
                 sb.append(grid[r][c]).append(",");
             }
             String key = sb.toString();
-            rowMap.put(key, rowMap.getOrDefault(key, 0) + 1);
+            rowsMap.put(key, rowsMap.getOrDefault(key, 0) + 1);
         }
 
-        for (int r = 0; r < size; r++) {
+        int pairCount = 0;
+        for (int r = 0; r < grid.length; r++) {
             StringBuilder sb = new StringBuilder();
-            for (int c = 0; c < size; c++) {
+            for (int c = 0; c < grid.length; c++) {
                 sb.append(grid[c][r]).append(",");
             }
             String key = sb.toString();
-            if (rowMap.containsKey(key)) {
-                pairCount += rowMap.get(key);
-            }
+            pairCount += rowsMap.getOrDefault(key, 0);
         }
         
         return pairCount;
