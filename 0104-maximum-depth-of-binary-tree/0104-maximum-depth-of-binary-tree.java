@@ -19,7 +19,7 @@ class Solution {
             return 0;
         }
 
-        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
 
         int depth = 0;
