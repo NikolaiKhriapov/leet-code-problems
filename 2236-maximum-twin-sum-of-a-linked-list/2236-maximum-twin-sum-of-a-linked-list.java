@@ -14,37 +14,39 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        ListNode slow = head;
-        ListNode fast = head.next;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
+        ListNode first = head;
+        ListNode second = head.next;
+
+        while (second != null && second.next != null) {
+            first = first.next;
+            second = second.next.next;
+        }
+        if (second == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        ListNode second = reverseList(slow.next);
-        slow.next = null;
+        second = reverseList(first.next);
+        first.next = null;
+        first = head;
+        
+        int maxTwinSum = 0;
+        while (first != null || second != null) {
+            maxTwinSum = Math.max(maxTwinSum, first.val + second.val);
+            first = first.next;
+            second = second.next;
+        }
 
-        return findMaxPairSum(head, second);
+        return maxTwinSum;
     }
 
-    private static ListNode reverseList(ListNode node) {
+    private ListNode reverseList(ListNode head) {
         ListNode prev = null;
-        while (node != null) {
-            ListNode temp = node.next;
-            node.next = prev;
-            prev = node;
-            node = temp;
+        while (head != null) {
+            ListNode temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
         }
         return prev;
-    }
-
-    private static int findMaxPairSum(ListNode list1, ListNode list2) {
-        int maxPairSum = Integer.MIN_VALUE;
-        while (list1 != null && list2 != null) {
-            maxPairSum = Math.max(maxPairSum, list1.val + list2.val);
-            list1 = list1.next;
-            list2 = list2.next;
-        }
-        return maxPairSum;
     }
 }
