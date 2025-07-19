@@ -3,9 +3,6 @@ class Solution {
         if (prices == null || prices.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (prices.length == 1) {
-            return 0;
-        }
 
         int minPrice = Integer.MAX_VALUE;
         int maxProfit = 0;
