@@ -1,7 +1,7 @@
 class Solution {
     public int climbStairs(int n) {
         if (n <= 0) {
-            return 0;
+            throw new IllegalArgumentException("Invalid input");
         }
 
         int a = 1; // i - 2
