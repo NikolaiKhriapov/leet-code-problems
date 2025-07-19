@@ -1,20 +1,13 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        List<Integer> unique = new ArrayList<>();
-
-        for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (!unique.contains(nums[i])) {
-                unique.add(nums[i]);
-            } else {
-                unique.remove(unique.indexOf(nums[i]));
-            }
+        int result = 0;
+        for (int num : nums) {
+            result ^= num;
         }
-
-        return unique.get(0);
+        return result;        
     }
 }
