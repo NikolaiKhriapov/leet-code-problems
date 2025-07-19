@@ -1,13 +1,21 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int profitMax = 0;
-        int priceMin = Integer.MAX_VALUE;
-
-        for (int price : prices) {
-            priceMin = Math.min(price, priceMin);
-            profitMax = Math.max(price - priceMin, profitMax);
+        if (prices == null || prices.length == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (prices.length == 1) {
+            return 0;
         }
 
-        return profitMax;
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for (int price : prices) {
+            minPrice = Math.min(minPrice, price);
+            maxProfit = Math.max(maxProfit, price - minPrice);
+        }
+        return maxProfit;
     }
 }
+
+// time  - O(n)
+// space - O(1)
