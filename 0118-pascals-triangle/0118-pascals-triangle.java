@@ -11,14 +11,14 @@ class Solution {
         result.add(List.of(1));
 
         for (int i = 1; i < numRows; i++) {
-            List<Integer> list = new ArrayList<>();
-            list.add(1);
+            List<Integer> prevRow = result.get(result.size() - 1);
+            List<Integer> currRow = new ArrayList<>();
+            currRow.add(1);
             for (int j = 1; j <= i - 1; j++) {
-                List<Integer> prevRow = result.get(result.size() - 1);
-                list.add(prevRow.get(j - 1) + prevRow.get(j));
+                currRow.add(prevRow.get(j - 1) + prevRow.get(j));
             }
-            list.add(1);
-            result.add(list);
+            currRow.add(1);
+            result.add(currRow);
         }
         
         return result;
