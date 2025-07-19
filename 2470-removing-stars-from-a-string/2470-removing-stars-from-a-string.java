@@ -14,7 +14,7 @@ class Solution {
                 sb.append(c);
             }
         }
-
+        
         return sb.toString();
     }
 }
