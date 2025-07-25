@@ -1,9 +1,9 @@
 class Solution {
     public boolean isHappy(int n) {
         if (n <= 0) {
-            throw new IllegalArgumentException("Invalid input");
+            return false;
         }
-        
+
         int slow = n;
         int fast = helper(n);
         while (slow != fast) {
@@ -16,13 +16,12 @@ class Solution {
     private static int helper(int n) {
         int result = 0;
         while (n > 0) {
-            int num = n % 10;
-            result += num * num;
+            result += (n % 10) * (n % 10);
             n /= 10;
         }
         return result;
     }
 }
 
-// time. - O(1)
+// time. - O(log n)
 // space - O(1)
