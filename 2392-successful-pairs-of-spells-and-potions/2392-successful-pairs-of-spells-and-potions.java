@@ -7,7 +7,7 @@ class Solution {
         int[] pairs = new int[spells.length];
         Arrays.sort(potions);
 
-        for (int i = 0; i < spells.length; i++) {
+        for (int i = 0; i < pairs.length; i++) {
             int left = 0;
             int right = potions.length - 1;
             while (left <= right) {
@@ -20,7 +20,7 @@ class Solution {
             }
             pairs[i] = potions.length - left;
         }
-        
+
         return pairs;
     }
 }
