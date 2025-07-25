@@ -1,6 +1,6 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        if (x < 0 || (x % 10 == 0 && x != 0)) {
+        if (x < 0 || (x != 0 && x % 10 == 0)) {
             return false;
         }
 
@@ -10,6 +10,10 @@ class Solution {
             x /= 10;
             xReversed = xReversed * 10 + digit;
         }
+        
         return x == xReversed || x == xReversed / 10;
     }
 }
+
+// time  - O(log n)
+// space - O(1)
