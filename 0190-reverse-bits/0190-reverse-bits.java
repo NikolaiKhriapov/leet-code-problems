@@ -1,8 +1,5 @@
-public class Solution {
+class Solution {
     public int reverseBits(int n) {
-        if (n < 0) {
-            throw new IllegalArgumentException("Invalid input");
-        }
         int result = 0;
         for (int i = 0; i < 32; i++) {
             result <<= 1;
@@ -13,5 +10,5 @@ public class Solution {
     }
 }
 
-// time  - O(1)
+// time. - O(1)
 // space - O(1)
