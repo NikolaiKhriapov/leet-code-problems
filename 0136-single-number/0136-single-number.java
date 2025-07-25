@@ -8,6 +8,19 @@ class Solution {
         for (int num : nums) {
             result ^= num;
         }
-        return result;        
+        return result;
     }
 }
+
+// 0100
+// 0001
+// ----
+// 0101
+// 0010
+// ----
+// 0111
+// 0001
+// ----
+// 0110
+// 0010
+// 0100
