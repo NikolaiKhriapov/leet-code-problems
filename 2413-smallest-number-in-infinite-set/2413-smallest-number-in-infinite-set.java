@@ -1,28 +1,27 @@
 class SmallestInfiniteSet {
-    private int smallest;
+    private int next;
     private Set<Integer> addedBack;
     private PriorityQueue<Integer> minHeap;
 
     public SmallestInfiniteSet() {
-        smallest = 1;
+        next = 1;
         addedBack = new HashSet<>();
         minHeap = new PriorityQueue<>();
     }
     
     public int popSmallest() {
         if (!minHeap.isEmpty()) {
-            int min = minHeap.poll();
-            addedBack.remove(min);
-            return min;
+            int smallest = minHeap.poll();
+            addedBack.remove(smallest);
+            return smallest;
         }
-        return smallest++;
+        return next++;
     }
     
     public void addBack(int num) {
-        if (num < smallest && addedBack.add(num)) {
+        if (num < next && addedBack.add(num)) {
             minHeap.offer(num);
         }
-
     }
 }
 
