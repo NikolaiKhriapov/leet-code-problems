@@ -1,16 +1,28 @@
 class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        Set<Integer> set = new HashSet<>();
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (nums.length <= 1 || k <= 0) {
+            return false;
+        }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (i > k) {
-                set.remove(nums[i - 1 - k]);
-            }
-            if (!set.add(nums[i])) {
+        Set<Integer> set = new HashSet<>();
+        int left = 0;
+        int right = left;
+
+        while (right < nums.length) {
+            if (!set.add(nums[right++])) {
                 return true;
+            }
+            if (right - left > k) {
+                set.remove(nums[left++]);
             }
         }
 
-        return false;
+        return false;        
     }
 }
+
+// time. O(n)
+// space O(k)
