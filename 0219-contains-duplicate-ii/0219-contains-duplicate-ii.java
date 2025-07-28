@@ -25,4 +25,4 @@ class Solution {
 }
 
 // time. O(n)
-// space O(k)
+// space O(min(n, k + 1);
