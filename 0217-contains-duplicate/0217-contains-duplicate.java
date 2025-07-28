@@ -1,13 +1,18 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Set<Integer> set = new HashSet<>();
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
-        for (int n : nums) {
-            if (!set.add(n)) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (!set.add(num)) {
                 return true;
             }
         }
-        
         return false;
     }
 }
+
+// time. - O(n)
+// space - O(n)
