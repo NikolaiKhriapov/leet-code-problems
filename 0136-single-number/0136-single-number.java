@@ -1,9 +1,5 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-
         int result = 0;
         for (int num : nums) {
             result ^= num;
@@ -11,6 +7,9 @@ class Solution {
         return result;
     }
 }
+
+// time. - O(n)
+// space - O(1)
 
 // 0100
 // 0001
@@ -23,4 +22,5 @@ class Solution {
 // ----
 // 0110
 // 0010
+// ----
 // 0100
