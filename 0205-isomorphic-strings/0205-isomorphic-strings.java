@@ -4,23 +4,21 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int length = s.length();
-
-        Map<Character, Character> map = new HashMap<>();
-        Set<Character> set = new HashSet<>();
-        for (int i = 0; i < length; i++) {
+        char[] map = new char[256];
+        boolean[] set = new boolean[256];
+        for (int i = 0; i < s.length(); i++) {
             char sChar = s.charAt(i);
             char tChar = t.charAt(i);
-            if (map.containsKey(sChar)) {
-                if (map.get(sChar) != tChar) {
+            if (map[sChar] != 0) {
+                if (map[sChar] != tChar) {
                     return false;
                 }
             } else {
-                if (set.contains(tChar)) {
+                if (set[tChar]) {
                     return false;
                 }
-                map.put(sChar, tChar);
-                set.add(tChar);
+                map[sChar] = tChar;
+                set[tChar] = true;
             }
         }
         return true;
