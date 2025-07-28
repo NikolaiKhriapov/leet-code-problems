@@ -4,9 +4,11 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
+        int length = s.length();
+
         Map<Character, Character> map = new HashMap<>();
         Set<Character> set = new HashSet<>();
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < length; i++) {
             char sChar = s.charAt(i);
             char tChar = t.charAt(i);
             if (map.containsKey(sChar)) {
