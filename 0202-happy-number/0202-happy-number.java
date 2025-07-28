@@ -13,7 +13,7 @@ class Solution {
         return slow == 1;
     }
 
-    private static int helper(int n) {
+    private int helper(int n) {
         int result = 0;
         while (n > 0) {
             result += (n % 10) * (n % 10);
@@ -23,5 +23,5 @@ class Solution {
     }
 }
 
-// time. - O(1)
+// time  - O(1)
 // space - O(1)
