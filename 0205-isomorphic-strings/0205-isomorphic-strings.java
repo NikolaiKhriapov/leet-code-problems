@@ -1,7 +1,10 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-        if (s == null || t == null || s.length() != t.length()) {
+        if (s == null || t == null) {
             throw new IllegalArgumentException("Invalid input");
+        }
+        if (s.length() != t.length()) {
+            return false;
         }
 
         char[] map = new char[256];
