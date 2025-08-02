@@ -1,28 +1,64 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public int countNodes(TreeNode root) {
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
 
-        int l = getDepthLeft(root);
-        int r = getDepthRight(root);
-        if (l == r) return (int) Math.pow(2, l) - 1;
+        // if left depth equals to right depth, we calculate number or nodes directly
+        int depthLeft = getDepthLeft(root);
+        int depthRight = getDepthRight(root);
+        if (depthLeft == depthRight) {
+            return (int) Math.pow(2, depthLeft) - 1;
+        }
 
-        return 1 + countNodes(root.left) + countNodes(root.right);
+        // otherwise, we do generic BFS
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        int nodeCount = 0;
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+            nodeCount++;
+        }
+
+        return nodeCount;
     }
 
-    private int getDepthLeft(TreeNode node) {
-        int depth = 0;
-        while (node != null) {
+    private int getDepthLeft(TreeNode root) {
+        int depth = 1;
+        while (root.left != null) {
+            root = root.left;
             depth++;
-            node = node.left;
         }
         return depth;
     }
 
-    private int getDepthRight(TreeNode node) {
-        int depth = 0;
-        while (node != null) {
+    private int getDepthRight(TreeNode root) {
+        int depth = 1;
+        while (root.right != null) {
+            root = root.right;
             depth++;
-            node = node.right;
         }
         return depth;
     }
