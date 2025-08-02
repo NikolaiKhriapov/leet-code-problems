@@ -1,31 +1,36 @@
 class Solution {
-    private static final Set<Character> VOWELS = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
-
     public String reverseVowels(String s) {
-        char[] arr = s.toCharArray();
+        if (s == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+
+        char[] sArray = s.toCharArray();
 
         int left = 0;
-        int right = arr.length - 1;
+        int right = s.length() - 1;
         while (left < right) {
-            while (left < right && !VOWELS.contains(arr[left])) {
+            while (left < right && !isVowel(sArray[left])) {
                 left++;
             }
-            while (left < right && !VOWELS.contains(arr[right])) {
+            while (left < right && !isVowel(sArray[right])) {
                 right--;
             }
             if (left < right) {
-                swap(arr, left, right);
+                char temp = sArray[left];
+                sArray[left] = sArray[right];
+                sArray[right] = temp;
             }
             left++;
             right--;
         }
-        
-        return String.valueOf(arr);
+
+        return new String(sArray);
     }
 
-    private void swap(char[] arr, int p1, int p2) {
-        char temp = arr[p1];
-        arr[p1] = arr[p2];
-        arr[p2] = temp;
+    private static boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
     }
 }
+
+// time. - O(n)
+// space - O(n)
