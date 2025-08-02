@@ -27,22 +27,7 @@ class Solution {
         }
 
         // otherwise, we do generic BFS
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.add(root);
-
-        int nodeCount = 0;
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            if (node.left != null) {
-                queue.offer(node.left);
-            }
-            if (node.right != null) {
-                queue.offer(node.right);
-            }
-            nodeCount++;
-        }
-
-        return nodeCount;
+        return 1 + countNodes(root.left) + countNodes(root.right);
     }
 
     private int getDepthLeft(TreeNode root) {
