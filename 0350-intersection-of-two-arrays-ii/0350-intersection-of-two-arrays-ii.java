@@ -4,39 +4,33 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Map<Integer, Integer> map = getFrequencyMap(nums1);
-        List<Integer> list = getIntersectingElements(map, nums2);
-        return listToArray(list);
-    }
-
-    private Map<Integer, Integer> getFrequencyMap(int[] arr) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int num : arr) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
-        }
-        return map;
-    }
-
-    private List<Integer> getIntersectingElements(Map<Integer, Integer> map, int[] arr) {
         List<Integer> list = new ArrayList<>();
-        for (int num : arr) {
-            int val = map.getOrDefault(num, 0);
-            if (val > 0) {
-                list.add(num);
-                map.put(num, val - 1);
+
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        int p1 = 0;
+        int p2 = 0;
+        while (p1 < nums1.length && p2 < nums2.length) {
+            if (nums1[p1] == nums2[p2]) {
+                list.add(nums1[p1]);
+                p1++;
+                p2++;
+            } else if (nums1[p1] < nums2[p2]) {
+                p1++;
+            } else {
+                p2++;
             }
         }
-        return list;
-    }
 
-    private int[] listToArray(List<Integer> list) {
         int[] result = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
             result[i] = list.get(i);
         }
+
         return result;
     }
 }
 
-// time. - O(n + m)
-// space - O(min(m, n))
+// time. - O(n)
+// space - O(n)
