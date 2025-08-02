@@ -1,21 +1,29 @@
 class Solution {
+    private static final int NUMBER_TO_SKIP = 0;
+
     public void moveZeroes(int[] nums) {
-        int pl = 0;
-        int pr = 0;
-        
-        while (pl < nums.length && pr < nums.length) {
-            while (pl < nums.length && nums[pl] != 0) {
-                pl++;
-            }
-            if (pl == nums.length) return;
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (nums.length <= 1) {
+            return;
+        }
 
-            while (pr < pl || (pr < nums.length && nums[pr] == 0)) {
-                pr++;
+        int left = 0;
+        int right = 0;
+        while (right < nums.length) {
+            while (right < nums.length && nums[right] == NUMBER_TO_SKIP) {
+                right++;
             }
-            if (pr == nums.length) return;
-
-            nums[pl] = nums[pr];
-            nums[pr] = 0;
+            if (right < nums.length) {
+                nums[left++] = nums[right++];
+            }
+        }
+        for (int i = left; i < nums.length; i++) {
+            nums[i] = 0;
         }
     }
 }
+
+// time  = O(n)
+// space = O(1)
