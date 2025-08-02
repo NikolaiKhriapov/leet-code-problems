@@ -5,7 +5,7 @@ class Solution {
         }
         
         while (n > 1) {
-            if (!(n % 3 == 0)) {
+            if (n % 3 != 0) {
                 return false;
             }
             n /= 3;
@@ -13,3 +13,6 @@ class Solution {
         return n == 1;
     }
 }
+
+// time. - O(log3n)
+// space - O(1)
