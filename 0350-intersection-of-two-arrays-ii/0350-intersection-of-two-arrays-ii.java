@@ -23,8 +23,8 @@ class Solution {
             int val = map.getOrDefault(num, 0);
             if (val > 0) {
                 list.add(num);
+                map.put(num, val - 1);
             }
-            map.put(num, val - 1);
         }
         return list;
     }
