@@ -1,32 +1,33 @@
 class Solution {
     public List<String> summaryRanges(int[] nums) {
-        List<String> list = new ArrayList<>();
-
-        if (nums.length == 0) {
-            return list;
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        int l = 0;
-        int r = 1;
-        
-        while (r < nums.length) {
-            if (nums[r] - nums[r - 1] != 1) {
-                if (l == r - 1) {
-                    list.add(String.valueOf(nums[l]));
-                } else {
-                    list.add(nums[l] + "->" + nums[r - 1]);
-                }
-                l = r;
+        List<String> result = new ArrayList<>();
+
+        int left = 0;
+        int right = left;
+        while (right < nums.length) {
+            right++;
+            while (right < nums.length && (nums[right] - nums[right - 1] == 1)) {
+                right++;
             }
-            r++;
-        }
-
-        if (l == r - 1) {
-            list.add(String.valueOf(nums[l]));
-        } else {
-            list.add(nums[l] + "->" + nums[r - 1]);
+            
+            String rangeString;
+            if (left == right - 1) {
+                rangeString = String.valueOf(nums[left]);
+            } else {
+                rangeString = nums[left] + "->" + nums[right - 1];
+            }
+            result.add(rangeString);
+            
+            left = right;
         }
         
-        return list;
+        return result;
     }
 }
+
+// time. - O(n)
+// space - O(n)
