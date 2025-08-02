@@ -32,5 +32,5 @@ class Solution {
     }
 }
 
-// time. - O(n)
+// time. - O(n log n + m log m)
 // space - O(n)
