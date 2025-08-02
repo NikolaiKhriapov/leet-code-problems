@@ -7,15 +7,16 @@ class Solution {
             return false;
         }
 
-        int[] freqArray = new int[256];
+        Map<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
-            freqArray[c]++;
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
         for (char c : t.toCharArray()) {
-            freqArray[c]--;
-            if (freqArray[c] < 0) {
+            int val = map.getOrDefault(c, 0);
+            if (val <= 0) {
                 return false;
             }
+            map.put(c, val - 1);
         }
         return true;
     }
