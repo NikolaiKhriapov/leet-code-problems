@@ -1,21 +1,20 @@
 class RecentCounter {
     private Queue<Integer> queue;
+    
+    private static final int RANGE = 3000;
 
     public RecentCounter() {
-        queue = new LinkedList<>();
+        queue = new ArrayDeque<>();
     }
     
     public int ping(int t) {
-        while (!queue.isEmpty() && queue.peek() < t - 3000) {
+        while (!queue.isEmpty() && t - RANGE > queue.peek()) {
             queue.poll();
         }
-        queue.add(t);
+        queue.offer(t);
         return queue.size();
     }
 }
 
-/**
- * Your RecentCounter object will be instantiated and called as such:
- * RecentCounter obj = new RecentCounter();
- * int param_1 = obj.ping(t);
- */
+// time  - O(n)
+// space - O(n)
