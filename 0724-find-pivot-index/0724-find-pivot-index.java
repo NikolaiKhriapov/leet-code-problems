@@ -4,19 +4,29 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int totalSum = 0;
-        for (int num : nums) {
-            totalSum += num;
+        int[] left = new int[nums.length];
+        int currSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            currSum += nums[i];
+            left[i] = currSum;
         }
 
-        int leftSum = 0;
+        int[] right = new int[nums.length];
+        currSum = 0;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            currSum += nums[i];
+            right[i] = currSum;
+        }
+
         for (int i = 0; i < nums.length; i++) {
-            if (leftSum == totalSum - leftSum - nums[i]) {
+            if (left[i] == right[i]) {
                 return i;
             }
-            leftSum += nums[i];
         }
-        
+
         return -1;
     }
 }
+
+// time  - O(n)
+// space - O(n)
