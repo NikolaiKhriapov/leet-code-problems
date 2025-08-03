@@ -57,3 +57,6 @@ class Solution {
         return true;
     }
 }
+
+// time  - O(n + m)
+// space - O(l1 + l2)
