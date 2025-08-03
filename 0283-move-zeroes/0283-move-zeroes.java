@@ -1,6 +1,4 @@
 class Solution {
-    private static final int NUMBER_TO_SKIP = 0;
-
     public void moveZeroes(int[] nums) {
         if (nums == null) {
             throw new IllegalArgumentException("Invalid input");
@@ -9,21 +7,20 @@ class Solution {
             return;
         }
 
-        int left = 0;
-        int right = 0;
-        while (right < nums.length) {
-            while (right < nums.length && nums[right] == NUMBER_TO_SKIP) {
-                right++;
+        int p1 = 0;
+        int p2 = 0;
+        while (p2 < nums.length) {
+            if (nums[p2] != 0) {
+                nums[p1] = nums[p2];
+                p1++;
             }
-            if (right < nums.length) {
-                nums[left++] = nums[right++];
-            }
+            p2++;
         }
-        for (int i = left; i < nums.length; i++) {
-            nums[i] = 0;
+        while (p1 < nums.length) {
+            nums[p1++] = 0;
         }
     }
 }
 
-// time  = O(n)
-// space = O(1)
+// time. - O(n)
+// space - O(1)
