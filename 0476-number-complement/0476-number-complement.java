@@ -1,15 +1,15 @@
 class Solution {
     public int findComplement(int num) {
-        int temp = num;
-        int mask = 0;
-        while (temp > 0) {
-            mask <<= 1;
-            mask += 1;
-            temp >>= 1;
+        int numCopy = num;
+        int bitmask = 0;
+        while (numCopy > 0) {
+            bitmask <<= 1;
+            bitmask += 1;
+            numCopy >>= 1;
         }
-        return mask - num;
+        return bitmask - num;
     }
 }
 
-//  101
-//  111 - 101 = 010
+// time  - O(log n)
+// space - O(1)
