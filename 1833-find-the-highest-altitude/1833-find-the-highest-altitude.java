@@ -4,12 +4,12 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int maxAltitude = 0;
-        int currAltitude = 0;
-        for (int currGain : gain) {
-            currAltitude += currGain;
-            maxAltitude = Math.max(maxAltitude, currAltitude);
+        int largestAltitude = 0;
+        int currentAltitude = 0;
+        for (int difference : gain) {
+            currentAltitude += difference;
+            largestAltitude = Math.max(largestAltitude, currentAltitude);
         }
-        return maxAltitude;
+        return largestAltitude;
     }
 }
