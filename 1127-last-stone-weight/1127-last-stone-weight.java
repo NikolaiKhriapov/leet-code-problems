@@ -1,17 +1,26 @@
 class Solution {
     public int lastStoneWeight(int[] stones) {
-        Queue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
-        for (int n : stones) {
-            pq.add(n);
+        if (stones == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (stones.length == 0) {
+            return 0;
+        }
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
+        for (int stone : stones) {
+            maxHeap.offer(stone);
+        }
+
+        while (maxHeap.size() > 1) {
+            int first = maxHeap.poll();
+            int second = maxHeap.poll();
+            maxHeap.offer(first - second);
         }
         
-        while (pq.size() != 1) {
-            int one = pq.poll();
-            int two = pq.poll();
-
-            pq.add(Math.abs(one - two));
-        }
-
-        return pq.poll();
+        return maxHeap.poll();
     }
 }
+
+// time. - O(n log n)
+// space - O(n)
