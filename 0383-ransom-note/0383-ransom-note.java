@@ -1,17 +1,24 @@
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        int[] array = new int[26];
-
+        if (ransomNote == null || magazine == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        
+        char[] freqArray = new char[26];
         for (char c : magazine.toCharArray()) {
-            array[c - 'a']++;
+            freqArray[c - 'a']++;
         }
 
         for (char c : ransomNote.toCharArray()) {
-            if (--array[c - 'a'] < 0) {
+            if (freqArray[c - 'a'] <= 0) {
                 return false;
             }
+            freqArray[c - 'a']--;
         }
 
         return true;
     }
 }
+
+// time. - O(n + m)
+// space - O(1)
