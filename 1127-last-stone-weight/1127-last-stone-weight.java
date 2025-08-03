@@ -13,12 +13,15 @@ class Solution {
         }
 
         while (maxHeap.size() > 1) {
-            int first = maxHeap.poll();
-            int second = maxHeap.poll();
-            maxHeap.offer(first - second);
+            int stone1 = maxHeap.poll();
+            int stone2 = maxHeap.poll();
+            int resultingStone = stone1 - stone2;
+            if (resultingStone != 0) {
+                maxHeap.offer(resultingStone);
+            }
         }
         
-        return maxHeap.poll();
+        return maxHeap.isEmpty() ? 0 : maxHeap.poll();
     }
 }
 
