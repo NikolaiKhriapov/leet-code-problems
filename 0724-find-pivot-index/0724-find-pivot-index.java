@@ -4,24 +4,18 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int[] left = new int[nums.length];
-        int currSum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            currSum += nums[i];
-            left[i] = currSum;
+        int rightSum = 0;
+        for (int n : nums) {
+            rightSum += n;
         }
 
-        int[] right = new int[nums.length];
-        currSum = 0;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            currSum += nums[i];
-            right[i] = currSum;
-        }
-
+        int leftSum = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (left[i] == right[i]) {
+            rightSum -= nums[i];
+            if (leftSum == rightSum) {
                 return i;
             }
+            leftSum += nums[i];
         }
 
         return -1;
