@@ -1,19 +1,25 @@
 class Solution {
     public int findJudge(int n, int[][] trust) {
-        int[] countVoters = new int[n + 1];
-        int[] countVotes = new int[n + 1];
-
-        for (int[] arr : trust) {
-            countVoters[arr[0]]++;
-            countVotes[arr[1]]++;
+        if (n < 1 || trust == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
-        
+
+        int[] trusters = new int[n + 1];
+        int[] trustees = new int[n + 1];
+        for (int[] t : trust) {
+            trusters[t[0]]++;
+            trustees[t[1]]++;
+        }
+
+        int candidate = 0;
         for (int i = 1; i <= n; i++) {
-            if (countVoters[i] == 0 && countVotes[i] == n - 1) {
+            if (trusters[i] == 0 && trustees[i] == n - 1) {
                 return i;
             }
         }
-        
         return -1;
     }
 }
+
+// [[1,2]]
+// [0,1,0], [0,0,1]
