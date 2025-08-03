@@ -7,9 +7,9 @@ class Solution {
             return 0;
         }
 
-        int prev2 = 0;
-        int prev1 = cost[0];
-        for (int i = 1; i < cost.length; i++) {
+        int prev2 = cost[0];
+        int prev1 = cost[1];
+        for (int i = 2; i < cost.length; i++) {
             int curr = cost[i] + Math.min(prev2, prev1);
             prev2 = prev1;
             prev1 = curr;
