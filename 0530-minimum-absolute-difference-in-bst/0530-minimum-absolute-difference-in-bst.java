@@ -14,21 +14,31 @@
  * }
  */
 class Solution {
-    private int diffMin = Integer.MAX_VALUE;
-    private TreeNode prev = null;
-
     public int getMinimumDifference(TreeNode root) {
-        if (root == null) return Integer.MAX_VALUE;
-
-        getMinimumDifference(root.left);
-
-        if (prev != null) {
-            diffMin = Math.min(diffMin, root.val - prev.val);
+        if (root == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
-        prev = root;
+        
+        List<Integer> list = new ArrayList<>();
+        dfs(root, list);
 
-        getMinimumDifference(root.right);
+        int minDiff = Integer.MAX_VALUE;
+        for (int i = 1; i < list.size(); i++) {
+            minDiff = Math.min(minDiff, list.get(i) - list.get(i - 1));
+        }
 
-        return diffMin;
+        return minDiff;
+    }
+
+    private void dfs(TreeNode node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
+        dfs(node.left, list);
+        list.add(node.val);
+        dfs(node.right, list);
     }
 }
+
+// time. - O(n)
+// space - O(n)
