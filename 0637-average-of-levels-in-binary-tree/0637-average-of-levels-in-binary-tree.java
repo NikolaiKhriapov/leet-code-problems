@@ -20,25 +20,28 @@ class Solution {
         }
 
         List<Double> result = new ArrayList<>();
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
 
-        while (!q.isEmpty()) {
-            int size = q.size();
-            double sum = 0;
-            for (int i = 0; i < size; i++) {
-                TreeNode curr = q.poll();
-                sum += curr.val;
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            double levelSum = 0;
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode curr = queue.poll();
+                levelSum += curr.val;
                 if (curr.left != null) {
-                    q.add(curr.left);
+                    queue.offer(curr.left);
                 }
                 if (curr.right != null) {
-                    q.add(curr.right);
+                    queue.offer(curr.right);
                 }
             }
-            result.add(sum / size);
+            result.add(levelSum / (double) levelSize);
         }
         
         return result;
     }
 }
+
+// time  - O(n)
+// space - O(w)
