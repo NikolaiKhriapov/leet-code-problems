@@ -1,7 +1,7 @@
 class Solution {
     public int hammingDistance(int x, int y) {
         int hammingDistance = 0;
-        for (int i = 0; i < 32; i++) {
+        while (x > 0 || y > 0) {
             if ((x & 1) != (y & 1)) {
                 hammingDistance++;
             }
