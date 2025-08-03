@@ -1,10 +1,15 @@
 class Solution {
     public int findComplement(int num) {
-        long mask = 1;
-        while (mask <= num) {
+        int temp = num;
+        int mask = 0;
+        while (temp > 0) {
             mask <<= 1;
+            mask += 1;
+            temp >>= 1;
         }
-        mask -= 1;
-        return (int) mask - num;
+        return mask - num;
     }
 }
+
+//  101
+//  111 - 101 = 010
