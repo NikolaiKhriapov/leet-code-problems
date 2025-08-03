@@ -1,7 +1,10 @@
 class Solution {
     public List<String> fizzBuzz(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+
         List<String> result = new ArrayList<>();
-        
         for (int i = 1; i <= n; i++) {
             if (i % 3 == 0 && i % 5 == 0) {
                 result.add("FizzBuzz");
@@ -13,7 +16,6 @@ class Solution {
                 result.add(String.valueOf(i));
             }
         }
-
         return result;
     }
 }
