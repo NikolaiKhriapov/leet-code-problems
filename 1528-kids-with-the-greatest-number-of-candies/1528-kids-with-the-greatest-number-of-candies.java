@@ -1,21 +1,24 @@
 class Solution {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
-        if (candies == null || extraCandies < 0) {
+        if (candies == null || extraCandies <= 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int maxCandies = 0;
-        for (int n : candies) {
-            maxCandies = Math.max(maxCandies, n);
-        }
-
         List<Boolean> result = new ArrayList<>();
-        for (int n : candies) {
-            result.add(n + extraCandies >= maxCandies);
+
+        int maxCandies = 0;
+        for (int currCandies : candies) {
+            maxCandies = Math.max(maxCandies, currCandies);
         }
 
+        for (int currCandies : candies) {
+            boolean isGreatest = currCandies + extraCandies >= maxCandies;
+            result.add(isGreatest);
+        }
+        
         return result;
     }
 }
 
-// [2,3,5,1,3], 3
+// time  - O(n)
+// space - O(n)
