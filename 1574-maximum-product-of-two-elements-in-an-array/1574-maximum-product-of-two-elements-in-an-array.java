@@ -1,8 +1,11 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        int max1 = Integer.MIN_VALUE;
-        int max2 = Integer.MIN_VALUE;
-        
+        if (nums == null || nums.length <= 1) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+
+        int max1 = 0;
+        int max2 = 0;
         for (int n : nums) {
             if (n > max1) {
                 max2 = max1;
@@ -11,7 +14,9 @@ class Solution {
                 max2 = n;
             }
         }
-
         return (max1 - 1) * (max2 - 1);
     }
 }
+
+// time  - O(n)
+// space - O(1)
