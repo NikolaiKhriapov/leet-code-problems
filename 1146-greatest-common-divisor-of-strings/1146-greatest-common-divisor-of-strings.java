@@ -3,18 +3,21 @@ class Solution {
         if (str1 == null || str2 == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
         if (!(str1 + str2).equals(str2 + str1)) {
             return "";
         }
-        int gcd = gcd(str1.length(), str2.length());
+
+        int gcd = getGcd(str1.length(), str2.length());
         return str1.substring(0, gcd);
     }
 
-    private int gcd(int a, int b) {
+    private static int getGcd(int a, int b) {
         if (b == 0) {
             return a;
         }
-        return gcd(b, a % b);
+        return getGcd(b, a % b);
     }
 }
+
+// time  - O(log n)
+// space - O(n + m)
