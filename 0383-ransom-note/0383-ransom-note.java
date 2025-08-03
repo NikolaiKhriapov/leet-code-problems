@@ -4,7 +4,7 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
         
-        char[] freqArray = new char[26];
+        int[] freqArray = new int[26];
         for (char c : magazine.toCharArray()) {
             freqArray[c - 'a']++;
         }
