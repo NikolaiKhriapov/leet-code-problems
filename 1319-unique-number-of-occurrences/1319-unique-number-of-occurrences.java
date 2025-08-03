@@ -3,22 +3,22 @@ class Solution {
         if (arr == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (arr.length <= 1) {
-            return true;
-        }
 
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int n : arr) {
-            map.put(n, map.getOrDefault(n, 0) + 1);
+            frequencyMap.put(n, frequencyMap.getOrDefault(n, 0) + 1);
         }
 
         Set<Integer> set = new HashSet<>();
-        for (var entry : map.entrySet()) {
-            if (!set.add(entry.getValue())) {
+        for (int val : frequencyMap.values()) {
+            if (!set.add(val)) {
                 return false;
             }
         }
-        
+
         return true;
     }
 }
+
+// time  - O(n)
+// space - O(n)
