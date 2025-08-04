@@ -3,17 +3,15 @@ class Solution {
         if (nums1 == null || nums2 == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
+        List<List<Integer>> result = new ArrayList<>();
         Set<Integer> set1 = arrayToSet(nums1);
         Set<Integer> set2 = arrayToSet(nums2);
-
-        List<Integer> list1 = getDistinctNums(set1, set2);
-        List<Integer> list2 = getDistinctNums(set2, set1);
-
-        return List.of(list1, list2);
+        addDifferenceToResult(set2, set1, result);
+        addDifferenceToResult(set1, set2, result);
+        return result;        
     }
 
-    private Set<Integer> arrayToSet(int[] nums) {
+    private static Set<Integer> arrayToSet(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int n : nums) {
             set.add(n);
@@ -21,13 +19,16 @@ class Solution {
         return set;
     }
 
-    private List<Integer> getDistinctNums(Set<Integer> set1, Set<Integer> set2) {
+    private static void addDifferenceToResult(Set<Integer> set1, Set<Integer> set2, List<List<Integer>> result) {
         List<Integer> list = new ArrayList<>();
-        for (int n : set1) {
-            if (!set2.contains(n)) {
+        for (int n : set2) {
+            if (!set1.contains(n)) {
                 list.add(n);
             }
         }
-        return list;
+        result.add(list);
     }
 }
+
+// time  - O(n + m)
+// space - O(n + m)
