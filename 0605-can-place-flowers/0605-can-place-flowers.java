@@ -20,3 +20,6 @@ class Solution {
         return false;
     }
 }
+
+// time  - O(n)
+// space - O(1)
