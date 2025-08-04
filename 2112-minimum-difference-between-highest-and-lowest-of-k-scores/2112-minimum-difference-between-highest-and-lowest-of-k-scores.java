@@ -1,21 +1,20 @@
 class Solution {
     public int minimumDifference(int[] nums, int k) {
-        if (k == 1) return 0;
+        if (nums == null || k <= 0 || k > nums.length) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         Arrays.sort(nums);
 
-        int result = Integer.MAX_VALUE;
-
-        int l = 0;
-        int r = k - 1;
-
-        while (r < nums.length) {
-            int diff = nums[r] - nums[l];
-            result = Math.min(result, diff);
-            l++;
-            r++;
+        int minDiff = Integer.MAX_VALUE;
+        for (int i = k - 1; i < nums.length; i++) {
+            int currDiff = nums[i] - nums[i - k + 1];
+            minDiff = Math.min(minDiff, currDiff);
         }
-
-        return result;
+        
+        return minDiff;
     }
 }
+
+// time  - O(n log n)
+// space - O(1)
