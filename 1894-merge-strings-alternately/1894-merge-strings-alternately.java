@@ -5,18 +5,23 @@ class Solution {
         }
 
         StringBuilder sb = new StringBuilder();
-        
-        int p = 0;
-        while (p < word1.length() || p < word2.length()) {
-            if (p < word1.length()) {
-                sb.append(word1.charAt(p));
-            }
-            if (p < word2.length()) {
-                sb.append(word2.charAt(p));
-            }
-            p++;
-        }
+        int p1 = 0;
+        int p2 = 0;
 
-        return sb.toString();        
+        while (p1 < word1.length() || p2 < word2.length()) {
+            if (p1 < word1.length()) {
+                sb.append(word1.charAt(p1));
+                p1++;
+            }
+            if (p2 < word2.length()) {
+                sb.append(word2.charAt(p2));
+                p2++;
+            }
+        }
+        
+        return sb.toString();
     }
 }
+
+// time  - O(n + m)
+// space - O(n + m)
