@@ -39,5 +39,5 @@ class Solution {
     }
 }
 
-// time  - O(n)
-// space - O(n)
+// time  - O(V + E)
+// space - O(V + E)
