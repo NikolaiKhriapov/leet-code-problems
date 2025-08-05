@@ -1,39 +1,41 @@
 class Solution {
     public String convert(String s, int numRows) {
-        if (s == null || s.isEmpty() || numRows == 1) {
+        if (s == null || numRows <= 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (numRows == 1) {
             return s;
         }
-        if (numRows <= 0) {
-            return "";
-        }
-        
+        StringBuilder[] buckets = buildBuckets(s, numRows);
+        return mergeBuckets(buckets);
+    }
+
+    private StringBuilder[] buildBuckets(String s, int numRows) {
         StringBuilder[] buckets = new StringBuilder[numRows];
         for (int i = 0; i < buckets.length; i++) {
             buckets[i] = new StringBuilder();
         }
-        populateBuckets(s, buckets);
-        return mergeBuckets(buckets);
-    }
 
-    private void populateBuckets(String s, StringBuilder[] buckets) {
         int bucketIndex = 0;
-        boolean isForward = true;
-        for (int i = 0; i < s.length(); i++) {
-            buckets[bucketIndex].append(s.charAt(i));
+        boolean isDown = true;
 
-            if (bucketIndex == 0) {
-                isForward = true;
-            }
-            if (bucketIndex == buckets.length - 1) {
-                isForward = false;
-            }
+        for (char c : s.toCharArray()) {
+            buckets[bucketIndex].append(c);
 
-            if (isForward) {
+            if (isDown) {
                 bucketIndex++;
             } else {
                 bucketIndex--;
             }
+
+            if (bucketIndex == 0) {
+                isDown = true;
+            } else if (bucketIndex == numRows - 1) {
+                isDown = false;
+            }
         }
+        
+        return buckets;
     }
 
     private String mergeBuckets(StringBuilder[] buckets) {
@@ -44,3 +46,6 @@ class Solution {
         return result.toString();
     }
 }
+
+// time  - O(n)
+// space - O(m)
