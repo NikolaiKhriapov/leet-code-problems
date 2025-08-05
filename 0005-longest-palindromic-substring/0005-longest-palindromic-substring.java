@@ -7,24 +7,28 @@ class Solution {
             return s;
         }
 
-        String longest = "";
+        int start = 0;
+        int end = 0;
         for (int i = 0; i < s.length(); i++) {
-            String even = getCurrentLongest(s, i, i + 1);
-            String odd = getCurrentLongest(s, i, i);
-            String currentLongest = even.length() >= odd.length() ? even : odd;
-            longest = currentLongest.length() > longest.length() ? currentLongest : longest;
+            int evenLength = getCurrentLongest(s, i, i + 1);
+            int oddLength = getCurrentLongest(s, i, i);
+            int length = Math.max(evenLength, oddLength);
+            if (length > end - start) {
+                start = i - (length - 1) / 2;
+                end = i + length / 2;
+            }
         }
-        return longest;
+        return s.substring(start, end + 1);
     }
 
-    private String getCurrentLongest(String s, int left, int right) {
+    private int getCurrentLongest(String s, int left, int right) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
         }
-        return s.substring(left + 1, right);
+        return right - (left + 1);
     }
 }
-
-// time  - O(n)
-// space - O(n)
+// cbbd
+// time  - O(n2)
+// space - O(1)
