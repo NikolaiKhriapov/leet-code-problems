@@ -4,19 +4,24 @@ class Solution {
             return 0;
         }
         
-        int result = 0;
-        int n = Math.abs(x);
+        int sign = 1;
+        if (x < 0) {
+            sign = -1;
+            x = -x;
+        }
 
-        while (n > 0) {
-            int digit = n % 10;
+        int result = 0;
+
+        while (x > 0) {
+            int digit = x % 10;
             if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && digit > 7)) {
                 return 0;
             }
-            n /= 10;
+            x /= 10;
             result = result * 10 + digit;
         }
         
-        return x >= 0 ? result : -result;
+        return sign * result;
     }
 }
 
