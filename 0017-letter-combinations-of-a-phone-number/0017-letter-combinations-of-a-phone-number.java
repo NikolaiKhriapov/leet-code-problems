@@ -20,7 +20,7 @@ class Solution {
         }
 
         char digit = digits.charAt(index);
-        for (char letter : KEYS.get(digit).toCharArray()) {
+        for (char letter : KEYS.getOrDefault(digit, "").toCharArray()) {
             curr.append(letter);
             addLetter(digits, index + 1, curr, result);
             curr.deleteCharAt(curr.length() - 1);
