@@ -3,7 +3,7 @@ class Solution {
     private static final String[] ROMAN = {  "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
 
     public String intToRoman(int num) {
-        if (num <= 0) {
+        if (num <= 0 || num > 3999) {
             throw new IllegalArgumentException("Invalid input");
         }
 
