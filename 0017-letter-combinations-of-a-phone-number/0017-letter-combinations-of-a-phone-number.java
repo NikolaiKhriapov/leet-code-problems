@@ -1,4 +1,6 @@
 class Solution {
+    private static final Map<Character, String> KEYS = Map.of('2', "abc", '3', "def", '4', "ghi", '5', "jkl", '6', "mno", '7', "pqrs", '8', "tuv", '9', "wxyz");
+
     public List<String> letterCombinations(String digits) {
         if (digits == null) {
             throw new IllegalArgumentException("Invalid input");
@@ -18,27 +20,13 @@ class Solution {
         }
 
         char digit = digits.charAt(index);
-        for (char letter : getLetters(digit).toCharArray()) {
+        for (char letter : KEYS.get(digit).toCharArray()) {
             curr.append(letter);
             addLetter(digits, index + 1, curr, result);
             curr.deleteCharAt(curr.length() - 1);
         }
     }
-
-    private static String getLetters(char digit) {
-        return switch (digit) {
-            case '2' -> "abc";
-            case '3' -> "def";
-            case '4' -> "ghi";
-            case '5' -> "jkl";
-            case '6' -> "mno";
-            case '7' -> "pqrs";
-            case '8' -> "tuv";
-            case '9' -> "wxyz";
-            default -> throw new IllegalArgumentException("Invalid input");
-        };
-    }
 }
 
-// time  - O(3^n)
+// time  - O(4^n)
 // space - O(3^n)
