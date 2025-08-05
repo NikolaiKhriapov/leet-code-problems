@@ -1,37 +1,35 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         if (nums == null || nums.length < 3) {
-            return new ArrayList<>();
+            throw new IllegalArgumentException("Invalid input");
         }
 
         List<List<Integer>> result = new ArrayList<>();
+
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length - 2; i++) {
-            if (nums[i] > 0) {
-                break;
-            }
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            }
-            int left = i + 1;
-            int right = nums.length - 1;
-            while (left < right) {
-                int sum = nums[i] + nums[left] + nums[right];
+            if (nums[i] > 0) break;
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+            int j = i + 1;
+            int k = nums.length - 1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
                 if (sum == 0) {
-                    result.add(List.of(nums[i], nums[left], nums[right]));
-                    while (left < right && nums[left] == nums[left + 1]) {
-                        left++;
+                    result.add(List.of(nums[i], nums[j], nums[k]));
+                    j++;
+                    while (j < k && nums[j] == nums[j - 1]) {
+                        j++;
                     }
-                    left++;
-                    while (left < right && nums[right] == nums[right - 1]) {
-                        right--;
+                    k--;
+                    while (j < k && nums[k] == nums[k + 1]) {
+                        k--;
                     }
-                    right--;
                 } else if (sum < 0) {
-                    left++;
+                    j++;
                 } else {
-                    right--;
+                    k--;
                 }
             }
         }
@@ -39,3 +37,7 @@ class Solution {
         return result;
     }
 }
+
+// [-1,0,1,2,-1,-4]
+// [-4,-1,-1,0,1,2]
+//   -  -        -
