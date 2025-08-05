@@ -17,21 +17,17 @@ class Solution {
         }
 
         int bucketIndex = 0;
-        boolean isDown = true;
+        int direction = 1;
 
         for (char c : s.toCharArray()) {
             buckets[bucketIndex].append(c);
 
-            if (isDown) {
-                bucketIndex++;
-            } else {
-                bucketIndex--;
-            }
+            bucketIndex += direction;
 
             if (bucketIndex == 0) {
-                isDown = true;
+                direction = 1;
             } else if (bucketIndex == numRows - 1) {
-                isDown = false;
+                direction = -1;
             }
         }
         
@@ -48,4 +44,4 @@ class Solution {
 }
 
 // time  - O(n)
-// space - O(m)
+// space - O(n)
