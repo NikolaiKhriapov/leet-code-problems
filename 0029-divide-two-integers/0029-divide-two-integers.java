@@ -22,9 +22,9 @@ class Solution {
         while (dividendNeg <= divisorNeg) {
             int divisorNegTemp = divisorNeg;
             int multiply = 1;
-            while (divisorNegTemp <= Integer.MIN_VALUE / 2 && dividendNeg <= divisorNegTemp + divisorNegTemp) {
-                divisorNegTemp += divisorNegTemp;
-                multiply += multiply;
+            while (divisorNegTemp >= Integer.MIN_VALUE / 2 && dividendNeg <= divisorNegTemp + divisorNegTemp) {
+                divisorNegTemp <<= 1;
+                multiply <<= 1;
             }
             dividendNeg -= divisorNegTemp;
             result += multiply;
