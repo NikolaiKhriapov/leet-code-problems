@@ -1,31 +1,37 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList<>();
-
-        if (n <= 0) {
-            return result;
+        if (n < 0) {
+            throw new IllegalArgumentException("Invalid input");
         }
-
-        addParenthesis(n, n, new StringBuilder(), result);
+        List<String> result = new ArrayList<>();
+        helper(n, n, new StringBuilder(), result);
         return result;
     }
 
-    private static void addParenthesis(int openedLeft, int closedLeft, StringBuilder curr, List<String> result) {
-        if (openedLeft <= 0 && closedLeft <= 0) {
+    private void helper(int openingCount, int closingCount, StringBuilder curr, List<String> result) {
+        if (closingCount == 0) {
             result.add(curr.toString());
             return;
         }
 
-        int index = curr.length();
-        if (openedLeft > 0) {
-            curr.append("(");
-            addParenthesis(openedLeft - 1, closedLeft, curr, result);
-            curr.delete(index, curr.length());
-        }
-        if (closedLeft > 0 && closedLeft > openedLeft) {
+        int currLength = curr.length();
+
+        if (openingCount < closingCount && closingCount > 0) {
             curr.append(")");
-            addParenthesis(openedLeft, closedLeft - 1, curr, result);
-            curr.delete(index, curr.length());
+            closingCount--;
+            helper(openingCount, closingCount, curr, result);
+            curr.setLength(currLength);
+            closingCount++;
+        }
+
+        if (openingCount > 0) {
+            curr.append("(");
+            openingCount--;
+            helper(openingCount, closingCount, curr, result);
+            curr.setLength(currLength);
         }
     }
 }
+
+// time  - O(2^n)
+// space - O(2^n)
