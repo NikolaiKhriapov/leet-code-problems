@@ -14,24 +14,19 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int nodesCount = 0;
-        ListNode curr = head;
-        while (curr != null) {
-            nodesCount++;
-            curr = curr.next;
-        }
-
-        if (nodesCount < n) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-        
-        int nodesUntilNodeToDelete = nodesCount - n;
         ListNode dummy = new ListNode(-1, head);
-        curr = dummy;
-        while (nodesUntilNodeToDelete-- > 0) {
-            curr = curr.next;
+        ListNode first = head;
+        ListNode second = dummy;
+        
+        int nodesCount = 0;
+        while (first != null) {
+            nodesCount++;
+            first = first.next;
+            if (nodesCount > n) {
+                second = second.next;
+            }
         }
-        curr.next = curr.next.next;
+        second.next = second.next.next;
 
         return dummy.next;
     }
