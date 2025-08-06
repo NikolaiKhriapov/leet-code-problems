@@ -10,26 +10,32 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if (head == null) {
-            return null;
-        }
-        if (n <= 0) {
-            return head;
+        if (head == null || n <= 0) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
+        int nodesCount = 0;
+        ListNode curr = head;
+        while (curr != null) {
+            nodesCount++;
+            curr = curr.next;
+        }
+
+        if (nodesCount < n) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        
+        int nodesUntilNodeToDelete = nodesCount - n;
         ListNode dummy = new ListNode(-1, head);
-        ListNode fast = dummy;
-        ListNode slow = dummy;
-        while (n > 0) {
-            fast = fast.next;
-            n--;
+        curr = dummy;
+        while (nodesUntilNodeToDelete-- > 0) {
+            curr = curr.next;
         }
-        while (fast != null && fast.next != null) {
-            fast = fast.next;
-            slow = slow.next;
-        }
-        slow.next = slow.next.next;
+        curr.next = curr.next.next;
 
         return dummy.next;
     }
 }
+
+// time  - O(n)
+// space - O(1)
