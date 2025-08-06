@@ -18,16 +18,13 @@ class Solution {
 
         if (openingCount < closingCount && closingCount > 0) {
             curr.append(")");
-            closingCount--;
-            helper(openingCount, closingCount, curr, result);
+            helper(openingCount, closingCount - 1, curr, result);
             curr.setLength(currLength);
-            closingCount++;
         }
 
         if (openingCount > 0) {
             curr.append("(");
-            openingCount--;
-            helper(openingCount, closingCount, curr, result);
+            helper(openingCount - 1, closingCount, curr, result);
             curr.setLength(currLength);
         }
     }
