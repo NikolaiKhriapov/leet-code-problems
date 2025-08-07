@@ -1,6 +1,6 @@
 class Solution {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
-        if (flowerbed == null) {
+        if (flowerbed == null || n < 0) {
             throw new IllegalArgumentException("Invalid input");
         }
         if (n == 0) {
