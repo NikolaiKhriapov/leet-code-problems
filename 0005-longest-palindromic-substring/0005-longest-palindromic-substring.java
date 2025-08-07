@@ -10,18 +10,18 @@ class Solution {
         int start = 0;
         int end = 0;
         for (int i = 0; i < s.length(); i++) {
-            int evenLength = getCurrentLongest(s, i, i + 1);
-            int oddLength = getCurrentLongest(s, i, i);
-            int length = Math.max(evenLength, oddLength);
+            int lengthOdd = getLongest(s, i, i);
+            int lengthEven = getLongest(s, i, i + 1);
+            int length = Math.max(lengthOdd, lengthEven);
             if (length > end - start) {
                 start = i - (length - 1) / 2;
-                end = i + length / 2;
+                end = i + (length) / 2;
             }
         }
         return s.substring(start, end + 1);
     }
 
-    private int getCurrentLongest(String s, int left, int right) {
+    private int getLongest(String s, int left, int right) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
@@ -29,6 +29,9 @@ class Solution {
         return right - (left + 1);
     }
 }
-// cbbd
-// time  - O(n2)
+
+// "babad"
+//  __
+
+// time  - O(n^2)
 // space - O(1)
