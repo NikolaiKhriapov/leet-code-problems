@@ -11,23 +11,24 @@
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null || n <= 0) {
-            throw new IllegalArgumentException("Invalid input");
+            return head;
         }
 
         ListNode dummy = new ListNode(-1, head);
         ListNode first = head;
         ListNode second = dummy;
-        
-        int nodesCount = 0;
+
+        int nodesUntilDelete = n;
         while (first != null) {
-            nodesCount++;
             first = first.next;
-            if (nodesCount > n) {
+            if (nodesUntilDelete > 0) {
+                nodesUntilDelete--;
+            } else {
                 second = second.next;
             }
         }
         second.next = second.next.next;
-
+        
         return dummy.next;
     }
 }
