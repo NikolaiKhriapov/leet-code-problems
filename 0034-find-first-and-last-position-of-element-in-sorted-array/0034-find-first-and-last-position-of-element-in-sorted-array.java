@@ -1,49 +1,45 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
         if (nums == null) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
-        }
-        if (nums.length == 0) {
-            return new int[] {-1, -1};
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        int l = findLeft(nums, target, 0, nums.length - 1);
-        int r = findRight(nums, target, l, nums.length - 1);
-        return new int[] {l, r};
+        int start = binarySearchStart(nums, target, 0, nums.length - 1);
+        int end = -1;
+        if (start != -1) {
+            end = binarySearchEnd(nums, target, start, nums.length - 1);
+        }
+        return new int[] {start, end};
     }
 
-    private int findLeft(int[] nums, int target, int l, int r) {
-        if (l > r) {
-            return -1;
-        }
-
-        int m = l + (r - l) / 2;
-
-        if (nums[m] == target) {
-            if (m == 0 || nums[m - 1] < nums[m]) {
-                return m;
+    private int binarySearchStart(int[] nums, int target, int left, int right) {
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target && (mid == left || nums[mid - 1] < target)) {
+                return mid;
+            } else if (nums[mid] >= target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
             }
-            return findLeft(nums, target, l, m - 1);
         }
-        if (nums[m] > target) {
-            return findLeft(nums, target, l, m - 1);
-        }
-        return findLeft(nums, target, m + 1, r);
+        return -1;
     }
-
-    private int findRight(int[] nums, int target, int l, int r) {
-        if (l == - 1 || l > r) {
-            return -1;
-        }
-
-        int m = l + (r - l) / 2;
-
-        if (nums[m] == target) {
-            if (m == nums.length - 1 || nums[m + 1] > nums[m]) {
-                return m;
+    
+    private int binarySearchEnd(int[] nums, int target, int left, int right) {
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target && (mid == right || nums[mid + 1] > target)) {
+                return mid;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
             }
-            return findRight(nums, target, m + 1, r);
         }
-        return findRight(nums, target, l, m - 1);
+        return -1;
     }
 }
+
+// time  - O(log n)
+// space - O(1)
