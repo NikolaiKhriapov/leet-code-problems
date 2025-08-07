@@ -6,22 +6,24 @@ class Solution {
         return longestNiceSubstring(s, 0, s.length() - 1);
     }
 
-    public String longestNiceSubstring(String s, int left, int right) {
+    private String longestNiceSubstring(String s, int left, int right) {
         Set<Character> set = new HashSet<>();
         for (int i = left; i <= right; i++) {
             set.add(s.charAt(i));
         }
 
         for (int i = left; i <= right; i++) {
-            if (!set.contains(Character.toLowerCase(s.charAt(i))) || !set.contains(Character.toUpperCase(s.charAt(i)))) {
-                String longestA = longestNiceSubstring(s, left, i - 1);
-                String longestB = longestNiceSubstring(s, i + 1, right);
-                return longestA.length() >= longestB.length() ? longestA : longestB;
+            char c = s.charAt(i);
+            if (!set.contains(Character.toLowerCase(c)) || !set.contains(Character.toUpperCase(c))) {
+                String longestLeft = longestNiceSubstring(s, left, i - 1);
+                String longestRight = longestNiceSubstring(s, i + 1, right);
+                return longestLeft.length() >= longestRight.length() ? longestLeft : longestRight;
             }
         }
+
         return s.substring(left, right + 1);
     }
 }
 
-// time  - O(n)
-// space - O(n)
+// time  - O(2^n)
+// space - O(2^n)
