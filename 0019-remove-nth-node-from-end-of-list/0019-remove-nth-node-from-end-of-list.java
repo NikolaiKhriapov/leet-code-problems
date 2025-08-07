@@ -18,11 +18,10 @@ class Solution {
         ListNode first = head;
         ListNode second = dummy;
 
-        int nodesUntilDelete = n;
         while (first != null) {
             first = first.next;
-            if (nodesUntilDelete > 0) {
-                nodesUntilDelete--;
+            if (n > 0) {
+                n--;
             } else {
                 second = second.next;
             }
