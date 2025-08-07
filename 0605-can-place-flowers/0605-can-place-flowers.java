@@ -12,6 +12,7 @@ class Solution {
             boolean isRightZero = i == flowerbed.length - 1 || flowerbed[i + 1] == 0;
             if (flowerbed[i] == 0 && isLeftZero && isRightZero) {
                 flowerbed[i] = 1;
+                i++;
                 if (--n == 0) {
                     return true;
                 }
