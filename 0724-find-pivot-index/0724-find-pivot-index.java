@@ -1,18 +1,18 @@
 class Solution {
     public int pivotIndex(int[] nums) {
-        if (nums == null) {
+        if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int rightSum = 0;
+        int totalSum = 0;
         for (int n : nums) {
-            rightSum += n;
+            totalSum += n;
         }
 
         int leftSum = 0;
         for (int i = 0; i < nums.length; i++) {
-            rightSum -= nums[i];
-            if (leftSum == rightSum) {
+            totalSum -= nums[i];
+            if (leftSum == totalSum) {
                 return i;
             }
             leftSum += nums[i];
