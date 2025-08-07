@@ -1,28 +1,25 @@
 class Solution {
     public int search(int[] nums, int target) {
-        if (nums == null) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
-        }
-        if (nums.length == 0) {
-            return -1;
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-
             if (nums[mid] == target) {
                 return mid;
             }
-            if (nums[left] <= nums[mid]) {
-                if (nums[left] <= target && target <= nums[mid]) {
+            boolean isLeftHalfSorted = left < mid && nums[left] <= nums[mid - 1];
+            if (isLeftHalfSorted) {
+                if (nums[left] <= target && nums[mid - 1] >= target) {
                     right = mid - 1;
                 } else {
                     left = mid + 1;
                 }
             } else {
-                if (nums[mid] <= target && target <= nums[right]) {
+                if (mid < right && nums[mid + 1] <= target && nums[right] >= target) {
                     left = mid + 1;
                 } else {
                     right = mid - 1;
@@ -32,3 +29,9 @@ class Solution {
         return -1;
     }
 }
+
+// [3,1]
+//  -
+
+// time  - O(log n)
+// space - O(1)
