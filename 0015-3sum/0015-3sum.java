@@ -9,9 +9,9 @@ class Solution {
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length - 2; i++) {
-            if (nums[i] > 0) break;
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
-
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
             int j = i + 1;
             int k = nums.length - 1;
             while (j < k) {
@@ -33,11 +33,10 @@ class Solution {
                 }
             }
         }
-        
+
         return result;
     }
 }
 
-// [-1,0,1,2,-1,-4]
-// [-4,-1,-1,0,1,2]
-//   -  -        -
+// time  - O(n^2)
+// space - O(1)
