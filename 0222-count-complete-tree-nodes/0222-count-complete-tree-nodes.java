@@ -19,32 +19,33 @@ class Solution {
             return 0;
         }
 
-        // if left depth equals to right depth, we calculate number or nodes directly
         int depthLeft = getDepthLeft(root);
         int depthRight = getDepthRight(root);
         if (depthLeft == depthRight) {
             return (int) Math.pow(2, depthLeft) - 1;
         }
 
-        // otherwise, we do generic BFS
         return 1 + countNodes(root.left) + countNodes(root.right);
     }
 
     private int getDepthLeft(TreeNode root) {
-        int depth = 1;
-        while (root.left != null) {
+        int count = 0;
+        while (root != null) {
+            count++;
             root = root.left;
-            depth++;
         }
-        return depth;
+        return count;
     }
 
     private int getDepthRight(TreeNode root) {
-        int depth = 1;
-        while (root.right != null) {
+        int count = 0;
+        while (root != null) {
+            count++;
             root = root.right;
-            depth++;
         }
-        return depth;
+        return count;
     }
 }
+
+// time  = O((log n) ^2)
+// space = O(log n)
