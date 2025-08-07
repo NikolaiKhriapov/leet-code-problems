@@ -25,5 +25,5 @@ class Solution {
     }
 }
 
-// time  - O(2^n)
-// space - O(2^n)
+// time  - O(n,2)
+// space - O(n)
