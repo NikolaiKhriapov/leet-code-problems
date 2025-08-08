@@ -51,5 +51,5 @@ class Solution {
     }
 }
 
-// time  - O(n^2)
-// space - O(n)
+// time  - O(1)
+// space - O(1)
