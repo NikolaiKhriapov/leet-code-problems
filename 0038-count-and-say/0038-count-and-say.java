@@ -1,29 +1,33 @@
 class Solution {
     public String countAndSay(int n) {
         if (n < 1) {
-            return "";
+            throw new IllegalArgumentException("Invalid input");
         }
-        
+
         String result = "1";
         for (int i = 2; i <= n; i++) {
-            result = generateCurrString(result);
+            result = runLengthEncode(result);
         }
         return result;
     }
 
-    private static String generateCurrString(String str) {
-        StringBuilder sb = new StringBuilder();
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            count++;
-            if (i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
-                continue;
-            } else {
-                sb.append(count).append(str.charAt(i));
-                count = 0;
+    private String runLengthEncode(String s) {
+        StringBuilder result = new StringBuilder();
+
+        int left = 0;
+        for (int right = 1; right < s.length(); right++) {
+            if (s.charAt(right) != s.charAt(left)) {
+                result.append(right - left);
+                result.append(s.charAt(left));
+                left = right;
             }
         }
-        return sb.toString();
+        result.append(s.length() - left);
+        result.append(s.charAt(left));
 
+        return result.toString();
     }
 }
+
+// time  - O(n)
+// space - O(n)
