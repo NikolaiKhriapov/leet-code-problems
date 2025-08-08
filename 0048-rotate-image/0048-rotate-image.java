@@ -1,16 +1,15 @@
 class Solution {
     public void rotate(int[][] matrix) {
-        if (matrix == null || matrix.length != matrix[0].length) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        if (matrix == null || matrix.length == 0 || matrix.length != matrix[0].length) {
+            throw new IllegalArgumentException("Invalid input");
         }
-
-        transpose(matrix);
-        reverseRows(matrix);
+        mirrorDiagonally(matrix);
+        mirrorHorizontally(matrix);
     }
 
-    private void transpose(int[][] matrix) {
+    private void mirrorDiagonally(int[][] matrix) {
         for (int r = 0; r < matrix.length; r++) {
-            for (int c = r + 1; c < matrix[0].length; c++) {
+            for (int c = 0; c < r; c++) {              
                 int temp = matrix[r][c];
                 matrix[r][c] = matrix[c][r];
                 matrix[c][r] = temp;
@@ -18,7 +17,7 @@ class Solution {
         }
     }
 
-    private void reverseRows(int[][] matrix) {
+    private void mirrorHorizontally(int[][] matrix) {
         for (int r = 0; r < matrix.length; r++) {
             for (int c = 0; c < matrix[0].length / 2; c++) {
                 int temp = matrix[r][c];
@@ -28,3 +27,6 @@ class Solution {
         }
     }
 }
+
+// time  - O(n^2)
+// space - O(1)
