@@ -16,7 +16,7 @@ class Solution {
                 jumpsCount++;
                 currReachable = maxReachable;
             }
-            if (maxReachable >= nums.length - 1) {
+            if (currReachable >= nums.length - 1) {
                 break;
             }
 
