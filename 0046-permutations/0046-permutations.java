@@ -1,29 +1,29 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         if (nums == null || nums.length == 0) {
-            return new ArrayList<>();
+            throw new IllegalArgumentException("Invalid input");
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        helper(nums, new ArrayList<>(), result, new boolean[nums.length]);
+        helper(nums, new ArrayList<>(), new HashSet<>(), result);
         return result;
     }
 
-    private void helper(int[] nums, List<Integer> curr, List<List<Integer>> result, boolean[] visited) {
+    private void helper(int[] nums, List<Integer> curr, Set<Integer> visited, List<List<Integer>> result) {
         if (curr.size() == nums.length) {
             result.add(new ArrayList<>(curr));
-            return;
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (visited[i]) {
-                continue;
+        for (int n : nums) {
+            if (visited.add(n)) {
+                curr.add(n);
+                helper(nums, curr, visited, result);
+                curr.remove(curr.size() - 1);
+                visited.remove(n);
             }
-            curr.add(nums[i]);
-            visited[i] = true;
-            helper(nums, curr, result, visited);
-            curr.remove(curr.size() - 1);
-            visited[i] = false;
         }
     }
 }
+
+// time  - O(n^2)
+// space - O(n^2)
