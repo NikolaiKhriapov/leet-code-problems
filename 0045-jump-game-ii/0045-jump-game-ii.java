@@ -12,16 +12,16 @@ class Solution {
         int jumpsCount = 0;
         for (int i = 0; i < nums.length; i++) {
             maxReachable = Math.max(maxReachable, i + nums[i]);
-            if (maxReachable >= nums.length - 1) {
-                return jumpsCount + 1;
-            }
             if (i == currReachable) {
                 jumpsCount++;
                 currReachable = maxReachable;
             }
+            if (maxReachable >= nums.length - 1) {
+                break;
+            }
 
         }
-        return -1;
+        return jumpsCount;
     }
 }
 
