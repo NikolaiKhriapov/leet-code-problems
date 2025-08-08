@@ -1,31 +1,28 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         if (candidates == null || candidates.length == 0) {
-            return new ArrayList<>();
+            throw new IllegalArgumentException("Invalid input");
         }
-
-        Arrays.sort(candidates);
         List<List<Integer>> result = new ArrayList<>();
-        addCombinationsToList(candidates, target, 0, new ArrayList<>(), result);
+        helper(candidates, target, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private void addCombinationsToList(int[] candidates, int target, int start, List<Integer> curr, List<List<Integer>> result) {
+    private void helper(int[] candidates, int target, int index, List<Integer> curr, List<List<Integer>> result) {
         if (target < 0) {
             return;
         }
         if (target == 0) {
             result.add(new ArrayList<>(curr));
-            return;
         }
 
-        for (int i = start; i < candidates.length; i++) {
-            if (target < candidates[i]) {
-                break;
-            }
+        for (int i = index; i < candidates.length; i++) {
             curr.add(candidates[i]);
-            addCombinationsToList(candidates, target - candidates[i], i, curr, result);
+            helper(candidates, target - candidates[i], i, curr, result);
             curr.remove(curr.size() - 1);
         }
     }
 }
+
+// time  - O(n^2)
+// space - O(n^2)
