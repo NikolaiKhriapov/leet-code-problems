@@ -5,25 +5,26 @@ class Solution {
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        helper(nums, new ArrayList<>(), new HashSet<>(), result);
+        helper(nums, new ArrayList<>(), new boolean[nums.length], result);
         return result;
     }
 
-    private void helper(int[] nums, List<Integer> curr, Set<Integer> visited, List<List<Integer>> result) {
+    private void helper(int[] nums, List<Integer> curr, boolean[] visited, List<List<Integer>> result) {
         if (curr.size() == nums.length) {
             result.add(new ArrayList<>(curr));
         }
 
-        for (int n : nums) {
-            if (visited.add(n)) {
-                curr.add(n);
+        for (int i = 0; i < nums.length; i++) {
+            if (!visited[i]) {
+                curr.add(nums[i]);
+                visited[i] = true;
                 helper(nums, curr, visited, result);
                 curr.remove(curr.size() - 1);
-                visited.remove(n);
+                visited[i] = false;;
             }
         }
     }
 }
 
-// time  - O(n^2)
-// space - O(n^2)
+// time  - O(n!)
+// space - O(n!)
