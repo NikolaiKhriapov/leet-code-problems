@@ -1,22 +1,29 @@
 class Solution {
     public int jump(int[] nums) {
-        if (nums == null || nums.length <= 1) {
+        if (nums == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (nums.length <= 1) {
             return 0;
         }
 
-        int currFarthest = 0;
-        int maxFarthest = 0;
-        int count = 0;
-        for (int i = 0; i < nums.length - 1; i++) {
-            maxFarthest = Math.max(maxFarthest, i + nums[i]);
-            if (i == currFarthest) {
-                count++;
-                currFarthest = maxFarthest;
+        int maxReachable = 0;
+        int currReachable = 0;
+        int jumpsCount = 0;
+        for (int i = 0; i < nums.length; i++) {
+            maxReachable = Math.max(maxReachable, i + nums[i]);
+            if (maxReachable >= nums.length - 1) {
+                return jumpsCount + 1;
             }
-            if (currFarthest >= nums.length - 1) {
-                break;
+            if (i == currReachable) {
+                jumpsCount++;
+                currReachable = maxReachable;
             }
+
         }
-        return count;
+        return -1;
     }
 }
+
+// time  - O(n)
+// space - O(1)
