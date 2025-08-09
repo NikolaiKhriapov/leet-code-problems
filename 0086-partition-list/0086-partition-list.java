@@ -14,9 +14,9 @@ class Solution {
             return head;
         }
 
-        ListNode leftHead = new ListNode(0, head);
+        ListNode leftHead = new ListNode(0);
         ListNode left = leftHead;
-        ListNode rightHead = new ListNode(0, head);
+        ListNode rightHead = new ListNode(0);
         ListNode right = rightHead;
 
         ListNode curr = head;
