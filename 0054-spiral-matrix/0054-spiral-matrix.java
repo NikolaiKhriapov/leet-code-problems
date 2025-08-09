@@ -1,8 +1,10 @@
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
+        if (matrix == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         List<Integer> result = new ArrayList<>();
-
         int left = 0;
         int right = matrix[0].length - 1;
         int top = 0;
