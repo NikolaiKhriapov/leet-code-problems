@@ -1,30 +1,34 @@
 class Solution {
     public String simplifyPath(String path) {
-        if (path == null || path.isEmpty()) {
-            return "/";
+        if (path == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        Stack<String> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        Deque<String> deque = new ArrayDeque<>();
         
         String[] dirs = path.split("/");
+
         for (String dir : dirs) {
-            if (dir.equals("..")) {
-                if (!stack.isEmpty()) {
-                    stack.pop();
-                }
-            } else if (!dir.isEmpty() && !dir.equals(".")) {
-                stack.add(dir);
+            if (dir.isEmpty() || dir.equals(".")) {
+                continue;
+            } else if (dir.equals("..")) {
+                deque.pollFirst();
+            } else {
+                deque.offerFirst(dir);
             }
         }
-        
-        StringBuilder result = new StringBuilder();
-        for (String dir : stack) {
-            result.append("/").append(dir);
+
+        while (!deque.isEmpty()) {
+            sb.append("/").append(deque.pollLast());
         }
-        if (result.isEmpty()) {
-            result.append("/");
+        if (sb.isEmpty()) {
+            sb.append("/");
         }
 
-        return result.toString();
+        return sb.toString();
     }
 }
+
+// time  - O(n)
+// space - O(n)
