@@ -1,65 +1,33 @@
 class Solution {
     public void setZeroes(int[][] matrix) {
-        if (matrix == null || matrix.length <= 0 || matrix[0].length <= 0) {
-            return;
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            throw new IllegalArgumentException("Invalid input");
         }
-        
-        boolean isFirstRowZero = isFirstRowZero(matrix);
-        boolean isFirstColZero = isFirstColZero(matrix);
-        premarkFirstRowAndFirstCol(matrix);
-        markRowsAndCols(matrix);
-        markFirstRowAndFirstCol(matrix, isFirstRowZero, isFirstColZero);
-    }
 
-    private boolean isFirstRowZero(int[][] matrix) {
-        for (int col = 0; col < matrix[0].length; col++) {
-            if (matrix[0][col] == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
+        int rows = matrix.length;
+        int cols = matrix[0].length;
 
-    private boolean isFirstColZero(int[][] matrix) {
-        for (int row = 0; row < matrix.length; row++) {
-            if (matrix[row][0] == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
+        boolean[] zeroRows = new boolean[rows];
+        boolean[] zeroCols = new boolean[cols];
 
-    private void premarkFirstRowAndFirstCol(int[][] matrix) {
-        for (int row = 0; row < matrix.length; row++) {
-            for (int col = 0; col < matrix[0].length; col++) {
-                if (matrix[row][col] == 0) {
-                    matrix[0][col] = 0;
-                    matrix[row][0] = 0;
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (matrix[r][c] == 0) {
+                    zeroRows[r] = true;
+                    zeroCols[c] = true;
                 }
             }
         }
-    }
 
-    private void markRowsAndCols(int[][] matrix) {
-        for (int row = 1; row < matrix.length; row++) {
-            for (int col = 1; col < matrix[0].length; col++) {
-                if (matrix[0][col] == 0 || matrix[row][0] == 0) {
-                    matrix[row][col] = 0;
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (zeroRows[r] || zeroCols[c]) {
+                    matrix[r][c] = 0;
                 }
-            }
-        }
-    }
-
-    private void markFirstRowAndFirstCol(int[][] matrix, boolean isFirstRowZero, boolean isFirstColZero) {
-        if (isFirstRowZero) {
-            for (int col = 0; col < matrix[0].length; col++) {
-                matrix[0][col] = 0;
-            }
-        }
-        if (isFirstColZero) {
-            for (int row = 0; row < matrix.length; row++) {
-                matrix[row][0] = 0;
             }
         }
     }
 }
+
+// time  - O(m * n)
+// space - O(1)
