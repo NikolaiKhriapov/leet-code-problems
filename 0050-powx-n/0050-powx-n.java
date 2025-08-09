@@ -1,25 +1,29 @@
 class Solution {
     public double myPow(double x, int n) {
-        long nLong = (long) n;
+        long nLong = n;
         if (nLong < 0) {
+            x = 1 / x;
             nLong = -nLong;
         }
 
         double result = 1;
         while (nLong > 0) {
-            double temp = x;
-            int coefficient = 1;
-            while ((coefficient <= Integer.MAX_VALUE - coefficient) && coefficient + coefficient <= nLong) {
-                temp *= temp;
-                coefficient <<= 1;
+            if (nLong % 2 == 1) {
+                result *= x;
             }
-            nLong -= coefficient;
-            result *= temp;
+            x *= x;
+            nLong /= 2;
         }
 
-        return n >= 0 ? result : 1 / result;
+        return result;
     }
 }
 
-// time  - O(logXn)
+// time  - O(log n)
 // space - O(1)
+
+// x = 2.0   n = 10      result = 1.0;
+// x = 4.0   n = 5       result = 1.0;
+// x = 16.0  n = 2       result = 4.0;
+// x = 256.0 n = 1       result = 4.0;
+// x = 256.0 n = 0       result = 1024.0;
