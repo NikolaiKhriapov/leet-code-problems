@@ -10,29 +10,44 @@
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null || k <= 0) {
+        if (k < 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (head == null || head.next == null || k == 0) {
             return head;
         }
 
-        ListNode curr = head;
-        int count = 1;
-        while (curr.next != null) {
-            curr = curr.next;
-            count++;
+        int nodesCount = 0;
+        ListNode temp = head;
+        while (temp != null) {
+            nodesCount++;
+            temp = temp.next;
         }
         
-        k %= count;
-        if (k % count == 0) {
+        k %= nodesCount;
+        if (k == 0) {
             return head;
         }
-        
-        curr.next = head;
-        for (int i = 0; i < count - k; i++) {
-            curr = curr.next;
+
+        ListNode dummy = new ListNode(-1, head);
+        ListNode first = head;
+        ListNode second = head;
+
+        while (k-- > 0) {
+            first = first.next;
         }
-        ListNode newHead = curr.next;
-        curr.next = null;
+        while (first.next != null) {
+            first = first.next;
+            second = second.next;
+        }
+
+        dummy.next = second.next;
+        second.next = null;
+        first.next = head;
         
-        return newHead;
+        return dummy.next;
     }
 }
+
+// time  - O(n)
+// space - O(1)
