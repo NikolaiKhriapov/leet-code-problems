@@ -18,29 +18,39 @@ class Solution {
         }
 
         ListNode dummy = new ListNode(0, head);
-        ListNode curr = dummy;
+        ListNode leftTail = null;
+        ListNode midHead = dummy;
 
-        int count = 1;
-        while (count < left) {
-            curr = curr.next;
-            count++;
+        for (int i = 0; i < left; i++) {
+            leftTail = midHead;
+            midHead = midHead.next;
         }
-
-        ListNode midHead = curr.next;
-        ListNode mid = midHead;
-
-        ListNode prev = null;
-        while (count <= right) {
-            ListNode temp = mid.next;
-            mid.next = prev;
-            prev = mid;
-            mid = temp;
-            count++;
+        
+        ListNode midTail = midHead;
+        for (int i = left; i < right; i++) {
+            midTail = midTail.next;
         }
-
-        curr.next = prev;
-        midHead.next = mid;
+        
+        ListNode rightHead = midTail.next;
+        midTail.next = null;
+        ListNode midHeadNew = reverseList(midHead);
+        leftTail.next = midHeadNew;
+        midHead.next = rightHead;
 
         return dummy.next;
     }
+
+    private ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        while (head != null) {
+            ListNode temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
+        }
+        return prev;
+    }
 }
+
+// time  - O(n)
+// space - O(1)
