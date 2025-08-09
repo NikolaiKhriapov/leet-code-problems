@@ -21,6 +21,3 @@ class Solution {
         }
     }
 }
-
-// time  - O(k^n)
-// space - O(k^n)
