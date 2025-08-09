@@ -1,21 +1,28 @@
 class Solution {
     public int minPathSum(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0) {
-            return -1;
+            throw new IllegalArgumentException("Invalid input");
         }
 
         int rows = grid.length;
         int cols = grid[0].length;
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                if (row == 0 && col == 0) {
+        int[] dp = new int[cols];
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (r == 0 && c == 0) {
+                    dp[c] = grid[r][c];
                     continue;
                 }
-                int top = row > 0 ? grid[row - 1][col] : Integer.MAX_VALUE;
-                int left = col > 0 ? grid[row][col - 1] : Integer.MAX_VALUE;
-                grid[row][col] += Math.min(top, left);
+                int top = r > 0 ? dp[c] : Integer.MAX_VALUE;
+                int left = c > 0 ? dp[c - 1] : Integer.MAX_VALUE;
+                dp[c] = grid[r][c] + Math.min(top, left);
             }
         }
-        return grid[rows - 1][cols - 1];
+        
+        return dp[cols - 1];
     }
 }
+
+// time  - O(m * n)
+// space - O(n)
