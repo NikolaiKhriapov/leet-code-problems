@@ -26,7 +26,7 @@ class Solution {
         if (board[row][col] != word.charAt(index) || visited[row][col]) {
             return false;
         }
-        
+
         visited[row][col] = true;
         for (int[] neighbor : NEIGHBORS) {
             if (exists(board, row + neighbor[0], col + neighbor[1], word, index + 1, visited)) {
@@ -38,5 +38,5 @@ class Solution {
     }
 }
 
-// time  - O((m*n)^2)
+// time  - O((m*n*(3^w))
 // space - O(w)
