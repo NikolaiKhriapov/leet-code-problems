@@ -3,23 +3,21 @@ class Solution {
         if (nums == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
         List<List<Integer>> result = new ArrayList<>();
-        backtrack(nums, 0, new ArrayList<>(), result);
-        return result;
+        helper(nums, 0, new ArrayList<>(), result);
+        return result;        
     }
 
-    private void backtrack(int[] nums, int start, List<Integer> curr, List<List<Integer>> result) {
+    private void helper(int[] nums, int index, List<Integer> curr, List<List<Integer>> result) {
         result.add(new ArrayList<>(curr));
 
-        if (start >= nums.length) {
-            return;
-        }
-        
-        for (int i = start; i < nums.length; i++) {
+        for (int i = index; i < nums.length; i++) {
             curr.add(nums[i]);
-            backtrack(nums, i + 1, curr, result);
+            helper(nums, i + 1, curr, result);
             curr.remove(curr.size() - 1);
         }
     }
 }
+
+// time  - O(n!)
+// space - O(n!)
