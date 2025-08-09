@@ -14,24 +14,29 @@ class Solution {
             return head;
         }
 
-        ListNode leftHead = new ListNode(0);
-        ListNode rightHead = new ListNode(0);
-        
+        ListNode leftHead = new ListNode(0, head);
         ListNode left = leftHead;
+        ListNode rightHead = new ListNode(0, head);
         ListNode right = rightHead;
-        while (head != null) {
-            if (head.val < x) {
-                left.next = head;
+
+        ListNode curr = head;
+        while (curr != null) {
+            if (curr.val < x) {
+                left.next = curr;
                 left = left.next;
             } else {
-                right.next = head;
+                right.next = curr;
                 right = right.next;
             }
-            head = head.next;
+            curr = curr.next;
         }
+
         right.next = null;
         left.next = rightHead.next;
         
         return leftHead.next;
     }
 }
+
+// time  - O(n)
+// space - O(1)
