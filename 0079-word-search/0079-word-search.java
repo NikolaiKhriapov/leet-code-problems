@@ -8,7 +8,7 @@ class Solution {
 
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
-                if (board[r][c] == word.charAt(0) && exists(board, r, c, word, 0, new HashSet<>())) {
+                if (board[r][c] == word.charAt(0) && exists(board, r, c, word, 0, new boolean[board.length][board[0].length])) {
                     return true;
                 }
             }
@@ -16,30 +16,25 @@ class Solution {
         return false;
     }
 
-    private boolean exists(char[][] board, int row, int col, String word, int index, Set<Integer> visited) {
+    private boolean exists(char[][] board, int row, int col, String word, int index, boolean[][] visited) {
         if (index == word.length()) {
             return true;
         }
         if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) {
             return false;
         }
-
-        int key = buildKey(board, row, col);
-        if (board[row][col] != word.charAt(index) || visited.contains(key)) {
+        if (board[row][col] != word.charAt(index) || visited[row][col]) {
             return false;
         }
-        visited.add(key);
+        
+        visited[row][col] = true;
         for (int[] neighbor : NEIGHBORS) {
             if (exists(board, row + neighbor[0], col + neighbor[1], word, index + 1, visited)) {
                 return true;
             }
         }
-        visited.remove(key);
+        visited[row][col] = false;
         return false;
-    }
-
-    private int buildKey(char[][] board, int row, int col) {
-        return row * board[0].length + col;
     }
 }
 
