@@ -1,29 +1,35 @@
 class Solution {
+    private static final int STONE = 1;
+
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        if (obstacleGrid == null) {
+        if (obstacleGrid == null || obstacleGrid.length == 0 || obstacleGrid[0].length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (obstacleGrid.length == 0 || obstacleGrid[0].length == 0) {
+        if (obstacleGrid[0][0] == STONE) {
             return 0;
         }
 
-        int rows = obstacleGrid.length;
-        int cols = obstacleGrid[0].length;
-
-        int[] dp = new int[cols];
+        int[] dp = new int[obstacleGrid[0].length];
         dp[0] = 1;
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                if (obstacleGrid[row][col] == 1) {
-                    dp[col] = 0;
+
+        for (int r = 0; r < obstacleGrid.length; r++) {
+            for (int c = 0; c < obstacleGrid[0].length; c++) {
+                if (r == 0 && c == 0) {
                     continue;
                 }
-                int top = dp[col];
-                int left = col > 0 ? dp[col - 1] : 0;
-                dp[col] = top + left;
+                if (obstacleGrid[r][c] == STONE) {
+                    dp[c] = 0;
+                } else {
+                    int top = r == 0 ? 0 : dp[c];
+                    int left = c == 0 ? 0 : dp[c - 1];
+                    dp[c] = top + left;
+                }
             }
         }
-
-        return dp[cols - 1];
+        
+        return dp[dp.length - 1];
     }
 }
+
+// time  - O(m * n)
+// space - O(n)
