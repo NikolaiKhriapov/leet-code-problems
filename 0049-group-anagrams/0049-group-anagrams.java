@@ -1,24 +1,34 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        if (strs == null || strs.length == 0) {
-            throw new IllegalArgumentException("Invalid input"); //for simplicity
+        if (strs == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
         Map<String, List<String>> map = new HashMap<>();
         for (String str : strs) {
-            char[] strChars = str.toCharArray();
-            Arrays.sort(strChars);
-            String key = String.valueOf(strChars);
-            List<String> value = map.getOrDefault(key, new ArrayList<>());
-            value.add(str);
-            map.put(key, value);
+            String key = buildKey(str);
+            if (map.containsKey(key)) {
+                map.get(key).add(str);
+            } else {
+                map.put(key, new ArrayList<>(List.of(str)));
+            }
         }
-        
+
         List<List<String>> result = new ArrayList<>();
-        for (var entry : map.entrySet()) {
-            result.add(entry.getValue());
+        for (List<String> list : map.values()) {
+            result.add(list);
         }
 
         return result;
     }
+
+    private String buildKey(String str) {
+        char[] arr = str.toCharArray();
+        Arrays.sort(arr);
+        return String.valueOf(arr);
+    }
+
 }
+
+// time  - O(n^2 * m)
+// space - O(n)
