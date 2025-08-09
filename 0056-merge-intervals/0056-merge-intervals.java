@@ -1,43 +1,32 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
-        if (intervals == null) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
-        }
-        if (intervals.length == 0) {
-            return new int[0][2];
-        }
-        if (intervals[0].length != 2) {
-            throw new IllegalArgumentException("Invalid input"); // for simplicity
+        if (intervals == null || intervals.length == 0 || intervals[0].length != 2) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
-        List<int[]> intervalsList = mergeIntervals(intervals);
-        return transformListIntoArray(intervalsList);
-    }
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
 
-    private List<int[]> mergeIntervals(int[][] intervals) {
         List<int[]> list = new ArrayList<>();
         list.add(intervals[0]);
 
         for (int i = 1; i < intervals.length; i++) {
-            int[] lastInterval = list.get(list.size() - 1);
-            int[] currInterval = intervals[i];
-            
-            if (currInterval[0] > lastInterval[1]) {
-                list.add(currInterval);
+            int[] curr = intervals[i];
+            int[] prev = list.get(list.size() - 1);
+            if (curr[0] <= prev[1]) {
+                prev[1] = Math.max(prev[1], curr[1]);
             } else {
-                lastInterval[1] = Math.max(lastInterval[1], currInterval[1]);
+                list.add(curr);
             }
         }
 
-        return list;
-    }
-
-    private int[][] transformListIntoArray(List<int[]> list) {
         int[][] result = new int[list.size()][2];
         for (int i = 0; i < list.size(); i++) {
             result[i] = list.get(i);
         }
+        
         return result;
     }
 }
+
+// time  - O(n)
+// space - O(n)
