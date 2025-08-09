@@ -1,31 +1,45 @@
 class Solution {
-    public void sortColors(int[] nums) {
+    private static final int RED = 0;
+    private static final int WHITE = 1;
+    private static final int BLUE = 2;
 
-        int left = 0;
-        int curr = left;
-        int right = nums.length - 1;
+    public void sortColors(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        if (nums.length == 1) {
+            return;
+        }
+
+        int p0 = 0;
+        int p1 = 0;
+        int p2 = nums.length - 1;
         
-        while (curr <= right) {
-            if (nums[curr] == 0) {
-                swap(nums, curr, left);
-                left++;
-                curr++;
-            } else if (nums[curr] == 2) {
-                swap(nums, curr, right);
-                right--;
+        while (p1 <= p2) {
+            if (nums[p1] == 0) {
+                swap(nums, p0, p1);
+                p0++;
+            } else if (nums[p1] == 2) {
+                swap(nums, p1, p2);
+                p2--;
             } else {
-                curr++;
+                p1++;
+            }
+            if (p0 > p1) {
+                p1 = p0;
             }
         }
     }
 
-    private void swap(int[] arr, int indexA, int indexB) {
-        int temp = arr[indexA];
-        arr[indexA] = arr[indexB];
-        arr[indexB] = temp;
+    private static void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
     }
 }
 
-// [2,0,2,1,1,0]
-// [0,0,2,1,1,2]
-// [0,0,1,1,2,2]
+// [2,1]
+//  ---
+
+// time  - O(n)
+// space - O(1)
