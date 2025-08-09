@@ -32,7 +32,6 @@ class Solution {
         
         for (int i = p; i < intervals.length; i++) {
             list.add(intervals[i]);
-            p++;
         }
 
         int[][] result = new int[list.size()][2];
