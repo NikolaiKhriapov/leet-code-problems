@@ -1,6 +1,6 @@
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
-        if (matrix == null) {
+        if (matrix == null || matrix.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
@@ -43,3 +43,6 @@ class Solution {
         return result;
     }
 }
+
+// time  - O(n)
+// space - O(1)
