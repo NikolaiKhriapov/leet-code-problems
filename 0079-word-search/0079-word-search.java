@@ -1,16 +1,14 @@
 class Solution {
-    private final static int[][] NEIGHBORS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    private static final int[][] NEIGHBORS = new int[][] {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
     public boolean exist(char[][] board, String word) {
-        if (board == null || board.length == 0 || board[0].length == 0 || board.length * board[0].length < word.length()) {
-            return false;
+        if (board == null || word == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        boolean[][] visited = new boolean[board.length][board[0].length];
-        char[] wordArray = word.toCharArray();
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[0].length; col++) {
-                if (board[row][col] == wordArray[0] && exists(board, wordArray, 0, row, col, visited)) {
+        for (int r = 0; r < board.length; r++) {
+            for (int c = 0; c < board[0].length; c++) {
+                if (board[r][c] == word.charAt(0) && exists(board, r, c, word, 0, new HashSet<>())) {
                     return true;
                 }
             }
@@ -18,24 +16,32 @@ class Solution {
         return false;
     }
 
-    private boolean exists(char[][] board, char[] wordArray, int index, int row, int col, boolean[][] visited) {
-        if (index >= wordArray.length) {
+    private boolean exists(char[][] board, int row, int col, String word, int index, Set<Integer> visited) {
+        if (index == word.length()) {
             return true;
         }
         if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) {
             return false;
         }
-        if (board[row][col] != wordArray[index] || visited[row][col]) {
+
+        int key = buildKey(board, row, col);
+        if (board[row][col] != word.charAt(index) || visited.contains(key)) {
             return false;
         }
-        
-        visited[row][col] = true;
+        visited.add(key);
         for (int[] neighbor : NEIGHBORS) {
-            if (exists(board, wordArray, index + 1, row + neighbor[0], col + neighbor[1], visited)) {
+            if (exists(board, row + neighbor[0], col + neighbor[1], word, index + 1, visited)) {
                 return true;
             }
         }
-        visited[row][col] = false;
+        visited.remove(key);
         return false;
     }
+
+    private int buildKey(char[][] board, int row, int col) {
+        return row * board[0].length + col;
+    }
 }
+
+// time  - O((m*n)^2)
+// space - O(w)
