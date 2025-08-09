@@ -1,31 +1,21 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
+    private TreeNode prev = null;
+
     public boolean isValidBST(TreeNode root) {
         if (root == null) {
             return true;
         }
-        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
-    }
-
-    private boolean isValidBST(TreeNode node, long min, long max) {
-        if (node == null) {
-            return true;
+        
+        boolean isLeftValid = isValidBST(root.left);
+        if (prev != null && root.val <= prev.val) {
+            return false;
         }
-        return node.val > min && node.val < max && isValidBST(node.left, min, node.val) && isValidBST(node.right, node.val, max);
+        prev = root;
+        boolean isRightValid = isValidBST(root.right);
 
+        return isLeftValid && isRightValid;
     }
 }
+
+// time  - O(n)
+// space - O(w)
