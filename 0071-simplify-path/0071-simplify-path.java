@@ -13,7 +13,9 @@ class Solution {
             if (dir.isEmpty() || dir.equals(".")) {
                 continue;
             } else if (dir.equals("..")) {
-                deque.pollFirst();
+                if (!deque.isEmpty()) {
+                    deque.pollFirst();
+                }
             } else {
                 deque.offerFirst(dir);
             }
