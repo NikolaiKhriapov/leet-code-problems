@@ -1,22 +1,23 @@
 class Solution {
-    private static final int MAX_APPEARANCES = 2;
+    private static final int AMOUNT_ALLOWED = 2;
 
     public int removeDuplicates(int[] nums) {
         if (nums == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (nums.length <= MAX_APPEARANCES) {
-            return nums.length;
-        }
 
-        int left = MAX_APPEARANCES;
-        for (int i = MAX_APPEARANCES; i < nums.length; i++) {
-            if (nums[i] == nums[left - MAX_APPEARANCES]) {
-                continue;
-            } else {
-                nums[left++] = nums[i];
+        int left = 0;
+        int right = 0;
+        while (right < nums.length) {
+            if (left < AMOUNT_ALLOWED || nums[right] != nums[left - AMOUNT_ALLOWED]) {
+                nums[left] = nums[right];
+                left++;
             }
+            right++;
         }
         return left;
     }
 }
+
+// time  - O(n)
+// space - O(1)
