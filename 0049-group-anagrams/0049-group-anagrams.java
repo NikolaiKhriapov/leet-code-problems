@@ -30,5 +30,5 @@ class Solution {
 
 }
 
-// time  - O(n^2 * m)
-// space - O(n)
+// time  - O(n * mlogm)
+// space - O(n * m)
