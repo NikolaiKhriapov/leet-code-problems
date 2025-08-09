@@ -19,5 +19,5 @@ class Solution {
     }
 }
 
-// time  - O(n!)
-// space - O(n!)
+// time  - O(n * 2^n)
+// space - O(n * 2^n)
