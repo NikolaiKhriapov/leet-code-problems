@@ -4,30 +4,66 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int rows = matrix.length;
-        int cols = matrix[0].length;
+        boolean isFirstRowZeroed = isFirstRowZeroed(matrix);
+        boolean isFirstColZeroed = isFirstColZeroed(matrix);
 
-        boolean[] zeroRows = new boolean[rows];
-        boolean[] zeroCols = new boolean[cols];
+        premarkFirstRowAndCol(matrix);
+        markRowsAndCols(matrix);
+        markFirstRowAndCol(matrix, isFirstRowZeroed, isFirstColZeroed);
+    }
 
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
+    private boolean isFirstRowZeroed(int[][] matrix) {
+        for (int c = 0; c < matrix[0].length; c++) {
+            if (matrix[0][c] == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isFirstColZeroed(int[][] matrix) {
+        for (int r = 0; r < matrix.length; r++) {
+            if (matrix[r][0] == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void premarkFirstRowAndCol(int[][] matrix) {
+        for (int r = 1; r < matrix.length; r++) {
+            for (int c = 1; c < matrix[0].length; c++) {
                 if (matrix[r][c] == 0) {
-                    zeroRows[r] = true;
-                    zeroCols[c] = true;
+                    matrix[r][0] = 0;
+                    matrix[0][c] = 0;
                 }
             }
         }
+    }
 
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                if (zeroRows[r] || zeroCols[c]) {
+    private void markRowsAndCols(int[][] matrix) {
+        for (int r = 1; r < matrix.length; r++) {
+            for (int c = 1; c < matrix[0].length; c++) {
+                if (matrix[r][0] == 0 || matrix[0][c] == 0) {
                     matrix[r][c] = 0;
                 }
+            }
+        }
+    }
+
+    private void markFirstRowAndCol(int[][] matrix, boolean isFirstRowZeroed, boolean isFirstColZeroed) {
+        if (isFirstRowZeroed) {
+            for (int c = 0; c < matrix[0].length; c++) {
+                matrix[0][c] = 0;
+            }
+        }
+        if (isFirstColZeroed) {
+            for (int r = 0; r < matrix.length; r++) {
+                matrix[r][0] = 0;
             }
         }
     }
 }
 
 // time  - O(m * n)
-// space - O(m + n)
+// space - O(1)
