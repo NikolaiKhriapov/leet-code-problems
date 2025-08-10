@@ -24,31 +24,25 @@ class Solution {
             return null;
         }
 
-        Set<Node> oldNodes = new HashSet<>();
-        Map<Integer, Node> mapNewNodes = new HashMap<>();
+        Map<Node, Node> map = new HashMap<>();
         Queue<Node> queue = new ArrayDeque<>();
+        map.put(node, new Node(node.val));
         queue.offer(node);
 
         while (!queue.isEmpty()) {
             Node curr = queue.poll();
-            oldNodes.add(curr);
-            mapNewNodes.put(curr.val, new Node(curr.val, new ArrayList<>()));
             for (Node neighbor : curr.neighbors) {
-                if (!oldNodes.contains(neighbor)) {
+                if (!map.containsKey(neighbor)) {
                     queue.offer(neighbor);
-                    oldNodes.add(neighbor);
+                    map.put(neighbor, new Node(neighbor.val));
                 }
+                map.get(curr).neighbors.add(map.get(neighbor));
             }
         }
 
-        for (Node oldNode : oldNodes) {
-            Node newNode = mapNewNodes.get(oldNode.val);
-            for (Node oldNeighbor : oldNode.neighbors) {
-                Node newNeighbor = mapNewNodes.get(oldNeighbor.val);
-                newNode.neighbors.add(newNeighbor);
-            }
-        }
-
-        return mapNewNodes.get(node.val);
+        return map.get(node);
     }
 }
+
+// time  - O(n)
+// space - O(n)
