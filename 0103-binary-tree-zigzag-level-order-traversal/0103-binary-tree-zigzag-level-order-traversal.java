@@ -20,30 +20,30 @@ class Solution {
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-
-        boolean isReversed = false;
-        while (!q.isEmpty()) {
-            int size = q.size();
-            List<Integer> list = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = q.poll();
-                list.add(node.val);
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+    
+        boolean isForward = true;
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            List<Integer> levelList = new ArrayList<>();
+            while (levelSize-- > 0) {
+                TreeNode node = queue.poll();
+                levelList.add(node.val);
                 if (node.left != null) {
-                    q.add(node.left);
+                    queue.add(node.left);
                 }
                 if (node.right != null) {
-                    q.add(node.right);
+                    queue.add(node.right);
                 }
             }
-            if (isReversed) {
-                Collections.reverse(list);
+            if (!isForward) {
+                Collections.reverse(levelList);
             }
-            isReversed = !isReversed;
-            result.add(list);
+            result.add(levelList);
+            isForward = !isForward;
         }
-        
+
         return result;
     }
 }
