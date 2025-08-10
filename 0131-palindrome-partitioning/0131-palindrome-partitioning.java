@@ -1,47 +1,36 @@
 class Solution {
     public List<List<String>> partition(String s) {
-        if (s == null || s.isEmpty()) {
-            return new ArrayList<>();
+        if (s == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
-
         List<List<String>> result = new ArrayList<>();
-        Boolean[][] memo = new Boolean[s.length()][s.length()];
-        helper(s, 0, new ArrayList<>(), result, memo);
+        helper(s, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private void helper(String s, int start, List<String> curr, List<List<String>> result, Boolean[][] memo) {
-        if (start == s.length()) {
+    private void helper(String s, int left, List<String> curr, List<List<String>> result) {
+        if (left == s.length()) {
             result.add(new ArrayList<>(curr));
             return;
         }
 
-        for (int end = start; end < s.length(); end++) {
-            if (isPalindrome(s, start, end, memo)) {
-                curr.add(s.substring(start, end + 1));
-                helper(s, end + 1, curr, result, memo);
+        for (int right = left; right < s.length(); right++) {
+            if (isPalindrome(s, left, right)) {
+                curr.add(s.substring(left, right + 1));
+                helper(s, right + 1, curr, result);
                 curr.remove(curr.size() - 1);
             }
         }
     }
 
-    private boolean isPalindrome(String s, int left, int right, Boolean[][] memo) {
-        if (memo[left][right] != null) {
-            return memo[left][right];
-        }
-
-        int l = left;
-        int r = right;
-        while (l < r) {
-            if (s.charAt(l) != s.charAt(r)) {
-                memo[left][right] = false;
+    private boolean isPalindrome(String s, int left, int right) {
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
                 return false;
             }
-            l++;
-            r--;
+            left++;
+            right--;
         }
-
-        memo[left][right] = true;
         return true;
     }
 }
