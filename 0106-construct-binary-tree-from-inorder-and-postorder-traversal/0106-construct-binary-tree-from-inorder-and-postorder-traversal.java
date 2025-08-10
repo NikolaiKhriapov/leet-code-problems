@@ -1,41 +1,25 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (inorder == null || postorder == null || inorder.length != postorder.length) {
             throw new IllegalArgumentException("Invalid input");
         }
-        
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
-        return buildSubtree(postorder, 0, inorder.length - 1, inorderMap, new int[]{postorder.length - 1});
+        return buildSubtree(postorder, inorderMap, 0, inorder.length - 1, new int[] {postorder.length - 1});
     }
 
-    private TreeNode buildSubtree(int[] postorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap, int[] postorderIndex) {
-        if (inorderStart > inorderEnd) {
+    private TreeNode buildSubtree(int[] postorder, Map<Integer, Integer> inorderMap, int inorderLeft, int inorderRight, int[] postorderIndex) {
+        if (inorderLeft > inorderRight) {
             return null;
         }
 
         int value = postorder[postorderIndex[0]--];
         int inorderIndex = inorderMap.get(value);
 
-        TreeNode root = new TreeNode(value);
-        root.right = buildSubtree(postorder, inorderIndex + 1, inorderEnd, inorderMap, postorderIndex);
-        root.left = buildSubtree(postorder, inorderStart, inorderIndex - 1, inorderMap, postorderIndex);
+        TreeNode node = new TreeNode(value);
+        node.right = buildSubtree(postorder, inorderMap, inorderIndex + 1, inorderRight, postorderIndex);
+        node.left = buildSubtree(postorder, inorderMap, inorderLeft, inorderIndex - 1, postorderIndex);
 
-        return root;
+        return node;
     }
 
     private Map<Integer, Integer> buildInorderMap(int[] inorder) {
@@ -46,3 +30,6 @@ class Solution {
         return map;
     }
 }
+
+// time  - O(n)
+// space - O(n)
