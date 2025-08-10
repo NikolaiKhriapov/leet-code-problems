@@ -24,23 +24,22 @@ class Node {
 class Solution {
     public Node connect(Node root) {
         if (root == null) {
-            return null;
+            return root;
         }
-        helper(root);
+
+        if (root.left != null) {
+            root.left.next = root.right;
+        }
+        if (root.right != null && root.next != null) {
+            root.right.next = root.next.left;
+        }
+
+        connect(root.left);
+        connect(root.right);
+
         return root;
     }
-
-    private void helper(Node node) {
-        if (node.left == null || node.right == null) {
-            return;
-        }
-
-        node.left.next = node.right;
-        if (node.next != null) {
-            node.right.next = node.next.left;
-        }
-
-        helper(node.left);
-        helper(node.right);
-    }
 }
+
+// time  - O(n)
+// time  - O(h)
