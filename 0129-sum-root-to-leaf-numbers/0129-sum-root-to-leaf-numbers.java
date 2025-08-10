@@ -3,24 +3,18 @@ class Solution {
         if (root == null) {
             return 0;
         }
-        int[] sum = new int[] {0};
-        visitNode(root, 0, sum);
-        return sum[0];
+        return visitNode(root, 0);
     }
 
-    private void visitNode(TreeNode node, int currSum, int[] sum) {
+    private int visitNode(TreeNode node, int currSum) {
+        if (node == null) {
+            return 0;
+        }
+
         currSum = currSum * 10 + node.val;
-
         if (node.left == null && node.right == null) {
-            sum[0] += currSum;
-            return;
+            return currSum;
         }
-
-        if (node.left != null) {
-            visitNode(node.left, currSum, sum);
-        }
-        if (node.right != null) {
-            visitNode(node.right, currSum, sum);
-        }
+        return visitNode(node.left, currSum) + visitNode(node.right, currSum);
     }
 }
