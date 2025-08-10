@@ -4,25 +4,23 @@ class Solution {
             return 0;
         }
         int[] sum = new int[] {0};
-        visitNode(root, new StringBuilder(), sum);
+        visitNode(root, 0, sum);
         return sum[0];
     }
 
-    private void visitNode(TreeNode node, StringBuilder curr, int[] sum) {
-        curr.append(String.valueOf(node.val));
+    private void visitNode(TreeNode node, int currSum, int[] sum) {
+        currSum = currSum * 10 + node.val;
 
         if (node.left == null && node.right == null) {
-            sum[0] += Integer.parseInt(curr.toString());
+            sum[0] += currSum;
             return;
         }
 
-        int currLength = curr.length();
         if (node.left != null) {
-            visitNode(node.left, curr, sum);
-            curr.setLength(currLength);
+            visitNode(node.left, currSum, sum);
         }
         if (node.right != null) {
-            visitNode(node.right, curr, sum);
+            visitNode(node.right, currSum, sum);
         }
     }
 }
