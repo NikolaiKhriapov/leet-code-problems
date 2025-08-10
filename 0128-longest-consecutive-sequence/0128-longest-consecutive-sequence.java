@@ -16,7 +16,7 @@ class Solution {
                 continue;
             }
             int consecutiveCount = 1;
-            while (set.contains(++n)) {
+            while (n != Integer.MAX_VALUE && set.contains(++n)) {
                 consecutiveCount++;
             }
             longestConsecutive = Math.max(longestConsecutive, consecutiveCount);
