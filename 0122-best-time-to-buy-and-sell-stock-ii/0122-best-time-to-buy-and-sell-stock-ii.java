@@ -1,15 +1,19 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length <= 1) {
-            return 0;
+        if (prices == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        int profit = 0;
+        int totalProfit = 0;
         for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1]) {
-                profit += prices[i] - prices[i - 1];
+            int profit = prices[i] - prices[i - 1];
+            if (profit > 0) {
+                totalProfit += profit;
             }
         }
-        return profit;
+        return totalProfit;
     }
 }
+
+// time  - O(n)
+// space - O(1)
