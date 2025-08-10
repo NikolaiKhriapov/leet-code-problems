@@ -18,24 +18,22 @@ class Solution {
         if (preorder == null || inorder == null || preorder.length != inorder.length) {
             throw new IllegalArgumentException("Invalid input");
         }
-
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
-        return buildSubtree(preorder, 0, inorder.length - 1, inorderMap, new int[]{0});
+        return buildSubtree(preorder, inorderMap, 0, inorder.length - 1, new int[] {0});
     }
 
-    private TreeNode buildSubtree(int[] preorder, int inorderStart, int inorderEnd, Map<Integer, Integer> inorderMap, int[] preorderIndex) {
-        if (inorderStart > inorderEnd) {
+    private TreeNode buildSubtree(int[] preorder, Map<Integer, Integer> inorderMap, int inorderLeft, int inorderRight, int[] preorderIndex) {
+        if (inorderLeft > inorderRight) {
             return null;
         }
 
         int value = preorder[preorderIndex[0]++];
         int inorderIndex = inorderMap.get(value);
-
-        TreeNode root = new TreeNode(value);
-        root.left = buildSubtree(preorder, inorderStart, inorderIndex - 1, inorderMap, preorderIndex);
-        root.right = buildSubtree(preorder, inorderIndex + 1, inorderEnd, inorderMap, preorderIndex);
-
-        return root;
+        return new TreeNode(
+            value,
+            buildSubtree(preorder, inorderMap, inorderLeft, inorderIndex - 1, preorderIndex),
+            buildSubtree(preorder, inorderMap, inorderIndex + 1, inorderRight, preorderIndex)
+        );
     }
 
     private Map<Integer, Integer> buildInorderMap(int[] inorder) {
@@ -46,3 +44,6 @@ class Solution {
         return map;
     }
 }
+
+// time  - O(n)
+// space - O(n)
