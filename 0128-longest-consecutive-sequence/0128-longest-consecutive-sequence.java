@@ -3,27 +3,30 @@ class Solution {
         if (nums == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (nums.length <= 1) {
-            return nums.length;
-        }
+
+        int longestConsecutive = 0;
 
         Set<Integer> set = new HashSet<>();
         for (int n : nums) {
             set.add(n);
         }
 
-        int longestCount = 0;
+        Set<Integer> visited = new HashSet<>();
         for (int n : set) {
-            if (set.contains(n - 1)) {
+            if (visited.contains(n)) {
                 continue;
             }
-            int count = 0;
-            while (set.contains(n + count)) {
-                count++;
+            int consecutiveCount = 1;
+            while (set.contains(++n)) {
+                consecutiveCount++;
+                visited.add(n);
             }
-            longestCount = Math.max(longestCount, count);
+            longestConsecutive = Math.max(longestConsecutive, consecutiveCount);
         }
         
-        return longestCount;
+        return longestConsecutive;
     }
 }
+
+// time  - O(n)
+// space - O(n)
