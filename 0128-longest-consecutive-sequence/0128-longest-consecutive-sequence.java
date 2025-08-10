@@ -11,15 +11,13 @@ class Solution {
             set.add(n);
         }
 
-        Set<Integer> visited = new HashSet<>();
         for (int n : set) {
-            if (visited.contains(n) || set.contains(n - 1)) {
+            if (set.contains(n - 1)) {
                 continue;
             }
             int consecutiveCount = 1;
             while (set.contains(++n)) {
                 consecutiveCount++;
-                visited.add(n);
             }
             longestConsecutive = Math.max(longestConsecutive, consecutiveCount);
         }
