@@ -4,28 +4,24 @@ class Solution {
             return root;
         }
 
-        Queue<Node> queue = new ArrayDeque<>();
-        queue.offer(root);
-
-        while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            for (int i = 0; i < levelSize; i++) {
-                Node node = queue.poll();
-                if (i < levelSize - 1 && !queue.isEmpty()) {
-                    node.next = queue.peek();
+        Node curr = root;
+        while (curr != null) {
+            Node dummyHead = new Node(0);
+            Node dummy = dummyHead;
+            while (curr != null) {
+                if (curr.left != null) {
+                    dummy.next = curr.left;
+                    dummy = dummy.next;
                 }
-                if (node.left != null) {
-                    queue.offer(node.left);
+                if (curr.right != null) {
+                    dummy.next = curr.right;
+                    dummy = dummy.next;
                 }
-                if (node.right != null) {
-                    queue.offer(node.right);
-                }
+                curr = curr.next;
             }
+            curr = dummyHead.next;
         }
-
+        
         return root;
     }
 }
-
-// time  - O(n)
-// space - O(w)
