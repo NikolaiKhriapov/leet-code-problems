@@ -1,45 +1,51 @@
 class Solution {
-    private static final char MARK_O = 'O';
-    private static final char MARK_X = 'X';
-    private static final char MARK_TEMP = '.';
-    private static final int[][] NEIGHBORS = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    private static final char REGION = 'O';
+    private static final char CAPTURED = 'X';
+    private static final char TEMP = '.';
+    private static final int[][] NEIGHBORS = new int[][] {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
     public void solve(char[][] board) {
+        if (board == null || board.length == 0 || board[0].length == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         temporarilyMarkEdgeRegions(board);
-        markCapturedRegionsAndUnmarkTemporarilyMarkedRegions(board);
+        captureSurroundedRegionsAndUnmarkTemporarilyMarkedEdgeRegions(board);
     }
 
     private void temporarilyMarkEdgeRegions(char[][] board) {
         for (int r = 0; r < board.length; r++) {
-            temporarilyMarkRegion(board, r, 0);
-            temporarilyMarkRegion(board, r, board[0].length - 1);
+            temporarilyMarkEdgeRegion(board, r, 0);
+            temporarilyMarkEdgeRegion(board, r, board[0].length - 1);
         }
         for (int c = 0; c < board[0].length; c++) {
-            temporarilyMarkRegion(board, 0, c);
-            temporarilyMarkRegion(board, board.length - 1, c);
+            temporarilyMarkEdgeRegion(board, 0, c);
+            temporarilyMarkEdgeRegion(board, board.length - 1, c);
         }
     }
 
-    private void temporarilyMarkRegion(char[][] board, int r, int c) {
-        if (r < 0 || r >= board.length || c < 0 || c >= board[0].length) return;
-        if (board[r][c] != MARK_O) return;
-
-        board[r][c] = MARK_TEMP;
+    private void temporarilyMarkEdgeRegion(char[][] board, int row, int col) {
+        if (row < 0 || row >= board.length || col < 0 || col >= board[0].length || board[row][col] != REGION) {
+            return;
+        }
+        board[row][col] = TEMP;
         for (int[] neighbor : NEIGHBORS) {
-            temporarilyMarkRegion(board, r + neighbor[0], c + neighbor[1]);
+            temporarilyMarkEdgeRegion(board, row + neighbor[0], col + neighbor[1]);
         }
     }
 
-    private void markCapturedRegionsAndUnmarkTemporarilyMarkedRegions(char[][] board) {
+    private void captureSurroundedRegionsAndUnmarkTemporarilyMarkedEdgeRegions(char[][] board) {
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
-                if (board[r][c] == MARK_O) {
-                    board[r][c] = MARK_X;
-                } else if (board[r][c] == MARK_TEMP) {
-                    board[r][c] = MARK_O;
+                if (board[r][c] == REGION) {
+                    board[r][c] = CAPTURED;
+                } else if (board[r][c] == TEMP) {
+                    board[r][c] = REGION;
                 }
             }
         }
     }
 }
+
+// time  - O(n * m)
+// space - O(1)
