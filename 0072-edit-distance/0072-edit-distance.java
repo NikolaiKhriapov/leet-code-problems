@@ -37,4 +37,4 @@ class Solution {
 }
 
 // time  - O(n * m)
-// space - O(m + n)
+// space - O(n)
