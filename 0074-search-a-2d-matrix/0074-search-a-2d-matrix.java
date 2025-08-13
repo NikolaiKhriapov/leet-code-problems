@@ -1,27 +1,30 @@
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix == null) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (matrix.length == 0 || matrix[0].length == 0) {
-            return false;
-        }
+
+        int rows = matrix.length;
+        int cols = matrix[0].length;
 
         int left = 0;
-        int right = matrix.length * matrix[0].length - 1;
+        int right = rows * cols - 1;
+
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            int midVal = matrix[mid / matrix[0].length][mid % matrix[0].length];
-
-            if (midVal == target) {
+            int value = matrix[mid / cols][mid % cols];
+            if (value == target) {
                 return true;
-            }
-            if (midVal > target) {
+            } else if (value > target) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
+
         return false;
     }
 }
+
+// time  - O(log(n*m))
+// space = O(1)
