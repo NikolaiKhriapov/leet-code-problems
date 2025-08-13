@@ -3,12 +3,10 @@ class Solution {
         if (s == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-        if (s.isEmpty() || s.startsWith("0")) {
-            return 0;
-        }
 
         int nextPrev = 0;
         int prev = 1;
+
         for (int i = s.length() - 1; i >= 0; i--) {
             int curr = 0;
             if (s.charAt(i) != '0') {
@@ -20,9 +18,13 @@ class Solution {
             nextPrev = prev;
             prev = curr;
         }
+        
         return prev;
     }
 }
 
 // time  - O(n)
 // space - O(1)
+
+// "0 6"
+// [0,1,1,0]
