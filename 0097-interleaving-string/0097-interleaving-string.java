@@ -19,10 +19,12 @@ class Solution {
                 curr[c] = (r > 0 && prev[c] && s1.charAt(r - 1) == s3.charAt(r + c - 1)) ||
                           (c > 0 && curr[c - 1] && s2.charAt(c - 1) == s3.charAt(r + c - 1));
             }
-            prev = Arrays.copyOf(curr, curr.length);
+            boolean[] temp = curr;
+            curr = prev;
+            prev = temp;
         }
 
-        return curr[s2.length()];
+        return prev[s2.length()];
     }
 }
 
