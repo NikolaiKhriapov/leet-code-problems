@@ -7,23 +7,24 @@ class Solution {
             return false;
         }
 
-        boolean[] dp = new boolean[s2.length() + 1];
-        dp[0] = true;
-        for (int c = 1; c <= s2.length(); c++) {
-            dp[c] = dp[c - 1] && s2.charAt(c - 1) == s3.charAt(c - 1);
-        }
-
-        for (int r = 1; r <= s1.length(); r++) {
-            dp[0] = dp[0] && s1.charAt(r - 1) == s3.charAt(r - 1);
-            for (int c = 1; c <= s2.length(); c++) {
-                dp[c] = (dp[c - 1] && s2.charAt(c - 1) == s3.charAt(r + c - 1)) ||
-                        (dp[c] && s1.charAt(r - 1) == s3.charAt(r + c - 1));
+        boolean[] prev = new boolean[s2.length() + 1];
+        boolean[] curr = new boolean[s2.length() + 1];
+        
+        for (int r = 0; r <= s1.length(); r++) {
+            curr[0] = r == 0 ? true : false;
+            for (int c = 0; c <= s2.length(); c++) {
+                if (r == 0 && c == 0) {
+                    continue;
+                }
+                curr[c] = (r > 0 && prev[c] && s1.charAt(r - 1) == s3.charAt(r + c - 1)) ||
+                          (c > 0 && curr[c - 1] && s2.charAt(c - 1) == s3.charAt(r + c - 1));
             }
+            prev = Arrays.copyOf(curr, curr.length);
         }
 
-        return dp[s2.length()];
+        return curr[s2.length()];
     }
 }
 
-// time  - O(n + m)
+// time  - O(n*m)
 // space - O(m)
