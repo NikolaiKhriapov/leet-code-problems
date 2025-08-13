@@ -11,9 +11,9 @@ class Solution {
         boolean[] curr = new boolean[s2.length() + 1];
         
         for (int r = 0; r <= s1.length(); r++) {
-            curr[0] = r == 0 ? true : false;
             for (int c = 0; c <= s2.length(); c++) {
                 if (r == 0 && c == 0) {
+                    curr[c] = true;
                     continue;
                 }
                 curr[c] = (r > 0 && prev[c] && s1.charAt(r - 1) == s3.charAt(r + c - 1)) ||
