@@ -23,7 +23,7 @@ class Solution {
         }
     }
 
-    private boolean isPalindrome(String s, int left, int right) {
+    private static boolean isPalindrome(String s, int left, int right) {
         while (left < right) {
             if (s.charAt(left) != s.charAt(right)) {
                 return false;
@@ -34,3 +34,6 @@ class Solution {
         return true;
     }
 }
+
+// time  - O(n^2)
+// space - O(n)
