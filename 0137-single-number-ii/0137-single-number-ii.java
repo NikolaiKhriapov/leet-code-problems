@@ -22,3 +22,6 @@ class Solution {
         return result;
     }
 }
+
+// time  - O(n)
+// space - O(1)
