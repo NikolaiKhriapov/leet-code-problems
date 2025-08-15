@@ -19,32 +19,35 @@ class Solution {
             return null;
         }
 
-        Node curr = head;
-        while (curr != null) {
-            Node copy = new Node(curr.val);
-            copy.next = curr.next;
-            curr.next = copy;
-            curr = copy.next;
-        }
+        Node newHead = new Node(head.val);
+
+        Map<Node, Node> mapOldToNew = new HashMap<>();
+        Map<Node, Node> mapNewToOld = new HashMap<>();
+        mapOldToNew.put(head, newHead);
+        mapNewToOld.put(newHead, head);
         
-        curr = head;
-        while (curr != null) {
-            if (curr.random != null) {
-                curr.next.random = curr.random.next;
-            }
-            curr = curr.next.next;
-        }
-
-        curr = head;
-        Node dummyHead = new Node(-1);
-        Node dummy = dummyHead;
-        while (curr != null) {
-            dummy.next = curr.next;
-            dummy = dummy.next;
-            curr.next = curr.next.next;
+        Node curr = head;
+        Node newCurr = newHead;
+        while (curr.next != null) {
+            newCurr.next = new Node(curr.next.val);
             curr = curr.next;
+            newCurr = newCurr.next;
+            mapOldToNew.put(curr, newCurr);
+            mapNewToOld.put(newCurr, curr);
         }
 
-        return dummyHead.next;
+        newCurr = newHead;
+        while (newCurr != null) {
+            Node currRandom = mapNewToOld.get(newCurr).random;
+            if (currRandom != null) {
+                newCurr.random = mapOldToNew.get(currRandom);
+            }
+            newCurr = newCurr.next;
+        }
+
+        return newHead;
     }
 }
+
+// time  - O(n)
+// space - O(n)
