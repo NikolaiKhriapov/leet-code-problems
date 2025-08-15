@@ -22,9 +22,7 @@ class Solution {
         Node newHead = new Node(head.val);
 
         Map<Node, Node> mapOldToNew = new HashMap<>();
-        Map<Node, Node> mapNewToOld = new HashMap<>();
         mapOldToNew.put(head, newHead);
-        mapNewToOld.put(newHead, head);
         
         Node curr = head;
         Node newCurr = newHead;
@@ -33,16 +31,12 @@ class Solution {
             curr = curr.next;
             newCurr = newCurr.next;
             mapOldToNew.put(curr, newCurr);
-            mapNewToOld.put(newCurr, curr);
         }
 
-        newCurr = newHead;
-        while (newCurr != null) {
-            Node currRandom = mapNewToOld.get(newCurr).random;
-            if (currRandom != null) {
-                newCurr.random = mapOldToNew.get(currRandom);
-            }
-            newCurr = newCurr.next;
+        curr = head;
+        while (curr != null) {
+            mapOldToNew.get(curr).random = mapOldToNew.get(curr.random);
+            curr = curr.next;
         }
 
         return newHead;
