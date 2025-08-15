@@ -1,6 +1,8 @@
 class Solution {
+    private static final int REPETITIONS = 3;
+
     public int singleNumber(int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (nums == null) {
             throw new IllegalArgumentException("Invalid input");
         }
 
@@ -10,14 +12,13 @@ class Solution {
                 bitCount[i] += (num >> i) & 1;
             }
         }
-
+        
         int result = 0;
         for (int i = 0; i < bitCount.length; i++) {
-            if (bitCount[i] % 3 != 0) {
-                result |= (1 << i);
-            }
+            result <<= 1;
+            result += (bitCount[bitCount.length - 1 - i] % REPETITIONS);
         }
-        
+
         return result;
     }
 }
