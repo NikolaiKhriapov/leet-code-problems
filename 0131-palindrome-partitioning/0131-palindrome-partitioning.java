@@ -22,10 +22,11 @@ class Solution {
         }
     }
 
-    private static boolean isPalindrome(String s, int left, int right, Boolean[][] memo) {
+    private boolean isPalindrome(String s, int left, int right, Boolean[][] memo) {
         if (memo[left][right] != null) {
             return memo[left][right];
         }
+        
         int l = left;
         int r = right;
         while (l < r) {
@@ -36,10 +37,11 @@ class Solution {
             l++;
             r--;
         }
+        
         memo[left][right] = true;
         return true;
     }
 }
 
-// time  - O(n^2)
-// space - O(n)
+// time  - O(n3)
+// space - O(n2)
