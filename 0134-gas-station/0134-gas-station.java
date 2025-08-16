@@ -2,20 +2,21 @@ class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         if (gas == null || cost == null || gas.length != cost.length) {
             throw new IllegalArgumentException("Invalid input");
-        } 
+        }
 
-        int currentGas = 0;
-        int totalGas = 0;
+        int currentTank = 0;
+        int totalTank = 0;
         int initialStation = 0;
         for (int i = 0; i < gas.length; i++) {
-            currentGas += gas[i] - cost[i];
-            totalGas += gas[i] - cost[i];
-            if (currentGas < 0) {
+            int diff = gas[i] - cost[i];
+            currentTank += diff;
+            totalTank += diff;
+            if (currentTank < 0) {
+                currentTank = 0;
                 initialStation = i + 1;
-                currentGas = 0;
             }
         }
-        return totalGas < 0 ? -1 : initialStation;
+        return totalTank < 0 ? -1 : initialStation;
     }
 }
 
