@@ -29,3 +29,6 @@ class Solution {
         };
     }
 }
+
+// time  - O(n)
+// space - O(n)
