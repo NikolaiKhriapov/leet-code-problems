@@ -14,40 +14,40 @@ class Solution {
             return head;
         }
 
-        ListNode mid = getMid(head);
-        ListNode right = mid.next;
-        mid.next = null;
-        
-        ListNode leftSorted = sortList(head);
-        ListNode rightSorted = sortList(right);
-
-        return mergeLists(leftSorted, rightSorted);
-    }
-
-    private ListNode getMid(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head.next;
+        ListNode dummy = new ListNode(0, head);
+        ListNode slow = dummy;
+        ListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        return slow;
+        
+        ListNode first = head;
+        ListNode second = slow.next;
+        slow.next = null; 
+
+        first = sortList(first);
+        second = sortList(second);
+        return mergeLists(first, second);
     }
 
     private ListNode mergeLists(ListNode list1, ListNode list2) {
-        ListNode dummy = new ListNode(-1);
-        ListNode curr = dummy;
+        ListNode dummyHead = new ListNode(0);
+        ListNode dummy = dummyHead;
         while (list1 != null && list2 != null) {
             if (list1.val <= list2.val) {
-                curr.next = list1;
+                dummy.next = list1;
                 list1 = list1.next;
             } else {
-                curr.next = list2;
+                dummy.next = list2;
                 list2 = list2.next;
             }
-            curr = curr.next;
+            dummy = dummy.next;
         }
-        curr.next = (list1 != null) ? list1 : list2;
-        return dummy.next;
+        dummy.next = list1 != null ? list1 : list2;
+        return dummyHead.next;
     }
 }
+
+// time  - O(n log n)
+// space - O(1)
