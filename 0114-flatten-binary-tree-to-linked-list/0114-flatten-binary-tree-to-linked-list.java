@@ -23,7 +23,7 @@ class Solution {
 
     private TreeNode flattenAndReturnTail(TreeNode node) {
         if (node == null) {
-            return node;
+            return null;
         }
 
         TreeNode leftTail = flattenAndReturnTail(node.left);
@@ -45,4 +45,4 @@ class Solution {
 }
 
 // time  - O(n)
-// space - O(h)
+// space - O(n)
