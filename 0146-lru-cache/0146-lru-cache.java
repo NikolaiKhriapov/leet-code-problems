@@ -4,7 +4,7 @@ class LRUCache {
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
-        this.map = new LinkedHashMap<>(capacity, 0.75f, true);
+        map = new LinkedHashMap<>(capacity, 0.75f, true);
     }
     
     public int get(int key) {
