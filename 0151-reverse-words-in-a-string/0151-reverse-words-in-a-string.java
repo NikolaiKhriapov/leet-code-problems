@@ -9,11 +9,14 @@ class Solution {
 
         for (int i = words.length - 1; i >= 0; i--) {
             if (!words[i].isEmpty()) {
-                sb.append(words[i]).append(" ");
+                if (!sb.isEmpty()) {
+                    sb.append(" ");
+                }
+                sb.append(words[i]);
             }
         }
         
-        return sb.toString().trim();
+        return sb.toString();
     }
 }
 
