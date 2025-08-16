@@ -24,5 +24,5 @@ class Solution {
     }
 }
 
-// [3,4,5,1,2]
-
+// time  - O(log n)
+// space - O(1)
