@@ -15,9 +15,6 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
-        if (root == null) {
-            return;
-        }
         flattenAndReturnTail(root);
     }
 
