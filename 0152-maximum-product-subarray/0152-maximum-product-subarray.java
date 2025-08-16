@@ -4,19 +4,24 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
+        int currentPositive = nums[0];
+        int currentNegative = nums[0];
         int maxProduct = nums[0];
-        int currMaxProduct = nums[0];
-        int currMinProduct = nums[0];
+
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] < 0) {
-                int temp = currMaxProduct;
-                currMaxProduct = currMinProduct;
-                currMinProduct = temp;
+                int temp = currentPositive;
+                currentPositive = currentNegative;
+                currentNegative = temp;
             }
-            currMaxProduct = Math.max(currMaxProduct * nums[i], nums[i]);
-            currMinProduct = Math.min(currMinProduct * nums[i], nums[i]);
-            maxProduct = Math.max(maxProduct, currMaxProduct);
+            currentPositive = Math.max(nums[i], currentPositive * nums[i]);
+            currentNegative = Math.min(nums[i], currentNegative * nums[i]);
+            maxProduct = Math.max(maxProduct, currentPositive);
         }
+        
         return maxProduct;
     }
 }
+
+// time  - O(n)
+// space - O(1)
