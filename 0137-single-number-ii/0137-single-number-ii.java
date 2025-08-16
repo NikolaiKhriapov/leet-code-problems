@@ -1,24 +1,31 @@
 class Solution {
-    private static final int REPETITIONS = 3;
+    private static final int FREQUENCY = 3;
+    private static final int BITS = 32;
 
     public int singleNumber(int[] nums) {
-        if (nums == null) {
+        if (nums == null || nums.length % FREQUENCY != 1) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int[] bitCount = new int[32];
-        for (int num : nums) {
-            for (int i = 0; i < bitCount.length; i++) {
-                bitCount[i] += (num >> i) & 1;
+        int[] bitsCount = new int[BITS];
+        for (int n : nums) {
+            for (int i = 0; i < bitsCount.length; i++) {
+                bitsCount[i] += (n >> i) & 1;
+            }
+        }
+
+        int result = 0;
+        for (int i = 0; i < bitsCount.length;  i++) {
+            result <<= 1;
+            int freq = bitsCount[bitsCount.length - i - 1] % FREQUENCY;
+            if (freq != 0) {
+                if (freq != 1) {
+                    throw new IllegalArgumentException("Invalid input");
+                }
+                result += 1;
             }
         }
         
-        int result = 0;
-        for (int i = 0; i < bitCount.length; i++) {
-            result <<= 1;
-            result += (bitCount[bitCount.length - 1 - i] % REPETITIONS);
-        }
-
         return result;
     }
 }
