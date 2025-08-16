@@ -3,7 +3,6 @@ class Solution {
         if (s == null || wordDict == null) {
             throw new IllegalArgumentException("Invalid input");
         }
-
         return wordBreak(s, wordDict, 0, new Boolean[s.length()]);
     }
 
@@ -11,6 +10,7 @@ class Solution {
         if (index == s.length()) {
             return true;
         }
+
         if (memo[index] != null) {
             return memo[index];
         }
@@ -19,11 +19,15 @@ class Solution {
             if (s.startsWith(word, index)) {
                 if (wordBreak(s, wordDict, index + word.length(), memo)) {
                     memo[index] = true;
-                    return true;
+                    return memo[index];
                 }
             }
         }
+
         memo[index] = false;
-        return false;
+        return memo[index];
     }
 }
+
+// time  - O(n)
+// space - O(n)
