@@ -1,34 +1,21 @@
 class Solution {
     public String reverseWords(String s) {
-        if (s == null || s.isEmpty()) {
-            return s;
+        if (s == null) {
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        StringBuilder result = new StringBuilder();
-        int r = s.length() - 1;
-        int l = r;
-        while (r >= 0) {
-            while (r >= 0 && s.charAt(r) == ' ') {
-                r--;
+        StringBuilder sb = new StringBuilder();
+        String[] words = s.split(" ");
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            if (!words[i].isEmpty()) {
+                sb.append(words[i]).append(" ");
             }
-
-            if (r < 0) {
-                break;
-            }
-
-            l = r;
-            while (l >= 0 && s.charAt(l) != ' ') {
-                l--;
-            }
-
-            result.append(s.substring(l + 1, r + 1)).append(" ");
-            r = l;
-        }
-
-        if (result.length() > 0) {
-            result.setLength(result.length() - 1);
         }
         
-        return result.toString();
+        return sb.toString().trim();
     }
 }
+
+// time  - O(n)
+// space - O(n)
