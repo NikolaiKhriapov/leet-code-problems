@@ -10,29 +10,28 @@ class Solution {
             return word1.length();
         }
 
-        int length1 = word1.length();
-        int length2 = word2.length();
-
-        int[] prev = new int[length2 + 1];
-        int[] curr = new int[length2 + 1];
-
-        for (int c = 1; c <= length2; c++) {
+        int[] prev = new int[word2.length() + 1];
+        int[] curr = new int[word2.length() + 1];
+        
+        for (int c = 1; c < prev.length; c++) {
             prev[c] = c;
         }
 
-        for (int r = 1; r <= length1; r++) {
+        for (int r = 1; r <= word1.length(); r++) {
             curr[0] = r;
-            for (int c = 1; c <= length2; c++) {
+            for (int c = 1; c <= word2.length(); c++) {
                 if (word1.charAt(r - 1) == word2.charAt(c - 1)) {
                     curr[c] = prev[c - 1];
                 } else {
                     curr[c] = 1 + Math.min(prev[c - 1], Math.min(prev[c], curr[c - 1]));
                 }
             }
-            prev = Arrays.copyOf(curr, curr.length);
+            int[] temp = curr;
+            curr = prev;
+            prev = temp;
         }
-
-        return curr[length2];
+        
+        return prev[word2.length()];
     }
 }
 
