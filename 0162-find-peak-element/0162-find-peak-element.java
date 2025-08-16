@@ -6,14 +6,23 @@ class Solution {
 
         int left = 0;
         int right = nums.length - 1;
-        while (left < right) {
+
+        while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] < nums[mid + 1]) {
+            boolean isLeftLess = mid == 0 || nums[mid - 1] < nums[mid];
+            boolean isRightLess = mid == nums.length - 1 || nums[mid + 1] < nums[mid];
+            if (isLeftLess && isRightLess) {
+                return mid;
+            } else if (isLeftLess) {
                 left = mid + 1;
             } else {
-                right = mid;
+                right = mid - 1;
             }
         }
-        return left;
+
+        throw new IllegalArgumentException("Invalid input");
     }
 }
+
+// time  - O(n)
+// space - O(1)
