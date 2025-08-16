@@ -6,26 +6,26 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
         for (String token : tokens) {
             if (OPERATIONS.contains(token)) {
                 int b = stack.pop();
                 int a = stack.pop();
-                stack.add(applyOperation(a, b, token));
+                stack.push(calculate(a, b, token));
             } else {
-                stack.add(Integer.parseInt(token));
+                stack.push(Integer.parseInt(token));
             }
         }
         return stack.pop();
     }
 
-    private Integer applyOperation(int a, int b, String operation) {
+    private static int calculate(int a, int b, String operation) {
         return switch (operation) {
             case "+" -> a + b;
             case "-" -> a - b;
             case "*" -> a * b;
             case "/" -> a / b;
-            default -> throw new IllegalArgumentException("Invalid operation: " + operation);
+            default -> throw new IllegalArgumentException("Invalid input");
         };
     }
 }
