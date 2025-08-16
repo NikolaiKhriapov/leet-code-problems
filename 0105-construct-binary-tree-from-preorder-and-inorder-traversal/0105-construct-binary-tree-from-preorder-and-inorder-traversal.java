@@ -18,9 +18,8 @@ class Solution {
         if (preorder == null || inorder == null || preorder.length != inorder.length) {
             throw new IllegalArgumentException("Invalid input");
         }
-        int[] preorderIndex = new int[] {0};
         Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
-        return buildSubtree(preorder, inorderMap, 0, inorder.length - 1, preorderIndex);
+        return buildSubtree(preorder, inorderMap, 0, inorder.length - 1, new int[] {0});
     }
 
     private TreeNode buildSubtree(int[] preorder, Map<Integer, Integer> inorderMap, int inorderLeft, int inorderRight, int[] preorderIndex) {
@@ -30,6 +29,7 @@ class Solution {
 
         int value = preorder[preorderIndex[0]++];
         int inorderIndex = inorderMap.get(value);
+
         return new TreeNode(
             value,
             buildSubtree(preorder, inorderMap, inorderLeft, inorderIndex - 1, preorderIndex),
@@ -44,6 +44,7 @@ class Solution {
         }
         return map;
     }
+
 }
 
 // time  - O(n)
