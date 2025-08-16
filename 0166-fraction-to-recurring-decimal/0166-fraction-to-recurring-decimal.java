@@ -1,39 +1,41 @@
 class Solution {
     public String fractionToDecimal(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
-        StringBuilder result = new StringBuilder();
-
+        StringBuilder sb = new StringBuilder();
+        
         if ((numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0)) {
-            result.append("-");
+            sb.append("-");
         }
 
         long numeratorLong = Math.abs((long) numerator);
         long denominatorLong = Math.abs((long) denominator);
-        result.append(numeratorLong / denominatorLong);
+        sb.append(numeratorLong / denominatorLong);
 
         long remainder = numeratorLong % denominatorLong;
         if (remainder == 0) {
-            return result.toString();
+            return sb.toString();
         }
-        result.append(".");
+        sb.append(".");
 
         Map<Long, Integer> map = new HashMap<>();
-        while (remainder != 0) {
+        while (remainder > 0) {
             if (map.containsKey(remainder)) {
-                result.insert(map.get(remainder), "(");
-                result.append(")");
+                sb.insert(map.get(remainder), "(");
+                sb.append(")");
                 break;
             }
-            map.put(remainder, result.length());
+            map.put(remainder, sb.length());
             remainder *= 10;
-            result.append(remainder / denominatorLong);
+            sb.append(remainder / denominatorLong);
             remainder %= denominatorLong;
         }
-
-        return result.toString();
+        
+        return sb.toString();
     }
 }
 
-//  40 / 333 = 0 |  40 % 333 = 40 * 10 = 400
-// 400 / 333 = 1 | 400 % 333 = 67 * 10 = 670
-// 670 / 333 = 2 | 670 % 333 =  4 * 10 = 40
+// time  - O(1)
+// space - O(1)
