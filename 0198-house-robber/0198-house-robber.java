@@ -1,18 +1,30 @@
 class Solution {
     public int rob(int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (nums == null) {
             throw new IllegalArgumentException("Invalid input");
+        }
+        if (nums.length == 0) {
+            return 0;
         }
         if (nums.length == 1) {
             return nums[0];
         }
 
-        int[] dp = new int[nums.length];
-        dp[0] = nums[0];
-        dp[1] = Math.max(nums[0], nums[1]);
+        int nextNextPrev = 0;
+        int nextPrev = nums[0];
+        int prev = nums[1];
         for (int i = 2; i < nums.length; i++) {
-            dp[i] = Math.max(dp[i - 1], nums[i] + dp[i - 2]);
+            int curr = Math.max(prev, Math.max(nums[i] + nextPrev, nums[i] + nextNextPrev));
+            nextNextPrev = nextPrev;
+            nextPrev = prev;
+            prev = curr;
         }
-        return dp[nums.length - 1];
+        return Math.max(prev, nextPrev);
     }
 }
+
+// time  - O(n)
+// space - O(1)
+
+// [2,1,1,2]
+// [2,1,3,3]
