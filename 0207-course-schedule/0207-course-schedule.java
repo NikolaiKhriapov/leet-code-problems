@@ -1,5 +1,8 @@
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
+        if (numCourses < 0 || prerequisites == null || (prerequisites.length > 0 && prerequisites[0].length != 2)) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
         Map<Integer, List<Integer>> graph = new HashMap<>();
         for (int i = 0; i < numCourses; i++) {
