@@ -1,19 +1,24 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (target <= 0 || nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int minLength = Integer.MAX_VALUE;
-        int currSum = 0;
         int left = 0;
-        for (int right = 0; right < nums.length; right++) {
-            currSum += nums[right];
-            while (currSum >= target) {
-                minLength = Math.min(minLength, right - left + 1);
-                currSum -= nums[left++];
+        int right = 0;
+        int currentSum = 0;
+        int minLength = Integer.MAX_VALUE;
+
+        while (right < nums.length) {
+            while (right < nums.length && currentSum < target) {
+                currentSum += nums[right++];
             }
-        }
-        return (minLength == Integer.MAX_VALUE) ? 0 : minLength;
+            while (currentSum >= target) {
+                minLength = Math.min(minLength, right - left);
+                currentSum -= nums[left++];
+            }
+        }        
+        
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
 }
