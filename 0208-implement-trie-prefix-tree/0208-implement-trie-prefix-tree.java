@@ -44,5 +44,5 @@ class Trie {
     }
 }
 
-// time  - O(n * m)
-// space - O(n * m)
+// time  - O(n)
+// space - O(l)
