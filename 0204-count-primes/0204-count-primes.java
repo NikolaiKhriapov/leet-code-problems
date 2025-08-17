@@ -14,7 +14,7 @@ class Solution {
             if (!primes[i]) {
                 continue;
             }
-            for (int j = i * 2; j < primes.length && j < Integer.MAX_VALUE; j += i) {
+            for (int j = i * i; j < primes.length && i <= Integer.MAX_VALUE / i; j += i) {
                 primes[j] = false;
             }
             primesCount++;
@@ -24,5 +24,5 @@ class Solution {
     }
 }
 
-// [0,1,2,3,4,5,6,7,8,9]
-// [f,f,t,t,f,t,f,t,f,f]
+// time  - O(n)
+// space - O(n)
