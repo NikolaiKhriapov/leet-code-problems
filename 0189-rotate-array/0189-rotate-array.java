@@ -1,6 +1,6 @@
 class Solution {
     public void rotate(int[] nums, int k) {
-        if (nums == null) {
+        if (nums == null || nums.length == 0 || k < 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
