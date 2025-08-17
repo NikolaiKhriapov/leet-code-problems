@@ -22,3 +22,6 @@ class Solution {
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
 }
+
+// time  - O(n)
+// space - O(1)
