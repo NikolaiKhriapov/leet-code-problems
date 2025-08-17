@@ -7,16 +7,14 @@ class Solution {
             return 0;
         }
 
-        int nextNextPrev = 0;
-        int nextPrev = 0;
-        int prev = nums[0];
+        int prev2 = 0;
+        int prev1 = nums[0];
         for (int i = 1; i < nums.length; i++) {
-            int curr = Math.max(prev, Math.max(nums[i] + nextPrev, nums[i] + nextNextPrev));
-            nextNextPrev = nextPrev;
-            nextPrev = prev;
-            prev = curr;
+            int curr = Math.max(prev1, nums[i] + prev2);
+            prev2 = prev1;
+            prev1 = curr;
         }
-        return prev;
+        return prev1;
     }
 }
 
