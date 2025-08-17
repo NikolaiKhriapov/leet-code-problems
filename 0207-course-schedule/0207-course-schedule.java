@@ -2,36 +2,40 @@ class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
         Map<Integer, List<Integer>> graph = new HashMap<>();
-        for (int course = 0; course < numCourses; course++) {
-            graph.put(course, new ArrayList<>());
+        for (int i = 0; i < numCourses; i++) {
+            graph.put(i, new ArrayList<>());
         }
         for (int[] prerequisite : prerequisites) {
-            graph.get(prerequisite[1]).add(prerequisite[0]);
+            graph.get(prerequisite[0]).add(prerequisite[1]);
         }
-
+        
         boolean[] visited = new boolean[numCourses];
         boolean[] visiting = new boolean[numCourses];
-        for (int course = 0; course < numCourses; course++) {
-            if (hasCycle(graph, course, visited, visiting)) {
+        for (int i = 0; i < numCourses; i++) {
+            if (!canBeTaken(graph, i, visited, visiting)) {
                 return false;
             }
         }
+
         return true;
     }
 
-    private boolean hasCycle(Map<Integer, List<Integer>> graph, int course, boolean[] visited, boolean[] visiting) {
-        if (visited[course]) return false;
-        if (visiting[course]) return true;
+    private boolean canBeTaken(Map<Integer, List<Integer>> graph, int course, boolean[] visited, boolean[] visiting) {
+        if (visited[course]) return true;
+        if (visiting[course]) return false;
         visiting[course] = true;
 
-        for (int neighbor : graph.getOrDefault(course, new ArrayList<>())) {
-            if (hasCycle(graph, neighbor, visited, visiting)) {
-                return true;
+        for (int neighbor : graph.get(course)) {
+            if (!canBeTaken(graph, neighbor, visited, visiting)) {
+                return false;
             }
         }
 
         visiting[course] = false;
         visited[course] = true;
-        return false;
+        return true;
     }
 }
+
+// time  - O(n)
+// space - O(n)
