@@ -16,7 +16,7 @@ class Solution {
             nextPrev = prev;
             prev = curr;
         }
-        return Math.max(prev, nextPrev);
+        return prev;
     }
 }
 
