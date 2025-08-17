@@ -1,6 +1,5 @@
 class Solution {
     public int trailingZeroes(int n) {
-
         int count = 0;
         while (n >= 5) {
             n /= 5;
@@ -9,6 +8,9 @@ class Solution {
         return count;
     }
 }
+
+// time  - O(log5n)
+// space - O(1)
 
 //  5! -> 1x0
 // 10! -> 2x0
