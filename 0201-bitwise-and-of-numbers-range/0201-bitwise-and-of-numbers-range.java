@@ -10,6 +10,7 @@ class Solution {
             right >>= 1;
             shift++;
         }
+        
         return left << shift;
     }
 }
