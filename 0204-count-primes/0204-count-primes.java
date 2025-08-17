@@ -14,8 +14,10 @@ class Solution {
             if (!primes[i]) {
                 continue;
             }
-            for (int j = i * i; j < primes.length && i <= Integer.MAX_VALUE / i; j += i) {
-                primes[j] = false;
+            if ((long) i * i < n) {
+                for (int j = i * i; j < primes.length; j += i) {
+                    primes[j] = false;
+                }
             }
             primesCount++;
         }
