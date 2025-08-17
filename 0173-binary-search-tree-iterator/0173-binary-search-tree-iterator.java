@@ -18,14 +18,12 @@ class BSTIterator {
 
     public BSTIterator(TreeNode root) {
         stack = new ArrayDeque<>();
-        stack.push(root);
         pushLeft(root);
     }
     
     public int next() {
         TreeNode node = stack.pop();
         if (node.right != null) {
-            stack.push(node.right);
             pushLeft(node.right);
         }
         return node.val;
@@ -37,9 +35,9 @@ class BSTIterator {
 
     private void pushLeft(TreeNode node) {
         TreeNode curr = node;
-        while (curr.left != null) {
-            curr = curr.left;
+        while (curr != null) {
             stack.push(curr);
+            curr = curr.left;
         }
     }
 }
