@@ -1,7 +1,8 @@
 class Solution {
     public int trailingZeroes(int n) {
+
         int count = 0;
-        while (n > 0) {
+        while (n >= 5) {
             n /= 5;
             count += n;
         }
@@ -9,7 +10,8 @@ class Solution {
     }
 }
 
-// 100! = 100 / 5 = 20;
-//         20 / 5 =  4;
-//          4 / 5 =  0;
-// 20 + 4 + 0 = 24;
+//  5! -> 1x0
+// 10! -> 2x0
+// 15! -> 3x0
+// 20! -> 4x0
+// 25! -> 6x0
