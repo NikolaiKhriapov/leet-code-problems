@@ -1,10 +1,7 @@
 class Solution {
     public String largestNumber(int[] nums) {
-        if (nums == null) {
+        if (nums == null || nums.length == 0) {
             throw new IllegalArgumentException("Invalid input");
-        }
-        if (nums.length == 0) {
-            return "";
         }
 
         String[] strs = new String[nums.length];
