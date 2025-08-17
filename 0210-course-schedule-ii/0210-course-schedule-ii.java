@@ -1,59 +1,55 @@
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        if (numCourses < 1 || prerequisites == null) {
+        if (numCourses <= 0 || prerequisites == null || (prerequisites.length > 0 && prerequisites[0].length != 2)) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Map<Integer, List<Integer>> graph = buildGraph(numCourses, prerequisites);
-        List<Integer> list = getOrderedListOfCourses(graph, numCourses);
-        return reverseListAndReturnArray(list);
-    }
-
-    private Map<Integer, List<Integer>> buildGraph(int numCourses, int[][] prerequisites) {
         Map<Integer, List<Integer>> graph = new HashMap<>();
         for (int course = 0; course < numCourses; course++) {
             graph.put(course, new ArrayList<>());
         }
         for (int[] prerequisite : prerequisites) {
-            graph.get(prerequisite[1]).add(prerequisite[0]);
+            graph.get(prerequisite[0]).add(prerequisite[1]);
         }
-        return graph;
-    }
 
-    private List<Integer> getOrderedListOfCourses(Map<Integer, List<Integer>> graph, int numCourses) {
-        List<Integer> list = new ArrayList<>();
         boolean[] visited = new boolean[numCourses];
         boolean[] visiting = new boolean[numCourses];
+        List<Integer> list = new ArrayList<>();
+
         for (int course = 0; course < numCourses; course++) {
-            if (hasCycle(graph, course, visited, visiting, list)) {
-                return new ArrayList<>();
+            if (!canTakeCourse(graph, course, visited, visiting, list)) {
+                return new int[0];
             }
         }
-        return list;
+
+        return listToArray(list);
     }
 
-    private boolean hasCycle(Map<Integer, List<Integer>> graph, int course, boolean[] visited, boolean[] visiting, List<Integer> list) {
-        if (visited[course]) return false;
-        if (visiting[course]) return true;
+    private boolean canTakeCourse(Map<Integer, List<Integer>> graph, int course, boolean[] visited, boolean[] visiting, List<Integer> list) {
+        if (visited[course]) return true;
+        if (visiting[course]) return false;
         visiting[course] = true;
 
-        for (int neighbor : graph.getOrDefault(course, new ArrayList<>())) {
-            if (hasCycle(graph, neighbor, visited, visiting, list)) {
-                return true;
+        for (int prerequisite : graph.get(course)) {
+            if (!canTakeCourse(graph, prerequisite, visited, visiting, list)) {
+                return false;
             }
         }
 
         list.add(course);
         visiting[course] = false;
         visited[course] = true;
-        return false;
+        return true;
     }
 
-    private int[] reverseListAndReturnArray(List<Integer> list) {
-        int[] array = new int[list.size()];
+    private int[] listToArray(List<Integer> list) {
+        int[] result = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            array[i] = list.get(list.size() - 1 - i);
+            result[i] = list.get(i);
         }
-        return array;
+        return result;
     }
 }
+
+// time  - O(n + p)
+// space - O(n + p)
