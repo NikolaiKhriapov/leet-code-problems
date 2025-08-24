@@ -14,19 +14,20 @@
  * }
  */
 class BSTIterator {
-    private Deque<TreeNode> stack;
+    private Stack<TreeNode> stack;
 
     public BSTIterator(TreeNode root) {
-        stack = new ArrayDeque<>();
+        stack = new Stack<>();
         pushLeft(root);
     }
     
     public int next() {
-        TreeNode node = stack.pop();
-        if (node.right != null) {
-            pushLeft(node.right);
+        if (!hasNext()) {
+            throw new RuntimeException("Empty stack");
         }
-        return node.val;
+        TreeNode next = stack.pop();
+        pushLeft(next.right);
+        return next.val;
     }
     
     public boolean hasNext() {
@@ -34,13 +35,18 @@ class BSTIterator {
     }
 
     private void pushLeft(TreeNode node) {
-        TreeNode curr = node;
-        while (curr != null) {
-            stack.push(curr);
-            curr = curr.left;
+        while (node != null) {
+            stack.push(node);
+            node = node.left;
         }
     }
 }
 
-// time  - O(1)
-// space - O(h)
+// [7,3]
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator obj = new BSTIterator(root);
+ * int param_1 = obj.next();
+ * boolean param_2 = obj.hasNext();
+ */
