@@ -10,7 +10,9 @@ class Solution {
             right >>= 1;
             shift++;
         }
-        
         return left << shift;
     }
 }
+
+// time  - O(1)
+// space - O(1)
