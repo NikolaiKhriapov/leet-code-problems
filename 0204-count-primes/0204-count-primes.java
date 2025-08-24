@@ -8,23 +8,32 @@ class Solution {
         for (int i = 2; i < primes.length; i++) {
             primes[i] = true;
         }
-
-        int primesCount = 0;
+        
         for (int i = 2; i < primes.length; i++) {
             if (!primes[i]) {
                 continue;
             }
-            if ((long) i * i < n) {
-                for (int j = i * i; j < primes.length; j += i) {
-                    primes[j] = false;
-                }
+            if (i >= Integer.MAX_VALUE / i) {
+                break;
             }
-            primesCount++;
+            for (int j = i * i; j < primes.length; j += i) {
+                primes[j] = false;
+            }
         }
-        
-        return primesCount;
+
+        int primeCount = 0;
+        for (boolean isPrime : primes) {
+            if (isPrime) {
+                primeCount++;
+            }
+        }
+
+        return primeCount;
     }
 }
 
-// time  - O(n)
+// time  - O(log log n)
 // space - O(n)
+
+// [0,1,2,3,4,5,6,7,8,9,10]
+// [f,f,t,t,f,t,f,t,f,f,f ]
