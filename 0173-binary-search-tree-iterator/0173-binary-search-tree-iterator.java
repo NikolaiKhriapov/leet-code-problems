@@ -42,7 +42,8 @@ class BSTIterator {
     }
 }
 
-// [7,3]
+// time  - O(1)
+// space - O(n)
 
 /**
  * Your BSTIterator object will be instantiated and called as such:
