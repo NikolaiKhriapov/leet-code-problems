@@ -31,5 +31,5 @@ class Solution {
     }
 }
 
-// time  - O(n)
+// time  - O()
 // space - O(k)
