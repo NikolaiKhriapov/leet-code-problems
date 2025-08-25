@@ -1,6 +1,8 @@
 class WordDictionary {
     private TrieNode root;
 
+    private static final char DOT = '.';
+
     public WordDictionary() {
         root = new TrieNode();
     }
@@ -21,28 +23,33 @@ class WordDictionary {
     }
 
     private boolean search(String word, int index, TrieNode node) {
+        if (node == null) {
+            return false;
+        }
+        if (index == word.length()) {
+            return node.isEnd;
+        }
+
         for (int i = index; i < word.length(); i++) {
             char c = word.charAt(i);
-            if (c == '.') {
+            if (c == DOT) {
                 for (TrieNode child : node.children) {
-                    if (child != null && search(word, i + 1, child)) {
+                    if (search(word, index + 1, child)) {
                         return true;
                     }
                 }
-                return false;
+            } else if (node.children[c - 'a'] != null) {
+                return search(word, index + 1, node.children[c - 'a']);
             } else {
-                if (node.children[c - 'a'] == null) {
-                    return false;
-                }
-                node = node.children[c - 'a'];
+                return false;
             }
         }
-        return node.isEnd;
+        return false;
     }
 
     private class TrieNode {
-        private TrieNode[] children = new TrieNode[26];
-        private boolean isEnd = false;
+        TrieNode[] children = new TrieNode[26];
+        boolean isEnd = false;
     }
 }
 
