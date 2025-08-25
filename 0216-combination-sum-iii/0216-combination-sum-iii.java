@@ -13,11 +13,11 @@ class Solution {
     }
 
     private void helper(int size, int start, int target, List<Integer> curr, List<List<Integer>> result) {
-        if (target < 0 || curr.size() > size) {
+        if (target < 0 || size < 0) {
             return;
         }
         if (target == 0) {
-            if (curr.size() == size) {
+            if (size == 0) {
                 result.add(new ArrayList<>(curr));
             }
             return;
@@ -25,7 +25,7 @@ class Solution {
 
         for (int i = start; i <= HIGHEST; i++) {
             curr.add(i);
-            helper(size, i + 1, target - i, curr, result);
+            helper(size - 1, i + 1, target - i, curr, result);
             curr.remove(curr.size() - 1);
         }
     }
