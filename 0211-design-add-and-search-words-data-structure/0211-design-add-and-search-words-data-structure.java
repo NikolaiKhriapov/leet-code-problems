@@ -30,19 +30,15 @@ class WordDictionary {
             return node.isEnd;
         }
 
-        for (int i = index; i < word.length(); i++) {
-            char c = word.charAt(i);
-            if (c == DOT) {
-                for (TrieNode child : node.children) {
-                    if (search(word, index + 1, child)) {
-                        return true;
-                    }
+        char c = word.charAt(index);
+        if (c == DOT) {
+            for (TrieNode child : node.children) {
+                if (search(word, index + 1, child)) {
+                    return true;
                 }
-            } else if (node.children[c - 'a'] != null) {
-                return search(word, index + 1, node.children[c - 'a']);
-            } else {
-                return false;
             }
+        } else if (node.children[c - 'a'] != null) {
+            return search(word, index + 1, node.children[c - 'a']);
         }
         return false;
     }
@@ -52,6 +48,9 @@ class WordDictionary {
         boolean isEnd = false;
     }
 }
+
+// time  - O(L)
+// space - O(L)
 
 /**
  * Your WordDictionary object will be instantiated and called as such:
