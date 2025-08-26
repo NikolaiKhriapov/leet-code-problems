@@ -4,29 +4,39 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int diag;
-        int[] dpCurr = new int[matrix[0].length];
-        int maxSide = 0;
+        int rows = matrix.length;
+        int cols = matrix[0].length;
 
-        for (int col = 0; col < matrix[0].length; col++) {
-            dpCurr[col] = matrix[0][col] - '0';
-            maxSide = Math.max(maxSide, dpCurr[col]);
+        int maxSquare = 0;
+        int[] curr = new int[cols];
+        int[] prev = new int[cols];
+        for (int c = 0; c < cols; c++) {
+            prev[c] = matrix[0][c] == '0' ? 0 : 1;
+            maxSquare = Math.max(maxSquare, prev[c]);
         }
 
-        for (int row = 1; row < matrix.length; row++) {
-            diag = dpCurr[0];
-            dpCurr[0] = matrix[row][0] - '0';            
-            maxSide = Math.max(maxSide, dpCurr[0]);
-            for (int col = 1; col < matrix[0].length; col++) {
-                int temp = dpCurr[col];
-                dpCurr[col] = (matrix[row][col] == '1')
-                    ? (1 + Math.min(diag, Math.min(dpCurr[col], dpCurr[col - 1])))
-                    : 0;
-                diag = temp;
-                maxSide = Math.max(maxSide, dpCurr[col]);
+        for (int r = 1; r < rows; r++) {
+            curr[0] = matrix[r][0] == '0' ? 0 : 1;
+            maxSquare = Math.max(maxSquare, curr[0]);
+            for (int c = 1; c < cols; c++) {
+                if (matrix[r][c] == '0') {
+                    curr[c] = 0;
+                    continue;
+                }
+                int left = c > 0 ? curr[c - 1] : 0;
+                int top = r > 0 ? prev[c] : 0;
+                int diag = (r > 0 && c > 0) ? prev[c - 1] : 0;
+                curr[c] = 1 + Math.min(left, Math.min(top, diag));
+                maxSquare = Math.max(maxSquare, curr[c]);
             }
+            int[] temp = curr;
+            curr = prev;
+            prev = temp;
         }
-
-        return maxSide * maxSide;
+        
+        return maxSquare * maxSquare;
     }
 }
+
+// time  - O(m*n)
+// space - O(n)
