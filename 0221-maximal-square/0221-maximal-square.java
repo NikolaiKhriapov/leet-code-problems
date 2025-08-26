@@ -23,10 +23,7 @@ class Solution {
                     curr[c] = 0;
                     continue;
                 }
-                int left = c > 0 ? curr[c - 1] : 0;
-                int top = r > 0 ? prev[c] : 0;
-                int diag = (r > 0 && c > 0) ? prev[c - 1] : 0;
-                curr[c] = 1 + Math.min(left, Math.min(top, diag));
+                curr[c] = 1 + Math.min(curr[c - 1], Math.min(prev[c], prev[c - 1]));
                 maxSquare = Math.max(maxSquare, curr[c]);
             }
             int[] temp = curr;
