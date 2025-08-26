@@ -5,7 +5,6 @@ class Solution {
         }
 
         Deque<Integer> stack = new ArrayDeque<>();
-
         int number = 0;
         char operation = '+';
 
