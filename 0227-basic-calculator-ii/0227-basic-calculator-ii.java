@@ -1,36 +1,45 @@
 class Solution {
     public int calculate(String s) {
-        if (s == null) {
+        if (s == null || s.length() == 0) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int result = 0;
-        int prevNumber = 0;
-        int currNumber = 0;
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        int number = 0;
         char operation = '+';
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
+
+        for (char c : s.toCharArray()) {
             if (Character.isDigit(c)) {
-                currNumber = currNumber * 10 + (c - '0');
-            }
-            if ((!Character.isDigit(c) && c != ' ') || (i == s.length() - 1)) {
-                switch (operation) {
-                    case '+' -> {
-                        result += prevNumber;
-                        prevNumber = currNumber;
-                    }
-                    case '-' -> {
-                        result += prevNumber;
-                        prevNumber = -currNumber;
-                    }
-                    case '*' -> prevNumber *= currNumber;
-                    case '/' -> prevNumber /= currNumber;
-                    default -> throw new RuntimeException("Invalid operation: " + operation);
-                }
+                number = number * 10 + (c - '0');
+            } else if (c == ' ') {
+                continue;
+            } else {
+                applyOperation(stack, number, operation);
+                number = 0;
                 operation = c;
-                currNumber = 0;
             }
         }
-        return result + prevNumber;        
+        applyOperation(stack, number, operation);
+
+        int result = 0;
+        while (!stack.isEmpty()) {
+            result += stack.pop();
+        }
+
+        return result;
+    }
+
+    private static void applyOperation(Deque<Integer> stack, int number, char operation) {
+        switch (operation) {
+            case '+' -> stack.push(number);
+            case '-' -> stack.push(-number);
+            case '*' -> stack.push(stack.pop() * number);
+            case '/' -> stack.push(stack.pop() / number);
+            default -> throw new IllegalArgumentException("Invalid input"); 
+        }
     }
 }
+
+// time  - O(n)
+// space - O(n)
