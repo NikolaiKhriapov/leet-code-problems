@@ -18,24 +18,23 @@ class Solution {
         if (root == null || k <= 0) {
             throw new IllegalArgumentException("Invalid input");
         }
-
-        List<Integer> list = new ArrayList<>();
-        traverse(root, list);
-
-        if (list.size() < k) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-
-        return list.get(k - 1);
+        int[] result = new int[] {-1};
+        traverse(root, result, new int[] {k});
+        return result[0];
     }
 
-    private void traverse(TreeNode node, List<Integer> list) {
+    private void traverse(TreeNode node, int[] result, int[] k) {
         if (node == null) {
             return;
         }
-        traverse(node.left, list);
-        list.add(node.val);
-        traverse(node.right, list);
+        
+        traverse(node.left, result, k);
+        k[0]--;
+        if (k[0] == 0) {
+            result[0] = node.val;
+            return;
+        }
+        traverse(node.right, result, k);
     }
 }
 
