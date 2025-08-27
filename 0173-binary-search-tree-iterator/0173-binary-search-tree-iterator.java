@@ -14,20 +14,20 @@
  * }
  */
 class BSTIterator {
-    private Stack<TreeNode> stack;
+    private Deque<TreeNode> stack;
 
     public BSTIterator(TreeNode root) {
-        stack = new Stack<>();
+        stack = new ArrayDeque<>();
         pushLeft(root);
     }
     
     public int next() {
         if (!hasNext()) {
-            throw new RuntimeException("Empty stack");
+            throw new RuntimeException("Empty stack exception");
         }
-        TreeNode next = stack.pop();
-        pushLeft(next.right);
-        return next.val;
+        TreeNode node = stack.pop();
+        pushLeft(node.right);
+        return node.val;
     }
     
     public boolean hasNext() {
