@@ -18,8 +18,14 @@ class Solution {
         if (root == null || k <= 0) {
             throw new IllegalArgumentException("Invalid input");
         }
+        
         int[] result = new int[] {-1};
         traverse(root, result, new int[] {k});
+
+        if (result[0] == -1) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+
         return result[0];
     }
 
