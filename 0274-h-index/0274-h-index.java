@@ -4,27 +4,28 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int[] citationsCount = new int[citations.length + 1];
-        for (int citation : citations) {
-            if (citation > citations.length) {
-                citationsCount[citations.length]++;
-            } else {
-                citationsCount[citation]++;
+        int[] citationCount = new int[citations.length + 1];
+        for (int i = 0; i < citations.length; i++) {
+            if (citations[i] > citations.length) {
+                citations[i] = citations.length;
             }
+            citationCount[citations[i]]++;
         }
         
-        int currSum = 0;
-        for (int i = citationsCount.length - 1; i >= 1; i--) {
-            currSum += citationsCount[i];
-            if (currSum >= i) {
+        int cumulativeSum = 0;
+        for (int i = citations.length; i >= 0; i--) {
+            cumulativeSum += citationCount[i];
+            if (cumulativeSum >= i) {
                 return i;
             }
         }
+
         return 0;
     }
 }
 
-// [3,0,6,1,5]
-// [0,1,2,3,4,5]
-// [1,1,0,1,0,2]
-// [1,1,0,3,2,2]
+// time  - O(n)
+// space - O(n)
+
+//.  [3,0,6,1,5]
+// [0,0,0,0,0,0]
