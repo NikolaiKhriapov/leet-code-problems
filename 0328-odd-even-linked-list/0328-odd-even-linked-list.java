@@ -14,16 +14,30 @@ class Solution {
             return head;
         }
 
+        ListNode odd = head;
         ListNode evenHead = head.next;
-        ListNode oddTail = head;
-        ListNode evenTail = evenHead;
-        while (evenTail != null && evenTail.next != null) {
-            oddTail.next = evenTail.next;
-            oddTail = oddTail.next;
-            evenTail.next = oddTail.next;
-            evenTail = evenTail.next;
+        ListNode even = evenHead;
+
+        boolean isOdd = true;
+        ListNode curr = even.next;
+        while (curr != null) {
+            if (isOdd) {
+                odd.next = curr;
+                odd = odd.next;
+            } else {
+                even.next = curr;
+                even = even.next;
+            }
+            curr = curr.next;
+            isOdd = !isOdd;
         }
-        oddTail.next = evenHead;
+        
+        even.next = null;
+        odd.next = evenHead;
+
         return head;
     }
 }
+
+// time  - O(n)
+// space - O(1)
