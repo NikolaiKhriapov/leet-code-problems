@@ -5,31 +5,24 @@ class Solution {
         }
 
         List<Integer> list = new ArrayList<>();
-        list.add(nums[0]);
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] > list.get(list.size() - 1)) {
-                list.add(nums[i]);
+        for (int num : nums) {
+            int index = binarySearch(list, 0, list.size() - 1, num);
+            if (index < list.size()) {
+                list.set(index, num);
             } else {
-                int index = binarySearch(list, nums[i]);
-                // int index = Collections.binarySearch(list, nums[i]);
-                // if (index < 0) {
-                //     index = -index - 1;
-                // }
-                list.set(index, nums[i]);
+                list.add(num);
             }
         }
-        return list.size();        
+        return list.size();
     }
 
-    private int binarySearch(List<Integer> list, int target) {
-        int left = 0;
-        int right = list.size() - 1;
-        while (left < right) {
+    private int binarySearch(List<Integer> list, int left, int right, int target) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (list.get(mid) < target) {
-                left = mid + 1;
+            if (list.get(mid) >= target) {
+                right = mid - 1;
             } else {
-                right = mid;
+                left = mid + 1;
             }
         }
         return left;
@@ -37,4 +30,4 @@ class Solution {
 }
 
 // [10,9,2,5,3,7,101,18]
-// 2,3,7,18
+// [10]
