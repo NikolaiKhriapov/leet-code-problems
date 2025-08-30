@@ -4,17 +4,32 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int row = matrix.length - 1;
-        int col = 0;
-        while (row >= 0 && col < matrix[0].length) {
-            int val = matrix[row][col];
-            if (val == target) return true;
-            if (val > target) {
-                row--;
-            } else {
-                col++;
+        int r = matrix.length - 1;
+        int c = 0;
+
+        while (r >= 0) {
+            while (c < matrix[0].length) {
+                if (matrix[r][c] == target) {
+                    return true;
+                }
+                while (r >= 0 && matrix[r][c] > target) {
+                    r--;
+                }
+                if (r < 0) {
+                    return false;
+                }
+                while (c < matrix[0].length && matrix[r][c] < target) {
+                    c++;
+                }
+                if (c == matrix[0].length) {
+                    return false;
+                }
             }
         }
+        
         return false;
     }
 }
+
+// time  - O(m + n)
+// space - O(1)
