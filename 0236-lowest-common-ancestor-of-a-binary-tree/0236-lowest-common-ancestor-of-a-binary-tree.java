@@ -9,10 +9,11 @@
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null || p == null || q == null) {
+        if (root == null) {
             return null;
         }
-        if (root == p || root == q) {
+
+        if (Objects.equals(root, p) || Objects.equals(root, q)) {
             return root;
         }
 
@@ -29,3 +30,6 @@ class Solution {
         return null;
     }
 }
+
+// time  - O(n)
+// space - O(n)
