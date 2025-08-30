@@ -4,13 +4,23 @@ class Solution {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        Set<Integer> set = new HashSet<>();
-        for (int n : nums) {
-            if (!set.add(n)) {
-                return n;
-            }
+        int first = nums[0];
+        int second = nums[0];
+
+        first = nums[first];
+        second = nums[nums[second]];
+        while (first != second) {
+            first = nums[first];
+            second = nums[nums[second]];
         }
-        throw new IllegalArgumentException("Invalid input");
+
+        second = nums[0];
+        while (first != second) {
+            first = nums[first];
+            second = nums[second];
+        }
+
+        return first;
     }
 }
 
