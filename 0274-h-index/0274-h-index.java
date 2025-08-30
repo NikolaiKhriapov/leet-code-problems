@@ -7,9 +7,10 @@ class Solution {
         int[] citationCount = new int[citations.length + 1];
         for (int i = 0; i < citations.length; i++) {
             if (citations[i] > citations.length) {
-                citations[i] = citations.length;
+                citationCount[citations.length]++;
+            } else {
+                citationCount[citations[i]]++;
             }
-            citationCount[citations[i]]++;
         }
         
         int cumulativeSum = 0;
@@ -26,6 +27,3 @@ class Solution {
 
 // time  - O(n)
 // space - O(n)
-
-//.  [3,0,6,1,5]
-// [0,0,0,0,0,0]
