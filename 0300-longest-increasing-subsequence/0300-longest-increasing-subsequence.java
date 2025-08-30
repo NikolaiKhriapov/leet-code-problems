@@ -29,5 +29,5 @@ class Solution {
     }
 }
 
-// [10,9,2,5,3,7,101,18]
-// [10]
+// time  - O(n log(n))
+// space - O(n)
