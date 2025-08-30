@@ -7,11 +7,14 @@ class Solution {
         int[] sorted = Arrays.copyOf(nums, nums.length);
         Arrays.sort(sorted);
 
-        int left = (nums.length + 1) / 2 - 1;
-        int right = nums.length - 1;
-        
+        int left = 0;
+        int right = (sorted.length - 1) / 2 + 1;
+
         for (int i = 0; i < nums.length; i++) {
-            nums[i] = (i % 2 == 0) ? sorted[left--] : sorted[right--];
-        }        
+            nums[i] = (i % 2 != 0) ? sorted[right++] : sorted[left++];
+        }
     }
 }
+
+// time  - O(n log n)
+// space - O(n)
