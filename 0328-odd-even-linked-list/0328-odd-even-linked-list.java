@@ -17,24 +17,13 @@ class Solution {
         ListNode odd = head;
         ListNode evenHead = head.next;
         ListNode even = evenHead;
-
-        boolean isOdd = true;
-        ListNode curr = even.next;
-        while (curr != null) {
-            if (isOdd) {
-                odd.next = curr;
-                odd = odd.next;
-            } else {
-                even.next = curr;
-                even = even.next;
-            }
-            curr = curr.next;
-            isOdd = !isOdd;
+        while (even != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
         }
-        
-        even.next = null;
         odd.next = evenHead;
-
         return head;
     }
 }
