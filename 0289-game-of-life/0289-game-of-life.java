@@ -1,61 +1,59 @@
 class Solution {
-    private static final int DEAD = 0;
     private static final int LIVE = 1;
-    private static final int DEAD_TO_LIVE = 11;
+    private static final int DEAD = 0;
     private static final int LIVE_TO_DEAD = 10;
-    private static final int[][] NEIGHBORS = new int[][] { {1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, -1}, {-1, 1}, {1, -1} };
+    private static final int DEAD_TO_LIVE = 11;
+    private static final int[][] NEIGHBORS = new int[][] {{0, 1}, {1, 0}, {0, -1}, {-1, 0}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1}};
 
     public void gameOfLife(int[][] board) {
-        if (board == null) {
-            throw new IllegalArgumentException("Invalid state"); // for simplicity
+        if (board == null || board.length == 0 || board[0].length == 0) {
+            throw new IllegalArgumentException("Invalid input");
         }
-        if (board.length == 0 || board[0].length == 0) {
-            return;
-        }
-
-        markBoardForNextState(board);
-        updateBoardToNextState(board);
+        temporarilyMarkNextState(board);
+        markNextState(board);
     }
 
-    private void markBoardForNextState(int[][] board) {
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[0].length; col++) {
-                int neighborsCount = countLiveNeighbours(board, row, col);
-                if (board[row][col] == LIVE && (neighborsCount < 2 || neighborsCount > 3)) {
-                    board[row][col] = LIVE_TO_DEAD;
-                }
-                if (board[row][col] == DEAD && neighborsCount == 3) {
-                    board[row][col] = DEAD_TO_LIVE;
+    private void temporarilyMarkNextState(int[][] board) {
+        for (int r = 0; r < board.length; r++) {
+            for (int c = 0; c < board[0].length; c++) {
+                int neighborsCount = countNeighbors(board, r, c);
+                if (board[r][c] == LIVE) {
+                    if (neighborsCount < 2 || neighborsCount > 3) {
+                        board[r][c] = LIVE_TO_DEAD;
+                    }
+                } else if (board[r][c] == DEAD) {
+                    if (neighborsCount == 3) {
+                        board[r][c] = DEAD_TO_LIVE;
+                    }
                 }
             }
         }
     }
 
-    private void updateBoardToNextState(int[][] board) {
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[0].length; col++) {
-                if (board[row][col] == LIVE_TO_DEAD) {
-                    board[row][col] = DEAD;
-                }
-                if (board[row][col] == DEAD_TO_LIVE) {
-                    board[row][col] = LIVE;
+    private void markNextState(int[][] board) {
+        for (int r = 0; r < board.length; r++) {
+            for (int c = 0; c < board[0].length; c++) {
+                if (board[r][c] == LIVE_TO_DEAD) {
+                    board[r][c] = DEAD;
+                } else if (board[r][c] == DEAD_TO_LIVE) {
+                    board[r][c] = LIVE;
                 }
             }
         }
     }
 
-    private int countLiveNeighbours(int[][] board, int row, int col) {
-        int count = 0;
+    private int countNeighbors(int[][] board, int r, int c) {
+        int neighborsCount = 0;
         for (int[] neighbor : NEIGHBORS) {
-            int neighborRow = row + neighbor[0];
-            int neighborCol = col + neighbor[1];
-            if (neighborRow < 0 || neighborRow >= board.length || neighborCol < 0 || neighborCol >= board[0].length) {
-                continue;
-            }
-            if (board[neighborRow][neighborCol] == LIVE || board[neighborRow][neighborCol] == LIVE_TO_DEAD) {
-                count++;
+            int row = r + neighbor[0];
+            int col = c + neighbor[1];
+            if (row >= 0 && row < board.length && col >= 0 && col < board[0].length && (board[row][col] == LIVE || board[row][col] == LIVE_TO_DEAD)) {
+                neighborsCount++;
             }
         }
-        return count;
+        return neighborsCount;
     }
 }
+
+// time  - O(n * m)
+// space - O(1)
