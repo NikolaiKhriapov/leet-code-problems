@@ -1,25 +1,18 @@
 class Solution {
     public int findDuplicate(int[] nums) {
         if (nums == null || nums.length < 2) {
-            throw new IllegalArgumentException("Invalind input");
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        int slow = nums[0];
-        int fast = nums[0];
-        
-        slow = nums[slow];
-        fast = nums[nums[fast]];
-        while (slow != fast) {
-            slow = nums[slow];
-            fast = nums[nums[fast]];
+        Set<Integer> set = new HashSet<>();
+        for (int n : nums) {
+            if (!set.add(n)) {
+                return n;
+            }
         }
-
-        slow = nums[0];
-        while (slow != fast) {
-            slow = nums[slow];
-            fast = nums[fast];
-        }
-
-        return slow;
+        throw new IllegalArgumentException("Invalid input");
     }
 }
+
+// time  - O(n)
+// space - O(1)
