@@ -11,7 +11,7 @@ class Solution {
 
         for (int i = 1; i < dp.length; i++) {
             for (int j = 1; j * j <= i; j++) {
-                dp[i] = Math.min(dp[i], dp[(i - j * j)] + 1);
+                dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
             }
         }
         
@@ -19,5 +19,5 @@ class Solution {
     }
 }
 
-// time  - O(n * logn) (not sure)
+// time  - O(n * sqrt(n))
 // space - O(n)
