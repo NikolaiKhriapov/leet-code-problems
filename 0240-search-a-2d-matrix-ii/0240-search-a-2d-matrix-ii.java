@@ -7,20 +7,16 @@ class Solution {
         int r = matrix.length - 1;
         int c = 0;
 
-        while (r >= 0) {
-            while (c < matrix[0].length) {
-                if (matrix[r][c] == target) {
-                    return true;
-                }
-                while (r >= 0 && matrix[r][c] > target) {
-                    r--;
-                }
+        while (r >= 0 && c < matrix[0].length) {
+            if (matrix[r][c] == target) {
+                return true;
+            } else if (matrix[r][c] > target) {
+                r--;
                 if (r < 0) {
                     return false;
                 }
-                while (c < matrix[0].length && matrix[r][c] < target) {
-                    c++;
-                }
+            } else {
+                c++;
                 if (c == matrix[0].length) {
                     return false;
                 }
