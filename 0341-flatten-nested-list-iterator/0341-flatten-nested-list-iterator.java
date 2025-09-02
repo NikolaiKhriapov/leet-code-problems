@@ -16,33 +16,31 @@
  * }
  */
 public class NestedIterator implements Iterator<Integer> {
-    private Stack<NestedInteger> stack;
+    private Deque<NestedInteger> deque = new ArrayDeque<>();
 
     public NestedIterator(List<NestedInteger> nestedList) {
-        stack = new Stack<>();
-        pushListToStack(nestedList);
+        for (NestedInteger el : nestedList) {
+            deque.offerLast(el);
+        }
     }
 
     @Override
     public Integer next() {
         if (!hasNext()) {
-            throw new RuntimeException("Empty stack");
+            throw new RuntimeException("Empty list");
         }
-        return stack.pop().getInteger();
+        return deque.pollFirst().getInteger();
     }
 
     @Override
     public boolean hasNext() {
-        while (!stack.isEmpty() && !stack.peek().isInteger()) {
-            pushListToStack(stack.pop().getList());
+        while (!deque.isEmpty() && !deque.peekFirst().isInteger()) {
+            List<NestedInteger> sublist = deque.pollFirst().getList();
+            for (int i = sublist.size() - 1; i >= 0; i--) {
+                deque.offerFirst(sublist.get(i));
+            }
         }
-        return !stack.isEmpty();
-    }
-
-    private void pushListToStack(List<NestedInteger> list) {
-        for (int i = list.size() - 1; i >= 0; i--) {
-            stack.add(list.get(i));
-        }
+        return !deque.isEmpty();
     }
 }
 
