@@ -6,6 +6,7 @@ class Solution {
 
         int first = Integer.MAX_VALUE;
         int second = Integer.MAX_VALUE;
+
         for (int n : nums) {
             if (n <= first) {
                 first = n;
@@ -15,6 +16,7 @@ class Solution {
                 return true;
             }
         }
+        
         return false;
     }
 }
