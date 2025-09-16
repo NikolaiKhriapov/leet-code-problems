@@ -1,25 +1,14 @@
 class Solution {
     public int getSum(int a, int b) {
-        StringBuilder sb = new StringBuilder();
-        
-        int carry = 0;
-        while (a != 0 || b != 0 || carry > 0) {
-            int digit = (a & 1) + (b & 1) + carry;
-            sb.append(digit % 2);
-            carry = digit / 2;
-            a >>>= 1;
-            b >>>= 1;
+        while (b != 0) {
+            int sum = a ^ b;
+            int carry = (a & b) << 1;
+            a = sum;
+            b = carry;
         }
-        
-        int result = 0;
-        for (char c : sb.reverse().toString().toCharArray()) {
-            result <<= 1;
-            result += (c - '0');
-        }
-
-        return result;
+        return a;
     }
 }
 
-// time  - O()
-// space - O()
+// time  - O(1)
+// space - O(1)
